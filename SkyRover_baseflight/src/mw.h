@@ -9,7 +9,9 @@
 #define LAT  0
 #define LON  1
 
+
 #define RC_CHANS    (18)
+
 
 // Serial GPS only variables
 // navigation mode

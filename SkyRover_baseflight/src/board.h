@@ -92,6 +92,7 @@ typedef enum {
     SERIALRX_SPEKTRUM2048 = 1,
     SERIALRX_SBUS = 2,
     SERIALRX_SUMD = 3,
+    SERIALRX_HEXAIRBOT = 4,
 } SerialRXType;
 
 typedef enum {
@@ -212,13 +213,13 @@ typedef struct baro_t
 
 #define GYRO
 #define ACC
-//#define MAG
+#define MAG
 #define BARO
 //#define LEDRING
 //#define SONAR
 //#define BUZZER
 
-#define SENSORS_SET (SENSOR_ACC | SENSOR_BARO )
+#define SENSORS_SET (SENSOR_ACC | SENSOR_BARO | SENSOR_MAG)
 
 #else
 // Afroflight32

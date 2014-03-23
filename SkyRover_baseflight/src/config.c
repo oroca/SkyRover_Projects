@@ -155,6 +155,8 @@ void checkFirstTime(bool reset)
 }
 
 // Default settings
+
+#if defined(SKYROVER)
 static void resetConf(void)
 {
     int i;
@@ -166,8 +168,10 @@ static void resetConf(void)
 
     mcfg.version = EEPROM_CONF_VERSION;
     mcfg.mixerConfiguration = MULTITYPE_QUADX;
-    featureClearAll();
-    featureSet(FEATURE_VBAT);
+    featureClearAll();    
+    
+    featureSet(FEATURE_SERIALRX);
+
 
     // global settings
     mcfg.current_profile = 0;       // default profile
@@ -315,6 +319,173 @@ static void resetConf(void)
     for (i = 0; i < 3; i++)
         memcpy(&mcfg.profile[i], &cfg, sizeof(config_t));
 }
+
+#else
+
+static void resetConf(void)
+{
+    int i;
+    int8_t servoRates[8] = { 30, 30, 100, 100, 100, 100, 100, 100 };
+
+    // Clear all configuration
+    memset(&mcfg, 0, sizeof(master_t));
+    memset(&cfg, 0, sizeof(config_t));
+
+    mcfg.version = EEPROM_CONF_VERSION;
+    mcfg.mixerConfiguration = MULTITYPE_QUADX;
+    featureClearAll();    
+    featureSet(FEATURE_VBAT);
+
+
+    // global settings
+    mcfg.current_profile = 0;       // default profile
+    mcfg.gyro_cmpf_factor = 600;    // default MWC
+    mcfg.gyro_cmpfm_factor = 250;   // default MWC
+    mcfg.gyro_lpf = 42;             // supported by all gyro drivers now. In case of ST gyro, will default to 32Hz instead
+    mcfg.accZero[0] = 0;
+    mcfg.accZero[1] = 0;
+    mcfg.accZero[2] = 0;
+    mcfg.gyro_align = ALIGN_DEFAULT;
+    mcfg.acc_align = ALIGN_DEFAULT;
+    mcfg.mag_align = ALIGN_DEFAULT;
+    mcfg.board_align_roll = 0;
+    mcfg.board_align_pitch = 0;
+    mcfg.board_align_yaw = 0;
+    mcfg.acc_hardware = ACC_DEFAULT;     // default/autodetect
+    mcfg.max_angle_inclination = 500;    // 50 degrees
+    mcfg.yaw_control_direction = 1;
+    mcfg.moron_threshold = 32;
+    mcfg.vbatscale = 110;
+    mcfg.vbatmaxcellvoltage = 43;
+    mcfg.vbatmincellvoltage = 33;
+    mcfg.power_adc_channel = 0;
+    mcfg.serialrx_type = SERIALRX_HEXAIRBOT;    // for SKYROVER
+    mcfg.telemetry_softserial = 0;
+    mcfg.telemetry_switch = 0;
+    mcfg.midrc = 1500;
+    mcfg.mincheck = 1100;
+    mcfg.maxcheck = 1900;
+    mcfg.retarded_arm = 0;       // disable arm/disarm on roll left/right
+    mcfg.flaps_speed = 0;
+    mcfg.fixedwing_althold_dir = 1;
+    // Motor/ESC/Servo
+    mcfg.minthrottle = 1150;
+    mcfg.maxthrottle = 1850;
+    mcfg.mincommand = 1000;
+    mcfg.deadband3d_low = 1406;
+    mcfg.deadband3d_high = 1514;
+    mcfg.neutral3d = 1460;
+    mcfg.deadband3d_throttle = 50;
+    mcfg.motor_pwm_rate = 400;
+    mcfg.servo_pwm_rate = 50;
+    // gps/nav stuff
+    mcfg.gps_type = GPS_NMEA;
+    mcfg.gps_baudrate = 0;
+    // serial (USART1) baudrate
+    mcfg.serial_baudrate = 115200;
+    mcfg.softserial_baudrate = 19200;
+    mcfg.softserial_inverted = 0;
+    mcfg.looptime = 3500;
+    mcfg.rssi_aux_channel = 0;
+
+    cfg.pidController = 0;
+    cfg.P8[ROLL] = 40;
+    cfg.I8[ROLL] = 30;
+    cfg.D8[ROLL] = 23;
+    cfg.P8[PITCH] = 40;
+    cfg.I8[PITCH] = 30;
+    cfg.D8[PITCH] = 23;
+    cfg.P8[YAW] = 85;
+    cfg.I8[YAW] = 45;
+    cfg.D8[YAW] = 0;
+    cfg.P8[PIDALT] = 50;
+    cfg.I8[PIDALT] = 0;
+    cfg.D8[PIDALT] = 0;
+    cfg.P8[PIDPOS] = 11; // POSHOLD_P * 100;
+    cfg.I8[PIDPOS] = 0; // POSHOLD_I * 100;
+    cfg.D8[PIDPOS] = 0;
+    cfg.P8[PIDPOSR] = 20; // POSHOLD_RATE_P * 10;
+    cfg.I8[PIDPOSR] = 8; // POSHOLD_RATE_I * 100;
+    cfg.D8[PIDPOSR] = 45; // POSHOLD_RATE_D * 1000;
+    cfg.P8[PIDNAVR] = 14; // NAV_P * 10;
+    cfg.I8[PIDNAVR] = 20; // NAV_I * 100;
+    cfg.D8[PIDNAVR] = 80; // NAV_D * 1000;
+    cfg.P8[PIDLEVEL] = 90;
+    cfg.I8[PIDLEVEL] = 10;
+    cfg.D8[PIDLEVEL] = 100;
+    cfg.P8[PIDMAG] = 40;
+    cfg.P8[PIDVEL] = 120;
+    cfg.I8[PIDVEL] = 45;
+    cfg.D8[PIDVEL] = 1;
+    cfg.rcRate8 = 90;
+    cfg.rcExpo8 = 65;
+    cfg.rollPitchRate = 0;
+    cfg.yawRate = 0;
+    cfg.dynThrPID = 0;
+    cfg.thrMid8 = 50;
+    cfg.thrExpo8 = 0;
+    // for (i = 0; i < CHECKBOXITEMS; i++)
+    //     cfg.activate[i] = 0;
+    cfg.angleTrim[0] = 0;
+    cfg.angleTrim[1] = 0;
+    cfg.mag_declination = 0;    // For example, -6deg 37min, = -637 Japan, format is [sign]dddmm (degreesminutes) default is zero.
+    cfg.acc_lpf_factor = 4;
+    cfg.accz_deadband = 40;
+    cfg.accxy_deadband = 40;
+    cfg.baro_tab_size = 21;
+    cfg.baro_noise_lpf = 0.6f;
+    cfg.baro_cf_vel = 0.985f;
+    cfg.baro_cf_alt = 0.965f;
+    cfg.acc_unarmedcal = 1;
+
+    // Radio
+    parseRcChannels("AETR1234");
+    cfg.deadband = 0;
+    cfg.yawdeadband = 0;
+    cfg.alt_hold_throttle_neutral = 40;
+    cfg.alt_hold_fast_change = 1;
+    cfg.throttle_angle_correction = 0;      // could be 40
+
+    // Failsafe Variables
+    cfg.failsafe_delay = 10;                // 1sec
+    cfg.failsafe_off_delay = 200;           // 20sec
+    cfg.failsafe_throttle = 1200;           // decent default which should always be below hover throttle for people.
+    cfg.failsafe_detect_threshold = 985;    // any of first 4 channels below this value will trigger failsafe
+
+    // servos
+    for (i = 0; i < 8; i++) {
+        cfg.servoConf[i].min = 1020;
+        cfg.servoConf[i].max = 2000;
+        cfg.servoConf[i].middle = 1500;
+        cfg.servoConf[i].rate = servoRates[i];
+    }
+
+    cfg.yaw_direction = 1;
+    cfg.tri_unarmed_servo = 1;
+
+    // gimbal
+    cfg.gimbal_flags = GIMBAL_NORMAL;
+
+    // gps/nav stuff
+    cfg.gps_wp_radius = 200;
+    cfg.gps_lpf = 20;
+    cfg.nav_slew_rate = 30;
+    cfg.nav_controls_heading = 1;
+    cfg.nav_speed_min = 100;
+    cfg.nav_speed_max = 300;
+    cfg.ap_mode = 40;
+
+    // custom mixer. clear by defaults.
+    for (i = 0; i < MAX_MOTORS; i++)
+        mcfg.customMixer[i].throttle = 0.0f;
+
+    // copy default config into all 3 profiles
+    for (i = 0; i < 3; i++)
+        memcpy(&mcfg.profile[i], &cfg, sizeof(config_t));
+}
+
+#endif
+
 
 bool sensors(uint32_t mask)
 {

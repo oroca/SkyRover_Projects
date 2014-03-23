@@ -457,6 +457,16 @@ void loop(void)
             case SERIALRX_SUMD:
                 rcReady = sumdFrameComplete();
                 break;
+            #if defined(SKYROVER)
+            case SERIALRX_HEXAIRBOT:
+                rcReady = hexairbotFrameComplete();
+
+                if( rcReady )
+                {
+                    LED1_TOGGLE;
+                }
+                break;                
+            #endif
         }
     }
 

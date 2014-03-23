@@ -108,6 +108,11 @@ int main(void)
             case SERIALRX_SUMD:
                 sumdInit(&rcReadRawFunc);
                 break;
+            #if defined(SKYROVER)
+            case SERIALRX_HEXAIRBOT:
+                hexairbotInit(&rcReadRawFunc);
+                break;
+            #endif
         }
     } else { // spektrum and GPS are mutually exclusive
         // Optional GPS - available in both PPM and PWM input mode, in PWM input, reduces number of available channels by 2.

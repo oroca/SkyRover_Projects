@@ -31,6 +31,17 @@
 #define MSP_NAV_STATUS           121    //out message         Returns navigation status
 #define MSP_NAV_CONFIG           122    //out message         Returns navigation parameters
 
+#if defined(SKYROVER)
+#define MSP_SET_RAW_RC_TINY      150   //in message          4 rc chan
+#define MSP_ARM                  151
+#define MSP_DISARM               152
+#define MSP_TRIM_UP              153
+#define MSP_TRIM_DOWN            154
+#define MSP_TRIM_LEFT            155
+#define MSP_TRIM_RIGHT           156
+#endif
+
+
 #define MSP_SET_RAW_RC           200    //in message          8 rc chan
 #define MSP_SET_RAW_GPS          201    //in message          fix, numsat, lat, lon, alt, speed
 #define MSP_SET_PID              202    //in message          P I D coeff (9 are used currently)
@@ -279,8 +290,144 @@ static void evaluateCommand(void)
     uint32_t i, tmp, junk;
     uint8_t wp_no;
     int32_t lat = 0, lon = 0, alt = 0;
+    
+    #if defined(SKYROVER)
+    uint16_t      serialRcValue[8];
+    unsigned char auxChannels;
+    unsigned char aux;
+    #endif
 
     switch (cmdMSP) {
+
+
+    //-- for SKYROVER
+    //
+   #if defined(SKYROVER)
+   case MSP_SET_RAW_RC_TINY:
+     for(i = 0;i < 4;i++) 
+     {
+       serialRcValue[i] = 1000 + read8() * 4;
+     }
+     
+     auxChannels = read8();
+     
+     aux = (auxChannels & 0xc0) >> 6;
+     
+     if(aux == 0){
+       serialRcValue[4] = 1000;
+     }
+     else if(aux == 1){
+       serialRcValue[4] = 1500;
+     }
+     else{
+       serialRcValue[4] = 2000;
+     }
+     
+     
+     aux = (auxChannels & 0x30) >> 4;
+     
+     if(aux == 0){
+       serialRcValue[5] = 1000;
+     }
+     else if(aux == 1){
+       serialRcValue[5] = 1500;
+     }
+     else{
+       serialRcValue[5] = 2000;
+     }
+     
+     
+     aux = (auxChannels & 0x0c) >> 2;
+     
+     if(aux == 0){
+       serialRcValue[6] = 1000;
+     }
+     else if(aux == 1){
+       serialRcValue[6] = 1500;
+     }
+     else{
+       serialRcValue[6] = 2000;
+     }
+     
+     aux = (auxChannels & 0x03);
+     
+     if(aux == 0){
+       serialRcValue[7] = 1000;
+     }
+     else if(aux == 1){
+       serialRcValue[7] = 1500;
+     }
+     else{
+       serialRcValue[7] = 2000;
+     }
+     
+     failsafeCnt = 0;
+     
+     for(i = 0;i < 8;i++) 
+     {
+       hexairbotSetData( i, serialRcValue[i] );
+     }
+
+     return;
+     
+     break;
+   case MSP_ARM:
+     //go_arm();
+     break;
+   
+   case MSP_DISARM:
+     //go_disarm();
+     break;
+   
+   case MSP_TRIM_UP:
+   /*
+     conf.angleTrim[PITCH]+=1; 
+     writeParams(1);
+     #if defined(LED_RING)
+       blinkLedRing();
+     #endif
+    */
+     break;
+
+   case MSP_TRIM_DOWN:
+     //conf.angleTrim[PITCH]-=1; 
+     //writeParams(1);
+     //#if defined(LED_RING)
+     //  blinkLedRing();
+     //#endif
+   
+     break;
+   
+   case MSP_TRIM_LEFT:
+     //conf.angleTrim[ROLL]-=1; 
+     //writeParams(1);
+     //#if defined(LED_RING)
+     //  blinkLedRing();
+     //#endif
+     break;
+
+   case MSP_TRIM_RIGHT:
+     //conf.angleTrim[ROLL]+=1; 
+     //writeParams(1);
+     //#if defined(LED_RING)
+     //  blinkLedRing();
+     //#endif
+     break;
+
+   #endif
+
+
+
+
+
+
+
+
+
+
+
+
+
     case MSP_SET_RAW_RC:
         for (i = 0; i < 8; i++)
             rcData[i] = read16();
@@ -664,8 +811,6 @@ void serialCom(void)
 
     while (serialTotalBytesWaiting(core.mainport)) {
         c = serialRead(core.mainport);
-
-        LED1_TOGGLE;
 
         if (c_state == IDLE) {
             c_state = (c == '$') ? HEADER_START : IDLE;

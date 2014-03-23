@@ -118,6 +118,7 @@ SKYROVER_SRC	 = drv_adc.c \
 		   drv_pwm.c \
 		   drv_spi.c \
 		   drv_timer.c \
+		   hexairbot.c \
 		   $(COMMON_SRC)
 
 		   
