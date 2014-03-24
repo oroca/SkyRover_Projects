@@ -259,7 +259,8 @@ void computeRC(void)
     }
 }
 
-static void mwArm(void)
+//static void mwArm(void)
+void mwArm(void)
 {
     if (calibratingG == 0 && f.ACC_CALIBRATED) {
         // TODO: feature(FEATURE_FAILSAFE) && failsafeCnt < 2
@@ -273,7 +274,8 @@ static void mwArm(void)
     }
 }
 
-static void mwDisarm(void)
+//static void mwDisarm(void)
+void mwDisarm(void)
 {
     if (f.ARMED)
         f.ARMED = 0;

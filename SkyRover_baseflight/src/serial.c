@@ -373,10 +373,12 @@ static void evaluateCommand(void)
      break;
    case MSP_ARM:
      //go_arm();
+     mwArm();
      break;
    
    case MSP_DISARM:
      //go_disarm();
+     mwDisarm();
      break;
    
    case MSP_TRIM_UP:
@@ -387,6 +389,8 @@ static void evaluateCommand(void)
        blinkLedRing();
      #endif
     */
+     cfg.angleTrim[PITCH] += 1;    
+     writeEEPROM(1, true);
      break;
 
    case MSP_TRIM_DOWN:
@@ -395,7 +399,8 @@ static void evaluateCommand(void)
      //#if defined(LED_RING)
      //  blinkLedRing();
      //#endif
-   
+     cfg.angleTrim[PITCH] -= 1;    
+     writeEEPROM(1, true);   
      break;
    
    case MSP_TRIM_LEFT:
@@ -404,6 +409,8 @@ static void evaluateCommand(void)
      //#if defined(LED_RING)
      //  blinkLedRing();
      //#endif
+     cfg.angleTrim[ROLL] -= 1;    
+     writeEEPROM(1, true);   
      break;
 
    case MSP_TRIM_RIGHT:
@@ -412,6 +419,8 @@ static void evaluateCommand(void)
      //#if defined(LED_RING)
      //  blinkLedRing();
      //#endif
+     cfg.angleTrim[ROLL] += 1;    
+     writeEEPROM(1, true);   
      break;
 
    #endif
