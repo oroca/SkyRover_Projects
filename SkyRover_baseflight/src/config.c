@@ -204,6 +204,7 @@ static void resetConf(void)
     mcfg.retarded_arm = 0;       // disable arm/disarm on roll left/right
     mcfg.flaps_speed = 0;
     mcfg.fixedwing_althold_dir = 1;
+    
     // Motor/ESC/Servo
     mcfg.minthrottle = 1150;
     mcfg.maxthrottle = 1850;
@@ -212,11 +213,13 @@ static void resetConf(void)
     mcfg.deadband3d_high = 1514;
     mcfg.neutral3d = 1460;
     mcfg.deadband3d_throttle = 50;
-    mcfg.motor_pwm_rate = 400;
+    mcfg.motor_pwm_rate = 1000;     // Hz DC 브러시모터는 500 초과값을 설정
     mcfg.servo_pwm_rate = 50;
+    
     // gps/nav stuff
     mcfg.gps_type = GPS_NMEA;
     mcfg.gps_baudrate = 0;
+    
     // serial (USART1) baudrate
     mcfg.serial_baudrate = 115200;
     mcfg.softserial_baudrate = 19200;

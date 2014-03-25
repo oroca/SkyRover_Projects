@@ -80,6 +80,25 @@ static const uint8_t multiPPM[] = {
     0xFF
 };
 
+#if defined(SKYROVER)
+static const uint8_t multiPWM[] = {
+    PWM1 | TYPE_IW,     // input #1
+    PWM2 | TYPE_IW,
+    PWM3 | TYPE_IW,
+    PWM4 | TYPE_IW,
+    PWM5 | TYPE_IW,
+    PWM6 | TYPE_IW,
+    PWM7 | TYPE_IW,
+    PWM8 | TYPE_IW,     // input #8
+    PWM9 | TYPE_IW,     // 
+    PWM10 | TYPE_IW,    // 
+    PWM11 | TYPE_M,     // M0
+    PWM12 | TYPE_M,     // M1
+    PWM13 | TYPE_M,     // M2
+    PWM14 | TYPE_M,     // M3
+    0xFF
+};
+#else
 static const uint8_t multiPWM[] = {
     PWM1 | TYPE_IW,     // input #1
     PWM2 | TYPE_IW,
@@ -97,6 +116,7 @@ static const uint8_t multiPWM[] = {
     PWM14 | TYPE_M,     // motor #4 or #6
     0xFF
 };
+#endif
 
 static const uint8_t airPPM[] = {
     PWM1 | TYPE_IP,     // PPM input
