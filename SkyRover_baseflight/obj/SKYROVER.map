@@ -232,7 +232,7 @@ Discarded input sections
                 0x0000000000000000       0xbc obj/SKYROVER/drv_ledring.o
  .text.ledringBlink
                 0x0000000000000000       0x20 obj/SKYROVER/drv_ledring.o
- .bss.state.9300
+ .bss.state.9304
                 0x0000000000000000        0x1 obj/SKYROVER/drv_ledring.o
  .comment       0x0000000000000000       0x71 obj/SKYROVER/drv_ledring.o
  .ARM.attributes
@@ -2809,31 +2809,31 @@ LOAD /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib
                 0x0000000008014c10       0x3c obj/SKYROVER/gps.o
  .rodata.str1.1
                 0x0000000008014c4c        0x8 obj/SKYROVER/main.o
- .rodata.mixerTri
-                0x0000000008014c54       0x30 obj/SKYROVER/mixer.o
  .rodata.mixerY6
-                0x0000000008014c84       0x60 obj/SKYROVER/mixer.o
+                0x0000000008014c54       0x60 obj/SKYROVER/mixer.o
+ .rodata.mixerTri
+                0x0000000008014cb4       0x30 obj/SKYROVER/mixer.o
  .rodata.mixerHex6H
                 0x0000000008014ce4       0x60 obj/SKYROVER/mixer.o
  .rodata.mixerVtail4
                 0x0000000008014d44       0x40 obj/SKYROVER/mixer.o
- .rodata.mixerQuadP
-                0x0000000008014d84       0x40 obj/SKYROVER/mixer.o
  .rodata.mixers
-                0x0000000008014dc4       0xb8 obj/SKYROVER/mixer.o
-                0x0000000008014dc4                mixers
+                0x0000000008014d84       0xb8 obj/SKYROVER/mixer.o
+                0x0000000008014d84                mixers
  .rodata.mixerOctoFlatP
-                0x0000000008014e7c       0x80 obj/SKYROVER/mixer.o
+                0x0000000008014e3c       0x80 obj/SKYROVER/mixer.o
  .rodata.mixerHex6P
-                0x0000000008014efc       0x60 obj/SKYROVER/mixer.o
+                0x0000000008014ebc       0x60 obj/SKYROVER/mixer.o
  .rodata.mixerBi
-                0x0000000008014f5c       0x20 obj/SKYROVER/mixer.o
+                0x0000000008014f1c       0x20 obj/SKYROVER/mixer.o
  .rodata.mixerY4
-                0x0000000008014f7c       0x40 obj/SKYROVER/mixer.o
+                0x0000000008014f3c       0x40 obj/SKYROVER/mixer.o
  .rodata.mixerQuadX
-                0x0000000008014fbc       0x40 obj/SKYROVER/mixer.o
+                0x0000000008014f7c       0x40 obj/SKYROVER/mixer.o
  .rodata.mixerOctoFlatX
-                0x0000000008014ffc       0x80 obj/SKYROVER/mixer.o
+                0x0000000008014fbc       0x80 obj/SKYROVER/mixer.o
+ .rodata.mixerQuadP
+                0x000000000801503c       0x40 obj/SKYROVER/mixer.o
  .rodata.mixerHex6X
                 0x000000000801507c       0x60 obj/SKYROVER/mixer.o
  .rodata.mixerOctoX8
@@ -2979,7 +2979,7 @@ LOAD /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib
  *fill*         0x000000002000001a        0x2 00
  .data.GPS_scaleLonDown
                 0x000000002000001c        0x4 obj/SKYROVER/gps.o
- .data.EstN.9393
+ .data.EstN.9397
                 0x0000000020000020        0xc obj/SKYROVER/imu.o
  .data.servo    0x000000002000002c       0x10 obj/SKYROVER/mixer.o
                 0x000000002000002c                servo
@@ -3035,7 +3035,7 @@ LOAD /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib
  .igot.plt      0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/armv7-m/crtbegin.o
                 0x00000000200005b4                . = ALIGN (0x4)
 
-.bss            0x00000000200005b4     0x18b0 load address 0x0000000008015de4
+.bss            0x00000000200005b4     0x18b8 load address 0x0000000008015de4
                 0x00000000200005b4                _sbss = .
                 0x00000000200005b4                __bss_start__ = _sbss
  *(.bss)
@@ -3102,13 +3102,13 @@ LOAD /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib
  .bss.buzzerIsOn
                 0x0000000020000799        0x1 obj/SKYROVER/buzzer.o
  .bss.beepDone  0x000000002000079a        0x1 obj/SKYROVER/buzzer.o
- .bss.warn_noGPSfix.9305
+ .bss.beeperOnBox.9308
                 0x000000002000079b        0x1 obj/SKYROVER/buzzer.o
- .bss.icnt.9316
+ .bss.warn_noGPSfix.9309
                 0x000000002000079c        0x1 obj/SKYROVER/buzzer.o
- .bss.beeperOnBox.9304
+ .bss.icnt.9320
                 0x000000002000079d        0x1 obj/SKYROVER/buzzer.o
- .bss.warn_failsafe.9306
+ .bss.warn_failsafe.9310
                 0x000000002000079e        0x1 obj/SKYROVER/buzzer.o
  *fill*         0x000000002000079f        0x1 00
  .bss.buzzerLastToggleTime
@@ -3121,514 +3121,516 @@ LOAD /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib
                 0x00000000200007d8        0x4 obj/SKYROVER/config.o
  .bss.GPS_filter
                 0x00000000200007dc       0x28 obj/SKYROVER/gps.o
- .bss.init.9519
-                0x0000000020000804        0x1 obj/SKYROVER/gps.o
- .bss._msg_id   0x0000000020000805        0x1 obj/SKYROVER/gps.o
- *fill*         0x0000000020000806        0x2 00
+ .bss.nav_loopTimer.9469
+                0x0000000020000804        0x4 obj/SKYROVER/gps.o
+ .bss._msg_id   0x0000000020000808        0x1 obj/SKYROVER/gps.o
+ *fill*         0x0000000020000809        0x3 00
  .bss.poshold_ratePID
-                0x0000000020000808       0x28 obj/SKYROVER/gps.o
+                0x000000002000080c       0x28 obj/SKYROVER/gps.o
+ .bss.speed_old.9521
+                0x0000000020000834        0x4 obj/SKYROVER/gps.o
  .bss.rate_error
-                0x0000000020000830        0x4 obj/SKYROVER/gps.o
+                0x0000000020000838        0x4 obj/SKYROVER/gps.o
  .bss.GPS_filtered
-                0x0000000020000834        0x8 obj/SKYROVER/gps.o
- .bss.speed_old.9517
-                0x000000002000083c        0x4 obj/SKYROVER/gps.o
+                0x000000002000083c        0x8 obj/SKYROVER/gps.o
+ .bss.crosstrack_error
+                0x0000000020000844        0x2 obj/SKYROVER/gps.o
+ .bss.string.9603
+                0x0000000020000846        0xf obj/SKYROVER/gps.o
+ *fill*         0x0000000020000855        0x3 00
  .bss.navPID_PARAM
-                0x0000000020000840       0x10 obj/SKYROVER/gps.o
+                0x0000000020000858       0x10 obj/SKYROVER/gps.o
  .bss.posholdPID
-                0x0000000020000850       0x28 obj/SKYROVER/gps.o
+                0x0000000020000868       0x28 obj/SKYROVER/gps.o
  .bss._payload_counter
-                0x0000000020000878        0x2 obj/SKYROVER/gps.o
- *fill*         0x000000002000087a        0x2 00
- .bss.posholdPID_PARAM
-                0x000000002000087c       0x10 obj/SKYROVER/gps.o
- .bss._ck_a     0x000000002000088c        0x1 obj/SKYROVER/gps.o
- .bss._ck_b     0x000000002000088d        0x1 obj/SKYROVER/gps.o
- .bss.parity.9598
-                0x000000002000088e        0x1 obj/SKYROVER/gps.o
- .bss._new_position
-                0x000000002000088f        0x1 obj/SKYROVER/gps.o
- .bss._payload_length
                 0x0000000020000890        0x2 obj/SKYROVER/gps.o
  *fill*         0x0000000020000892        0x2 00
- .bss.last.9518
-                0x0000000020000894        0x8 obj/SKYROVER/gps.o
+ .bss.posholdPID_PARAM
+                0x0000000020000894       0x10 obj/SKYROVER/gps.o
+ .bss.param.9600
+                0x00000000200008a4        0x1 obj/SKYROVER/gps.o
+ .bss._ck_a     0x00000000200008a5        0x1 obj/SKYROVER/gps.o
+ .bss._ck_b     0x00000000200008a6        0x1 obj/SKYROVER/gps.o
+ .bss.offset.9601
+                0x00000000200008a7        0x1 obj/SKYROVER/gps.o
+ .bss._new_position
+                0x00000000200008a8        0x1 obj/SKYROVER/gps.o
+ *fill*         0x00000000200008a9        0x1 00
+ .bss._payload_length
+                0x00000000200008aa        0x2 obj/SKYROVER/gps.o
  .bss.nav_takeoff_bearing
-                0x000000002000089c        0x2 obj/SKYROVER/gps.o
- *fill*         0x000000002000089e        0x2 00
+                0x00000000200008ac        0x2 obj/SKYROVER/gps.o
+ *fill*         0x00000000200008ae        0x2 00
  .bss.nav_bearing
-                0x00000000200008a0        0x4 obj/SKYROVER/gps.o
- .bss.GPS_WP    0x00000000200008a4        0x8 obj/SKYROVER/gps.o
+                0x00000000200008b0        0x4 obj/SKYROVER/gps.o
+ .bss.GPS_WP    0x00000000200008b4        0x8 obj/SKYROVER/gps.o
+ .bss.init.9523
+                0x00000000200008bc        0x1 obj/SKYROVER/gps.o
+ *fill*         0x00000000200008bd        0x1 00
  .bss.fraction3
-                0x00000000200008ac        0x4 obj/SKYROVER/gps.o
+                0x00000000200008be        0x4 obj/SKYROVER/gps.o
+ *fill*         0x00000000200008c2        0x2 00
  .bss.poshold_ratePID_PARAM
-                0x00000000200008b0       0x10 obj/SKYROVER/gps.o
- .bss.dTnav     0x00000000200008c0        0x4 obj/SKYROVER/gps.o
+                0x00000000200008c4       0x10 obj/SKYROVER/gps.o
+ .bss.dTnav     0x00000000200008d4        0x4 obj/SKYROVER/gps.o
  .bss.GPS_degree
-                0x00000000200008c4        0x8 obj/SKYROVER/gps.o
+                0x00000000200008d8        0x8 obj/SKYROVER/gps.o
  .bss.actual_speed
-                0x00000000200008cc        0x4 obj/SKYROVER/gps.o
- .bss.string.9599
-                0x00000000200008d0        0xf obj/SKYROVER/gps.o
- *fill*         0x00000000200008df        0x1 00
- .bss.navPID    0x00000000200008e0       0x28 obj/SKYROVER/gps.o
+                0x00000000200008e0        0x4 obj/SKYROVER/gps.o
+ .bss._step     0x00000000200008e4        0x1 obj/SKYROVER/gps.o
+ *fill*         0x00000000200008e5        0x3 00
+ .bss.navPID    0x00000000200008e8       0x28 obj/SKYROVER/gps.o
  .bss.target_bearing
-                0x0000000020000908        0x4 obj/SKYROVER/gps.o
+                0x0000000020000910        0x4 obj/SKYROVER/gps.o
  .bss.GPS_filter_sum
-                0x000000002000090c        0x8 obj/SKYROVER/gps.o
+                0x0000000020000914        0x8 obj/SKYROVER/gps.o
  .bss.wp_distance
-                0x0000000020000914        0x4 obj/SKYROVER/gps.o
- .bss.checksum_param.9600
-                0x0000000020000918        0x1 obj/SKYROVER/gps.o
- *fill*         0x0000000020000919        0x3 00
- .bss.original_target_bearing
                 0x000000002000091c        0x4 obj/SKYROVER/gps.o
- .bss.param.9596
+ .bss.frame.9605
                 0x0000000020000920        0x1 obj/SKYROVER/gps.o
- .bss._class    0x0000000020000921        0x1 obj/SKYROVER/gps.o
+ *fill*         0x0000000020000921        0x3 00
+ .bss.original_target_bearing
+                0x0000000020000924        0x4 obj/SKYROVER/gps.o
+ .bss.checksum_param.9604
+                0x0000000020000928        0x1 obj/SKYROVER/gps.o
+ .bss._class    0x0000000020000929        0x1 obj/SKYROVER/gps.o
  .bss._new_speed
-                0x0000000020000922        0x1 obj/SKYROVER/gps.o
- *fill*         0x0000000020000923        0x1 00
- .bss.GPS_read  0x0000000020000924        0x8 obj/SKYROVER/gps.o
- .bss.next_fix  0x000000002000092c        0x1 obj/SKYROVER/gps.o
- *fill*         0x000000002000092d        0x1 00
- .bss.crosstrack_error
-                0x000000002000092e        0x2 obj/SKYROVER/gps.o
- .bss._step     0x0000000020000930        0x1 obj/SKYROVER/gps.o
- *fill*         0x0000000020000931        0x1 00
- .bss.waypoint_speed_gov
-                0x0000000020000932        0x2 obj/SKYROVER/gps.o
- .bss.offset.9597
-                0x0000000020000934        0x1 obj/SKYROVER/gps.o
+                0x000000002000092a        0x1 obj/SKYROVER/gps.o
+ *fill*         0x000000002000092b        0x1 00
+ .bss.GPS_read  0x000000002000092c        0x8 obj/SKYROVER/gps.o
+ .bss.next_fix  0x0000000020000934        0x1 obj/SKYROVER/gps.o
  *fill*         0x0000000020000935        0x3 00
- .bss.error     0x0000000020000938        0x8 obj/SKYROVER/gps.o
- .bss.GPS_filter_index
+ .bss.last.9522
+                0x0000000020000938        0x8 obj/SKYROVER/gps.o
+ .bss.parity.9602
                 0x0000000020000940        0x1 obj/SKYROVER/gps.o
- .bss.frame.9601
-                0x0000000020000941        0x1 obj/SKYROVER/gps.o
- *fill*         0x0000000020000942        0x2 00
- .bss._buffer   0x0000000020000944       0xc8 obj/SKYROVER/gps.o
- .bss.nav_loopTimer.9465
-                0x0000000020000a0c        0x4 obj/SKYROVER/gps.o
- .bss.previousT.9413
-                0x0000000020000a10        0x4 obj/SKYROVER/imu.o
- .bss.baroTemperature
-                0x0000000020000a14        0x4 obj/SKYROVER/imu.o
-                0x0000000020000a14                baroTemperature
- .bss.gyroYawSmooth.9325
-                0x0000000020000a18        0x2 obj/SKYROVER/imu.o
- .bss.accZ_25deg
-                0x0000000020000a1a        0x2 obj/SKYROVER/imu.o
-                0x0000000020000a1a                accZ_25deg
- .bss.accZoffset.9369
+ *fill*         0x0000000020000941        0x1 00
+ .bss.waypoint_speed_gov
+                0x0000000020000942        0x2 obj/SKYROVER/gps.o
+ .bss.error     0x0000000020000944        0x8 obj/SKYROVER/gps.o
+ .bss.GPS_filter_index
+                0x000000002000094c        0x1 obj/SKYROVER/gps.o
+ *fill*         0x000000002000094d        0x3 00
+ .bss._buffer   0x0000000020000950       0xc8 obj/SKYROVER/gps.o
+ .bss.lastBaroAlt.9431
+                0x0000000020000a18        0x4 obj/SKYROVER/imu.o
+ .bss.previousT.9417
                 0x0000000020000a1c        0x4 obj/SKYROVER/imu.o
- .bss.previousT.9395
+ .bss.baroTemperature
                 0x0000000020000a20        0x4 obj/SKYROVER/imu.o
- .bss.angle     0x0000000020000a24        0x4 obj/SKYROVER/imu.o
-                0x0000000020000a24                angle
- .bss.errorAltitudeI
+                0x0000000020000a20                baroTemperature
+ .bss.accZ_25deg
+                0x0000000020000a24        0x2 obj/SKYROVER/imu.o
+                0x0000000020000a24                accZ_25deg
+ *fill*         0x0000000020000a26        0x2 00
+ .bss.accZoffset.9373
                 0x0000000020000a28        0x4 obj/SKYROVER/imu.o
-                0x0000000020000a28                errorAltitudeI
  .bss.gyroData  0x0000000020000a2c        0x6 obj/SKYROVER/imu.o
                 0x0000000020000a2c                gyroData
- .bss.throttleAngleCorrection
+ .bss.gyroYawSmooth.9329
                 0x0000000020000a32        0x2 obj/SKYROVER/imu.o
-                0x0000000020000a32                throttleAngleCorrection
- .bss.magneticDeclination
-                0x0000000020000a34        0x4 obj/SKYROVER/imu.o
-                0x0000000020000a34                magneticDeclination
- .bss.accZ_old.9424
+ .bss.angle     0x0000000020000a34        0x4 obj/SKYROVER/imu.o
+                0x0000000020000a34                angle
+ .bss.accZ_old.9428
                 0x0000000020000a38        0x4 obj/SKYROVER/imu.o
- .bss.BaroAlt   0x0000000020000a3c        0x4 obj/SKYROVER/imu.o
-                0x0000000020000a3c                BaroAlt
- .bss.baroPressure
-                0x0000000020000a40        0x4 obj/SKYROVER/imu.o
-                0x0000000020000a40                baroPressure
- .bss.accz_smooth.9370
+ .bss.previousT.9399
+                0x0000000020000a3c        0x4 obj/SKYROVER/imu.o
+ .bss.throttleAngleCorrection
+                0x0000000020000a40        0x2 obj/SKYROVER/imu.o
+                0x0000000020000a40                throttleAngleCorrection
+ *fill*         0x0000000020000a42        0x2 00
+ .bss.magneticDeclination
                 0x0000000020000a44        0x4 obj/SKYROVER/imu.o
- .bss.accLPF.9394
-                0x0000000020000a48        0xc obj/SKYROVER/imu.o
- .bss.lastBaroAlt.9427
+                0x0000000020000a44                magneticDeclination
+ .bss.BaroAlt   0x0000000020000a48        0x4 obj/SKYROVER/imu.o
+                0x0000000020000a48                BaroAlt
+ .bss.baroPressure
+                0x0000000020000a4c        0x4 obj/SKYROVER/imu.o
+                0x0000000020000a4c                baroPressure
+ .bss.errorAltitudeI
+                0x0000000020000a50        0x4 obj/SKYROVER/imu.o
+                0x0000000020000a50                errorAltitudeI
+ .bss.baroGroundAltitude.9432
                 0x0000000020000a54        0x4 obj/SKYROVER/imu.o
- .bss.gyroZero  0x0000000020000a58        0x6 obj/SKYROVER/imu.o
-                0x0000000020000a58                gyroZero
- *fill*         0x0000000020000a5e        0x2 00
- .bss.vel.9425  0x0000000020000a60        0x4 obj/SKYROVER/imu.o
- .bss.accSumCount
-                0x0000000020000a64        0x4 obj/SKYROVER/imu.o
-                0x0000000020000a64                accSumCount
- .bss.anglerad  0x0000000020000a68        0x8 obj/SKYROVER/imu.o
-                0x0000000020000a68                anglerad
- .bss.accAlt.9426
-                0x0000000020000a70        0x4 obj/SKYROVER/imu.o
- .bss.EstM.9392
-                0x0000000020000a74        0xc obj/SKYROVER/imu.o
- .bss.baroGroundPressure.9429
+ .bss.accz_smooth.9374
+                0x0000000020000a58        0x4 obj/SKYROVER/imu.o
+ .bss.gyroZero  0x0000000020000a5c        0x6 obj/SKYROVER/imu.o
+                0x0000000020000a5c                gyroZero
+ *fill*         0x0000000020000a62        0x2 00
+ .bss.accLPF.9398
+                0x0000000020000a64        0xc obj/SKYROVER/imu.o
+ .bss.vel.9429  0x0000000020000a70        0x4 obj/SKYROVER/imu.o
+ .bss.anglerad  0x0000000020000a74        0x8 obj/SKYROVER/imu.o
+                0x0000000020000a74                anglerad
+ .bss.accAlt.9430
+                0x0000000020000a7c        0x4 obj/SKYROVER/imu.o
+ .bss.baroGroundPressure.9433
                 0x0000000020000a80        0x4 obj/SKYROVER/imu.o
  .bss.baroPressureSum
                 0x0000000020000a84        0x4 obj/SKYROVER/imu.o
                 0x0000000020000a84                baroPressureSum
- .bss.baroGroundAltitude.9428
-                0x0000000020000a88        0x4 obj/SKYROVER/imu.o
- .bss.vario     0x0000000020000a8c        0x4 obj/SKYROVER/imu.o
-                0x0000000020000a8c                vario
+ .bss.EstM.9396
+                0x0000000020000a88        0xc obj/SKYROVER/imu.o
+ .bss.vario     0x0000000020000a94        0x4 obj/SKYROVER/imu.o
+                0x0000000020000a94                vario
  .bss.accTimeSum
-                0x0000000020000a90        0x4 obj/SKYROVER/imu.o
-                0x0000000020000a90                accTimeSum
- .bss.BaroPID   0x0000000020000a94        0x4 obj/SKYROVER/imu.o
-                0x0000000020000a94                BaroPID
+                0x0000000020000a98        0x4 obj/SKYROVER/imu.o
+                0x0000000020000a98                accTimeSum
+ .bss.BaroPID   0x0000000020000a9c        0x4 obj/SKYROVER/imu.o
+                0x0000000020000a9c                BaroPID
+ .bss.accSumCount
+                0x0000000020000aa0        0x4 obj/SKYROVER/imu.o
+                0x0000000020000aa0                accSumCount
  .bss.numberMotor
-                0x0000000020000a98        0x1 obj/SKYROVER/mixer.o
- *fill*         0x0000000020000a99        0x1 00
- .bss.slow_LFlaps.9380
-                0x0000000020000a9a        0x2 obj/SKYROVER/mixer.o
+                0x0000000020000aa4        0x1 obj/SKYROVER/mixer.o
+ *fill*         0x0000000020000aa5        0x1 00
+ .bss.slow_LFlaps.9384
+                0x0000000020000aa6        0x2 obj/SKYROVER/mixer.o
  .bss.currentMixer
-                0x0000000020000a9c       0xc0 obj/SKYROVER/mixer.o
+                0x0000000020000aa8       0xc0 obj/SKYROVER/mixer.o
  .bss.failsafeCnt
-                0x0000000020000b5c        0x2 obj/SKYROVER/mw.o
-                0x0000000020000b5c                failsafeCnt
- *fill*         0x0000000020000b5e        0x2 00
+                0x0000000020000b68        0x2 obj/SKYROVER/mw.o
+                0x0000000020000b68                failsafeCnt
+ *fill*         0x0000000020000b6a        0x2 00
  .bss.errorGyroI
-                0x0000000020000b60        0xc obj/SKYROVER/mw.o
- .bss.delta2.9449
                 0x0000000020000b6c        0xc obj/SKYROVER/mw.o
+ .bss.delta2.9449
+                0x0000000020000b78        0xc obj/SKYROVER/mw.o
  .bss.rcSticks.9470
-                0x0000000020000b78        0x1 obj/SKYROVER/mw.o
- *fill*         0x0000000020000b79        0x3 00
+                0x0000000020000b84        0x1 obj/SKYROVER/mw.o
+ *fill*         0x0000000020000b85        0x3 00
  .bss.calibratedAccTime.9364
-                0x0000000020000b7c        0x4 obj/SKYROVER/mw.o
+                0x0000000020000b88        0x4 obj/SKYROVER/mw.o
  .bss.currentTime
-                0x0000000020000b80        0x4 obj/SKYROVER/mw.o
-                0x0000000020000b80                currentTime
+                0x0000000020000b8c        0x4 obj/SKYROVER/mw.o
+                0x0000000020000b8c                currentTime
  .bss.GPS_ground_course
-                0x0000000020000b84        0x2 obj/SKYROVER/mw.o
-                0x0000000020000b84                GPS_ground_course
+                0x0000000020000b90        0x2 obj/SKYROVER/mw.o
+                0x0000000020000b90                GPS_ground_course
  .bss.rcDataMean.9399
-                0x0000000020000b86       0x10 obj/SKYROVER/mw.o
+                0x0000000020000b92       0x10 obj/SKYROVER/mw.o
  .bss.rc4ValuesIndex.9400
-                0x0000000020000b96        0x1 obj/SKYROVER/mw.o
- *fill*         0x0000000020000b97        0x1 00
+                0x0000000020000ba2        0x1 obj/SKYROVER/mw.o
+ *fill*         0x0000000020000ba3        0x1 00
  .bss.AccInflightCalibrationSavetoEEProm
-                0x0000000020000b98        0x2 obj/SKYROVER/mw.o
-                0x0000000020000b98                AccInflightCalibrationSavetoEEProm
- *fill*         0x0000000020000b9a        0x2 00
+                0x0000000020000ba4        0x2 obj/SKYROVER/mw.o
+                0x0000000020000ba4                AccInflightCalibrationSavetoEEProm
+ *fill*         0x0000000020000ba6        0x2 00
  .bss.taskOrder.9499
-                0x0000000020000b9c        0x4 obj/SKYROVER/mw.o
- .bss.ind.9372  0x0000000020000ba0        0x1 obj/SKYROVER/mw.o
- *fill*         0x0000000020000ba1        0x3 00
+                0x0000000020000ba8        0x4 obj/SKYROVER/mw.o
+ .bss.ind.9372  0x0000000020000bac        0x1 obj/SKYROVER/mw.o
+ *fill*         0x0000000020000bad        0x3 00
  .bss.loopTime.9475
-                0x0000000020000ba4        0x4 obj/SKYROVER/mw.o
+                0x0000000020000bb0        0x4 obj/SKYROVER/mw.o
  .bss.vbatRawArray.9374
-                0x0000000020000ba8       0x10 obj/SKYROVER/mw.o
+                0x0000000020000bb4       0x10 obj/SKYROVER/mw.o
  .bss.GPS_update
-                0x0000000020000bb8        0x1 obj/SKYROVER/mw.o
-                0x0000000020000bb8                GPS_update
- *fill*         0x0000000020000bb9        0x3 00
+                0x0000000020000bc4        0x1 obj/SKYROVER/mw.o
+                0x0000000020000bc4                GPS_update
+ *fill*         0x0000000020000bc5        0x3 00
  .bss.delta1.9434
-                0x0000000020000bbc        0xc obj/SKYROVER/mw.o
+                0x0000000020000bc8        0xc obj/SKYROVER/mw.o
  .bss.rcDelayCommand.9469
-                0x0000000020000bc8        0x1 obj/SKYROVER/mw.o
- *fill*         0x0000000020000bc9        0x1 00
+                0x0000000020000bd4        0x1 obj/SKYROVER/mw.o
+ *fill*         0x0000000020000bd5        0x1 00
  .bss.lastGyro.9433
-                0x0000000020000bca        0x6 obj/SKYROVER/mw.o
+                0x0000000020000bd6        0x6 obj/SKYROVER/mw.o
  .bss.previousTime
-                0x0000000020000bd0        0x4 obj/SKYROVER/mw.o
-                0x0000000020000bd0                previousTime
+                0x0000000020000bdc        0x4 obj/SKYROVER/mw.o
+                0x0000000020000bdc                previousTime
  .bss.AccInflightCalibrationMeasurementDone
-                0x0000000020000bd4        0x2 obj/SKYROVER/mw.o
-                0x0000000020000bd4                AccInflightCalibrationMeasurementDone
+                0x0000000020000be0        0x2 obj/SKYROVER/mw.o
+                0x0000000020000be0                AccInflightCalibrationMeasurementDone
  .bss.initialThrottleHold.9474
-                0x0000000020000bd6        0x2 obj/SKYROVER/mw.o
+                0x0000000020000be2        0x2 obj/SKYROVER/mw.o
  .bss.InflightcalibratingA
-                0x0000000020000bd8        0x2 obj/SKYROVER/mw.o
-                0x0000000020000bd8                InflightcalibratingA
- .bss.nav_mode  0x0000000020000bda        0x1 obj/SKYROVER/mw.o
-                0x0000000020000bda                nav_mode
- *fill*         0x0000000020000bdb        0x1 00
+                0x0000000020000be4        0x2 obj/SKYROVER/mw.o
+                0x0000000020000be4                InflightcalibratingA
+ .bss.nav_mode  0x0000000020000be6        0x1 obj/SKYROVER/mw.o
+                0x0000000020000be6                nav_mode
+ *fill*         0x0000000020000be7        0x1 00
  .bss.delta1.9448
-                0x0000000020000bdc        0xc obj/SKYROVER/mw.o
+                0x0000000020000be8        0xc obj/SKYROVER/mw.o
  .bss.failsafeEvents
-                0x0000000020000be8        0x2 obj/SKYROVER/mw.o
-                0x0000000020000be8                failsafeEvents
- *fill*         0x0000000020000bea        0x2 00
+                0x0000000020000bf4        0x2 obj/SKYROVER/mw.o
+                0x0000000020000bf4                failsafeEvents
+ *fill*         0x0000000020000bf6        0x2 00
  .bss.rcReadRawFunc
-                0x0000000020000bec        0x4 obj/SKYROVER/mw.o
-                0x0000000020000bec                rcReadRawFunc
+                0x0000000020000bf8        0x4 obj/SKYROVER/mw.o
+                0x0000000020000bf8                rcReadRawFunc
  .bss.GPSLEDTime.9386
-                0x0000000020000bf0        0x4 obj/SKYROVER/mw.o
+                0x0000000020000bfc        0x4 obj/SKYROVER/mw.o
  .bss.lastError.9453
-                0x0000000020000bf4        0xc obj/SKYROVER/mw.o
+                0x0000000020000c00        0xc obj/SKYROVER/mw.o
  .bss.GPS_angle
-                0x0000000020000c00        0x4 obj/SKYROVER/mw.o
-                0x0000000020000c00                GPS_angle
+                0x0000000020000c0c        0x4 obj/SKYROVER/mw.o
+                0x0000000020000c0c                GPS_angle
  .bss.cycleTime
-                0x0000000020000c04        0x2 obj/SKYROVER/mw.o
-                0x0000000020000c04                cycleTime
- *fill*         0x0000000020000c06        0x2 00
+                0x0000000020000c10        0x2 obj/SKYROVER/mw.o
+                0x0000000020000c10                cycleTime
+ *fill*         0x0000000020000c12        0x2 00
  .bss.rcTime.9473
-                0x0000000020000c08        0x4 obj/SKYROVER/mw.o
+                0x0000000020000c14        0x4 obj/SKYROVER/mw.o
  .bss.AccInflightCalibrationActive
-                0x0000000020000c0c        0x2 obj/SKYROVER/mw.o
-                0x0000000020000c0c                AccInflightCalibrationActive
- .bss.vbatTimer.9371
-                0x0000000020000c0e        0x1 obj/SKYROVER/mw.o
- *fill*         0x0000000020000c0f        0x1 00
- .bss.errorAngleI
-                0x0000000020000c10        0x8 obj/SKYROVER/mw.o
- .bss.AltHoldCorr.9508
                 0x0000000020000c18        0x2 obj/SKYROVER/mw.o
- *fill*         0x0000000020000c1a        0x2 00
+                0x0000000020000c18                AccInflightCalibrationActive
+ .bss.vbatTimer.9371
+                0x0000000020000c1a        0x1 obj/SKYROVER/mw.o
+ *fill*         0x0000000020000c1b        0x1 00
+ .bss.errorAngleI
+                0x0000000020000c1c        0x8 obj/SKYROVER/mw.o
+ .bss.AltHoldCorr.9508
+                0x0000000020000c24        0x2 obj/SKYROVER/mw.o
+ *fill*         0x0000000020000c26        0x2 00
  .bss.delta2.9435
-                0x0000000020000c1c        0xc obj/SKYROVER/mw.o
+                0x0000000020000c28        0xc obj/SKYROVER/mw.o
  .bss.isAltHoldChanged.9507
-                0x0000000020000c28        0x1 obj/SKYROVER/mw.o
- *fill*         0x0000000020000c29        0x1 00
+                0x0000000020000c34        0x1 obj/SKYROVER/mw.o
+ *fill*         0x0000000020000c35        0x1 00
  .bss.rcData4Values.9398
-                0x0000000020000c2a       0x40 obj/SKYROVER/mw.o
+                0x0000000020000c36       0x40 obj/SKYROVER/mw.o
  .bss.toggleBeep
-                0x0000000020000c6a        0x1 obj/SKYROVER/mw.o
-                0x0000000020000c6a                toggleBeep
+                0x0000000020000c76        0x1 obj/SKYROVER/mw.o
+                0x0000000020000c76                toggleBeep
  .bss.buzzerFreq.9370
-                0x0000000020000c6b        0x1 obj/SKYROVER/mw.o
- .bss.var.9391  0x0000000020000c6c       0x3c obj/SKYROVER/sensors.o
- .bss.accZero_saved.9347
-                0x0000000020000ca8        0x6 obj/SKYROVER/sensors.o
- *fill*         0x0000000020000cae        0x2 00
- .bss.baroDeadline.9364
-                0x0000000020000cb0        0x4 obj/SKYROVER/sensors.o
- .bss.t.9410    0x0000000020000cb4        0x4 obj/SKYROVER/sensors.o
+                0x0000000020000c77        0x1 obj/SKYROVER/mw.o
+ .bss.accZero_saved.9351
+                0x0000000020000c78        0x6 obj/SKYROVER/sensors.o
+ *fill*         0x0000000020000c7e        0x2 00
+ .bss.g.9394    0x0000000020000c80        0xc obj/SKYROVER/sensors.o
+ .bss.state.9369
+                0x0000000020000c8c        0x4 obj/SKYROVER/sensors.o
+ .bss.angleTrim_saved.9352
+                0x0000000020000c90        0x4 obj/SKYROVER/sensors.o
  .bss.calibratingA
-                0x0000000020000cb8        0x2 obj/SKYROVER/sensors.o
-                0x0000000020000cb8                calibratingA
+                0x0000000020000c94        0x2 obj/SKYROVER/sensors.o
+                0x0000000020000c94                calibratingA
  .bss.calibratingB
-                0x0000000020000cba        0x2 obj/SKYROVER/sensors.o
-                0x0000000020000cba                calibratingB
- .bss.g.9390    0x0000000020000cbc        0xc obj/SKYROVER/sensors.o
- .bss.state.9365
-                0x0000000020000cc8        0x4 obj/SKYROVER/sensors.o
- .bss.magZeroTempMin.9412
-                0x0000000020000ccc        0x6 obj/SKYROVER/sensors.o
- *fill*         0x0000000020000cd2        0x2 00
- .bss.b.9346    0x0000000020000cd4        0xc obj/SKYROVER/sensors.o
- .bss.a.9341    0x0000000020000ce0        0xc obj/SKYROVER/sensors.o
- .bss.magZeroTempMax.9413
-                0x0000000020000cec        0x6 obj/SKYROVER/sensors.o
+                0x0000000020000c96        0x2 obj/SKYROVER/sensors.o
+                0x0000000020000c96                calibratingB
+ .bss.magZeroTempMax.9417
+                0x0000000020000c98        0x6 obj/SKYROVER/sensors.o
+ *fill*         0x0000000020000c9e        0x2 00
+ .bss.baroDeadline.9368
+                0x0000000020000ca0        0x4 obj/SKYROVER/sensors.o
+ .bss.var.9395  0x0000000020000ca4       0x3c obj/SKYROVER/sensors.o
+ .bss.magZeroTempMin.9416
+                0x0000000020000ce0        0x6 obj/SKYROVER/sensors.o
+ *fill*         0x0000000020000ce6        0x2 00
+ .bss.b.9350    0x0000000020000ce8        0xc obj/SKYROVER/sensors.o
+ .bss.t.9414    0x0000000020000cf4        0x4 obj/SKYROVER/sensors.o
+ .bss.baroHistTab.9362
+                0x0000000020000cf8       0xc0 obj/SKYROVER/sensors.o
  .bss.accHardware
-                0x0000000020000cf2        0x1 obj/SKYROVER/sensors.o
-                0x0000000020000cf2                accHardware
- *fill*         0x0000000020000cf3        0x1 00
+                0x0000000020000db8        0x1 obj/SKYROVER/sensors.o
+                0x0000000020000db8                accHardware
+ *fill*         0x0000000020000db9        0x3 00
+ .bss.tCal.9415
+                0x0000000020000dbc        0x4 obj/SKYROVER/sensors.o
+ .bss.a.9345    0x0000000020000dc0        0xc obj/SKYROVER/sensors.o
  .bss.calibratingG
-                0x0000000020000cf4        0x2 obj/SKYROVER/sensors.o
-                0x0000000020000cf4                calibratingG
- *fill*         0x0000000020000cf6        0x2 00
- .bss.baroHistIdx.9359
-                0x0000000020000cf8        0x4 obj/SKYROVER/sensors.o
- .bss.magInit   0x0000000020000cfc        0x1 obj/SKYROVER/sensors.o
- *fill*         0x0000000020000cfd        0x3 00
- .bss.tCal.9411
-                0x0000000020000d00        0x4 obj/SKYROVER/sensors.o
- .bss.baroHistTab.9358
-                0x0000000020000d04       0xc0 obj/SKYROVER/sensors.o
- .bss.angleTrim_saved.9348
-                0x0000000020000dc4        0x4 obj/SKYROVER/sensors.o
- .bss.checksum  0x0000000020000dc8        0x1 obj/SKYROVER/serial.o
+                0x0000000020000dcc        0x2 obj/SKYROVER/sensors.o
+                0x0000000020000dcc                calibratingG
+ .bss.magInit   0x0000000020000dce        0x1 obj/SKYROVER/sensors.o
+ *fill*         0x0000000020000dcf        0x1 00
+ .bss.baroHistIdx.9363
+                0x0000000020000dd0        0x4 obj/SKYROVER/sensors.o
+ .bss.checksum  0x0000000020000dd4        0x1 obj/SKYROVER/serial.o
  .bss.dataSize.9522
-                0x0000000020000dc9        0x1 obj/SKYROVER/serial.o
- .bss.indRX     0x0000000020000dca        0x1 obj/SKYROVER/serial.o
+                0x0000000020000dd5        0x1 obj/SKYROVER/serial.o
+ .bss.indRX     0x0000000020000dd6        0x1 obj/SKYROVER/serial.o
  .bss.numberBoxItems
-                0x0000000020000dcb        0x1 obj/SKYROVER/serial.o
+                0x0000000020000dd7        0x1 obj/SKYROVER/serial.o
  .bss.offset.9521
-                0x0000000020000dcc        0x1 obj/SKYROVER/serial.o
- .bss.cmdMSP    0x0000000020000dcd        0x1 obj/SKYROVER/serial.o
+                0x0000000020000dd8        0x1 obj/SKYROVER/serial.o
+ .bss.cmdMSP    0x0000000020000dd9        0x1 obj/SKYROVER/serial.o
  .bss.availableBoxes
-                0x0000000020000dce       0x15 obj/SKYROVER/serial.o
- .bss.t.9312    0x0000000020000de3        0x1 obj/SKYROVER/serial.o
- .bss.inBuf     0x0000000020000de4       0x40 obj/SKYROVER/serial.o
- .bss.t.9316    0x0000000020000e24        0x1 obj/SKYROVER/serial.o
- .bss.cliMode   0x0000000020000e25        0x1 obj/SKYROVER/serial.o
-                0x0000000020000e25                cliMode
+                0x0000000020000dda       0x15 obj/SKYROVER/serial.o
+ .bss.t.9312    0x0000000020000def        0x1 obj/SKYROVER/serial.o
+ .bss.inBuf     0x0000000020000df0       0x40 obj/SKYROVER/serial.o
+ .bss.t.9316    0x0000000020000e30        0x1 obj/SKYROVER/serial.o
+ .bss.cliMode   0x0000000020000e31        0x1 obj/SKYROVER/serial.o
+                0x0000000020000e31                cliMode
  .bss.c_state.9530
-                0x0000000020000e26        0x1 obj/SKYROVER/serial.o
- .bss.sbusFramePosition.9329
-                0x0000000020000e27        0x1 obj/SKYROVER/sbus.o
+                0x0000000020000e32        0x1 obj/SKYROVER/serial.o
+ .bss.sbusFramePosition.9333
+                0x0000000020000e33        0x1 obj/SKYROVER/sbus.o
  .bss.sbusFrameDone
-                0x0000000020000e28        0x1 obj/SKYROVER/sbus.o
- *fill*         0x0000000020000e29        0x3 00
+                0x0000000020000e34        0x1 obj/SKYROVER/sbus.o
+ *fill*         0x0000000020000e35        0x3 00
  .bss.sbusChannelData
-                0x0000000020000e2c       0x20 obj/SKYROVER/sbus.o
- .bss.sbus      0x0000000020000e4c       0x19 obj/SKYROVER/sbus.o
- *fill*         0x0000000020000e65        0x3 00
- .bss.sbusTimeLast.9328
-                0x0000000020000e68        0x4 obj/SKYROVER/sbus.o
- .bss.sumd      0x0000000020000e6c       0x15 obj/SKYROVER/sumd.o
+                0x0000000020000e38       0x20 obj/SKYROVER/sbus.o
+ .bss.sbus      0x0000000020000e58       0x19 obj/SKYROVER/sbus.o
+ *fill*         0x0000000020000e71        0x3 00
+ .bss.sbusTimeLast.9332
+                0x0000000020000e74        0x4 obj/SKYROVER/sbus.o
+ .bss.sumd      0x0000000020000e78       0x15 obj/SKYROVER/sumd.o
+ .bss.sumdIndex.9311
+                0x0000000020000e8d        0x1 obj/SKYROVER/sumd.o
  .bss.sumdFrameDone
-                0x0000000020000e81        0x1 obj/SKYROVER/sumd.o
- .bss.sumdIndex.9307
-                0x0000000020000e82        0x1 obj/SKYROVER/sumd.o
- .bss.sumdSize  0x0000000020000e83        0x1 obj/SKYROVER/sumd.o
+                0x0000000020000e8e        0x1 obj/SKYROVER/sumd.o
+ .bss.sumdSize  0x0000000020000e8f        0x1 obj/SKYROVER/sumd.o
  .bss.sumdChannelData
-                0x0000000020000e84       0x20 obj/SKYROVER/sumd.o
- .bss.sumdTimeLast.9306
-                0x0000000020000ea4        0x4 obj/SKYROVER/sumd.o
- .bss.spekTimeInterval.9313
-                0x0000000020000ea8        0x4 obj/SKYROVER/spektrum.o
- .bss.spekFramePosition.9314
-                0x0000000020000eac        0x1 obj/SKYROVER/spektrum.o
- *fill*         0x0000000020000ead        0x3 00
- .bss.spekChannelData.9322
-                0x0000000020000eb0       0x1c obj/SKYROVER/spektrum.o
- .bss.spek_chan_mask
-                0x0000000020000ecc        0x1 obj/SKYROVER/spektrum.o
- .bss.rcFrameComplete
-                0x0000000020000ecd        0x1 obj/SKYROVER/spektrum.o
+                0x0000000020000e90       0x20 obj/SKYROVER/sumd.o
+ .bss.sumdTimeLast.9310
+                0x0000000020000eb0        0x4 obj/SKYROVER/sumd.o
  .bss.spek_chan_shift
-                0x0000000020000ece        0x1 obj/SKYROVER/spektrum.o
+                0x0000000020000eb4        0x1 obj/SKYROVER/spektrum.o
+ *fill*         0x0000000020000eb5        0x3 00
+ .bss.spekTimeInterval.9317
+                0x0000000020000eb8        0x4 obj/SKYROVER/spektrum.o
+ .bss.spekFramePosition.9318
+                0x0000000020000ebc        0x1 obj/SKYROVER/spektrum.o
+ *fill*         0x0000000020000ebd        0x3 00
+ .bss.spekChannelData.9326
+                0x0000000020000ec0       0x1c obj/SKYROVER/spektrum.o
+ .bss.rcFrameComplete
+                0x0000000020000edc        0x1 obj/SKYROVER/spektrum.o
  .bss.spekDataIncoming
-                0x0000000020000ecf        0x1 obj/SKYROVER/spektrum.o
+                0x0000000020000edd        0x1 obj/SKYROVER/spektrum.o
  .bss.spekHiRes
-                0x0000000020000ed0        0x1 obj/SKYROVER/spektrum.o
- *fill*         0x0000000020000ed1        0x3 00
- .bss.spekTimeLast.9312
-                0x0000000020000ed4        0x4 obj/SKYROVER/spektrum.o
- .bss.cycleNum  0x0000000020000ed8        0x1 obj/SKYROVER/telemetry.o
- *fill*         0x0000000020000ed9        0x1 00
- .bss.currentCell.9332
-                0x0000000020000eda        0x2 obj/SKYROVER/telemetry.o
+                0x0000000020000ede        0x1 obj/SKYROVER/spektrum.o
+ .bss.spek_chan_mask
+                0x0000000020000edf        0x1 obj/SKYROVER/spektrum.o
+ .bss.spekTimeLast.9316
+                0x0000000020000ee0        0x4 obj/SKYROVER/spektrum.o
+ .bss.cycleNum  0x0000000020000ee4        0x1 obj/SKYROVER/telemetry.o
  .bss.telemetryEnabled
-                0x0000000020000edc        0x1 obj/SKYROVER/telemetry.o
- *fill*         0x0000000020000edd        0x3 00
+                0x0000000020000ee5        0x1 obj/SKYROVER/telemetry.o
+ *fill*         0x0000000020000ee6        0x2 00
  .bss.lastCycleTime
-                0x0000000020000ee0        0x4 obj/SKYROVER/telemetry.o
+                0x0000000020000ee8        0x4 obj/SKYROVER/telemetry.o
+ .bss.currentCell.9336
+                0x0000000020000eec        0x2 obj/SKYROVER/telemetry.o
  .bss.i2cErrorCount
-                0x0000000020000ee4        0x2 obj/SKYROVER/drv_i2c.o
- .bss.writing   0x0000000020000ee6        0x1 obj/SKYROVER/drv_i2c.o
+                0x0000000020000eee        0x2 obj/SKYROVER/drv_i2c.o
+ .bss.writing   0x0000000020000ef0        0x1 obj/SKYROVER/drv_i2c.o
  .bss.final_stop.8942
-                0x0000000020000ee7        0x1 obj/SKYROVER/drv_i2c.o
- .bss.reg       0x0000000020000ee8        0x1 obj/SKYROVER/drv_i2c.o
- .bss.bytes     0x0000000020000ee9        0x1 obj/SKYROVER/drv_i2c.o
- *fill*         0x0000000020000eea        0x2 00
- .bss.read_p    0x0000000020000eec        0x4 obj/SKYROVER/drv_i2c.o
+                0x0000000020000ef1        0x1 obj/SKYROVER/drv_i2c.o
+ .bss.reg       0x0000000020000ef2        0x1 obj/SKYROVER/drv_i2c.o
+ .bss.bytes     0x0000000020000ef3        0x1 obj/SKYROVER/drv_i2c.o
+ .bss.read_p    0x0000000020000ef4        0x4 obj/SKYROVER/drv_i2c.o
  .bss.subaddress_sent.8941
-                0x0000000020000ef0        0x1 obj/SKYROVER/drv_i2c.o
- .bss.error     0x0000000020000ef1        0x1 obj/SKYROVER/drv_i2c.o
- *fill*         0x0000000020000ef2        0x2 00
- .bss.write_p   0x0000000020000ef4        0x4 obj/SKYROVER/drv_i2c.o
- .bss.index.8943
                 0x0000000020000ef8        0x1 obj/SKYROVER/drv_i2c.o
- .bss.reading   0x0000000020000ef9        0x1 obj/SKYROVER/drv_i2c.o
+ .bss.error     0x0000000020000ef9        0x1 obj/SKYROVER/drv_i2c.o
  *fill*         0x0000000020000efa        0x2 00
- .bss.I2Cx      0x0000000020000efc        0x4 obj/SKYROVER/drv_i2c.o
- .bss.busy      0x0000000020000f00        0x1 obj/SKYROVER/drv_i2c.o
- .bss.addr      0x0000000020000f01        0x1 obj/SKYROVER/drv_i2c.o
+ .bss.write_p   0x0000000020000efc        0x4 obj/SKYROVER/drv_i2c.o
+ .bss.index.8943
+                0x0000000020000f00        0x1 obj/SKYROVER/drv_i2c.o
+ .bss.reading   0x0000000020000f01        0x1 obj/SKYROVER/drv_i2c.o
  *fill*         0x0000000020000f02        0x2 00
+ .bss.I2Cx      0x0000000020000f04        0x4 obj/SKYROVER/drv_i2c.o
+ .bss.busy      0x0000000020000f08        0x1 obj/SKYROVER/drv_i2c.o
+ .bss.addr      0x0000000020000f09        0x1 obj/SKYROVER/drv_i2c.o
+ *fill*         0x0000000020000f0a        0x2 00
  .bss.sysTickUptime
-                0x0000000020000f04        0x4 obj/SKYROVER/drv_system.o
- .bss.usTicks   0x0000000020000f08        0x4 obj/SKYROVER/drv_system.o
+                0x0000000020000f0c        0x4 obj/SKYROVER/drv_system.o
+ .bss.usTicks   0x0000000020000f10        0x4 obj/SKYROVER/drv_system.o
  .bss.rx2Buffer.8884
-                0x0000000020000f0c       0x80 obj/SKYROVER/drv_uart.o
+                0x0000000020000f14       0x80 obj/SKYROVER/drv_uart.o
  .bss.rx1Buffer.8875
-                0x0000000020000f8c      0x100 obj/SKYROVER/drv_uart.o
+                0x0000000020000f94      0x100 obj/SKYROVER/drv_uart.o
  .bss.tx2Buffer.8885
-                0x000000002000108c       0x40 obj/SKYROVER/drv_uart.o
+                0x0000000020001094       0x40 obj/SKYROVER/drv_uart.o
  .bss.tx1Buffer.8876
-                0x00000000200010cc      0x100 obj/SKYROVER/drv_uart.o
+                0x00000000200010d4      0x100 obj/SKYROVER/drv_uart.o
  .bss.uartPort1
-                0x00000000200011cc       0x4c obj/SKYROVER/drv_uart.o
+                0x00000000200011d4       0x4c obj/SKYROVER/drv_uart.o
  .bss.uartPort2
-                0x0000000020001218       0x4c obj/SKYROVER/drv_uart.o
+                0x0000000020001220       0x4c obj/SKYROVER/drv_uart.o
  .bss.stdout_putf
-                0x0000000020001264        0x4 obj/SKYROVER/printf.o
+                0x000000002000126c        0x4 obj/SKYROVER/printf.o
  .bss.stdout_putp
-                0x0000000020001268        0x4 obj/SKYROVER/printf.o
+                0x0000000020001270        0x4 obj/SKYROVER/printf.o
  .bss.boardRotation
-                0x000000002000126c       0x24 obj/SKYROVER/utils.o
+                0x0000000020001274       0x24 obj/SKYROVER/utils.o
  *(COMMON)
- COMMON         0x0000000020001290      0x100 obj/SKYROVER/drv_timer.o
-                0x0000000020001290                timerConfig
- COMMON         0x0000000020001390      0x440 obj/SKYROVER/config.o
-                0x0000000020001390                cfg
-                0x0000000020001454                mcfg
- COMMON         0x00000000200017d0       0x1f obj/SKYROVER/gps.o
-                0x00000000200017d0                ubs_protocol_bytes
-                0x00000000200017d1                ubx_nav_status_bits
-                0x00000000200017d2                xLeadFilter
-                0x00000000200017d4                gpsData
-                0x00000000200017ec                yLeadFilter
-                0x00000000200017ee                ubs_nav_fix_type
- *fill*         0x00000000200017ef        0x1 00
- COMMON         0x00000000200017f0       0x48 obj/SKYROVER/imu.o
-                0x00000000200017f0                sonarAlt
-                0x00000000200017f4                gyroADC
-                0x00000000200017fc                accSum
-                0x0000000020001808                accVelScale
-                0x000000002000180c                accADC
-                0x0000000020001814                EstAlt
-                0x0000000020001818                magADC
-                0x0000000020001820                AltHold
-                0x0000000020001824                accSmooth
-                0x000000002000182c                EstG
- COMMON         0x0000000020001838       0x14 obj/SKYROVER/main.o
-                0x0000000020001838                core
- COMMON         0x000000002000184c       0x30 obj/SKYROVER/mixer.o
-                0x000000002000184c                motor
-                0x0000000020001864                motor_disarmed
- COMMON         0x000000002000187c      0x108 obj/SKYROVER/mw.o
-                0x000000002000187c                GPS_svinfo_chn
-                0x000000002000188c                telemTemperature1
-                0x000000002000188e                f
-                0x00000000200018a0                GPS_altitude
-                0x00000000200018a2                nav_rated
-                0x00000000200018a6                lookupThrottleRC
-                0x00000000200018be                nav
-                0x00000000200018c2                GPS_speed
-                0x00000000200018c4                GPS_hold
-                0x00000000200018cc                debug
-                0x00000000200018d4                rcCommand
-                0x00000000200018dc                vbat
-                0x00000000200018de                batteryWarningVoltage
-                0x00000000200018e0                axisPID
-                0x00000000200018e6                GPS_distanceToHome
-                0x00000000200018e8                GPS_home
-                0x00000000200018f0                GPS_directionToHome
-                0x00000000200018f2                rcOptions
-                0x0000000020001907                GPS_svinfo_svid
-                0x0000000020001918                GPS_coord
-                0x0000000020001920                GPS_svinfo_quality
-                0x0000000020001930                dynI8
-                0x0000000020001934                rssi
-                0x0000000020001936                GPS_numSat
-                0x0000000020001937                GPS_numCh
-                0x0000000020001938                headFreeModeHold
-                0x000000002000193a                rcData
-                0x000000002000195e                dynD8
-                0x0000000020001961                dynP8
-                0x0000000020001964                GPS_svinfo_cno
-                0x0000000020001974                AccInflightCalibrationArmed
-                0x0000000020001976                lookupPitchRollRC
- COMMON         0x0000000020001984       0x3e obj/SKYROVER/sensors.o
-                0x0000000020001984                acc
-                0x0000000020001994                magHold
-                0x0000000020001998                gyro
-                0x00000000200019a8                baro
-                0x00000000200019c0                heading
- COMMON         0x00000000200019c2       0x10 obj/SKYROVER/spektrum.o
-                0x00000000200019c2                spekFrame
- *fill*         0x00000000200019d2        0x2 00
- COMMON         0x00000000200019d4      0x490 obj/SKYROVER/drv_softserial.o
-                0x00000000200019d4                softSerialPorts
-                0x0000000020001e64                . = ALIGN (0x4)
-                0x0000000020001e64                _ebss = .
-                0x0000000020001e64                __bss_end__ = _ebss
+ COMMON         0x0000000020001298      0x100 obj/SKYROVER/drv_timer.o
+                0x0000000020001298                timerConfig
+ COMMON         0x0000000020001398      0x440 obj/SKYROVER/config.o
+                0x0000000020001398                cfg
+                0x000000002000145c                mcfg
+ COMMON         0x00000000200017d8       0x1f obj/SKYROVER/gps.o
+                0x00000000200017d8                ubs_protocol_bytes
+                0x00000000200017d9                ubx_nav_status_bits
+                0x00000000200017da                xLeadFilter
+                0x00000000200017dc                gpsData
+                0x00000000200017f4                yLeadFilter
+                0x00000000200017f6                ubs_nav_fix_type
+ *fill*         0x00000000200017f7        0x1 00
+ COMMON         0x00000000200017f8       0x48 obj/SKYROVER/imu.o
+                0x00000000200017f8                sonarAlt
+                0x00000000200017fc                gyroADC
+                0x0000000020001804                accSum
+                0x0000000020001810                accVelScale
+                0x0000000020001814                accADC
+                0x000000002000181c                EstAlt
+                0x0000000020001820                magADC
+                0x0000000020001828                AltHold
+                0x000000002000182c                accSmooth
+                0x0000000020001834                EstG
+ COMMON         0x0000000020001840       0x14 obj/SKYROVER/main.o
+                0x0000000020001840                core
+ COMMON         0x0000000020001854       0x30 obj/SKYROVER/mixer.o
+                0x0000000020001854                motor
+                0x000000002000186c                motor_disarmed
+ COMMON         0x0000000020001884      0x108 obj/SKYROVER/mw.o
+                0x0000000020001884                GPS_svinfo_chn
+                0x0000000020001894                telemTemperature1
+                0x0000000020001896                f
+                0x00000000200018a8                GPS_altitude
+                0x00000000200018aa                nav_rated
+                0x00000000200018ae                lookupThrottleRC
+                0x00000000200018c6                nav
+                0x00000000200018ca                GPS_speed
+                0x00000000200018cc                GPS_hold
+                0x00000000200018d4                debug
+                0x00000000200018dc                rcCommand
+                0x00000000200018e4                vbat
+                0x00000000200018e6                batteryWarningVoltage
+                0x00000000200018e8                axisPID
+                0x00000000200018ee                GPS_distanceToHome
+                0x00000000200018f0                GPS_home
+                0x00000000200018f8                GPS_directionToHome
+                0x00000000200018fa                rcOptions
+                0x000000002000190f                GPS_svinfo_svid
+                0x0000000020001920                GPS_coord
+                0x0000000020001928                GPS_svinfo_quality
+                0x0000000020001938                dynI8
+                0x000000002000193c                rssi
+                0x000000002000193e                GPS_numSat
+                0x000000002000193f                GPS_numCh
+                0x0000000020001940                headFreeModeHold
+                0x0000000020001942                rcData
+                0x0000000020001966                dynD8
+                0x0000000020001969                dynP8
+                0x000000002000196c                GPS_svinfo_cno
+                0x000000002000197c                AccInflightCalibrationArmed
+                0x000000002000197e                lookupPitchRollRC
+ COMMON         0x000000002000198c       0x3e obj/SKYROVER/sensors.o
+                0x000000002000198c                acc
+                0x000000002000199c                magHold
+                0x00000000200019a0                gyro
+                0x00000000200019b0                baro
+                0x00000000200019c8                heading
+ COMMON         0x00000000200019ca       0x10 obj/SKYROVER/spektrum.o
+                0x00000000200019ca                spekFrame
+ *fill*         0x00000000200019da        0x2 00
+ COMMON         0x00000000200019dc      0x490 obj/SKYROVER/drv_softserial.o
+                0x00000000200019dc                softSerialPorts
+                0x0000000020001e6c                . = ALIGN (0x4)
+                0x0000000020001e6c                _ebss = .
+                0x0000000020001e6c                __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x0000000020001e64      0x400 load address 0x0000000008015de4
-                0x0000000020001e64                . = ALIGN (0x4)
-                0x0000000020001e64                PROVIDE (end, .)
-                0x0000000020001e64                PROVIDE (_end, .)
-                0x0000000020001e64                . = (. + _Min_Heap_Size)
-                0x0000000020002264                . = (. + _Min_Stack_Size)
- *fill*         0x0000000020001e64      0x400 00
-                0x0000000020002264                . = ALIGN (0x4)
+                0x0000000020001e6c      0x400 load address 0x0000000008015de4
+                0x0000000020001e6c                . = ALIGN (0x4)
+                0x0000000020001e6c                PROVIDE (end, .)
+                0x0000000020001e6c                PROVIDE (_end, .)
+                0x0000000020001e6c                . = (. + _Min_Heap_Size)
+                0x000000002000226c                . = (. + _Min_Stack_Size)
+ *fill*         0x0000000020001e6c      0x400 00
+                0x000000002000226c                . = ALIGN (0x4)
 
 .memory_b1_text
  *(.mb1text)
