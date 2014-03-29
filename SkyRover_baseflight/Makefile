@@ -23,6 +23,10 @@ OPTIONS		?=
 # Debugger optons, must be empty or GDB
 DEBUG ?=
 
+# BootLoader options.
+BOOT ?= 1
+
+
 # Serial port/Device for flashing
 SERIAL_DEVICE	?= /dev/ttyUSB0
 
@@ -163,14 +167,21 @@ BASE_CFLAGS	 = $(ARCH_FLAGS) \
 		   -fdata-sections \
 		   -DSTM32F10X_MD \
 		   -DUSE_STDPERIPH_DRIVER \
-		   -D$(TARGET)
+		   -D$(TARGET) \
+		   -DUSE_BOOT=$(BOOT)
 
 ASFLAGS		 = $(ARCH_FLAGS) \
 		   -x assembler-with-cpp \
 		   $(addprefix -I,$(INCLUDE_DIRS))
 
 # XXX Map/crossref output?
+
+ifeq ($(BOOT),1)
+LD_SCRIPT	 = $(ROOT)/stm32_flash_boot.ld
+else
 LD_SCRIPT	 = $(ROOT)/stm32_flash.ld
+endif
+
 LDFLAGS		 = -lm \
 		   $(ARCH_FLAGS) \
 		   -static \

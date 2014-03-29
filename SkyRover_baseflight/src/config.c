@@ -196,7 +196,7 @@ static void resetConf(void)
     mcfg.vbatmaxcellvoltage = 43;
     mcfg.vbatmincellvoltage = 33;
     mcfg.power_adc_channel = 0;
-    mcfg.serialrx_type = 0;
+    mcfg.serialrx_type = SERIALRX_HEXAIRBOT;    // HexAirBot
     mcfg.telemetry_softserial = 0;
     mcfg.telemetry_switch = 0;
     mcfg.midrc = 1500;

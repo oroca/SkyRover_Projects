@@ -1,0 +1,321 @@
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"Hw.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.Hw_Init,"ax",%progbits
+  19              		.align	2
+  20              		.global	Hw_Init
+  21              		.thumb
+  22              		.thumb_func
+  24              	Hw_Init:
+  25              	.LFB0:
+  26              		.file 1 "../LIB_HW/Core/Hw.c"
+   1:../LIB_HW/Core/Hw.c **** //----------------------------------------------------------------------------
+   2:../LIB_HW/Core/Hw.c **** //    프로그램명 	: Hw 관련 함수
+   3:../LIB_HW/Core/Hw.c **** //
+   4:../LIB_HW/Core/Hw.c **** //    만든이     	: 
+   5:../LIB_HW/Core/Hw.c **** //
+   6:../LIB_HW/Core/Hw.c **** //    날  짜     	: 
+   7:../LIB_HW/Core/Hw.c **** //    
+   8:../LIB_HW/Core/Hw.c **** //    최종 수정  	:
+   9:../LIB_HW/Core/Hw.c **** //
+  10:../LIB_HW/Core/Hw.c **** //    MPU_Type		:
+  11:../LIB_HW/Core/Hw.c **** //
+  12:../LIB_HW/Core/Hw.c **** //    파일명     	: Hw.c
+  13:../LIB_HW/Core/Hw.c **** //----------------------------------------------------------------------------
+  14:../LIB_HW/Core/Hw.c **** 
+  15:../LIB_HW/Core/Hw.c **** 
+  16:../LIB_HW/Core/Hw.c **** //----- 헤더파일 열기
+  17:../LIB_HW/Core/Hw.c **** //
+  18:../LIB_HW/Core/Hw.c **** #define  HW_LOCAL  
+  19:../LIB_HW/Core/Hw.c **** 
+  20:../LIB_HW/Core/Hw.c **** #include "Hw.h"
+  21:../LIB_HW/Core/Hw.c **** 
+  22:../LIB_HW/Core/Hw.c **** 
+  23:../LIB_HW/Core/Hw.c **** 
+  24:../LIB_HW/Core/Hw.c **** 
+  25:../LIB_HW/Core/Hw.c **** 
+  26:../LIB_HW/Core/Hw.c **** 
+  27:../LIB_HW/Core/Hw.c **** /*---------------------------------------------------------------------------
+  28:../LIB_HW/Core/Hw.c ****      TITLE   : Hw_Init
+  29:../LIB_HW/Core/Hw.c ****      WORK    : 
+  30:../LIB_HW/Core/Hw.c ****      ARG     : void
+  31:../LIB_HW/Core/Hw.c ****      RET     : void
+  32:../LIB_HW/Core/Hw.c **** ---------------------------------------------------------------------------*/
+  33:../LIB_HW/Core/Hw.c **** void Hw_Init( void )
+  34:../LIB_HW/Core/Hw.c **** {
+  27              		.loc 1 34 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 24
+  34              		.cfi_offset 3, -24
+  35              		.cfi_offset 4, -20
+  36              		.cfi_offset 5, -16
+  37              		.cfi_offset 6, -12
+  38              		.cfi_offset 7, -8
+  39              		.cfi_offset 14, -4
+  35:../LIB_HW/Core/Hw.c **** 	//-- PLL 설정
+  36:../LIB_HW/Core/Hw.c **** 	//
+  37:../LIB_HW/Core/Hw.c **** 	Hw_PLL_Init();
+  40              		.loc 1 37 0
+  41 0002 40F20003 		movw	r3, #:lower16:Hw_PLL_Init
+  42 0006 C0F20003 		movt	r3, #:upper16:Hw_PLL_Init
+  43 000a 9847     		blx	r3
+  44              	.LVL0:
+  38:../LIB_HW/Core/Hw.c **** 	
+  39:../LIB_HW/Core/Hw.c **** 	
+  40:../LIB_HW/Core/Hw.c **** 	//-- 인터럽트 관련 초기화
+  41:../LIB_HW/Core/Hw.c **** 	//
+  42:../LIB_HW/Core/Hw.c **** 	Hw_ISR_Init();
+  45              		.loc 1 42 0
+  46 000c 40F20000 		movw	r0, #:lower16:Hw_ISR_Init
+  47 0010 C0F20000 		movt	r0, #:upper16:Hw_ISR_Init
+  48 0014 8047     		blx	r0
+  49              	.LVL1:
+  43:../LIB_HW/Core/Hw.c **** 	
+  44:../LIB_HW/Core/Hw.c **** 		
+  45:../LIB_HW/Core/Hw.c **** 	//-- GPIO 기본값 설정
+  46:../LIB_HW/Core/Hw.c **** 	//
+  47:../LIB_HW/Core/Hw.c **** 	REG_GPIOA_CRL = 0x33333333;	// PA0 - 7
+  48:../LIB_HW/Core/Hw.c **** 	REG_GPIOA_CRH = 0x333334B3;	// PA8 - 15    //PA9,10,11,12는 가각 UART, USB에 할당됨
+  50              		.loc 1 48 0
+  51 0016 40F60406 		movw	r6, #2052
+  47:../LIB_HW/Core/Hw.c **** 	REG_GPIOA_CRL = 0x33333333;	// PA0 - 7
+  52              		.loc 1 47 0
+  53 001a 4FF4006E 		mov	lr, #2048
+  54              		.loc 1 48 0
+  55 001e 43F2B347 		movw	r7, #13491
+  49:../LIB_HW/Core/Hw.c **** 	REG_GPIOB_CRL = 0x33333333;	// PB0 - 7
+  56              		.loc 1 49 0
+  57 0022 4FF44065 		mov	r5, #3072
+  50:../LIB_HW/Core/Hw.c **** 	REG_GPIOB_CRH = 0x33333333;	// PB8 - 15
+  58              		.loc 1 50 0
+  59 0026 40F60444 		movw	r4, #3076
+  51:../LIB_HW/Core/Hw.c **** 	REG_GPIOC_CRH = 0x33444444;	// PC14, 15
+  60              		.loc 1 51 0
+  61 002a 41F20401 		movw	r1, #4100
+  62 002e 44F24440 		movw	r0, #17476
+  47:../LIB_HW/Core/Hw.c **** 	REG_GPIOA_CRL = 0x33333333;	// PA0 - 7
+  63              		.loc 1 47 0
+  64 0032 4FF03332 		mov	r2, #858993459
+  65 0036 C4F2010E 		movt	lr, 16385
+  66              		.loc 1 51 0
+  67 003a C3F24430 		movt	r0, 13124
+  68 003e C4F20101 		movt	r1, 16385
+  48:../LIB_HW/Core/Hw.c **** 	REG_GPIOA_CRH = 0x333334B3;	// PA8 - 15    //PA9,10,11,12는 가각 UART, USB에 할당됨
+  69              		.loc 1 48 0
+  70 0042 C4F20106 		movt	r6, 16385
+  71 0046 C3F23337 		movt	r7, 13107
+  49:../LIB_HW/Core/Hw.c **** 	REG_GPIOB_CRL = 0x33333333;	// PB0 - 7
+  72              		.loc 1 49 0
+  73 004a C4F20105 		movt	r5, 16385
+  50:../LIB_HW/Core/Hw.c **** 	REG_GPIOB_CRH = 0x33333333;	// PB8 - 15
+  74              		.loc 1 50 0
+  75 004e C4F20104 		movt	r4, 16385
+  52:../LIB_HW/Core/Hw.c **** 	
+  53:../LIB_HW/Core/Hw.c **** 	//Hw_DMA_Init();
+  54:../LIB_HW/Core/Hw.c **** 	Hw_Uart_Init();
+  76              		.loc 1 54 0
+  77 0052 40F20003 		movw	r3, #:lower16:Hw_Uart_Init
+  47:../LIB_HW/Core/Hw.c **** 	REG_GPIOA_CRL = 0x33333333;	// PA0 - 7
+  78              		.loc 1 47 0
+  79 0056 CEF80020 		str	r2, [lr, #0]
+  80              		.loc 1 54 0
+  81 005a C0F20003 		movt	r3, #:upper16:Hw_Uart_Init
+  48:../LIB_HW/Core/Hw.c **** 	REG_GPIOA_CRH = 0x333334B3;	// PA8 - 15    //PA9,10,11,12는 가각 UART, USB에 할당됨
+  82              		.loc 1 48 0
+  83 005e 3760     		str	r7, [r6, #0]
+  49:../LIB_HW/Core/Hw.c **** 	REG_GPIOB_CRL = 0x33333333;	// PB0 - 7
+  84              		.loc 1 49 0
+  85 0060 2A60     		str	r2, [r5, #0]
+  50:../LIB_HW/Core/Hw.c **** 	REG_GPIOB_CRH = 0x33333333;	// PB8 - 15
+  86              		.loc 1 50 0
+  87 0062 2260     		str	r2, [r4, #0]
+  51:../LIB_HW/Core/Hw.c **** 	REG_GPIOC_CRH = 0x33444444;	// PC14, 15
+  88              		.loc 1 51 0
+  89 0064 0860     		str	r0, [r1, #0]
+  90              		.loc 1 54 0
+  91 0066 9847     		blx	r3
+  92              	.LVL2:
+  55:../LIB_HW/Core/Hw.c **** 	Hw_Timer_Init();
+  93              		.loc 1 55 0
+  94 0068 40F20001 		movw	r1, #:lower16:Hw_Timer_Init
+  95 006c C0F20001 		movt	r1, #:upper16:Hw_Timer_Init
+  96 0070 8847     		blx	r1
+  97              	.LVL3:
+  56:../LIB_HW/Core/Hw.c **** 	//Hw_VCom_Init();
+  57:../LIB_HW/Core/Hw.c **** 	Hw_Led_Init();	
+  98              		.loc 1 57 0
+  99 0072 40F20000 		movw	r0, #:lower16:Hw_Led_Init
+ 100 0076 C0F20000 		movt	r0, #:upper16:Hw_Led_Init
+ 101 007a 8047     		blx	r0
+ 102              	.LVL4:
+ 103 007c F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 104              		.cfi_endproc
+ 105              	.LFE0:
+ 107 007e 00BF     		.section	.text.Hw_Wait,"ax",%progbits
+ 108              		.align	2
+ 109              		.global	Hw_Wait
+ 110              		.thumb
+ 111              		.thumb_func
+ 113              	Hw_Wait:
+ 114              	.LFB1:
+  58:../LIB_HW/Core/Hw.c **** }
+  59:../LIB_HW/Core/Hw.c **** 
+  60:../LIB_HW/Core/Hw.c **** 
+  61:../LIB_HW/Core/Hw.c **** 
+  62:../LIB_HW/Core/Hw.c **** 
+  63:../LIB_HW/Core/Hw.c **** 
+  64:../LIB_HW/Core/Hw.c **** /*---------------------------------------------------------------------------
+  65:../LIB_HW/Core/Hw.c ****      TITLE   : Hw_Wait
+  66:../LIB_HW/Core/Hw.c ****      WORK    : 
+  67:../LIB_HW/Core/Hw.c ****      ARG     : void
+  68:../LIB_HW/Core/Hw.c ****      RET     : void
+  69:../LIB_HW/Core/Hw.c **** ---------------------------------------------------------------------------*/
+  70:../LIB_HW/Core/Hw.c **** void Hw_Wait( u32 delay )
+  71:../LIB_HW/Core/Hw.c **** {
+ 115              		.loc 1 71 0
+ 116              		.cfi_startproc
+ 117              		@ args = 0, pretend = 0, frame = 8
+ 118              		@ frame_needed = 0, uses_anonymous_args = 0
+ 119              		@ link register save eliminated.
+ 120              	.LVL5:
+ 121 0000 82B0     		sub	sp, sp, #8
+ 122              	.LCFI1:
+ 123              		.cfi_def_cfa_offset 8
+  72:../LIB_HW/Core/Hw.c ****     volatile u32 i;
+  73:../LIB_HW/Core/Hw.c ****     for ( i = 0 ; i < delay ; i++ ){ };
+ 124              		.loc 1 73 0
+ 125 0002 0023     		movs	r3, #0
+ 126 0004 0193     		str	r3, [sp, #4]
+ 127              	.LVL6:
+ 128 0006 0199     		ldr	r1, [sp, #4]
+ 129 0008 8842     		cmp	r0, r1
+ 130 000a 05D9     		bls	.L2
+ 131              	.L5:
+ 132 000c 019A     		ldr	r2, [sp, #4]
+ 133 000e 531C     		adds	r3, r2, #1
+ 134              	.LVL7:
+ 135 0010 0193     		str	r3, [sp, #4]
+ 136              	.LVL8:
+ 137 0012 0199     		ldr	r1, [sp, #4]
+ 138 0014 8142     		cmp	r1, r0
+ 139 0016 F9D3     		bcc	.L5
+ 140              	.L2:
+  74:../LIB_HW/Core/Hw.c **** }
+ 141              		.loc 1 74 0
+ 142 0018 02B0     		add	sp, sp, #8
+ 143 001a 7047     		bx	lr
+ 144              		.cfi_endproc
+ 145              	.LFE1:
+ 147              		.section	.text.Hw_Wait_Usec,"ax",%progbits
+ 148              		.align	2
+ 149              		.global	Hw_Wait_Usec
+ 150              		.thumb
+ 151              		.thumb_func
+ 153              	Hw_Wait_Usec:
+ 154              	.LFB2:
+  75:../LIB_HW/Core/Hw.c **** 
+  76:../LIB_HW/Core/Hw.c **** 
+  77:../LIB_HW/Core/Hw.c **** 
+  78:../LIB_HW/Core/Hw.c **** 
+  79:../LIB_HW/Core/Hw.c **** 
+  80:../LIB_HW/Core/Hw.c **** /*---------------------------------------------------------------------------
+  81:../LIB_HW/Core/Hw.c ****      TITLE   : Hw_Wait_Usec
+  82:../LIB_HW/Core/Hw.c ****      WORK    : 
+  83:../LIB_HW/Core/Hw.c ****      ARG     : void
+  84:../LIB_HW/Core/Hw.c ****      RET     : void
+  85:../LIB_HW/Core/Hw.c **** ---------------------------------------------------------------------------*/
+  86:../LIB_HW/Core/Hw.c **** void Hw_Wait_Usec( u32 usec )
+  87:../LIB_HW/Core/Hw.c **** {
+ 155              		.loc 1 87 0
+ 156              		.cfi_startproc
+ 157              		@ args = 0, pretend = 0, frame = 8
+ 158              		@ frame_needed = 0, uses_anonymous_args = 0
+ 159              		@ link register save eliminated.
+ 160              	.LVL9:
+ 161 0000 82B0     		sub	sp, sp, #8
+ 162              	.LCFI2:
+ 163              		.cfi_def_cfa_offset 8
+ 164              	.LBB4:
+ 165              	.LBB5:
+  73:../LIB_HW/Core/Hw.c ****     for ( i = 0 ; i < delay ; i++ ){ };
+ 166              		.loc 1 73 0
+ 167 0002 0023     		movs	r3, #0
+ 168 0004 0193     		str	r3, [sp, #4]
+ 169              	.LVL10:
+ 170              	.LBE5:
+ 171              	.LBE4:
+  88:../LIB_HW/Core/Hw.c ****     Hw_Wait( usec * 6 );
+ 172              		.loc 1 88 0
+ 173 0006 00EB4000 		add	r0, r0, r0, lsl #1
+ 174              	.LVL11:
+ 175              	.LBB8:
+ 176              	.LBB6:
+  73:../LIB_HW/Core/Hw.c ****     for ( i = 0 ; i < delay ; i++ ){ };
+ 177              		.loc 1 73 0
+ 178 000a 0199     		ldr	r1, [sp, #4]
+ 179              	.LBE6:
+ 180              	.LBE8:
+ 181              		.loc 1 88 0
+ 182 000c 4200     		lsls	r2, r0, #1
+ 183              	.LVL12:
+ 184              	.LBB9:
+ 185              	.LBB7:
+  73:../LIB_HW/Core/Hw.c ****     for ( i = 0 ; i < delay ; i++ ){ };
+ 186              		.loc 1 73 0
+ 187 000e 8A42     		cmp	r2, r1
+ 188 0010 05D9     		bls	.L8
+ 189              	.L11:
+ 190 0012 019B     		ldr	r3, [sp, #4]
+ 191 0014 581C     		adds	r0, r3, #1
+ 192              	.LVL13:
+ 193 0016 0190     		str	r0, [sp, #4]
+ 194              	.LVL14:
+ 195 0018 0199     		ldr	r1, [sp, #4]
+ 196 001a 8A42     		cmp	r2, r1
+ 197 001c F9D8     		bhi	.L11
+ 198              	.L8:
+ 199              	.LBE7:
+ 200              	.LBE9:
+  89:../LIB_HW/Core/Hw.c **** }
+ 201              		.loc 1 89 0
+ 202 001e 02B0     		add	sp, sp, #8
+ 203 0020 7047     		bx	lr
+ 204              		.cfi_endproc
+ 205              	.LFE2:
+ 207 0022 00BF     		.text
+ 208              	.Letext0:
+ 209              		.file 2 "../LIB_HW/Core/Hw_Define.h"
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 Hw.c
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//cc6JFko2.s:19     .text.Hw_Init:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//cc6JFko2.s:24     .text.Hw_Init:0000000000000000 Hw_Init
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//cc6JFko2.s:108    .text.Hw_Wait:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//cc6JFko2.s:113    .text.Hw_Wait:0000000000000000 Hw_Wait
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//cc6JFko2.s:148    .text.Hw_Wait_Usec:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//cc6JFko2.s:153    .text.Hw_Wait_Usec:0000000000000000 Hw_Wait_Usec
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+Hw_PLL_Init
+Hw_ISR_Init
+Hw_Uart_Init
+Hw_Timer_Init
+Hw_Led_Init

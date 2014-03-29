@@ -196,6 +196,7 @@ void annexCode(void)
         if (!f.SMALL_ANGLES_25) {
             f.ACC_CALIBRATED = 0; // the multi uses ACC and is not calibrated or is too much inclinated
             LED0_TOGGLE;
+            //DEBUG_PRINT("LED\r\n");
             calibratedAccTime = currentTime + 500000;
         } else {
             f.ACC_CALIBRATED = 1;

@@ -304,6 +304,7 @@ static void evaluateCommand(void)
     //
    #if defined(SKYROVER)
    case MSP_SET_RAW_RC_TINY:
+
      for(i = 0;i < 4;i++) 
      {
        serialRcValue[i] = 1000 + read8() * 4;

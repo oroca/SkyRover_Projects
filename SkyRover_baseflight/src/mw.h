@@ -459,6 +459,10 @@ bool sbusFrameComplete(void);
 void sumdInit(rcReadRawDataPtr *callback);
 bool sumdFrameComplete(void);
 
+// HexAirBot
+void hexairbotInit(rcReadRawDataPtr *callback);
+bool hexairbotFrameComplete(void);
+
 // buzzer
 void buzzer(uint8_t warn_vbat);
 void systemBeep(bool onoff);
