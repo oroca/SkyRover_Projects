@@ -173,7 +173,7 @@ int main(void)
     calibratingB = CALIBRATING_BARO_CYCLES;             // 10 seconds init_delay + 200 * 25 ms = 15 seconds before ground pressure settles
     f.SMALL_ANGLES_25 = 1;
 
-    serialPrint(core.mainport , "Start\n");
+    DEBUG_PRINT("Start\r\n");
 
     // loopy
     while (1) {

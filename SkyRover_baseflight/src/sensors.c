@@ -109,6 +109,10 @@ retry:
             // if both failed, we don't have anything
             sensorsClear(SENSOR_BARO);
         }
+        else
+        {
+            DEBUG_PRINT("BMP085 Detected\n\r");       
+        }
     }
     else
     {

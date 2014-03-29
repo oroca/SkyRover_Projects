@@ -170,7 +170,8 @@ static void resetConf(void)
     mcfg.mixerConfiguration = MULTITYPE_QUADX;
     featureClearAll();    
     
-    featureSet(FEATURE_SERIALRX);
+    featureSet(FEATURE_SERIALRX);       // 시리얼포트로 HexAirBot 인터페이스 수신을 위해 
+    featureSet(FEATURE_MOTOR_STOP);     // DC Brushed 모터 사용시 모터 정지시 PWM값을 0으로 하기 위해
 
 
     // global settings
