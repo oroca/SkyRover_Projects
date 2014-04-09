@@ -1817,7 +1817,7 @@ LOAD /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000     0xc050
+.debug_info     0x0000000000000000     0xc062
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000     0x1fda main.o
  .debug_info    0x0000000000001fda      0xb67 stm32f10x_it.o
@@ -1834,14 +1834,14 @@ LOAD /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib
  .debug_info    0x0000000000006a87     0x2169 lib/libstm32.a(stm32f10x_tim.o)
  .debug_info    0x0000000000008bf0      0x231 lib/libstm32.a(stm32f10x_systick.o)
  .debug_info    0x0000000000008e21      0xaf4 lib/libstm32.a(stm32f10x_usart.o)
- .debug_info    0x0000000000009915       0x7b lib/libstm32.a(cortexm3_macro.o)
- .debug_info    0x0000000000009990      0x10a lib/libstm32.a(stm32f10x_vector.o)
- .debug_info    0x0000000000009a9a      0x45e lib/libstm32.a(usb_init.o)
- .debug_info    0x0000000000009ef8      0xef3 lib/libstm32.a(usb_core.o)
- .debug_info    0x000000000000adeb      0x189 lib/libstm32.a(usb_mem.o)
- .debug_info    0x000000000000af74      0xd9f lib/libstm32.a(usb_regs.o)
- .debug_info    0x000000000000bd13      0x17d lib/libstm32.a(usb_sil.o)
- .debug_info    0x000000000000be90      0x1c0 lib/libstm32.a(usb_int.o)
+ .debug_info    0x0000000000009915       0x8d lib/libstm32.a(cortexm3_macro.o)
+ .debug_info    0x00000000000099a2      0x10a lib/libstm32.a(stm32f10x_vector.o)
+ .debug_info    0x0000000000009aac      0x45e lib/libstm32.a(usb_init.o)
+ .debug_info    0x0000000000009f0a      0xef3 lib/libstm32.a(usb_core.o)
+ .debug_info    0x000000000000adfd      0x189 lib/libstm32.a(usb_mem.o)
+ .debug_info    0x000000000000af86      0xd9f lib/libstm32.a(usb_regs.o)
+ .debug_info    0x000000000000bd25      0x17d lib/libstm32.a(usb_sil.o)
+ .debug_info    0x000000000000bea2      0x1c0 lib/libstm32.a(usb_int.o)
 
 .debug_abbrev   0x0000000000000000     0x2993
  *(.debug_abbrev)
@@ -1919,52 +1919,52 @@ LOAD /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib
  .debug_frame   0x0000000000002038       0x3c lib/libstm32.a(usb_sil.o)
  .debug_frame   0x0000000000002074       0x48 lib/libstm32.a(usb_int.o)
 
-.debug_str      0x0000000000000000     0x3d76
+.debug_str      0x0000000000000000     0x3d88
  *(.debug_str)
- .debug_str     0x0000000000000000      0xcb3 main.o
-                                        0xd42 (size before relaxing)
- .debug_str     0x0000000000000cb3      0x56c stm32f10x_it.o
-                                        0x7e8 (size before relaxing)
- .debug_str     0x000000000000121f       0xc8 usb_desc.o
-                                        0x1a6 (size before relaxing)
- .debug_str     0x00000000000012e7       0xa4 usb_endp.o
-                                        0x31a (size before relaxing)
- .debug_str     0x000000000000138b      0x101 usb_istr.o
-                                        0x254 (size before relaxing)
- .debug_str     0x000000000000148c      0x595 usb_prop.o
-                                        0x973 (size before relaxing)
- .debug_str     0x0000000000001a21       0xe6 USBInit.o
-                                        0x31a (size before relaxing)
- .debug_str     0x0000000000001b07      0x2d4 lib/libstm32.a(stm32f10x_flash.o)
-                                        0x4d5 (size before relaxing)
- .debug_str     0x0000000000001ddb       0x82 lib/libstm32.a(stm32f10x_iwdg.o)
-                                        0x1bc (size before relaxing)
- .debug_str     0x0000000000001e5d      0x1c8 lib/libstm32.a(stm32f10x_gpio.o)
-                                        0x44a (size before relaxing)
- .debug_str     0x0000000000002025      0x476 lib/libstm32.a(stm32f10x_nvic.o)
-                                        0x6aa (size before relaxing)
- .debug_str     0x000000000000249b      0x2fd lib/libstm32.a(stm32f10x_rcc.o)
-                                        0x57a (size before relaxing)
- .debug_str     0x0000000000002798      0x9d8 lib/libstm32.a(stm32f10x_tim.o)
-                                        0xd6b (size before relaxing)
- .debug_str     0x0000000000003170       0xac lib/libstm32.a(stm32f10x_systick.o)
-                                        0x21f (size before relaxing)
- .debug_str     0x000000000000321c      0x2ba lib/libstm32.a(stm32f10x_usart.o)
-                                        0x615 (size before relaxing)
- .debug_str     0x00000000000034d6       0x6f lib/libstm32.a(stm32f10x_vector.o)
-                                        0x112 (size before relaxing)
- .debug_str     0x0000000000003545       0x4f lib/libstm32.a(usb_init.o)
-                                        0x49a (size before relaxing)
- .debug_str     0x0000000000003594      0x425 lib/libstm32.a(usb_core.o)
-                                        0xa3d (size before relaxing)
- .debug_str     0x00000000000039b9       0x4a lib/libstm32.a(usb_mem.o)
-                                        0x150 (size before relaxing)
- .debug_str     0x0000000000003a03      0x30f lib/libstm32.a(usb_regs.o)
-                                        0x4d8 (size before relaxing)
- .debug_str     0x0000000000003d12       0x3c lib/libstm32.a(usb_sil.o)
-                                        0x171 (size before relaxing)
- .debug_str     0x0000000000003d4e       0x28 lib/libstm32.a(usb_int.o)
-                                        0x177 (size before relaxing)
+ .debug_str     0x0000000000000000      0xcc5 main.o
+                                        0xd54 (size before relaxing)
+ .debug_str     0x0000000000000cc5      0x56c stm32f10x_it.o
+                                        0x7fa (size before relaxing)
+ .debug_str     0x0000000000001231       0xc8 usb_desc.o
+                                        0x1b8 (size before relaxing)
+ .debug_str     0x00000000000012f9       0xa4 usb_endp.o
+                                        0x32c (size before relaxing)
+ .debug_str     0x000000000000139d      0x101 usb_istr.o
+                                        0x266 (size before relaxing)
+ .debug_str     0x000000000000149e      0x595 usb_prop.o
+                                        0x985 (size before relaxing)
+ .debug_str     0x0000000000001a33       0xe6 USBInit.o
+                                        0x32c (size before relaxing)
+ .debug_str     0x0000000000001b19      0x2d4 lib/libstm32.a(stm32f10x_flash.o)
+                                        0x4e7 (size before relaxing)
+ .debug_str     0x0000000000001ded       0x82 lib/libstm32.a(stm32f10x_iwdg.o)
+                                        0x1ce (size before relaxing)
+ .debug_str     0x0000000000001e6f      0x1c8 lib/libstm32.a(stm32f10x_gpio.o)
+                                        0x45c (size before relaxing)
+ .debug_str     0x0000000000002037      0x476 lib/libstm32.a(stm32f10x_nvic.o)
+                                        0x6bc (size before relaxing)
+ .debug_str     0x00000000000024ad      0x2fd lib/libstm32.a(stm32f10x_rcc.o)
+                                        0x58c (size before relaxing)
+ .debug_str     0x00000000000027aa      0x9d8 lib/libstm32.a(stm32f10x_tim.o)
+                                        0xd7d (size before relaxing)
+ .debug_str     0x0000000000003182       0xac lib/libstm32.a(stm32f10x_systick.o)
+                                        0x231 (size before relaxing)
+ .debug_str     0x000000000000322e      0x2ba lib/libstm32.a(stm32f10x_usart.o)
+                                        0x627 (size before relaxing)
+ .debug_str     0x00000000000034e8       0x6f lib/libstm32.a(stm32f10x_vector.o)
+                                        0x124 (size before relaxing)
+ .debug_str     0x0000000000003557       0x4f lib/libstm32.a(usb_init.o)
+                                        0x4ac (size before relaxing)
+ .debug_str     0x00000000000035a6      0x425 lib/libstm32.a(usb_core.o)
+                                        0xa4f (size before relaxing)
+ .debug_str     0x00000000000039cb       0x4a lib/libstm32.a(usb_mem.o)
+                                        0x162 (size before relaxing)
+ .debug_str     0x0000000000003a15      0x30f lib/libstm32.a(usb_regs.o)
+                                        0x4ea (size before relaxing)
+ .debug_str     0x0000000000003d24       0x3c lib/libstm32.a(usb_sil.o)
+                                        0x183 (size before relaxing)
+ .debug_str     0x0000000000003d60       0x28 lib/libstm32.a(usb_int.o)
+                                        0x189 (size before relaxing)
 
 .debug_loc      0x0000000000000000     0x7363
  *(.debug_loc)

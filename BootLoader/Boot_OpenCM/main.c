@@ -591,7 +591,8 @@ void SerialMonitor(void)
 				MemoryProgramStatus = PASSED;
 
 				gwAddressPointer = FLASH_START_ADDRESS;
-				gwEndAddressPointer = FLASH_START_ADDRESS + 0xF800;
+				//gwEndAddressPointer = FLASH_START_ADDRESS + 0xF800;
+				gwEndAddressPointer = FLASH_START_ADDRESS + FLASH_FW_SIZE;
 
 #ifdef DEBUG_ENABLE_BY_USART2
 				TxDString("gwAddressPointer =");
@@ -636,7 +637,7 @@ void SerialMonitor(void)
 				for(EraseCounter = 0; (EraseCounter < NbrOfPage) && (FLASHStatus == FLASH_COMPLETE) ; EraseCounter++)
 				{
 					//u16 percent;
-					if( (gwAddressPointer + (FLASH_PAGE_SIZE * EraseCounter)) > 0x0800F000)
+					if( (gwAddressPointer + (FLASH_PAGE_SIZE * EraseCounter)) > FLASH_END_ADDRESS )
 						break;
 					FLASHStatus = FLASH_ErasePage(gwAddressPointer + (FLASH_PAGE_SIZE * EraseCounter));
 					TxDHex32(gwAddressPointer + (FLASH_PAGE_SIZE * EraseCounter));
