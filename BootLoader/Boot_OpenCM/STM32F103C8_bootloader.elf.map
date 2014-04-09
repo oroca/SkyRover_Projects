@@ -1,0 +1,2820 @@
+Archive member included because of file (symbol)
+
+lib/libstm32.a(stm32f10x_flash.o)
+                              main.o (FLASH_SetLatency)
+lib/libstm32.a(stm32f10x_iwdg.o)
+                              main.o (IWDG_WriteAccessCmd)
+lib/libstm32.a(stm32f10x_gpio.o)
+                              main.o (GPIO_Init)
+lib/libstm32.a(stm32f10x_nvic.o)
+                              main.o (NVIC_PriorityGroupConfig)
+lib/libstm32.a(stm32f10x_rcc.o)
+                              main.o (RCC_DeInit)
+lib/libstm32.a(stm32f10x_tim.o)
+                              main.o (TIM_TimeBaseInit)
+lib/libstm32.a(stm32f10x_systick.o)
+                              main.o (SysTick_SetReload)
+lib/libstm32.a(stm32f10x_usart.o)
+                              main.o (USART_DeInit)
+lib/libstm32.a(cortexm3_macro.o)
+                              lib/libstm32.a(stm32f10x_nvic.o) (__DSB)
+lib/libstm32.a(stm32f10x_vector.o)
+                              (Reset_Handler)
+lib/libstm32.a(usb_init.o)    main.o (USB_Init)
+lib/libstm32.a(usb_core.o)    usb_prop.o (Standard_GetDescriptorData)
+lib/libstm32.a(usb_mem.o)     USBInit.o (UserToPMABufferCopy)
+lib/libstm32.a(usb_regs.o)    usb_prop.o (SetBTABLE)
+lib/libstm32.a(usb_sil.o)     usb_prop.o (USB_SIL_Init)
+lib/libstm32.a(usb_int.o)     usb_istr.o (CTR_LP)
+/Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-__atexit.o)
+                              /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/crt0.o (__register_exitproc)
+/Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-exit.o)
+                              /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/crt0.o (exit)
+/Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-fini.o)
+                              /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/crt0.o (__libc_fini_array)
+/Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-impure.o)
+                              /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-__atexit.o) (_global_impure_ptr)
+/Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-init.o)
+                              /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/crt0.o (__libc_init_array)
+/Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-memset.o)
+                              /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/crt0.o (memset)
+/Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-__call_atexit.o)
+                              /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-exit.o) (__call_exitprocs)
+/Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-atexit.o)
+                              /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-__call_atexit.o) (atexit)
+
+Allocating common symbols
+Common symbol       size              file
+
+SaveRState          0x2               lib/libstm32.a(usb_int.o)
+HSEStartUpStatus    0x1               main.o
+gbDXLReadPointer    0x1               main.o
+SaveState           0x2               lib/libstm32.a(usb_init.o)
+wIstr               0x2               usb_istr.o
+pProperty           0x4               lib/libstm32.a(usb_init.o)
+EPindex             0x1               lib/libstm32.a(usb_init.o)
+TimingDelay         0x4               main.o
+SaveTState          0x2               lib/libstm32.a(usb_int.o)
+Device_Info         0x1c              lib/libstm32.a(usb_init.o)
+pUser_Standard_Requests
+                    0x4               lib/libstm32.a(usb_init.o)
+gwUSARTWritePtr     0x2               main.o
+USB_Rx_Buffer       0x40              usb_endp.o
+StatusInfo          0x2               lib/libstm32.a(usb_core.o)
+pInformation        0x4               lib/libstm32.a(usb_init.o)
+gbpRxBuffer         0x51              main.o
+gwUSARTReadPtr      0x2               main.o
+USART_InitStructure
+                    0x10              main.o
+gwpUSARTBuffer      0x400             main.o
+gbpDXLDataBuffer    0x100             main.o
+gbDXLWritePointer   0x1               main.o
+wInterrupt_Mask     0x2               lib/libstm32.a(usb_init.o)
+
+Discarded input sections
+
+ .text          0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crti.o
+ .data          0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crti.o
+ .bss           0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crti.o
+ .init          0x0000000000000000        0xc /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crti.o
+ .fini          0x0000000000000000        0xc /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crti.o
+ .ARM.attributes
+                0x0000000000000000       0x16 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crti.o
+ .text          0x0000000000000000       0x94 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crtbegin.o
+ .data          0x0000000000000000        0x4 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crtbegin.o
+ .bss           0x0000000000000000       0x1c /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crtbegin.o
+ .init_array    0x0000000000000000        0x4 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crtbegin.o
+ .fini_array    0x0000000000000000        0x4 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crtbegin.o
+ .eh_frame      0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crtbegin.o
+ .jcr           0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crtbegin.o
+ .ARM.attributes
+                0x0000000000000000       0x30 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crtbegin.o
+ .text          0x0000000000000000      0x110 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/crt0.o
+ .data          0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/crt0.o
+ .bss           0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/crt0.o
+ .ARM.extab     0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/crt0.o
+ .ARM.exidx     0x0000000000000000        0x8 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/crt0.o
+ .ARM.attributes
+                0x0000000000000000       0x14 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/crt0.o
+ .text          0x0000000000000000        0x0 main.o
+ .text.ClearBuffer256
+                0x0000000000000000       0x14 main.o
+ .text.dxl_get_baudrate
+                0x0000000000000000       0x30 main.o
+ .text.TxD_Dec_U8
+                0x0000000000000000       0x42 main.o
+ .text.USB_TxD_Dec_U8
+                0x0000000000000000       0x42 main.o
+ .text.USB_TxDHex8
+                0x0000000000000000       0x30 main.o
+ .text.USB_TxDHex16
+                0x0000000000000000       0x14 main.o
+ .text.USB_TxDHex32
+                0x0000000000000000       0x14 main.o
+ .text.RxDBufferFromHost
+                0x0000000000000000       0x20 main.o
+ .text          0x0000000000000000        0x0 stm32f10x_it.o
+ .data          0x0000000000000000        0x0 stm32f10x_it.o
+ .text.DMA1_Channel1_IRQHandler
+                0x0000000000000000        0x2 stm32f10x_it.o
+ .text.DMA1_Channel2_IRQHandler
+                0x0000000000000000        0x2 stm32f10x_it.o
+ .text.DMA1_Channel3_IRQHandler
+                0x0000000000000000        0x2 stm32f10x_it.o
+ .text.DMA1_Channel4_IRQHandler
+                0x0000000000000000        0x2 stm32f10x_it.o
+ .text.DMA1_Channel5_IRQHandler
+                0x0000000000000000        0x2 stm32f10x_it.o
+ .text.DMA1_Channel6_IRQHandler
+                0x0000000000000000        0x2 stm32f10x_it.o
+ .text.DMA1_Channel7_IRQHandler
+                0x0000000000000000        0x2 stm32f10x_it.o
+ .text          0x0000000000000000        0x0 usb_desc.o
+ .bss           0x0000000000000000        0x0 usb_desc.o
+ .text          0x0000000000000000        0x0 usb_endp.o
+ .data          0x0000000000000000        0x0 usb_endp.o
+ .text.SOF_Callback
+                0x0000000000000000       0x24 usb_endp.o
+ .text          0x0000000000000000        0x0 usb_istr.o
+ .text          0x0000000000000000        0x0 usb_prop.o
+ .text          0x0000000000000000        0x0 USBInit.o
+ .data          0x0000000000000000        0x0 USBInit.o
+ .text.UsbVcpConnect
+                0x0000000000000000        0x4 USBInit.o
+ .text          0x0000000000000000        0x0 lib/libstm32.a(stm32f10x_flash.o)
+ .data          0x0000000000000000        0x0 lib/libstm32.a(stm32f10x_flash.o)
+ .bss           0x0000000000000000        0x0 lib/libstm32.a(stm32f10x_flash.o)
+ .text.FLASH_HalfCycleAccessCmd
+                0x0000000000000000       0x18 lib/libstm32.a(stm32f10x_flash.o)
+ .text.FLASH_GetUserOptionByte
+                0x0000000000000000        0xc lib/libstm32.a(stm32f10x_flash.o)
+ .text.FLASH_GetWriteProtectionOptionByte
+                0x0000000000000000        0xc lib/libstm32.a(stm32f10x_flash.o)
+ .text.FLASH_GetReadOutProtectionStatus
+                0x0000000000000000       0x10 lib/libstm32.a(stm32f10x_flash.o)
+ .text.FLASH_GetPrefetchBufferStatus
+                0x0000000000000000       0x10 lib/libstm32.a(stm32f10x_flash.o)
+ .text.FLASH_ITConfig
+                0x0000000000000000       0x18 lib/libstm32.a(stm32f10x_flash.o)
+ .text.FLASH_GetFlagStatus
+                0x0000000000000000       0x20 lib/libstm32.a(stm32f10x_flash.o)
+ .text.FLASH_UserOptionByteConfig
+                0x0000000000000000       0x54 lib/libstm32.a(stm32f10x_flash.o)
+ .text.FLASH_ReadOutProtection
+                0x0000000000000000       0x90 lib/libstm32.a(stm32f10x_flash.o)
+ .text.FLASH_EnableWriteProtection
+                0x0000000000000000       0x9c lib/libstm32.a(stm32f10x_flash.o)
+ .text.FLASH_ProgramOptionByteData
+                0x0000000000000000       0x44 lib/libstm32.a(stm32f10x_flash.o)
+ .text.FLASH_ProgramHalfWord
+                0x0000000000000000       0x38 lib/libstm32.a(stm32f10x_flash.o)
+ .text.FLASH_EraseOptionBytes
+                0x0000000000000000       0x74 lib/libstm32.a(stm32f10x_flash.o)
+ .text.FLASH_EraseAllPages
+                0x0000000000000000       0x3c lib/libstm32.a(stm32f10x_flash.o)
+ .text          0x0000000000000000        0x0 lib/libstm32.a(stm32f10x_iwdg.o)
+ .data          0x0000000000000000        0x0 lib/libstm32.a(stm32f10x_iwdg.o)
+ .bss           0x0000000000000000        0x0 lib/libstm32.a(stm32f10x_iwdg.o)
+ .text.IWDG_ReloadCounter
+                0x0000000000000000       0x10 lib/libstm32.a(stm32f10x_iwdg.o)
+ .text.IWDG_Enable
+                0x0000000000000000       0x10 lib/libstm32.a(stm32f10x_iwdg.o)
+ .text.IWDG_GetFlagStatus
+                0x0000000000000000       0x14 lib/libstm32.a(stm32f10x_iwdg.o)
+ .text          0x0000000000000000        0x0 lib/libstm32.a(stm32f10x_gpio.o)
+ .data          0x0000000000000000        0x0 lib/libstm32.a(stm32f10x_gpio.o)
+ .bss           0x0000000000000000        0x0 lib/libstm32.a(stm32f10x_gpio.o)
+ .text.GPIO_DeInit
+                0x0000000000000000       0xa4 lib/libstm32.a(stm32f10x_gpio.o)
+ .text.GPIO_AFIODeInit
+                0x0000000000000000       0x16 lib/libstm32.a(stm32f10x_gpio.o)
+ .text.GPIO_StructInit
+                0x0000000000000000       0x10 lib/libstm32.a(stm32f10x_gpio.o)
+ .text.GPIO_ReadInputData
+                0x0000000000000000        0x6 lib/libstm32.a(stm32f10x_gpio.o)
+ .text.GPIO_ReadOutputDataBit
+                0x0000000000000000        0xc lib/libstm32.a(stm32f10x_gpio.o)
+ .text.GPIO_ReadOutputData
+                0x0000000000000000        0x6 lib/libstm32.a(stm32f10x_gpio.o)
+ .text.GPIO_WriteBit
+                0x0000000000000000        0xa lib/libstm32.a(stm32f10x_gpio.o)
+ .text.GPIO_Write
+                0x0000000000000000        0x4 lib/libstm32.a(stm32f10x_gpio.o)
+ .text.GPIO_PinLockConfig
+                0x0000000000000000       0x10 lib/libstm32.a(stm32f10x_gpio.o)
+ .text.GPIO_EventOutputConfig
+                0x0000000000000000       0x1c lib/libstm32.a(stm32f10x_gpio.o)
+ .text.GPIO_EventOutputCmd
+                0x0000000000000000        0xc lib/libstm32.a(stm32f10x_gpio.o)
+ .text.GPIO_EXTILineConfig
+                0x0000000000000000       0x34 lib/libstm32.a(stm32f10x_gpio.o)
+ .text          0x0000000000000000        0x0 lib/libstm32.a(stm32f10x_nvic.o)
+ .data          0x0000000000000000        0x0 lib/libstm32.a(stm32f10x_nvic.o)
+ .bss           0x0000000000000000        0x0 lib/libstm32.a(stm32f10x_nvic.o)
+ .text.NVIC_DeInit
+                0x0000000000000000       0x34 lib/libstm32.a(stm32f10x_nvic.o)
+ .text.NVIC_SCBDeInit
+                0x0000000000000000       0x30 lib/libstm32.a(stm32f10x_nvic.o)
+ .text.NVIC_StructInit
+                0x0000000000000000        0xc lib/libstm32.a(stm32f10x_nvic.o)
+ .text.NVIC_SETPRIMASK
+                0x0000000000000000        0x4 lib/libstm32.a(stm32f10x_nvic.o)
+ .text.NVIC_RESETPRIMASK
+                0x0000000000000000        0x4 lib/libstm32.a(stm32f10x_nvic.o)
+ .text.NVIC_SETFAULTMASK
+                0x0000000000000000        0x4 lib/libstm32.a(stm32f10x_nvic.o)
+ .text.NVIC_RESETFAULTMASK
+                0x0000000000000000        0x4 lib/libstm32.a(stm32f10x_nvic.o)
+ .text.NVIC_BASEPRICONFIG
+                0x0000000000000000        0x6 lib/libstm32.a(stm32f10x_nvic.o)
+ .text.NVIC_GetBASEPRI
+                0x0000000000000000        0x4 lib/libstm32.a(stm32f10x_nvic.o)
+ .text.NVIC_GetCurrentPendingIRQChannel
+                0x0000000000000000       0x10 lib/libstm32.a(stm32f10x_nvic.o)
+ .text.NVIC_GetIRQChannelPendingBitStatus
+                0x0000000000000000       0x24 lib/libstm32.a(stm32f10x_nvic.o)
+ .text.NVIC_SetIRQChannelPendingBit
+                0x0000000000000000        0xc lib/libstm32.a(stm32f10x_nvic.o)
+ .text.NVIC_ClearIRQChannelPendingBit
+                0x0000000000000000       0x1c lib/libstm32.a(stm32f10x_nvic.o)
+ .text.NVIC_GetCurrentActiveHandler
+                0x0000000000000000       0x10 lib/libstm32.a(stm32f10x_nvic.o)
+ .text.NVIC_GetIRQChannelActiveBitStatus
+                0x0000000000000000       0x24 lib/libstm32.a(stm32f10x_nvic.o)
+ .text.NVIC_GetCPUID
+                0x0000000000000000        0xc lib/libstm32.a(stm32f10x_nvic.o)
+ .text.NVIC_GenerateCoreReset
+                0x0000000000000000       0x10 lib/libstm32.a(stm32f10x_nvic.o)
+ .text.NVIC_SystemLPConfig
+                0x0000000000000000       0x18 lib/libstm32.a(stm32f10x_nvic.o)
+ .text.NVIC_SystemHandlerConfig
+                0x0000000000000000       0x20 lib/libstm32.a(stm32f10x_nvic.o)
+ .text.NVIC_SystemHandlerPriorityConfig
+                0x0000000000000000       0x50 lib/libstm32.a(stm32f10x_nvic.o)
+ .text.NVIC_GetSystemHandlerPendingBitStatus
+                0x0000000000000000       0x1c lib/libstm32.a(stm32f10x_nvic.o)
+ .text.NVIC_SetSystemHandlerPendingBit
+                0x0000000000000000       0x18 lib/libstm32.a(stm32f10x_nvic.o)
+ .text.NVIC_ClearSystemHandlerPendingBit
+                0x0000000000000000       0x1c lib/libstm32.a(stm32f10x_nvic.o)
+ .text.NVIC_GetSystemHandlerActiveBitStatus
+                0x0000000000000000       0x24 lib/libstm32.a(stm32f10x_nvic.o)
+ .text.NVIC_GetFaultHandlerSources
+                0x0000000000000000       0x30 lib/libstm32.a(stm32f10x_nvic.o)
+ .text.NVIC_GetFaultAddress
+                0x0000000000000000       0x14 lib/libstm32.a(stm32f10x_nvic.o)
+ .text          0x0000000000000000        0x0 lib/libstm32.a(stm32f10x_rcc.o)
+ .data          0x0000000000000000        0x0 lib/libstm32.a(stm32f10x_rcc.o)
+ .bss           0x0000000000000000        0x0 lib/libstm32.a(stm32f10x_rcc.o)
+ .text.RCC_AdjustHSICalibrationValue
+                0x0000000000000000       0x14 lib/libstm32.a(stm32f10x_rcc.o)
+ .text.RCC_HSICmd
+                0x0000000000000000        0xc lib/libstm32.a(stm32f10x_rcc.o)
+ .text.RCC_ITConfig
+                0x0000000000000000       0x18 lib/libstm32.a(stm32f10x_rcc.o)
+ .text.RCC_ADCCLKConfig
+                0x0000000000000000       0x14 lib/libstm32.a(stm32f10x_rcc.o)
+ .text.RCC_LSEConfig
+                0x0000000000000000       0x20 lib/libstm32.a(stm32f10x_rcc.o)
+ .text.RCC_LSICmd
+                0x0000000000000000        0xc lib/libstm32.a(stm32f10x_rcc.o)
+ .text.RCC_RTCCLKConfig
+                0x0000000000000000       0x10 lib/libstm32.a(stm32f10x_rcc.o)
+ .text.RCC_RTCCLKCmd
+                0x0000000000000000        0xc lib/libstm32.a(stm32f10x_rcc.o)
+ .text.RCC_AHBPeriphClockCmd
+                0x0000000000000000       0x18 lib/libstm32.a(stm32f10x_rcc.o)
+ .text.RCC_BackupResetCmd
+                0x0000000000000000        0xc lib/libstm32.a(stm32f10x_rcc.o)
+ .text.RCC_ClockSecuritySystemCmd
+                0x0000000000000000        0xc lib/libstm32.a(stm32f10x_rcc.o)
+ .text.RCC_MCOConfig
+                0x0000000000000000        0xc lib/libstm32.a(stm32f10x_rcc.o)
+ .text.RCC_GetITStatus
+                0x0000000000000000       0x14 lib/libstm32.a(stm32f10x_rcc.o)
+ .text.RCC_ClearITPendingBit
+                0x0000000000000000        0xc lib/libstm32.a(stm32f10x_rcc.o)
+ .text          0x0000000000000000        0x0 lib/libstm32.a(stm32f10x_tim.o)
+ .data          0x0000000000000000        0x0 lib/libstm32.a(stm32f10x_tim.o)
+ .bss           0x0000000000000000        0x0 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TI1_Config
+                0x0000000000000000       0x32 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TI2_Config
+                0x0000000000000000       0x3a lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_DeInit
+                0x0000000000000000       0xc8 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_OC1Init
+                0x0000000000000000       0x74 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_OC2Init
+                0x0000000000000000       0x88 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_OC3Init
+                0x0000000000000000       0x84 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_OC4Init
+                0x0000000000000000       0x68 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_BDTRConfig
+                0x0000000000000000       0x22 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_TimeBaseStructInit
+                0x0000000000000000       0x12 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_OCStructInit
+                0x0000000000000000       0x14 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_ICStructInit
+                0x0000000000000000       0x10 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_BDTRStructInit
+                0x0000000000000000       0x12 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_CtrlPWMOutputs
+                0x0000000000000000       0x1c lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_GenerateEvent
+                0x0000000000000000        0x4 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_DMAConfig
+                0x0000000000000000        0x8 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_DMACmd
+                0x0000000000000000       0x12 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_InternalClockConfig
+                0x0000000000000000        0xe lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_ITRxExternalClockConfig
+                0x0000000000000000       0x1a lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_TIxExternalClockConfig
+                0x0000000000000000       0x34 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_ETRConfig
+                0x0000000000000000       0x14 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_ETRClockMode2Config
+                0x0000000000000000       0x14 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_ETRClockMode1Config
+                0x0000000000000000       0x1a lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_CounterModeConfig
+                0x0000000000000000       0x10 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_SelectInputTrigger
+                0x0000000000000000       0x10 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_EncoderInterfaceConfig
+                0x0000000000000000       0x3c lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_ForcedOC1Config
+                0x0000000000000000       0x10 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_ForcedOC2Config
+                0x0000000000000000       0x14 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_ForcedOC3Config
+                0x0000000000000000       0x10 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_ForcedOC4Config
+                0x0000000000000000       0x14 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_ARRPreloadConfig
+                0x0000000000000000       0x18 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_SelectCOM
+                0x0000000000000000       0x18 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_SelectCCDMA
+                0x0000000000000000       0x18 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_CCPreloadControl
+                0x0000000000000000       0x18 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_OC1PreloadConfig
+                0x0000000000000000       0x10 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_OC2PreloadConfig
+                0x0000000000000000       0x14 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_OC3PreloadConfig
+                0x0000000000000000       0x10 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_OC4PreloadConfig
+                0x0000000000000000       0x14 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_OC1FastConfig
+                0x0000000000000000       0x10 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_OC2FastConfig
+                0x0000000000000000       0x14 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_OC3FastConfig
+                0x0000000000000000       0x10 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_OC4FastConfig
+                0x0000000000000000       0x14 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_ClearOC1Ref
+                0x0000000000000000       0x10 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_ClearOC2Ref
+                0x0000000000000000       0x10 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_ClearOC3Ref
+                0x0000000000000000       0x10 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_ClearOC4Ref
+                0x0000000000000000       0x10 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_OC1PolarityConfig
+                0x0000000000000000       0x10 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_OC1NPolarityConfig
+                0x0000000000000000       0x10 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_OC2PolarityConfig
+                0x0000000000000000       0x14 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_OC2NPolarityConfig
+                0x0000000000000000       0x14 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_OC3PolarityConfig
+                0x0000000000000000       0x14 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_OC3NPolarityConfig
+                0x0000000000000000       0x14 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_OC4PolarityConfig
+                0x0000000000000000       0x14 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_CCxCmd
+                0x0000000000000000       0x22 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_CCxNCmd
+                0x0000000000000000       0x22 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_SelectOCxM
+                0x0000000000000000       0x46 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_UpdateDisableConfig
+                0x0000000000000000       0x18 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_UpdateRequestConfig
+                0x0000000000000000       0x18 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_SelectHallSensor
+                0x0000000000000000       0x18 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_SelectOnePulseMode
+                0x0000000000000000       0x16 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_SelectOutputTrigger
+                0x0000000000000000       0x16 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_SelectSlaveMode
+                0x0000000000000000       0x16 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_SelectMasterSlaveMode
+                0x0000000000000000       0x16 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_SetCounter
+                0x0000000000000000        0x4 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_SetAutoreload
+                0x0000000000000000        0x4 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_SetCompare1
+                0x0000000000000000        0x4 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_SetCompare2
+                0x0000000000000000        0x4 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_SetCompare3
+                0x0000000000000000        0x4 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_SetCompare4
+                0x0000000000000000        0x6 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_SetIC1Prescaler
+                0x0000000000000000       0x16 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_SetIC2Prescaler
+                0x0000000000000000       0x1a lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_PWMIConfig
+                0x0000000000000000       0x6e lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_SetIC3Prescaler
+                0x0000000000000000       0x16 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_SetIC4Prescaler
+                0x0000000000000000       0x1a lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_ICInit
+                0x0000000000000000       0xb6 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_SetClockDivision
+                0x0000000000000000       0x10 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_GetCapture1
+                0x0000000000000000        0x6 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_GetCapture2
+                0x0000000000000000        0x6 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_GetCapture3
+                0x0000000000000000        0x6 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_GetCapture4
+                0x0000000000000000        0x8 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_GetCounter
+                0x0000000000000000        0x6 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_GetPrescaler
+                0x0000000000000000        0x6 lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_GetFlagStatus
+                0x0000000000000000        0xc lib/libstm32.a(stm32f10x_tim.o)
+ .text.TIM_GetITStatus
+                0x0000000000000000       0x16 lib/libstm32.a(stm32f10x_tim.o)
+ .text          0x0000000000000000        0x0 lib/libstm32.a(stm32f10x_systick.o)
+ .data          0x0000000000000000        0x0 lib/libstm32.a(stm32f10x_systick.o)
+ .bss           0x0000000000000000        0x0 lib/libstm32.a(stm32f10x_systick.o)
+ .text.SysTick_CLKSourceConfig
+                0x0000000000000000       0x18 lib/libstm32.a(stm32f10x_systick.o)
+ .text.SysTick_GetCounter
+                0x0000000000000000        0xc lib/libstm32.a(stm32f10x_systick.o)
+ .text.SysTick_GetFlagStatus
+                0x0000000000000000       0x1c lib/libstm32.a(stm32f10x_systick.o)
+ .text          0x0000000000000000        0x0 lib/libstm32.a(stm32f10x_usart.o)
+ .data          0x0000000000000000        0x0 lib/libstm32.a(stm32f10x_usart.o)
+ .bss           0x0000000000000000        0x0 lib/libstm32.a(stm32f10x_usart.o)
+ .text.USART_ClockInit
+                0x0000000000000000       0x20 lib/libstm32.a(stm32f10x_usart.o)
+ .text.USART_ClockStructInit
+                0x0000000000000000        0xc lib/libstm32.a(stm32f10x_usart.o)
+ .text.USART_DMACmd
+                0x0000000000000000       0x12 lib/libstm32.a(stm32f10x_usart.o)
+ .text.USART_SetAddress
+                0x0000000000000000       0x16 lib/libstm32.a(stm32f10x_usart.o)
+ .text.USART_WakeUpConfig
+                0x0000000000000000       0x16 lib/libstm32.a(stm32f10x_usart.o)
+ .text.USART_ReceiverWakeUpCmd
+                0x0000000000000000       0x18 lib/libstm32.a(stm32f10x_usart.o)
+ .text.USART_LINBreakDetectLengthConfig
+                0x0000000000000000       0x16 lib/libstm32.a(stm32f10x_usart.o)
+ .text.USART_LINCmd
+                0x0000000000000000       0x18 lib/libstm32.a(stm32f10x_usart.o)
+ .text.USART_SendBreak
+                0x0000000000000000        0xc lib/libstm32.a(stm32f10x_usart.o)
+ .text.USART_SetGuardTime
+                0x0000000000000000       0x12 lib/libstm32.a(stm32f10x_usart.o)
+ .text.USART_SetPrescaler
+                0x0000000000000000       0x12 lib/libstm32.a(stm32f10x_usart.o)
+ .text.USART_SmartCardCmd
+                0x0000000000000000       0x18 lib/libstm32.a(stm32f10x_usart.o)
+ .text.USART_SmartCardNACKCmd
+                0x0000000000000000       0x18 lib/libstm32.a(stm32f10x_usart.o)
+ .text.USART_HalfDuplexCmd
+                0x0000000000000000       0x18 lib/libstm32.a(stm32f10x_usart.o)
+ .text.USART_IrDAConfig
+                0x0000000000000000       0x16 lib/libstm32.a(stm32f10x_usart.o)
+ .text.USART_IrDACmd
+                0x0000000000000000       0x18 lib/libstm32.a(stm32f10x_usart.o)
+ .text.USART_ClearITPendingBit
+                0x0000000000000000       0x10 lib/libstm32.a(stm32f10x_usart.o)
+ .data          0x0000000000000000        0x0 lib/libstm32.a(cortexm3_macro.o)
+ .bss           0x0000000000000000        0x0 lib/libstm32.a(cortexm3_macro.o)
+ .text          0x0000000000000000        0x0 lib/libstm32.a(stm32f10x_vector.o)
+ .data          0x0000000000000000        0x0 lib/libstm32.a(stm32f10x_vector.o)
+ .bss           0x0000000000000000        0x0 lib/libstm32.a(stm32f10x_vector.o)
+ .text          0x0000000000000000        0x0 lib/libstm32.a(usb_init.o)
+ .data          0x0000000000000000        0x0 lib/libstm32.a(usb_init.o)
+ .bss           0x0000000000000000        0x0 lib/libstm32.a(usb_init.o)
+ .text          0x0000000000000000        0x0 lib/libstm32.a(usb_core.o)
+ .data          0x0000000000000000        0x0 lib/libstm32.a(usb_core.o)
+ .text          0x0000000000000000        0x0 lib/libstm32.a(usb_mem.o)
+ .data          0x0000000000000000        0x0 lib/libstm32.a(usb_mem.o)
+ .bss           0x0000000000000000        0x0 lib/libstm32.a(usb_mem.o)
+ .text          0x0000000000000000        0x0 lib/libstm32.a(usb_regs.o)
+ .data          0x0000000000000000        0x0 lib/libstm32.a(usb_regs.o)
+ .bss           0x0000000000000000        0x0 lib/libstm32.a(usb_regs.o)
+ .text.SetCNTR  0x0000000000000000        0xc lib/libstm32.a(usb_regs.o)
+ .text.GetCNTR  0x0000000000000000        0xc lib/libstm32.a(usb_regs.o)
+ .text.SetISTR  0x0000000000000000        0xc lib/libstm32.a(usb_regs.o)
+ .text.GetISTR  0x0000000000000000        0xc lib/libstm32.a(usb_regs.o)
+ .text.GetFNR   0x0000000000000000        0xc lib/libstm32.a(usb_regs.o)
+ .text.SetDADDR
+                0x0000000000000000        0xc lib/libstm32.a(usb_regs.o)
+ .text.GetDADDR
+                0x0000000000000000        0xc lib/libstm32.a(usb_regs.o)
+ .text.GetBTABLE
+                0x0000000000000000        0xc lib/libstm32.a(usb_regs.o)
+ .text.SetENDPOINT
+                0x0000000000000000        0xe lib/libstm32.a(usb_regs.o)
+ .text.GetENDPOINT
+                0x0000000000000000       0x10 lib/libstm32.a(usb_regs.o)
+ .text.GetEPType
+                0x0000000000000000       0x12 lib/libstm32.a(usb_regs.o)
+ .text.SetDouBleBuffEPStall
+                0x0000000000000000       0x24 lib/libstm32.a(usb_regs.o)
+ .text.GetEPTxStatus
+                0x0000000000000000       0x12 lib/libstm32.a(usb_regs.o)
+ .text.GetEPRxStatus
+                0x0000000000000000       0x12 lib/libstm32.a(usb_regs.o)
+ .text.SetEP_KIND
+                0x0000000000000000       0x1e lib/libstm32.a(usb_regs.o)
+ .text.ClearEP_KIND
+                0x0000000000000000       0x1e lib/libstm32.a(usb_regs.o)
+ .text.Set_Status_Out
+                0x0000000000000000       0x1e lib/libstm32.a(usb_regs.o)
+ .text.SetEPDoubleBuff
+                0x0000000000000000       0x1e lib/libstm32.a(usb_regs.o)
+ .text.ClearEPDoubleBuff
+                0x0000000000000000       0x1e lib/libstm32.a(usb_regs.o)
+ .text.GetTxStallStatus
+                0x0000000000000000       0x1c lib/libstm32.a(usb_regs.o)
+ .text.GetRxStallStatus
+                0x0000000000000000       0x1c lib/libstm32.a(usb_regs.o)
+ .text.ClearEP_CTR_RX
+                0x0000000000000000       0x16 lib/libstm32.a(usb_regs.o)
+ .text.ClearEP_CTR_TX
+                0x0000000000000000       0x16 lib/libstm32.a(usb_regs.o)
+ .text.ToggleDTOG_RX
+                0x0000000000000000       0x1e lib/libstm32.a(usb_regs.o)
+ .text.ToggleDTOG_TX
+                0x0000000000000000       0x1e lib/libstm32.a(usb_regs.o)
+ .text.SetEPAddress
+                0x0000000000000000       0x20 lib/libstm32.a(usb_regs.o)
+ .text.GetEPAddress
+                0x0000000000000000       0x12 lib/libstm32.a(usb_regs.o)
+ .text.SetEPCountRxReg
+                0x0000000000000000       0x24 lib/libstm32.a(usb_regs.o)
+ .text.GetEPTxCount
+                0x0000000000000000       0x20 lib/libstm32.a(usb_regs.o)
+ .text.SetEPDblBuffAddr
+                0x0000000000000000       0x38 lib/libstm32.a(usb_regs.o)
+ .text.SetEPDblBuf0Addr
+                0x0000000000000000       0x20 lib/libstm32.a(usb_regs.o)
+ .text.SetEPDblBuf1Addr
+                0x0000000000000000       0x20 lib/libstm32.a(usb_regs.o)
+ .text.GetEPDblBuf0Addr
+                0x0000000000000000       0x1c lib/libstm32.a(usb_regs.o)
+ .text.GetEPDblBuf1Addr
+                0x0000000000000000       0x1c lib/libstm32.a(usb_regs.o)
+ .text.SetEPDblBuffCount
+                0x0000000000000000       0xa4 lib/libstm32.a(usb_regs.o)
+ .text.SetEPDblBuf0Count
+                0x0000000000000000       0x58 lib/libstm32.a(usb_regs.o)
+ .text.SetEPDblBuf1Count
+                0x0000000000000000       0x58 lib/libstm32.a(usb_regs.o)
+ .text.GetEPDblBuf0Count
+                0x0000000000000000       0x20 lib/libstm32.a(usb_regs.o)
+ .text.GetEPDblBuf1Count
+                0x0000000000000000       0x20 lib/libstm32.a(usb_regs.o)
+ .text.GetEPDblBufDir
+                0x0000000000000000       0x40 lib/libstm32.a(usb_regs.o)
+ .text.FreeUserBuffer
+                0x0000000000000000       0x42 lib/libstm32.a(usb_regs.o)
+ .text.ToWord   0x0000000000000000        0x6 lib/libstm32.a(usb_regs.o)
+ .text          0x0000000000000000        0x0 lib/libstm32.a(usb_sil.o)
+ .data          0x0000000000000000        0x0 lib/libstm32.a(usb_sil.o)
+ .bss           0x0000000000000000        0x0 lib/libstm32.a(usb_sil.o)
+ .text          0x0000000000000000        0x0 lib/libstm32.a(usb_int.o)
+ .data          0x0000000000000000        0x0 lib/libstm32.a(usb_int.o)
+ .bss           0x0000000000000000        0x0 lib/libstm32.a(usb_int.o)
+ .text.CTR_HP   0x0000000000000000       0x70 lib/libstm32.a(usb_int.o)
+ .text          0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-__atexit.o)
+ .data          0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-__atexit.o)
+ .bss           0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-__atexit.o)
+ .text.__register_exitproc
+                0x0000000000000000       0xf4 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-__atexit.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-__atexit.o)
+ .debug_frame   0x0000000000000000       0x34 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-__atexit.o)
+ .text          0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-exit.o)
+ .data          0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-exit.o)
+ .bss           0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-exit.o)
+ .text.exit     0x0000000000000000       0x34 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-exit.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-exit.o)
+ .debug_frame   0x0000000000000000       0x28 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-exit.o)
+ .text          0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-fini.o)
+ .data          0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-fini.o)
+ .bss           0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-fini.o)
+ .text.__libc_fini_array
+                0x0000000000000000       0x44 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-fini.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-fini.o)
+ .debug_frame   0x0000000000000000       0x2c /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-fini.o)
+ .text          0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-impure.o)
+ .data          0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-impure.o)
+ .bss           0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-impure.o)
+ .data.impure_data
+                0x0000000000000000      0x428 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-impure.o)
+ .data._impure_ptr
+                0x0000000000000000        0x4 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-impure.o)
+ .rodata.str1.4
+                0x0000000000000000        0x4 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-impure.o)
+ .rodata._global_impure_ptr
+                0x0000000000000000        0x4 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-impure.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-impure.o)
+ .text          0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-init.o)
+ .data          0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-init.o)
+ .bss           0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-init.o)
+ .text.__libc_init_array
+                0x0000000000000000       0x88 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-init.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-init.o)
+ .debug_frame   0x0000000000000000       0x2c /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-init.o)
+ .text          0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-memset.o)
+ .data          0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-memset.o)
+ .bss           0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-memset.o)
+ .text.memset   0x0000000000000000       0xf8 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-memset.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-memset.o)
+ .debug_frame   0x0000000000000000       0x28 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-memset.o)
+ .text          0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-__call_atexit.o)
+ .data          0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-__call_atexit.o)
+ .bss           0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-__call_atexit.o)
+ .text.startup.register_fini
+                0x0000000000000000       0x24 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-__call_atexit.o)
+ .init_array.00000
+                0x0000000000000000        0x4 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-__call_atexit.o)
+ .text.__call_exitprocs
+                0x0000000000000000      0x17c /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-__call_atexit.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-__call_atexit.o)
+ .debug_frame   0x0000000000000000       0x50 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-__call_atexit.o)
+ .text          0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-atexit.o)
+ .data          0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-atexit.o)
+ .bss           0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-atexit.o)
+ .text.atexit   0x0000000000000000       0x20 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-atexit.o)
+ .ARM.attributes
+                0x0000000000000000       0x30 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-atexit.o)
+ .debug_frame   0x0000000000000000       0x28 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-atexit.o)
+ .text          0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crtend.o
+ .data          0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crtend.o
+ .bss           0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crtend.o
+ .eh_frame      0x0000000000000000        0x4 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crtend.o
+ .jcr           0x0000000000000000        0x4 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crtend.o
+ .ARM.attributes
+                0x0000000000000000       0x30 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crtend.o
+ .text          0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crtn.o
+ .data          0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crtn.o
+ .bss           0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crtn.o
+ .init          0x0000000000000000        0xc /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crtn.o
+ .fini          0x0000000000000000        0xc /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crtn.o
+ .ARM.attributes
+                0x0000000000000000       0x18 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crtn.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+RAM              0x0000000020000000 0x0000000000005000 xrw
+FLASH            0x0000000008000000 0x0000000000010000 xr
+FLASHB1          0x0000000000000000 0x0000000000000000 xr
+EXTMEMB0         0x0000000000000000 0x0000000000000000 xr
+EXTMEMB1         0x0000000000000000 0x0000000000000000 xr
+EXTMEMB2         0x0000000000000000 0x0000000000000000 xr
+EXTMEMB3         0x0000000000000000 0x0000000000000000 xr
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crti.o
+LOAD /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crtbegin.o
+LOAD /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/crt0.o
+LOAD main.o
+LOAD stm32f10x_it.o
+LOAD usb_desc.o
+LOAD usb_endp.o
+LOAD usb_istr.o
+LOAD usb_prop.o
+LOAD USBInit.o
+LOAD lib/libstm32.a
+START GROUP
+LOAD /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/libgcc.a
+LOAD /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a
+END GROUP
+LOAD /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crtend.o
+LOAD /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crtn.o
+                0x0000000000000400                __Stack_Size = 0x400
+                0x0000000000000400                PROVIDE (_Stack_Size, __Stack_Size)
+                0x0000000020004c00                __Stack_Init = (_estack - __Stack_Size)
+                0x0000000020004c00                PROVIDE (_Stack_Init, __Stack_Init)
+                0x0000000000000100                _Minimum_Stack_Size = 0x100
+                0x0000000000000000                PROVIDE (Undefined_Handler, 0x0)
+                0x0000000000000000                PROVIDE (SWI_Handler, 0x0)
+                0x0000000000000000                PROVIDE (IRQ_Handler, 0x0)
+                0x0000000000000000                PROVIDE (Prefetch_Handler, 0x0)
+                0x0000000000000000                PROVIDE (Abort_Handler, 0x0)
+                0x0000000000000000                PROVIDE (FIQ_Handler, 0x0)
+                0x0000000000000000                PROVIDE (NMIException, 0x0)
+                0x0000000000000000                PROVIDE (HardFaultException, 0x0)
+                0x0000000000000000                PROVIDE (MemManageException, 0x0)
+                0x0000000000000000                PROVIDE (BusFaultException, 0x0)
+                0x0000000000000000                PROVIDE (UsageFaultException, 0x0)
+                0x0000000000000000                PROVIDE (SVCHandler, 0x0)
+                0x0000000000000000                PROVIDE (DebugMonitor, 0x0)
+                0x0000000000000000                PROVIDE (PendSVC, 0x0)
+                0x0000000000000000                PROVIDE (SysTickHandler, 0x0)
+                0x0000000000000000                PROVIDE (WWDG_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (PVD_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (TAMPER_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (RTC_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (FLASH_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (RCC_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (EXTI0_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (EXTI1_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (EXTI2_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (EXTI3_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (EXTI4_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (DMAChannel1_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (DMAChannel2_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (DMAChannel3_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (DMAChannel4_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (DMAChannel5_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (DMAChannel6_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (DMAChannel7_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (ADC_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (USB_HP_CAN_TX_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (USB_LP_CAN_RX0_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (CAN_RX1_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (CAN_SCE_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (EXTI9_5_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (TIM1_BRK_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (TIM1_UP_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (TIM1_TRG_COM_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (TIM1_CC_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (TIM2_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (TIM3_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (TIM4_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (I2C1_EV_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (I2C1_ER_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (I2C2_EV_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (I2C2_ER_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (SPI1_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (SPI2_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (USART1_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (USART2_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (USART3_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (EXTI15_10_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (RTCAlarm_IRQHandler, 0x0)
+                0x0000000000000000                PROVIDE (USBWakeUp_IRQHandler, 0x0)
+                0x0000000042000000                PERIPH_BB_BASE = 0x42000000
+                0x0000000022000000                SRAM_BB_BASE = 0x22000000
+                0x0000000020000000                SRAM_BASE = 0x20000000
+                0x0000000040000000                PERIPH_BASE = 0x40000000
+                0x0000000040022000                PROVIDE (FLASH_BASE, 0x40022000)
+                0x000000001ffff800                PROVIDE (OB_BASE, 0x1ffff800)
+                0x0000000040000000                APB1PERIPH_BASE = PERIPH_BASE
+                0x0000000040010000                APB2PERIPH_BASE = (PERIPH_BASE + 0x10000)
+                0x0000000040020000                AHBPERIPH_BASE = (PERIPH_BASE + 0x20000)
+                0x0000000040000000                PROVIDE (TIM2, (APB1PERIPH_BASE + 0x0))
+                0x0000000040000400                PROVIDE (TIM3, (APB1PERIPH_BASE + 0x400))
+                0x0000000040000800                PROVIDE (TIM4, (APB1PERIPH_BASE + 0x800))
+                0x0000000040002800                PROVIDE (RTC, (APB1PERIPH_BASE + 0x2800))
+                0x0000000040002c00                PROVIDE (WWDG, (APB1PERIPH_BASE + 0x2c00))
+                0x0000000040003000                PROVIDE (IWDG, (APB1PERIPH_BASE + 0x3000))
+                0x0000000040003800                PROVIDE (SPI2, (APB1PERIPH_BASE + 0x3800))
+                0x0000000040004400                PROVIDE (USART2, (APB1PERIPH_BASE + 0x4400))
+                0x0000000040004800                PROVIDE (USART3, (APB1PERIPH_BASE + 0x4800))
+                0x0000000040005400                PROVIDE (I2C1, (APB1PERIPH_BASE + 0x5400))
+                0x0000000040005800                PROVIDE (I2C2, (APB1PERIPH_BASE + 0x5800))
+                0x0000000040006400                PROVIDE (CAN, (APB1PERIPH_BASE + 0x6400))
+                0x0000000040006c00                PROVIDE (BKP, (APB1PERIPH_BASE + 0x6c00))
+                0x0000000040007000                PROVIDE (PWR, (APB1PERIPH_BASE + 0x7000))
+                0x0000000040010000                PROVIDE (AFIO, (APB2PERIPH_BASE + 0x0))
+                0x0000000040010400                PROVIDE (EXTI, (APB2PERIPH_BASE + 0x400))
+                0x0000000040010800                PROVIDE (GPIOA, (APB2PERIPH_BASE + 0x800))
+                0x0000000040010c00                PROVIDE (GPIOB, (APB2PERIPH_BASE + 0xc00))
+                0x0000000040011000                PROVIDE (GPIOC, (APB2PERIPH_BASE + 0x1000))
+                0x0000000040011400                PROVIDE (GPIOD, (APB2PERIPH_BASE + 0x1400))
+                0x0000000040011800                PROVIDE (GPIOE, (APB2PERIPH_BASE + 0x1800))
+                0x0000000040012400                PROVIDE (ADC1, (APB2PERIPH_BASE + 0x2400))
+                0x0000000040012800                PROVIDE (ADC2, (APB2PERIPH_BASE + 0x2800))
+                0x0000000040012c00                PROVIDE (TIM1, (APB2PERIPH_BASE + 0x2c00))
+                0x0000000040013000                PROVIDE (SPI1, (APB2PERIPH_BASE + 0x3000))
+                0x0000000040013800                PROVIDE (USART1, (APB2PERIPH_BASE + 0x3800))
+                0x0000000040020000                PROVIDE (DMA, (AHBPERIPH_BASE + 0x0))
+                0x0000000040020008                PROVIDE (DMA_Channel1, (AHBPERIPH_BASE + 0x8))
+                0x000000004002001c                PROVIDE (DMA_Channel2, (AHBPERIPH_BASE + 0x1c))
+                0x0000000040020030                PROVIDE (DMA_Channel3, (AHBPERIPH_BASE + 0x30))
+                0x0000000040020044                PROVIDE (DMA_Channel4, (AHBPERIPH_BASE + 0x44))
+                0x0000000040020058                PROVIDE (DMA_Channel5, (AHBPERIPH_BASE + 0x58))
+                0x000000004002006c                PROVIDE (DMA_Channel6, (AHBPERIPH_BASE + 0x6c))
+                0x0000000040020080                PROVIDE (DMA_Channel7, (AHBPERIPH_BASE + 0x80))
+                0x0000000040021000                PROVIDE (RCC, (AHBPERIPH_BASE + 0x1000))
+                0x00000000e000e000                SCS_BASE = 0xe000e000
+                0x00000000e000e010                PROVIDE (SysTick, (SCS_BASE + 0x10))
+                0x00000000e000e100                PROVIDE (NVIC, (SCS_BASE + 0x100))
+                0x00000000e000ed00                PROVIDE (SCB, (SCS_BASE + 0xd00))
+                0x0000000020005000                _estack = 0x20005000
+
+.isr_vector     0x0000000008000000      0x134
+                0x0000000008000000                . = ALIGN (0x4)
+ *(.isr_vector)
+ .isr_vector    0x0000000008000000      0x134 lib/libstm32.a(stm32f10x_vector.o)
+                0x0000000008000000                g_pfnVectors
+                0x0000000008000134                . = ALIGN (0x4)
+
+.flashtext      0x0000000008000134        0x0
+                0x0000000008000134                . = ALIGN (0x4)
+ *(.flashtext)
+                0x0000000008000134                . = ALIGN (0x4)
+
+.text           0x0000000008000134     0x2720
+                0x0000000008000134                . = ALIGN (0x4)
+ *(.text)
+ .text          0x0000000008000134       0x6e lib/libstm32.a(cortexm3_macro.o)
+                0x0000000008000134                __WFI
+                0x0000000008000138                __WFE
+                0x000000000800013c                __SEV
+                0x0000000008000140                __ISB
+                0x0000000008000146                __DSB
+                0x000000000800014c                __DMB
+                0x0000000008000152                __SVC
+                0x0000000008000156                __MRS_CONTROL
+                0x000000000800015c                __MSR_CONTROL
+                0x0000000008000166                __MRS_PSP
+                0x000000000800016c                __MSR_PSP
+                0x0000000008000172                __MRS_MSP
+                0x0000000008000178                __MSR_MSP
+                0x000000000800017e                __SETPRIMASK
+                0x0000000008000182                __RESETPRIMASK
+                0x0000000008000186                __SETFAULTMASK
+                0x000000000800018a                __RESETFAULTMASK
+                0x000000000800018e                __BASEPRICONFIG
+                0x0000000008000194                __GetBASEPRI
+                0x000000000800019a                __REV_HalfWord
+                0x000000000800019e                __REV_Word
+ *(.text.*)
+ *fill*         0x00000000080001a2        0x2 00
+ .text.ClearTimeOutBuffer
+                0x00000000080001a4        0xc main.o
+                0x00000000080001a4                ClearTimeOutBuffer
+ .text.CheckTimeOut
+                0x00000000080001b0       0x14 main.o
+                0x00000000080001b0                CheckTimeOut
+ .text.Interrupt1ms
+                0x00000000080001c4       0x14 main.o
+                0x00000000080001c4                Interrupt1ms
+ .text.Timer_Configuration
+                0x00000000080001d8       0x4c main.o
+                0x00000000080001d8                Timer_Configuration
+ .text.TxDByte  0x0000000008000224       0x28 main.o
+                0x0000000008000224                TxDByte
+ .text.TxDString
+                0x000000000800024c       0x12 main.o
+                0x000000000800024c                TxDString
+ .text.TxDHex8  0x000000000800025e       0x30 main.o
+                0x000000000800025e                TxDHex8
+ .text.TxDHex16
+                0x000000000800028e       0x14 main.o
+                0x000000000800028e                TxDHex16
+ .text.TxDHex32
+                0x00000000080002a2       0x14 main.o
+                0x00000000080002a2                TxDHex32
+ .text.USB_TxDString
+                0x00000000080002b6       0x12 main.o
+                0x00000000080002b6                USB_TxDString
+ .text.Delay    0x00000000080002c8       0x2c main.o
+                0x00000000080002c8                Delay
+ .text.StringCompare
+                0x00000000080002f4       0x34 main.o
+                0x00000000080002f4                StringCompare
+ .text.StringCopy
+                0x0000000008000328       0x1a main.o
+                0x0000000008000328                StringCopy
+ *fill*         0x0000000008000342        0x2 00
+ .text.USART_Configuration
+                0x0000000008000344       0xb8 main.o
+                0x0000000008000344                USART_Configuration
+ .text.SerialMonitor
+                0x00000000080003fc      0x3d0 main.o
+                0x00000000080003fc                SerialMonitor
+ .text.RCC_Configuration
+                0x00000000080007cc       0x8c main.o
+                0x00000000080007cc                RCC_Configuration
+ .text.GPIO_Configuration
+                0x0000000008000858      0x144 main.o
+                0x0000000008000858                GPIO_Configuration
+ .text.NVIC_Configuration
+                0x000000000800099c       0x7a main.o
+                0x000000000800099c                NVIC_Configuration
+ *fill*         0x0000000008000a16        0x2 00
+ .text.startup.main
+                0x0000000008000a18       0xc8 main.o
+                0x0000000008000a18                main
+ .text.NMIException
+                0x0000000008000ae0        0x2 stm32f10x_it.o
+                0x0000000008000ae0                NMIException
+ .text.HardFaultException
+                0x0000000008000ae2        0x2 stm32f10x_it.o
+                0x0000000008000ae2                HardFaultException
+ .text.MemManageException
+                0x0000000008000ae4        0x2 stm32f10x_it.o
+                0x0000000008000ae4                MemManageException
+ .text.BusFaultException
+                0x0000000008000ae6        0x2 stm32f10x_it.o
+                0x0000000008000ae6                BusFaultException
+ .text.UsageFaultException
+                0x0000000008000ae8        0x2 stm32f10x_it.o
+                0x0000000008000ae8                UsageFaultException
+ .text.DebugMonitor
+                0x0000000008000aea        0x2 stm32f10x_it.o
+                0x0000000008000aea                DebugMonitor
+ .text.SVCHandler
+                0x0000000008000aec        0x2 stm32f10x_it.o
+                0x0000000008000aec                SVCHandler
+ .text.PendSVC  0x0000000008000aee        0x2 stm32f10x_it.o
+                0x0000000008000aee                PendSVC
+ .text.SysTickHandler
+                0x0000000008000af0       0x14 stm32f10x_it.o
+                0x0000000008000af0                SysTickHandler
+ .text.WWDG_IRQHandler
+                0x0000000008000b04        0x2 stm32f10x_it.o
+                0x0000000008000b04                WWDG_IRQHandler
+ .text.PVD_IRQHandler
+                0x0000000008000b06        0x2 stm32f10x_it.o
+                0x0000000008000b06                PVD_IRQHandler
+ .text.TAMPER_IRQHandler
+                0x0000000008000b08        0x2 stm32f10x_it.o
+                0x0000000008000b08                TAMPER_IRQHandler
+ .text.RTC_IRQHandler
+                0x0000000008000b0a        0x2 stm32f10x_it.o
+                0x0000000008000b0a                RTC_IRQHandler
+ .text.FLASH_IRQHandler
+                0x0000000008000b0c        0x2 stm32f10x_it.o
+                0x0000000008000b0c                FLASH_IRQHandler
+ .text.RCC_IRQHandler
+                0x0000000008000b0e        0x2 stm32f10x_it.o
+                0x0000000008000b0e                RCC_IRQHandler
+ .text.EXTI0_IRQHandler
+                0x0000000008000b10        0x2 stm32f10x_it.o
+                0x0000000008000b10                EXTI0_IRQHandler
+ .text.EXTI1_IRQHandler
+                0x0000000008000b12        0x2 stm32f10x_it.o
+                0x0000000008000b12                EXTI1_IRQHandler
+ .text.EXTI2_IRQHandler
+                0x0000000008000b14        0x2 stm32f10x_it.o
+                0x0000000008000b14                EXTI2_IRQHandler
+ .text.EXTI3_IRQHandler
+                0x0000000008000b16        0x2 stm32f10x_it.o
+                0x0000000008000b16                EXTI3_IRQHandler
+ .text.EXTI4_IRQHandler
+                0x0000000008000b18        0x2 stm32f10x_it.o
+                0x0000000008000b18                EXTI4_IRQHandler
+ .text.ADC1_2_IRQHandler
+                0x0000000008000b1a        0x2 stm32f10x_it.o
+                0x0000000008000b1a                ADC1_2_IRQHandler
+ .text.USB_HP_CAN_TX_IRQHandler
+                0x0000000008000b1c        0x2 stm32f10x_it.o
+                0x0000000008000b1c                USB_HP_CAN_TX_IRQHandler
+ .text.USB_LP_CAN_RX0_IRQHandler
+                0x0000000008000b1e        0x4 stm32f10x_it.o
+                0x0000000008000b1e                USB_LP_CAN_RX0_IRQHandler
+ .text.CAN_RX1_IRQHandler
+                0x0000000008000b22        0x2 stm32f10x_it.o
+                0x0000000008000b22                CAN_RX1_IRQHandler
+ .text.CAN_SCE_IRQHandler
+                0x0000000008000b24        0x2 stm32f10x_it.o
+                0x0000000008000b24                CAN_SCE_IRQHandler
+ .text.EXTI9_5_IRQHandler
+                0x0000000008000b26        0x2 stm32f10x_it.o
+                0x0000000008000b26                EXTI9_5_IRQHandler
+ .text.TIM1_BRK_IRQHandler
+                0x0000000008000b28        0x2 stm32f10x_it.o
+                0x0000000008000b28                TIM1_BRK_IRQHandler
+ .text.TIM1_UP_IRQHandler
+                0x0000000008000b2a        0x2 stm32f10x_it.o
+                0x0000000008000b2a                TIM1_UP_IRQHandler
+ .text.TIM1_TRG_COM_IRQHandler
+                0x0000000008000b2c        0x2 stm32f10x_it.o
+                0x0000000008000b2c                TIM1_TRG_COM_IRQHandler
+ .text.TIM1_CC_IRQHandler
+                0x0000000008000b2e        0x2 stm32f10x_it.o
+                0x0000000008000b2e                TIM1_CC_IRQHandler
+ .text.TIM2_IRQHandler
+                0x0000000008000b30       0x14 stm32f10x_it.o
+                0x0000000008000b30                TIM2_IRQHandler
+ .text.TIM3_IRQHandler
+                0x0000000008000b44        0x2 stm32f10x_it.o
+                0x0000000008000b44                TIM3_IRQHandler
+ .text.TIM4_IRQHandler
+                0x0000000008000b46        0x2 stm32f10x_it.o
+                0x0000000008000b46                TIM4_IRQHandler
+ .text.I2C1_EV_IRQHandler
+                0x0000000008000b48        0x2 stm32f10x_it.o
+                0x0000000008000b48                I2C1_EV_IRQHandler
+ .text.I2C1_ER_IRQHandler
+                0x0000000008000b4a        0x2 stm32f10x_it.o
+                0x0000000008000b4a                I2C1_ER_IRQHandler
+ .text.I2C2_EV_IRQHandler
+                0x0000000008000b4c        0x2 stm32f10x_it.o
+                0x0000000008000b4c                I2C2_EV_IRQHandler
+ .text.I2C2_ER_IRQHandler
+                0x0000000008000b4e        0x2 stm32f10x_it.o
+                0x0000000008000b4e                I2C2_ER_IRQHandler
+ .text.SPI1_IRQHandler
+                0x0000000008000b50        0x2 stm32f10x_it.o
+                0x0000000008000b50                SPI1_IRQHandler
+ .text.SPI2_IRQHandler
+                0x0000000008000b52        0x2 stm32f10x_it.o
+                0x0000000008000b52                SPI2_IRQHandler
+ .text.USART1_IRQHandler
+                0x0000000008000b54       0x34 stm32f10x_it.o
+                0x0000000008000b54                USART1_IRQHandler
+ .text.USART2_IRQHandler
+                0x0000000008000b88       0x3c stm32f10x_it.o
+                0x0000000008000b88                USART2_IRQHandler
+ .text.USART3_IRQHandler
+                0x0000000008000bc4        0x2 stm32f10x_it.o
+                0x0000000008000bc4                USART3_IRQHandler
+ .text.EXTI15_10_IRQHandler
+                0x0000000008000bc6        0x2 stm32f10x_it.o
+                0x0000000008000bc6                EXTI15_10_IRQHandler
+ .text.RTCAlarm_IRQHandler
+                0x0000000008000bc8        0x2 stm32f10x_it.o
+                0x0000000008000bc8                RTCAlarm_IRQHandler
+ .text.USBWakeUp_IRQHandler
+                0x0000000008000bca        0x2 stm32f10x_it.o
+                0x0000000008000bca                USBWakeUp_IRQHandler
+ .text.TIM8_BRK_IRQHandler
+                0x0000000008000bcc        0x2 stm32f10x_it.o
+                0x0000000008000bcc                TIM8_BRK_IRQHandler
+ .text.TIM8_UP_IRQHandler
+                0x0000000008000bce        0x2 stm32f10x_it.o
+                0x0000000008000bce                TIM8_UP_IRQHandler
+ .text.TIM8_TRG_COM_IRQHandler
+                0x0000000008000bd0        0x2 stm32f10x_it.o
+                0x0000000008000bd0                TIM8_TRG_COM_IRQHandler
+ .text.TIM8_CC_IRQHandler
+                0x0000000008000bd2        0x2 stm32f10x_it.o
+                0x0000000008000bd2                TIM8_CC_IRQHandler
+ .text.ADC3_IRQHandler
+                0x0000000008000bd4        0x2 stm32f10x_it.o
+                0x0000000008000bd4                ADC3_IRQHandler
+ .text.FSMC_IRQHandler
+                0x0000000008000bd6        0x2 stm32f10x_it.o
+                0x0000000008000bd6                FSMC_IRQHandler
+ .text.SDIO_IRQHandler
+                0x0000000008000bd8        0x2 stm32f10x_it.o
+                0x0000000008000bd8                SDIO_IRQHandler
+ .text.TIM5_IRQHandler
+                0x0000000008000bda        0x2 stm32f10x_it.o
+                0x0000000008000bda                TIM5_IRQHandler
+ .text.SPI3_IRQHandler
+                0x0000000008000bdc        0x2 stm32f10x_it.o
+                0x0000000008000bdc                SPI3_IRQHandler
+ .text.UART4_IRQHandler
+                0x0000000008000bde        0x2 stm32f10x_it.o
+                0x0000000008000bde                UART4_IRQHandler
+ .text.UART5_IRQHandler
+                0x0000000008000be0        0x2 stm32f10x_it.o
+                0x0000000008000be0                UART5_IRQHandler
+ .text.TIM6_IRQHandler
+                0x0000000008000be2        0x2 stm32f10x_it.o
+                0x0000000008000be2                TIM6_IRQHandler
+ .text.TIM7_IRQHandler
+                0x0000000008000be4        0x2 stm32f10x_it.o
+                0x0000000008000be4                TIM7_IRQHandler
+ .text.DMA2_Channel1_IRQHandler
+                0x0000000008000be6        0x2 stm32f10x_it.o
+                0x0000000008000be6                DMA2_Channel1_IRQHandler
+ .text.DMA2_Channel2_IRQHandler
+                0x0000000008000be8        0x2 stm32f10x_it.o
+                0x0000000008000be8                DMA2_Channel2_IRQHandler
+ .text.DMA2_Channel3_IRQHandler
+                0x0000000008000bea        0x2 stm32f10x_it.o
+                0x0000000008000bea                DMA2_Channel3_IRQHandler
+ .text.DMA2_Channel4_5_IRQHandler
+                0x0000000008000bec        0x2 stm32f10x_it.o
+                0x0000000008000bec                DMA2_Channel4_5_IRQHandler
+ *fill*         0x0000000008000bee        0x2 00
+ .text.EP1_IN_Callback
+                0x0000000008000bf0        0xc usb_endp.o
+                0x0000000008000bf0                EP1_IN_Callback
+ .text.WriteFlash64
+                0x0000000008000bfc      0x100 usb_endp.o
+                0x0000000008000bfc                WriteFlash64
+ .text.EP3_OUT_Callback
+                0x0000000008000cfc       0x5c usb_endp.o
+                0x0000000008000cfc                EP3_OUT_Callback
+ .text.__USBCDC_ISR
+                0x0000000008000d58       0x88 usb_istr.o
+                0x0000000008000d58                __USBCDC_ISR
+ .text.Virtual_Com_Port_SetConfiguration
+                0x0000000008000de0       0x18 usb_prop.o
+                0x0000000008000de0                Virtual_Com_Port_SetConfiguration
+ .text.Virtual_Com_Port_SetDeviceAddress
+                0x0000000008000df8        0xc usb_prop.o
+                0x0000000008000df8                Virtual_Com_Port_SetDeviceAddress
+ .text.Virtual_Com_Port_Status_In
+                0x0000000008000e04       0x14 usb_prop.o
+                0x0000000008000e04                Virtual_Com_Port_Status_In
+ .text.Virtual_Com_Port_Status_Out
+                0x0000000008000e18        0x2 usb_prop.o
+                0x0000000008000e18                Virtual_Com_Port_Status_Out
+ *fill*         0x0000000008000e1a        0x2 00
+ .text.Virtual_Com_Port_Data_Setup
+                0x0000000008000e1c       0x5c usb_prop.o
+                0x0000000008000e1c                Virtual_Com_Port_Data_Setup
+ .text.Virtual_Com_Port_NoData_Setup
+                0x0000000008000e78       0x24 usb_prop.o
+                0x0000000008000e78                Virtual_Com_Port_NoData_Setup
+ .text.Virtual_Com_Port_Get_Interface_Setting
+                0x0000000008000e9c        0xe usb_prop.o
+                0x0000000008000e9c                Virtual_Com_Port_Get_Interface_Setting
+ *fill*         0x0000000008000eaa        0x2 00
+ .text.Virtual_Com_Port_GetLineCoding
+                0x0000000008000eac       0x18 usb_prop.o
+                0x0000000008000eac                Virtual_Com_Port_GetLineCoding
+ .text.Virtual_Com_Port_SetLineCoding
+                0x0000000008000ec4       0x2c usb_prop.o
+                0x0000000008000ec4                Virtual_Com_Port_SetLineCoding
+ .text.Virtual_Com_Port_GetStringDescriptor
+                0x0000000008000ef0       0x20 usb_prop.o
+                0x0000000008000ef0                Virtual_Com_Port_GetStringDescriptor
+ .text.Virtual_Com_Port_GetConfigDescriptor
+                0x0000000008000f10        0xc usb_prop.o
+                0x0000000008000f10                Virtual_Com_Port_GetConfigDescriptor
+ .text.Virtual_Com_Port_GetDeviceDescriptor
+                0x0000000008000f1c        0xc usb_prop.o
+                0x0000000008000f1c                Virtual_Com_Port_GetDeviceDescriptor
+ .text.Virtual_Com_Port_Reset
+                0x0000000008000f28       0xe0 usb_prop.o
+                0x0000000008000f28                Virtual_Com_Port_Reset
+ .text.Virtual_Com_Port_init
+                0x0000000008001008       0x24 usb_prop.o
+                0x0000000008001008                Virtual_Com_Port_init
+ .text.IntToUnicode
+                0x000000000800102c       0x2a USBInit.o
+ *fill*         0x0000000008001056        0x2 00
+ .text.PowerOn  0x0000000008001058       0x38 USBInit.o
+                0x0000000008001058                PowerOn
+ .text.USB_Cable_Config
+                0x0000000008001090       0x1c USBInit.o
+                0x0000000008001090                USB_Cable_Config
+ .text.PowerOff
+                0x00000000080010ac       0x24 USBInit.o
+                0x00000000080010ac                PowerOff
+ .text.UsbVcpDisconnect
+                0x00000000080010d0        0x4 USBInit.o
+                0x00000000080010d0                UsbVcpDisconnect
+ .text.Get_SerialNum
+                0x00000000080010d4       0x3c USBInit.o
+                0x00000000080010d4                Get_SerialNum
+ .text.USB_TxDByte
+                0x0000000008001110       0x28 USBInit.o
+                0x0000000008001110                USB_TxDByte
+ .text.FLASH_SetLatency
+                0x0000000008001138       0x18 lib/libstm32.a(stm32f10x_flash.o)
+                0x0000000008001138                FLASH_SetLatency
+ .text.FLASH_PrefetchBufferCmd
+                0x0000000008001150       0x18 lib/libstm32.a(stm32f10x_flash.o)
+                0x0000000008001150                FLASH_PrefetchBufferCmd
+ .text.FLASH_Unlock
+                0x0000000008001168       0x18 lib/libstm32.a(stm32f10x_flash.o)
+                0x0000000008001168                FLASH_Unlock
+ .text.FLASH_Lock
+                0x0000000008001180       0x10 lib/libstm32.a(stm32f10x_flash.o)
+                0x0000000008001180                FLASH_Lock
+ .text.FLASH_ClearFlag
+                0x0000000008001190        0xc lib/libstm32.a(stm32f10x_flash.o)
+                0x0000000008001190                FLASH_ClearFlag
+ .text.FLASH_GetStatus
+                0x000000000800119c       0x28 lib/libstm32.a(stm32f10x_flash.o)
+                0x000000000800119c                FLASH_GetStatus
+ .text.FLASH_WaitForLastOperation
+                0x00000000080011c4       0x34 lib/libstm32.a(stm32f10x_flash.o)
+                0x00000000080011c4                FLASH_WaitForLastOperation
+ .text.FLASH_ProgramWord
+                0x00000000080011f8       0x4c lib/libstm32.a(stm32f10x_flash.o)
+                0x00000000080011f8                FLASH_ProgramWord
+ .text.FLASH_ErasePage
+                0x0000000008001244       0x40 lib/libstm32.a(stm32f10x_flash.o)
+                0x0000000008001244                FLASH_ErasePage
+ .text.IWDG_WriteAccessCmd
+                0x0000000008001284        0xc lib/libstm32.a(stm32f10x_iwdg.o)
+                0x0000000008001284                IWDG_WriteAccessCmd
+ .text.IWDG_SetPrescaler
+                0x0000000008001290        0xc lib/libstm32.a(stm32f10x_iwdg.o)
+                0x0000000008001290                IWDG_SetPrescaler
+ .text.IWDG_SetReload
+                0x000000000800129c        0xc lib/libstm32.a(stm32f10x_iwdg.o)
+                0x000000000800129c                IWDG_SetReload
+ .text.GPIO_Init
+                0x00000000080012a8       0xa0 lib/libstm32.a(stm32f10x_gpio.o)
+                0x00000000080012a8                GPIO_Init
+ .text.GPIO_ReadInputDataBit
+                0x0000000008001348        0xc lib/libstm32.a(stm32f10x_gpio.o)
+                0x0000000008001348                GPIO_ReadInputDataBit
+ .text.GPIO_SetBits
+                0x0000000008001354        0x4 lib/libstm32.a(stm32f10x_gpio.o)
+                0x0000000008001354                GPIO_SetBits
+ .text.GPIO_ResetBits
+                0x0000000008001358        0x4 lib/libstm32.a(stm32f10x_gpio.o)
+                0x0000000008001358                GPIO_ResetBits
+ .text.GPIO_PinRemapConfig
+                0x000000000800135c       0x58 lib/libstm32.a(stm32f10x_gpio.o)
+                0x000000000800135c                GPIO_PinRemapConfig
+ .text.NVIC_PriorityGroupConfig
+                0x00000000080013b4       0x14 lib/libstm32.a(stm32f10x_nvic.o)
+                0x00000000080013b4                NVIC_PriorityGroupConfig
+ .text.NVIC_Init
+                0x00000000080013c8       0x84 lib/libstm32.a(stm32f10x_nvic.o)
+                0x00000000080013c8                NVIC_Init
+ .text.NVIC_SetVectorTable
+                0x000000000800144c       0x14 lib/libstm32.a(stm32f10x_nvic.o)
+                0x000000000800144c                NVIC_SetVectorTable
+ .text.NVIC_GenerateSystemReset
+                0x0000000008001460       0x18 lib/libstm32.a(stm32f10x_nvic.o)
+                0x0000000008001460                NVIC_GenerateSystemReset
+ .text.RCC_DeInit
+                0x0000000008001478       0x3c lib/libstm32.a(stm32f10x_rcc.o)
+                0x0000000008001478                RCC_DeInit
+ .text.RCC_HSEConfig
+                0x00000000080014b4       0x34 lib/libstm32.a(stm32f10x_rcc.o)
+                0x00000000080014b4                RCC_HSEConfig
+ .text.RCC_PLLConfig
+                0x00000000080014e8       0x14 lib/libstm32.a(stm32f10x_rcc.o)
+                0x00000000080014e8                RCC_PLLConfig
+ .text.RCC_PLLCmd
+                0x00000000080014fc        0xc lib/libstm32.a(stm32f10x_rcc.o)
+                0x00000000080014fc                RCC_PLLCmd
+ .text.RCC_SYSCLKConfig
+                0x0000000008001508       0x14 lib/libstm32.a(stm32f10x_rcc.o)
+                0x0000000008001508                RCC_SYSCLKConfig
+ .text.RCC_GetSYSCLKSource
+                0x000000000800151c       0x10 lib/libstm32.a(stm32f10x_rcc.o)
+                0x000000000800151c                RCC_GetSYSCLKSource
+ .text.RCC_HCLKConfig
+                0x000000000800152c       0x14 lib/libstm32.a(stm32f10x_rcc.o)
+                0x000000000800152c                RCC_HCLKConfig
+ .text.RCC_PCLK1Config
+                0x0000000008001540       0x14 lib/libstm32.a(stm32f10x_rcc.o)
+                0x0000000008001540                RCC_PCLK1Config
+ .text.RCC_PCLK2Config
+                0x0000000008001554       0x14 lib/libstm32.a(stm32f10x_rcc.o)
+                0x0000000008001554                RCC_PCLK2Config
+ .text.RCC_USBCLKConfig
+                0x0000000008001568        0xc lib/libstm32.a(stm32f10x_rcc.o)
+                0x0000000008001568                RCC_USBCLKConfig
+ .text.RCC_GetClocksFreq
+                0x0000000008001574       0x88 lib/libstm32.a(stm32f10x_rcc.o)
+                0x0000000008001574                RCC_GetClocksFreq
+ .text.RCC_APB2PeriphClockCmd
+                0x00000000080015fc       0x18 lib/libstm32.a(stm32f10x_rcc.o)
+                0x00000000080015fc                RCC_APB2PeriphClockCmd
+ .text.RCC_APB1PeriphClockCmd
+                0x0000000008001614       0x18 lib/libstm32.a(stm32f10x_rcc.o)
+                0x0000000008001614                RCC_APB1PeriphClockCmd
+ .text.RCC_APB2PeriphResetCmd
+                0x000000000800162c       0x18 lib/libstm32.a(stm32f10x_rcc.o)
+                0x000000000800162c                RCC_APB2PeriphResetCmd
+ .text.RCC_APB1PeriphResetCmd
+                0x0000000008001644       0x18 lib/libstm32.a(stm32f10x_rcc.o)
+                0x0000000008001644                RCC_APB1PeriphResetCmd
+ .text.RCC_GetFlagStatus
+                0x000000000800165c       0x28 lib/libstm32.a(stm32f10x_rcc.o)
+                0x000000000800165c                RCC_GetFlagStatus
+ .text.RCC_WaitForHSEStartUp
+                0x0000000008001684       0x2a lib/libstm32.a(stm32f10x_rcc.o)
+                0x0000000008001684                RCC_WaitForHSEStartUp
+ *fill*         0x00000000080016ae        0x2 00
+ .text.RCC_ClearFlag
+                0x00000000080016b0       0x10 lib/libstm32.a(stm32f10x_rcc.o)
+                0x00000000080016b0                RCC_ClearFlag
+ .text.TIM_TimeBaseInit
+                0x00000000080016c0       0x3c lib/libstm32.a(stm32f10x_tim.o)
+                0x00000000080016c0                TIM_TimeBaseInit
+ .text.TIM_Cmd  0x00000000080016fc       0x18 lib/libstm32.a(stm32f10x_tim.o)
+                0x00000000080016fc                TIM_Cmd
+ .text.TIM_ITConfig
+                0x0000000008001714       0x12 lib/libstm32.a(stm32f10x_tim.o)
+                0x0000000008001714                TIM_ITConfig
+ .text.TIM_PrescalerConfig
+                0x0000000008001726        0x6 lib/libstm32.a(stm32f10x_tim.o)
+                0x0000000008001726                TIM_PrescalerConfig
+ .text.TIM_ClearFlag
+                0x000000000800172c        0x8 lib/libstm32.a(stm32f10x_tim.o)
+                0x000000000800172c                TIM_ClearFlag
+ .text.TIM_ClearITPendingBit
+                0x0000000008001734        0x8 lib/libstm32.a(stm32f10x_tim.o)
+                0x0000000008001734                TIM_ClearITPendingBit
+ .text.SysTick_SetReload
+                0x000000000800173c        0xc lib/libstm32.a(stm32f10x_systick.o)
+                0x000000000800173c                SysTick_SetReload
+ .text.SysTick_CounterCmd
+                0x0000000008001748       0x28 lib/libstm32.a(stm32f10x_systick.o)
+                0x0000000008001748                SysTick_CounterCmd
+ .text.SysTick_ITConfig
+                0x0000000008001770       0x18 lib/libstm32.a(stm32f10x_systick.o)
+                0x0000000008001770                SysTick_ITConfig
+ .text.USART_DeInit
+                0x0000000008001788       0x94 lib/libstm32.a(stm32f10x_usart.o)
+                0x0000000008001788                USART_DeInit
+ .text.USART_Init
+                0x000000000800181c       0x88 lib/libstm32.a(stm32f10x_usart.o)
+                0x000000000800181c                USART_Init
+ .text.USART_StructInit
+                0x00000000080018a4       0x16 lib/libstm32.a(stm32f10x_usart.o)
+                0x00000000080018a4                USART_StructInit
+ .text.USART_Cmd
+                0x00000000080018ba       0x18 lib/libstm32.a(stm32f10x_usart.o)
+                0x00000000080018ba                USART_Cmd
+ .text.USART_ITConfig
+                0x00000000080018d2       0x34 lib/libstm32.a(stm32f10x_usart.o)
+                0x00000000080018d2                USART_ITConfig
+ .text.USART_SendData
+                0x0000000008001906        0x8 lib/libstm32.a(stm32f10x_usart.o)
+                0x0000000008001906                USART_SendData
+ .text.USART_ReceiveData
+                0x000000000800190e        0x8 lib/libstm32.a(stm32f10x_usart.o)
+                0x000000000800190e                USART_ReceiveData
+ .text.USART_GetFlagStatus
+                0x0000000008001916        0xc lib/libstm32.a(stm32f10x_usart.o)
+                0x0000000008001916                USART_GetFlagStatus
+ .text.USART_ClearFlag
+                0x0000000008001922        0x8 lib/libstm32.a(stm32f10x_usart.o)
+                0x0000000008001922                USART_ClearFlag
+ .text.USART_GetITStatus
+                0x000000000800192a       0x40 lib/libstm32.a(stm32f10x_usart.o)
+                0x000000000800192a                USART_GetITStatus
+ *fill*         0x000000000800196a        0x2 00
+ .text.Reset_Handler
+                0x000000000800196c       0x50 lib/libstm32.a(stm32f10x_vector.o)
+                0x000000000800196c                Reset_Handler
+ .text.USB_Init
+                0x00000000080019bc       0x38 lib/libstm32.a(usb_init.o)
+                0x00000000080019bc                USB_Init
+ .text.Standard_GetConfiguration
+                0x00000000080019f4       0x24 lib/libstm32.a(usb_core.o)
+                0x00000000080019f4                Standard_GetConfiguration
+ .text.Standard_GetInterface
+                0x0000000008001a18       0x24 lib/libstm32.a(usb_core.o)
+                0x0000000008001a18                Standard_GetInterface
+ .text.Standard_GetStatus
+                0x0000000008001a3c       0x9c lib/libstm32.a(usb_core.o)
+                0x0000000008001a3c                Standard_GetStatus
+ .text.DataStageIn
+                0x0000000008001ad8       0xa4 lib/libstm32.a(usb_core.o)
+ .text.Standard_SetConfiguration
+                0x0000000008001b7c       0x38 lib/libstm32.a(usb_core.o)
+                0x0000000008001b7c                Standard_SetConfiguration
+ .text.Standard_SetInterface
+                0x0000000008001bb4       0x48 lib/libstm32.a(usb_core.o)
+                0x0000000008001bb4                Standard_SetInterface
+ .text.Standard_ClearFeature
+                0x0000000008001bfc       0xdc lib/libstm32.a(usb_core.o)
+                0x0000000008001bfc                Standard_ClearFeature
+ .text.Standard_SetEndPointFeature
+                0x0000000008001cd8       0x8c lib/libstm32.a(usb_core.o)
+                0x0000000008001cd8                Standard_SetEndPointFeature
+ .text.Standard_SetDeviceFeature
+                0x0000000008001d64       0x24 lib/libstm32.a(usb_core.o)
+                0x0000000008001d64                Standard_SetDeviceFeature
+ .text.Standard_GetDescriptorData
+                0x0000000008001d88       0x1c lib/libstm32.a(usb_core.o)
+                0x0000000008001d88                Standard_GetDescriptorData
+ .text.Post0_Process
+                0x0000000008001da4       0x40 lib/libstm32.a(usb_core.o)
+                0x0000000008001da4                Post0_Process
+ .text.Out0_Process
+                0x0000000008001de4       0xd4 lib/libstm32.a(usb_core.o)
+                0x0000000008001de4                Out0_Process
+ .text.Setup0_Process
+                0x0000000008001eb8      0x300 lib/libstm32.a(usb_core.o)
+                0x0000000008001eb8                Setup0_Process
+ .text.SetDeviceAddress
+                0x00000000080021b8       0x40 lib/libstm32.a(usb_core.o)
+                0x00000000080021b8                SetDeviceAddress
+ .text.In0_Process
+                0x00000000080021f8       0x60 lib/libstm32.a(usb_core.o)
+                0x00000000080021f8                In0_Process
+ .text.NOP_Process
+                0x0000000008002258        0x2 lib/libstm32.a(usb_core.o)
+                0x0000000008002258                NOP_Process
+ .text.UserToPMABufferCopy
+                0x000000000800225a       0x2e lib/libstm32.a(usb_mem.o)
+                0x000000000800225a                UserToPMABufferCopy
+ .text.PMAToUserBufferCopy
+                0x0000000008002288       0x24 lib/libstm32.a(usb_mem.o)
+                0x0000000008002288                PMAToUserBufferCopy
+ .text.SetBTABLE
+                0x00000000080022ac       0x10 lib/libstm32.a(usb_regs.o)
+                0x00000000080022ac                SetBTABLE
+ .text.SetEPType
+                0x00000000080022bc       0x18 lib/libstm32.a(usb_regs.o)
+                0x00000000080022bc                SetEPType
+ .text.SetEPTxStatus
+                0x00000000080022d4       0x3a lib/libstm32.a(usb_regs.o)
+                0x00000000080022d4                SetEPTxStatus
+ .text.SetEPRxStatus
+                0x000000000800230e       0x3a lib/libstm32.a(usb_regs.o)
+                0x000000000800230e                SetEPRxStatus
+ .text.SetEPTxValid
+                0x0000000008002348       0x22 lib/libstm32.a(usb_regs.o)
+                0x0000000008002348                SetEPTxValid
+ .text.SetEPRxValid
+                0x000000000800236a       0x22 lib/libstm32.a(usb_regs.o)
+                0x000000000800236a                SetEPRxValid
+ .text.Clear_Status_Out
+                0x000000000800238c       0x1e lib/libstm32.a(usb_regs.o)
+                0x000000000800238c                Clear_Status_Out
+ .text.ClearDTOG_RX
+                0x00000000080023aa       0x24 lib/libstm32.a(usb_regs.o)
+                0x00000000080023aa                ClearDTOG_RX
+ .text.ClearDTOG_TX
+                0x00000000080023ce       0x24 lib/libstm32.a(usb_regs.o)
+                0x00000000080023ce                ClearDTOG_TX
+ *fill*         0x00000000080023f2        0x2 00
+ .text.SetEPTxAddr
+                0x00000000080023f4       0x20 lib/libstm32.a(usb_regs.o)
+                0x00000000080023f4                SetEPTxAddr
+ .text.SetEPRxAddr
+                0x0000000008002414       0x20 lib/libstm32.a(usb_regs.o)
+                0x0000000008002414                SetEPRxAddr
+ .text.GetEPTxAddr
+                0x0000000008002434       0x1c lib/libstm32.a(usb_regs.o)
+                0x0000000008002434                GetEPTxAddr
+ .text.GetEPRxAddr
+                0x0000000008002450       0x1c lib/libstm32.a(usb_regs.o)
+                0x0000000008002450                GetEPRxAddr
+ .text.SetEPTxCount
+                0x000000000800246c       0x1c lib/libstm32.a(usb_regs.o)
+                0x000000000800246c                SetEPTxCount
+ .text.SetEPRxCount
+                0x0000000008002488       0x3c lib/libstm32.a(usb_regs.o)
+                0x0000000008002488                SetEPRxCount
+ .text.GetEPRxCount
+                0x00000000080024c4       0x20 lib/libstm32.a(usb_regs.o)
+                0x00000000080024c4                GetEPRxCount
+ .text.ByteSwap
+                0x00000000080024e4        0xa lib/libstm32.a(usb_regs.o)
+                0x00000000080024e4                ByteSwap
+ *fill*         0x00000000080024ee        0x2 00
+ .text.USB_SIL_Init
+                0x00000000080024f0       0x20 lib/libstm32.a(usb_sil.o)
+                0x00000000080024f0                USB_SIL_Init
+ .text.USB_SIL_Read
+                0x0000000008002510       0x24 lib/libstm32.a(usb_sil.o)
+                0x0000000008002510                USB_SIL_Read
+ .text.CTR_LP   0x0000000008002534      0x18c lib/libstm32.a(usb_int.o)
+                0x0000000008002534                CTR_LP
+ *(.rodata)
+ .rodata        0x00000000080026c0       0x24 main.o
+ .rodata        0x00000000080026e4       0x9d usb_desc.o
+                0x00000000080026e4                Virtual_Com_Port_StringProduct
+                0x0000000008002716                Virtual_Com_Port_StringVendor
+                0x0000000008002728                Virtual_Com_Port_StringLangID
+                0x000000000800272c                Virtual_Com_Port_ConfigDescriptor
+                0x000000000800276f                Virtual_Com_Port_DeviceDescriptor
+ .rodata        0x0000000008002781       0x14 lib/libstm32.a(stm32f10x_rcc.o)
+ *(.rodata*)
+ .rodata.str1.1
+                0x0000000008002795       0x7b main.o
+ .rodata.str1.1
+                0x0000000008002810       0x42 usb_endp.o
+ *(.glue_7)
+ .glue_7        0x0000000000000000        0x0 linker stubs
+ *(.glue_7t)
+ .glue_7t       0x0000000000000000        0x0 linker stubs
+                0x0000000008002854                . = ALIGN (0x4)
+ *fill*         0x0000000008002852        0x2 00
+                0x0000000008002854                _etext = .
+                0x0000000008002854                _sidata = _etext
+
+.vfp11_veneer   0x0000000008002854        0x0
+ .vfp11_veneer  0x0000000000000000        0x0 linker stubs
+
+.v4_bx          0x0000000008002854        0x0
+ .v4_bx         0x0000000000000000        0x0 linker stubs
+
+.iplt           0x0000000008002854        0x0
+ .iplt          0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crtbegin.o
+
+.rel.dyn        0x0000000008002854        0x0
+ .rel.iplt      0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crtbegin.o
+
+.data           0x0000000020000000       0xe4 load address 0x0000000008002854
+                0x0000000020000000                . = ALIGN (0x4)
+                0x0000000020000000                _sdata = .
+ *(.data)
+ .data          0x0000000020000000        0x1 main.o
+                0x0000000020000000                gbIsFlashLock
+ .data          0x0000000020000001       0x1a usb_desc.o
+                0x0000000020000001                Virtual_Com_Port_StringSerial
+ *fill*         0x000000002000001b        0x1 00
+ .data          0x000000002000001c       0x38 usb_istr.o
+                0x000000002000001c                pEpInt_OUT
+                0x0000000020000038                pEpInt_IN
+ .data          0x0000000020000054       0x90 usb_prop.o
+                0x0000000020000054                linecoding
+                0x000000002000005c                String_Descriptor
+                0x000000002000007c                Config_Descriptor
+                0x0000000020000084                Device_Descriptor
+                0x000000002000008c                Device_Property
+                0x00000000200000bc                User_Standard_Requests
+                0x00000000200000e0                Device_Table
+ *(.data.*)
+                0x00000000200000e4                . = ALIGN (0x4)
+                0x00000000200000e4                _edata = .
+
+.igot.plt       0x00000000200000e4        0x0 load address 0x0000000008002938
+ .igot.plt      0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crtbegin.o
+
+.bss            0x00000000200000e4      0x63c load address 0x0000000008002938
+                0x00000000200000e4                . = ALIGN (0x4)
+                0x00000000200000e4                _sbss = .
+ *(.bss)
+ .bss           0x00000000200000e4       0x28 main.o
+                0x00000000200000e4                gu32TimingCounter1ms
+                0x00000000200000e8                gu32TimingCounter1ms_Txd
+                0x00000000200000ec                gbCount
+                0x00000000200000f0                gwAddressPointer
+                0x00000000200000f4                gwEndAddressPointer
+                0x00000000200000f8                gwCalculatedCheckSum
+                0x00000000200000fc                gwRxTotalCount
+                0x0000000020000100                gbFlashDownloadStart
+                0x0000000020000104                gwReceivedCheckSumFromHost
+                0x0000000020000108                gwWriteProtectedPages
+ .bss           0x000000002000010c        0x4 stm32f10x_it.o
+ .bss           0x0000000020000110        0x8 usb_endp.o
+                0x0000000020000110                FinishToSend
+                0x0000000020000112                USB_Rx_Cnt
+ .bss           0x0000000020000118        0x1 usb_istr.o
+                0x0000000020000118                bIntPackSOF
+ *fill*         0x0000000020000119        0x3 00
+ .bss           0x000000002000011c        0x8 usb_prop.o
+                0x000000002000011c                Request
+                0x0000000020000120                comstatetemp
+ .bss           0x0000000020000124        0xc USBInit.o
+                0x0000000020000124                bDeviceState
+                0x0000000020000128                USB_Tx_State
+                0x000000002000012c                USART_Rx_length
+ .bss           0x0000000020000130        0x1 lib/libstm32.a(usb_core.o)
+                0x0000000020000130                Data_Mul_MaxPacketSize
+ *(COMMON)
+ *fill*         0x0000000020000131        0x3 00
+ COMMON         0x0000000020000134      0x571 main.o
+                0x0000000020000134                HSEStartUpStatus
+                0x0000000020000135                gbDXLReadPointer
+                0x0000000020000138                TimingDelay
+                0x000000002000013c                gwUSARTWritePtr
+                0x000000002000013e                gbpRxBuffer
+                0x0000000020000190                gwUSARTReadPtr
+                0x0000000020000194                USART_InitStructure
+                0x00000000200001a4                gwpUSARTBuffer
+                0x00000000200005a4                gbpDXLDataBuffer
+                0x00000000200006a4                gbDXLWritePointer
+ COMMON         0x00000000200006a5       0x40 usb_endp.o
+                0x00000000200006a5                USB_Rx_Buffer
+ *fill*         0x00000000200006e5        0x1 00
+ COMMON         0x00000000200006e6        0x2 usb_istr.o
+                0x00000000200006e6                wIstr
+ COMMON         0x00000000200006e8       0x32 lib/libstm32.a(usb_init.o)
+                0x00000000200006e8                SaveState
+                0x00000000200006ec                pProperty
+                0x00000000200006f0                EPindex
+                0x00000000200006f4                Device_Info
+                0x0000000020000710                pUser_Standard_Requests
+                0x0000000020000714                pInformation
+                0x0000000020000718                wInterrupt_Mask
+ COMMON         0x000000002000071a        0x2 lib/libstm32.a(usb_core.o)
+                0x000000002000071a                StatusInfo
+ COMMON         0x000000002000071c        0x4 lib/libstm32.a(usb_int.o)
+                0x000000002000071c                SaveRState
+                0x000000002000071e                SaveTState
+                0x0000000020000720                . = ALIGN (0x4)
+                0x0000000020000720                _ebss = .
+                0x0000000020000720                PROVIDE (end, _ebss)
+                0x0000000020000720                PROVIDE (_end, _ebss)
+
+._usrstack      0x0000000020000720      0x100 load address 0x0000000008002f74
+                0x0000000020000720                . = ALIGN (0x4)
+                0x0000000020000720                _susrstack = .
+                0x0000000020000820                . = (. + _Minimum_Stack_Size)
+ *fill*         0x0000000020000720      0x100 00
+                0x0000000020000820                . = ALIGN (0x4)
+                0x0000000020000820                _eusrstack = .
+
+.b1text
+ *(.b1text)
+ *(.b1rodata)
+ *(.b1rodata*)
+
+.eb0text
+ *(.eb0text)
+ *(.eb0rodata)
+ *(.eb0rodata*)
+
+.eb1text
+ *(.eb1text)
+ *(.eb1rodata)
+ *(.eb1rodata*)
+
+.eb2text
+ *(.eb2text)
+ *(.eb2rodata)
+ *(.eb2rodata*)
+
+.eb3text
+ *(.eb3text)
+ *(.eb3rodata)
+ *(.eb3rodata*)
+                0x0000000020000820                __exidx_start = .
+                0x0000000020000820                __exidx_end = .
+
+/DISCARD/
+ libc.a(*)
+ libm.a(*)
+ libgcc.a(*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x0000000000000000       0x70
+ *(.comment)
+ .comment       0x0000000000000000       0x70 main.o
+                                         0x71 (size before relaxing)
+ .comment       0x0000000000000000       0x71 stm32f10x_it.o
+ .comment       0x0000000000000000       0x71 usb_desc.o
+ .comment       0x0000000000000000       0x71 usb_endp.o
+ .comment       0x0000000000000000       0x71 usb_istr.o
+ .comment       0x0000000000000000       0x71 usb_prop.o
+ .comment       0x0000000000000000       0x71 USBInit.o
+ .comment       0x0000000000000000       0x71 lib/libstm32.a(stm32f10x_flash.o)
+ .comment       0x0000000000000000       0x71 lib/libstm32.a(stm32f10x_iwdg.o)
+ .comment       0x0000000000000000       0x71 lib/libstm32.a(stm32f10x_gpio.o)
+ .comment       0x0000000000000000       0x71 lib/libstm32.a(stm32f10x_nvic.o)
+ .comment       0x0000000000000000       0x71 lib/libstm32.a(stm32f10x_rcc.o)
+ .comment       0x0000000000000000       0x71 lib/libstm32.a(stm32f10x_tim.o)
+ .comment       0x0000000000000000       0x71 lib/libstm32.a(stm32f10x_systick.o)
+ .comment       0x0000000000000000       0x71 lib/libstm32.a(stm32f10x_usart.o)
+ .comment       0x0000000000000000       0x71 lib/libstm32.a(stm32f10x_vector.o)
+ .comment       0x0000000000000000       0x71 lib/libstm32.a(usb_init.o)
+ .comment       0x0000000000000000       0x71 lib/libstm32.a(usb_core.o)
+ .comment       0x0000000000000000       0x71 lib/libstm32.a(usb_mem.o)
+ .comment       0x0000000000000000       0x71 lib/libstm32.a(usb_regs.o)
+ .comment       0x0000000000000000       0x71 lib/libstm32.a(usb_sil.o)
+ .comment       0x0000000000000000       0x71 lib/libstm32.a(usb_int.o)
+
+.ARM.attributes
+                0x0000000000000000       0x31
+ .ARM.attributes
+                0x0000000000000000       0x33 main.o
+ .ARM.attributes
+                0x0000000000000033       0x33 stm32f10x_it.o
+ .ARM.attributes
+                0x0000000000000066       0x33 usb_desc.o
+ .ARM.attributes
+                0x0000000000000099       0x33 usb_endp.o
+ .ARM.attributes
+                0x00000000000000cc       0x33 usb_istr.o
+ .ARM.attributes
+                0x00000000000000ff       0x33 usb_prop.o
+ .ARM.attributes
+                0x0000000000000132       0x33 USBInit.o
+ .ARM.attributes
+                0x0000000000000165       0x33 lib/libstm32.a(stm32f10x_flash.o)
+ .ARM.attributes
+                0x0000000000000198       0x33 lib/libstm32.a(stm32f10x_iwdg.o)
+ .ARM.attributes
+                0x00000000000001cb       0x33 lib/libstm32.a(stm32f10x_gpio.o)
+ .ARM.attributes
+                0x00000000000001fe       0x33 lib/libstm32.a(stm32f10x_nvic.o)
+ .ARM.attributes
+                0x0000000000000231       0x33 lib/libstm32.a(stm32f10x_rcc.o)
+ .ARM.attributes
+                0x0000000000000264       0x33 lib/libstm32.a(stm32f10x_tim.o)
+ .ARM.attributes
+                0x0000000000000297       0x33 lib/libstm32.a(stm32f10x_systick.o)
+ .ARM.attributes
+                0x00000000000002ca       0x33 lib/libstm32.a(stm32f10x_usart.o)
+ .ARM.attributes
+                0x00000000000002fd       0x21 lib/libstm32.a(cortexm3_macro.o)
+ .ARM.attributes
+                0x000000000000031e       0x33 lib/libstm32.a(stm32f10x_vector.o)
+ .ARM.attributes
+                0x0000000000000351       0x33 lib/libstm32.a(usb_init.o)
+ .ARM.attributes
+                0x0000000000000384       0x33 lib/libstm32.a(usb_core.o)
+ .ARM.attributes
+                0x00000000000003b7       0x33 lib/libstm32.a(usb_mem.o)
+ .ARM.attributes
+                0x00000000000003ea       0x33 lib/libstm32.a(usb_regs.o)
+ .ARM.attributes
+                0x000000000000041d       0x33 lib/libstm32.a(usb_sil.o)
+ .ARM.attributes
+                0x0000000000000450       0x33 lib/libstm32.a(usb_int.o)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x0000000000000000      0xfd0
+ *(.debug_aranges)
+ .debug_aranges
+                0x0000000000000000       0xf0 main.o
+ .debug_aranges
+                0x00000000000000f0      0x240 stm32f10x_it.o
+ .debug_aranges
+                0x0000000000000330       0x18 usb_desc.o
+ .debug_aranges
+                0x0000000000000348       0x38 usb_endp.o
+ .debug_aranges
+                0x0000000000000380       0x20 usb_istr.o
+ .debug_aranges
+                0x00000000000003a0       0x88 usb_prop.o
+ .debug_aranges
+                0x0000000000000428       0x58 USBInit.o
+ .debug_aranges
+                0x0000000000000480       0xd0 lib/libstm32.a(stm32f10x_flash.o)
+ .debug_aranges
+                0x0000000000000550       0x48 lib/libstm32.a(stm32f10x_iwdg.o)
+ .debug_aranges
+                0x0000000000000598       0xa0 lib/libstm32.a(stm32f10x_gpio.o)
+ .debug_aranges
+                0x0000000000000638      0x108 lib/libstm32.a(stm32f10x_nvic.o)
+ .debug_aranges
+                0x0000000000000740      0x118 lib/libstm32.a(stm32f10x_rcc.o)
+ .debug_aranges
+                0x0000000000000858      0x2e0 lib/libstm32.a(stm32f10x_tim.o)
+ .debug_aranges
+                0x0000000000000b38       0x48 lib/libstm32.a(stm32f10x_systick.o)
+ .debug_aranges
+                0x0000000000000b80       0xf0 lib/libstm32.a(stm32f10x_usart.o)
+ .debug_aranges
+                0x0000000000000c70       0x20 lib/libstm32.a(cortexm3_macro.o)
+ .debug_aranges
+                0x0000000000000c90       0x20 lib/libstm32.a(stm32f10x_vector.o)
+ .debug_aranges
+                0x0000000000000cb0       0x20 lib/libstm32.a(usb_init.o)
+ .debug_aranges
+                0x0000000000000cd0       0x98 lib/libstm32.a(usb_core.o)
+ .debug_aranges
+                0x0000000000000d68       0x28 lib/libstm32.a(usb_mem.o)
+ .debug_aranges
+                0x0000000000000d90      0x1f0 lib/libstm32.a(usb_regs.o)
+ .debug_aranges
+                0x0000000000000f80       0x28 lib/libstm32.a(usb_sil.o)
+ .debug_aranges
+                0x0000000000000fa8       0x28 lib/libstm32.a(usb_int.o)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x0000000000000000     0xc050
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x0000000000000000     0x1fda main.o
+ .debug_info    0x0000000000001fda      0xb67 stm32f10x_it.o
+ .debug_info    0x0000000000002b41      0x12e usb_desc.o
+ .debug_info    0x0000000000002c6f      0x3bc usb_endp.o
+ .debug_info    0x000000000000302b      0x254 usb_istr.o
+ .debug_info    0x000000000000327f      0xc44 usb_prop.o
+ .debug_info    0x0000000000003ec3      0x576 USBInit.o
+ .debug_info    0x0000000000004439      0x95a lib/libstm32.a(stm32f10x_flash.o)
+ .debug_info    0x0000000000004d93      0x1d1 lib/libstm32.a(stm32f10x_iwdg.o)
+ .debug_info    0x0000000000004f64      0x7b6 lib/libstm32.a(stm32f10x_gpio.o)
+ .debug_info    0x000000000000571a      0xa53 lib/libstm32.a(stm32f10x_nvic.o)
+ .debug_info    0x000000000000616d      0x91a lib/libstm32.a(stm32f10x_rcc.o)
+ .debug_info    0x0000000000006a87     0x2169 lib/libstm32.a(stm32f10x_tim.o)
+ .debug_info    0x0000000000008bf0      0x231 lib/libstm32.a(stm32f10x_systick.o)
+ .debug_info    0x0000000000008e21      0xaf4 lib/libstm32.a(stm32f10x_usart.o)
+ .debug_info    0x0000000000009915       0x7b lib/libstm32.a(cortexm3_macro.o)
+ .debug_info    0x0000000000009990      0x10a lib/libstm32.a(stm32f10x_vector.o)
+ .debug_info    0x0000000000009a9a      0x45e lib/libstm32.a(usb_init.o)
+ .debug_info    0x0000000000009ef8      0xef3 lib/libstm32.a(usb_core.o)
+ .debug_info    0x000000000000adeb      0x189 lib/libstm32.a(usb_mem.o)
+ .debug_info    0x000000000000af74      0xd9f lib/libstm32.a(usb_regs.o)
+ .debug_info    0x000000000000bd13      0x17d lib/libstm32.a(usb_sil.o)
+ .debug_info    0x000000000000be90      0x1c0 lib/libstm32.a(usb_int.o)
+
+.debug_abbrev   0x0000000000000000     0x2993
+ *(.debug_abbrev)
+ .debug_abbrev  0x0000000000000000      0x403 main.o
+ .debug_abbrev  0x0000000000000403      0x1e8 stm32f10x_it.o
+ .debug_abbrev  0x00000000000005eb       0x52 usb_desc.o
+ .debug_abbrev  0x000000000000063d      0x1f0 usb_endp.o
+ .debug_abbrev  0x000000000000082d      0x10b usb_istr.o
+ .debug_abbrev  0x0000000000000938      0x2ae usb_prop.o
+ .debug_abbrev  0x0000000000000be6      0x2b3 USBInit.o
+ .debug_abbrev  0x0000000000000e99      0x272 lib/libstm32.a(stm32f10x_flash.o)
+ .debug_abbrev  0x000000000000110b      0x103 lib/libstm32.a(stm32f10x_iwdg.o)
+ .debug_abbrev  0x000000000000120e      0x21e lib/libstm32.a(stm32f10x_gpio.o)
+ .debug_abbrev  0x000000000000142c      0x290 lib/libstm32.a(stm32f10x_nvic.o)
+ .debug_abbrev  0x00000000000016bc      0x234 lib/libstm32.a(stm32f10x_rcc.o)
+ .debug_abbrev  0x00000000000018f0      0x2f4 lib/libstm32.a(stm32f10x_tim.o)
+ .debug_abbrev  0x0000000000001be4      0x12a lib/libstm32.a(stm32f10x_systick.o)
+ .debug_abbrev  0x0000000000001d0e      0x23f lib/libstm32.a(stm32f10x_usart.o)
+ .debug_abbrev  0x0000000000001f4d       0x14 lib/libstm32.a(cortexm3_macro.o)
+ .debug_abbrev  0x0000000000001f61       0xda lib/libstm32.a(stm32f10x_vector.o)
+ .debug_abbrev  0x000000000000203b      0x10c lib/libstm32.a(usb_init.o)
+ .debug_abbrev  0x0000000000002147      0x3dc lib/libstm32.a(usb_core.o)
+ .debug_abbrev  0x0000000000002523       0x8d lib/libstm32.a(usb_mem.o)
+ .debug_abbrev  0x00000000000025b0      0x211 lib/libstm32.a(usb_regs.o)
+ .debug_abbrev  0x00000000000027c1       0xed lib/libstm32.a(usb_sil.o)
+ .debug_abbrev  0x00000000000028ae       0xe5 lib/libstm32.a(usb_int.o)
+
+.debug_line     0x0000000000000000     0x386f
+ *(.debug_line)
+ .debug_line    0x0000000000000000      0x593 main.o
+ .debug_line    0x0000000000000593      0x4e1 stm32f10x_it.o
+ .debug_line    0x0000000000000a74       0x47 usb_desc.o
+ .debug_line    0x0000000000000abb      0x135 usb_endp.o
+ .debug_line    0x0000000000000bf0       0x94 usb_istr.o
+ .debug_line    0x0000000000000c84      0x21e usb_prop.o
+ .debug_line    0x0000000000000ea2      0x1a2 USBInit.o
+ .debug_line    0x0000000000001044      0x315 lib/libstm32.a(stm32f10x_flash.o)
+ .debug_line    0x0000000000001359       0xd0 lib/libstm32.a(stm32f10x_iwdg.o)
+ .debug_line    0x0000000000001429      0x244 lib/libstm32.a(stm32f10x_gpio.o)
+ .debug_line    0x000000000000166d      0x338 lib/libstm32.a(stm32f10x_nvic.o)
+ .debug_line    0x00000000000019a5      0x320 lib/libstm32.a(stm32f10x_rcc.o)
+ .debug_line    0x0000000000001cc5      0x91d lib/libstm32.a(stm32f10x_tim.o)
+ .debug_line    0x00000000000025e2       0xe2 lib/libstm32.a(stm32f10x_systick.o)
+ .debug_line    0x00000000000026c4      0x330 lib/libstm32.a(stm32f10x_usart.o)
+ .debug_line    0x00000000000029f4       0x9a lib/libstm32.a(cortexm3_macro.o)
+ .debug_line    0x0000000000002a8e       0x6e lib/libstm32.a(stm32f10x_vector.o)
+ .debug_line    0x0000000000002afc       0x8f lib/libstm32.a(usb_init.o)
+ .debug_line    0x0000000000002b8b      0x3c4 lib/libstm32.a(usb_core.o)
+ .debug_line    0x0000000000002f4f       0xa9 lib/libstm32.a(usb_mem.o)
+ .debug_line    0x0000000000002ff8      0x6a4 lib/libstm32.a(usb_regs.o)
+ .debug_line    0x000000000000369c       0xc1 lib/libstm32.a(usb_sil.o)
+ .debug_line    0x000000000000375d      0x112 lib/libstm32.a(usb_int.o)
+
+.debug_frame    0x0000000000000000     0x20bc
+ *(.debug_frame)
+ .debug_frame   0x0000000000000000      0x2a8 main.o
+ .debug_frame   0x00000000000002a8      0x484 stm32f10x_it.o
+ .debug_frame   0x000000000000072c       0x70 usb_endp.o
+ .debug_frame   0x000000000000079c       0x28 usb_istr.o
+ .debug_frame   0x00000000000007c4      0x108 usb_prop.o
+ .debug_frame   0x00000000000008cc       0xc0 USBInit.o
+ .debug_frame   0x000000000000098c      0x1f0 lib/libstm32.a(stm32f10x_flash.o)
+ .debug_frame   0x0000000000000b7c       0x70 lib/libstm32.a(stm32f10x_iwdg.o)
+ .debug_frame   0x0000000000000bec      0x160 lib/libstm32.a(stm32f10x_gpio.o)
+ .debug_frame   0x0000000000000d4c      0x210 lib/libstm32.a(stm32f10x_nvic.o)
+ .debug_frame   0x0000000000000f5c      0x224 lib/libstm32.a(stm32f10x_rcc.o)
+ .debug_frame   0x0000000000001180      0x658 lib/libstm32.a(stm32f10x_tim.o)
+ .debug_frame   0x00000000000017d8       0x70 lib/libstm32.a(stm32f10x_systick.o)
+ .debug_frame   0x0000000000001848      0x1ec lib/libstm32.a(stm32f10x_usart.o)
+ .debug_frame   0x0000000000001a34       0x2c lib/libstm32.a(stm32f10x_vector.o)
+ .debug_frame   0x0000000000001a60       0x28 lib/libstm32.a(usb_init.o)
+ .debug_frame   0x0000000000001a88      0x19c lib/libstm32.a(usb_core.o)
+ .debug_frame   0x0000000000001c24       0x44 lib/libstm32.a(usb_mem.o)
+ .debug_frame   0x0000000000001c68      0x3d0 lib/libstm32.a(usb_regs.o)
+ .debug_frame   0x0000000000002038       0x3c lib/libstm32.a(usb_sil.o)
+ .debug_frame   0x0000000000002074       0x48 lib/libstm32.a(usb_int.o)
+
+.debug_str      0x0000000000000000     0x3d76
+ *(.debug_str)
+ .debug_str     0x0000000000000000      0xcb3 main.o
+                                        0xd42 (size before relaxing)
+ .debug_str     0x0000000000000cb3      0x56c stm32f10x_it.o
+                                        0x7e8 (size before relaxing)
+ .debug_str     0x000000000000121f       0xc8 usb_desc.o
+                                        0x1a6 (size before relaxing)
+ .debug_str     0x00000000000012e7       0xa4 usb_endp.o
+                                        0x31a (size before relaxing)
+ .debug_str     0x000000000000138b      0x101 usb_istr.o
+                                        0x254 (size before relaxing)
+ .debug_str     0x000000000000148c      0x595 usb_prop.o
+                                        0x973 (size before relaxing)
+ .debug_str     0x0000000000001a21       0xe6 USBInit.o
+                                        0x31a (size before relaxing)
+ .debug_str     0x0000000000001b07      0x2d4 lib/libstm32.a(stm32f10x_flash.o)
+                                        0x4d5 (size before relaxing)
+ .debug_str     0x0000000000001ddb       0x82 lib/libstm32.a(stm32f10x_iwdg.o)
+                                        0x1bc (size before relaxing)
+ .debug_str     0x0000000000001e5d      0x1c8 lib/libstm32.a(stm32f10x_gpio.o)
+                                        0x44a (size before relaxing)
+ .debug_str     0x0000000000002025      0x476 lib/libstm32.a(stm32f10x_nvic.o)
+                                        0x6aa (size before relaxing)
+ .debug_str     0x000000000000249b      0x2fd lib/libstm32.a(stm32f10x_rcc.o)
+                                        0x57a (size before relaxing)
+ .debug_str     0x0000000000002798      0x9d8 lib/libstm32.a(stm32f10x_tim.o)
+                                        0xd6b (size before relaxing)
+ .debug_str     0x0000000000003170       0xac lib/libstm32.a(stm32f10x_systick.o)
+                                        0x21f (size before relaxing)
+ .debug_str     0x000000000000321c      0x2ba lib/libstm32.a(stm32f10x_usart.o)
+                                        0x615 (size before relaxing)
+ .debug_str     0x00000000000034d6       0x6f lib/libstm32.a(stm32f10x_vector.o)
+                                        0x112 (size before relaxing)
+ .debug_str     0x0000000000003545       0x4f lib/libstm32.a(usb_init.o)
+                                        0x49a (size before relaxing)
+ .debug_str     0x0000000000003594      0x425 lib/libstm32.a(usb_core.o)
+                                        0xa3d (size before relaxing)
+ .debug_str     0x00000000000039b9       0x4a lib/libstm32.a(usb_mem.o)
+                                        0x150 (size before relaxing)
+ .debug_str     0x0000000000003a03      0x30f lib/libstm32.a(usb_regs.o)
+                                        0x4d8 (size before relaxing)
+ .debug_str     0x0000000000003d12       0x3c lib/libstm32.a(usb_sil.o)
+                                        0x171 (size before relaxing)
+ .debug_str     0x0000000000003d4e       0x28 lib/libstm32.a(usb_int.o)
+                                        0x177 (size before relaxing)
+
+.debug_loc      0x0000000000000000     0x7363
+ *(.debug_loc)
+ .debug_loc     0x0000000000000000      0x9df main.o
+ .debug_loc     0x00000000000009df       0x60 stm32f10x_it.o
+ .debug_loc     0x0000000000000a3f      0x140 usb_endp.o
+ .debug_loc     0x0000000000000b7f       0x20 usb_istr.o
+ .debug_loc     0x0000000000000b9f      0x223 usb_prop.o
+ .debug_loc     0x0000000000000dc2      0x1d3 USBInit.o
+ .debug_loc     0x0000000000000f95      0x801 lib/libstm32.a(stm32f10x_flash.o)
+ .debug_loc     0x0000000000001796       0x62 lib/libstm32.a(stm32f10x_iwdg.o)
+ .debug_loc     0x00000000000017f8      0x61b lib/libstm32.a(stm32f10x_gpio.o)
+ .debug_loc     0x0000000000001e13      0xa23 lib/libstm32.a(stm32f10x_nvic.o)
+ .debug_loc     0x0000000000002836      0x7af lib/libstm32.a(stm32f10x_rcc.o)
+ .debug_loc     0x0000000000002fe5     0x1ebc lib/libstm32.a(stm32f10x_tim.o)
+ .debug_loc     0x0000000000004ea1       0xf8 lib/libstm32.a(stm32f10x_systick.o)
+ .debug_loc     0x0000000000004f99      0x9f6 lib/libstm32.a(stm32f10x_usart.o)
+ .debug_loc     0x000000000000598f       0x33 lib/libstm32.a(stm32f10x_vector.o)
+ .debug_loc     0x00000000000059c2       0x20 lib/libstm32.a(usb_init.o)
+ .debug_loc     0x00000000000059e2      0x988 lib/libstm32.a(usb_core.o)
+ .debug_loc     0x000000000000636a      0x191 lib/libstm32.a(usb_mem.o)
+ .debug_loc     0x00000000000064fb      0xcb3 lib/libstm32.a(usb_regs.o)
+ .debug_loc     0x00000000000071ae       0x95 lib/libstm32.a(usb_sil.o)
+ .debug_loc     0x0000000000007243      0x120 lib/libstm32.a(usb_int.o)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+OUTPUT(STM32F103C8_bootloader.elf elf32-littlearm)
+
+.debug_ranges   0x0000000000000000     0x1000
+ .debug_ranges  0x0000000000000000       0xe0 main.o
+ .debug_ranges  0x00000000000000e0      0x230 stm32f10x_it.o
+ .debug_ranges  0x0000000000000310       0x48 usb_endp.o
+ .debug_ranges  0x0000000000000358       0x10 usb_istr.o
+ .debug_ranges  0x0000000000000368       0x78 usb_prop.o
+ .debug_ranges  0x00000000000003e0       0x78 USBInit.o
+ .debug_ranges  0x0000000000000458       0xc0 lib/libstm32.a(stm32f10x_flash.o)
+ .debug_ranges  0x0000000000000518       0x38 lib/libstm32.a(stm32f10x_iwdg.o)
+ .debug_ranges  0x0000000000000550       0x90 lib/libstm32.a(stm32f10x_gpio.o)
+ .debug_ranges  0x00000000000005e0       0xf8 lib/libstm32.a(stm32f10x_nvic.o)
+ .debug_ranges  0x00000000000006d8      0x108 lib/libstm32.a(stm32f10x_rcc.o)
+ .debug_ranges  0x00000000000007e0      0x300 lib/libstm32.a(stm32f10x_tim.o)
+ .debug_ranges  0x0000000000000ae0       0x38 lib/libstm32.a(stm32f10x_systick.o)
+ .debug_ranges  0x0000000000000b18       0xe0 lib/libstm32.a(stm32f10x_usart.o)
+ .debug_ranges  0x0000000000000bf8       0x10 lib/libstm32.a(stm32f10x_vector.o)
+ .debug_ranges  0x0000000000000c08       0x10 lib/libstm32.a(usb_init.o)
+ .debug_ranges  0x0000000000000c18      0x160 lib/libstm32.a(usb_core.o)
+ .debug_ranges  0x0000000000000d78       0x18 lib/libstm32.a(usb_mem.o)
+ .debug_ranges  0x0000000000000d90      0x228 lib/libstm32.a(usb_regs.o)
+ .debug_ranges  0x0000000000000fb8       0x18 lib/libstm32.a(usb_sil.o)
+ .debug_ranges  0x0000000000000fd0       0x30 lib/libstm32.a(usb_int.o)
+
+Cross Reference Table
+
+Symbol                                            File
+ADC1_2_IRQHandler                                 stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+ADC3_IRQHandler                                   stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+BusFaultException                                 stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+ByteSwap                                          lib/libstm32.a(usb_regs.o)
+                                                  lib/libstm32.a(usb_core.o)
+CAN_RX1_IRQHandler                                stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+CAN_SCE_IRQHandler                                stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+CTR_HP                                            lib/libstm32.a(usb_int.o)
+CTR_LP                                            lib/libstm32.a(usb_int.o)
+                                                  usb_istr.o
+CheckTimeOut                                      main.o
+ClearBuffer256                                    main.o
+ClearDTOG_RX                                      lib/libstm32.a(usb_regs.o)
+                                                  lib/libstm32.a(usb_core.o)
+ClearDTOG_TX                                      lib/libstm32.a(usb_regs.o)
+                                                  lib/libstm32.a(usb_core.o)
+ClearEPDoubleBuff                                 lib/libstm32.a(usb_regs.o)
+ClearEP_CTR_RX                                    lib/libstm32.a(usb_regs.o)
+ClearEP_CTR_TX                                    lib/libstm32.a(usb_regs.o)
+ClearEP_KIND                                      lib/libstm32.a(usb_regs.o)
+ClearTimeOutBuffer                                main.o
+                                                  usb_endp.o
+Clear_Status_Out                                  lib/libstm32.a(usb_regs.o)
+                                                  usb_prop.o
+Config_Descriptor                                 usb_prop.o
+DMA1_Channel1_IRQHandler                          stm32f10x_it.o
+DMA1_Channel2_IRQHandler                          stm32f10x_it.o
+DMA1_Channel3_IRQHandler                          stm32f10x_it.o
+DMA1_Channel4_IRQHandler                          stm32f10x_it.o
+DMA1_Channel5_IRQHandler                          stm32f10x_it.o
+DMA1_Channel6_IRQHandler                          stm32f10x_it.o
+DMA1_Channel7_IRQHandler                          stm32f10x_it.o
+DMA2_Channel1_IRQHandler                          stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+DMA2_Channel2_IRQHandler                          stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+DMA2_Channel3_IRQHandler                          stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+DMA2_Channel4_5_IRQHandler                        stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+Data_Mul_MaxPacketSize                            lib/libstm32.a(usb_core.o)
+DebugMonitor                                      stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+Delay                                             main.o
+                                                  USBInit.o
+Device_Descriptor                                 usb_prop.o
+Device_Info                                       lib/libstm32.a(usb_init.o)
+                                                  usb_prop.o
+Device_Property                                   usb_prop.o
+                                                  lib/libstm32.a(usb_core.o)
+                                                  lib/libstm32.a(usb_init.o)
+                                                  usb_istr.o
+Device_Table                                      usb_prop.o
+                                                  lib/libstm32.a(usb_core.o)
+EP1_IN_Callback                                   usb_endp.o
+                                                  usb_istr.o
+EP3_OUT_Callback                                  usb_endp.o
+                                                  usb_istr.o
+EPindex                                           lib/libstm32.a(usb_int.o)
+                                                  lib/libstm32.a(usb_init.o)
+EXTI0_IRQHandler                                  stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+EXTI15_10_IRQHandler                              stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+EXTI1_IRQHandler                                  stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+EXTI2_IRQHandler                                  stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+EXTI3_IRQHandler                                  stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+EXTI4_IRQHandler                                  stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+EXTI9_5_IRQHandler                                stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+FLASH_ClearFlag                                   lib/libstm32.a(stm32f10x_flash.o)
+                                                  main.o
+FLASH_EnableWriteProtection                       lib/libstm32.a(stm32f10x_flash.o)
+FLASH_EraseAllPages                               lib/libstm32.a(stm32f10x_flash.o)
+FLASH_EraseOptionBytes                            lib/libstm32.a(stm32f10x_flash.o)
+FLASH_ErasePage                                   lib/libstm32.a(stm32f10x_flash.o)
+                                                  main.o
+FLASH_GetFlagStatus                               lib/libstm32.a(stm32f10x_flash.o)
+FLASH_GetPrefetchBufferStatus                     lib/libstm32.a(stm32f10x_flash.o)
+FLASH_GetReadOutProtectionStatus                  lib/libstm32.a(stm32f10x_flash.o)
+FLASH_GetStatus                                   lib/libstm32.a(stm32f10x_flash.o)
+FLASH_GetUserOptionByte                           lib/libstm32.a(stm32f10x_flash.o)
+FLASH_GetWriteProtectionOptionByte                lib/libstm32.a(stm32f10x_flash.o)
+FLASH_HalfCycleAccessCmd                          lib/libstm32.a(stm32f10x_flash.o)
+FLASH_IRQHandler                                  stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+FLASH_ITConfig                                    lib/libstm32.a(stm32f10x_flash.o)
+FLASH_Lock                                        lib/libstm32.a(stm32f10x_flash.o)
+                                                  main.o
+FLASH_PrefetchBufferCmd                           lib/libstm32.a(stm32f10x_flash.o)
+                                                  main.o
+FLASH_ProgramHalfWord                             lib/libstm32.a(stm32f10x_flash.o)
+FLASH_ProgramOptionByteData                       lib/libstm32.a(stm32f10x_flash.o)
+FLASH_ProgramWord                                 lib/libstm32.a(stm32f10x_flash.o)
+                                                  usb_endp.o
+FLASH_ReadOutProtection                           lib/libstm32.a(stm32f10x_flash.o)
+FLASH_SetLatency                                  lib/libstm32.a(stm32f10x_flash.o)
+                                                  main.o
+FLASH_Unlock                                      lib/libstm32.a(stm32f10x_flash.o)
+                                                  main.o
+FLASH_UserOptionByteConfig                        lib/libstm32.a(stm32f10x_flash.o)
+FLASH_WaitForLastOperation                        lib/libstm32.a(stm32f10x_flash.o)
+FSMC_IRQHandler                                   stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+FinishToSend                                      usb_endp.o
+FreeUserBuffer                                    lib/libstm32.a(usb_regs.o)
+GPIO_AFIODeInit                                   lib/libstm32.a(stm32f10x_gpio.o)
+GPIO_Configuration                                main.o
+GPIO_DeInit                                       lib/libstm32.a(stm32f10x_gpio.o)
+GPIO_EXTILineConfig                               lib/libstm32.a(stm32f10x_gpio.o)
+GPIO_EventOutputCmd                               lib/libstm32.a(stm32f10x_gpio.o)
+GPIO_EventOutputConfig                            lib/libstm32.a(stm32f10x_gpio.o)
+GPIO_Init                                         lib/libstm32.a(stm32f10x_gpio.o)
+                                                  main.o
+GPIO_PinLockConfig                                lib/libstm32.a(stm32f10x_gpio.o)
+GPIO_PinRemapConfig                               lib/libstm32.a(stm32f10x_gpio.o)
+                                                  main.o
+GPIO_ReadInputData                                lib/libstm32.a(stm32f10x_gpio.o)
+GPIO_ReadInputDataBit                             lib/libstm32.a(stm32f10x_gpio.o)
+                                                  main.o
+GPIO_ReadOutputData                               lib/libstm32.a(stm32f10x_gpio.o)
+GPIO_ReadOutputDataBit                            lib/libstm32.a(stm32f10x_gpio.o)
+GPIO_ResetBits                                    lib/libstm32.a(stm32f10x_gpio.o)
+                                                  USBInit.o
+                                                  main.o
+GPIO_SetBits                                      lib/libstm32.a(stm32f10x_gpio.o)
+                                                  USBInit.o
+                                                  main.o
+GPIO_StructInit                                   lib/libstm32.a(stm32f10x_gpio.o)
+GPIO_Write                                        lib/libstm32.a(stm32f10x_gpio.o)
+GPIO_WriteBit                                     lib/libstm32.a(stm32f10x_gpio.o)
+GetBTABLE                                         lib/libstm32.a(usb_regs.o)
+GetCNTR                                           lib/libstm32.a(usb_regs.o)
+GetDADDR                                          lib/libstm32.a(usb_regs.o)
+GetENDPOINT                                       lib/libstm32.a(usb_regs.o)
+GetEPAddress                                      lib/libstm32.a(usb_regs.o)
+GetEPDblBuf0Addr                                  lib/libstm32.a(usb_regs.o)
+GetEPDblBuf0Count                                 lib/libstm32.a(usb_regs.o)
+GetEPDblBuf1Addr                                  lib/libstm32.a(usb_regs.o)
+GetEPDblBuf1Count                                 lib/libstm32.a(usb_regs.o)
+GetEPDblBufDir                                    lib/libstm32.a(usb_regs.o)
+GetEPRxAddr                                       lib/libstm32.a(usb_regs.o)
+                                                  lib/libstm32.a(usb_sil.o)
+                                                  lib/libstm32.a(usb_core.o)
+GetEPRxCount                                      lib/libstm32.a(usb_regs.o)
+                                                  lib/libstm32.a(usb_sil.o)
+GetEPRxStatus                                     lib/libstm32.a(usb_regs.o)
+GetEPTxAddr                                       lib/libstm32.a(usb_regs.o)
+                                                  lib/libstm32.a(usb_core.o)
+GetEPTxCount                                      lib/libstm32.a(usb_regs.o)
+GetEPTxStatus                                     lib/libstm32.a(usb_regs.o)
+GetEPType                                         lib/libstm32.a(usb_regs.o)
+GetFNR                                            lib/libstm32.a(usb_regs.o)
+GetISTR                                           lib/libstm32.a(usb_regs.o)
+GetRxStallStatus                                  lib/libstm32.a(usb_regs.o)
+GetTxStallStatus                                  lib/libstm32.a(usb_regs.o)
+Get_SerialNum                                     USBInit.o
+                                                  usb_prop.o
+HSEStartUpStatus                                  main.o
+HardFaultException                                stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+I2C1_ER_IRQHandler                                stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+I2C1_EV_IRQHandler                                stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+I2C2_ER_IRQHandler                                stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+I2C2_EV_IRQHandler                                stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+IWDG_Enable                                       lib/libstm32.a(stm32f10x_iwdg.o)
+IWDG_GetFlagStatus                                lib/libstm32.a(stm32f10x_iwdg.o)
+IWDG_ReloadCounter                                lib/libstm32.a(stm32f10x_iwdg.o)
+IWDG_SetPrescaler                                 lib/libstm32.a(stm32f10x_iwdg.o)
+                                                  main.o
+IWDG_SetReload                                    lib/libstm32.a(stm32f10x_iwdg.o)
+                                                  main.o
+IWDG_WriteAccessCmd                               lib/libstm32.a(stm32f10x_iwdg.o)
+                                                  main.o
+In0_Process                                       lib/libstm32.a(usb_core.o)
+                                                  lib/libstm32.a(usb_int.o)
+Interrupt1ms                                      main.o
+                                                  stm32f10x_it.o
+MemManageException                                stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+NMIException                                      stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+NOP_Process                                       lib/libstm32.a(usb_core.o)
+                                                  usb_prop.o
+                                                  usb_istr.o
+NVIC_BASEPRICONFIG                                lib/libstm32.a(stm32f10x_nvic.o)
+NVIC_ClearIRQChannelPendingBit                    lib/libstm32.a(stm32f10x_nvic.o)
+NVIC_ClearSystemHandlerPendingBit                 lib/libstm32.a(stm32f10x_nvic.o)
+NVIC_Configuration                                main.o
+NVIC_DeInit                                       lib/libstm32.a(stm32f10x_nvic.o)
+NVIC_GenerateCoreReset                            lib/libstm32.a(stm32f10x_nvic.o)
+NVIC_GenerateSystemReset                          lib/libstm32.a(stm32f10x_nvic.o)
+                                                  main.o
+NVIC_GetBASEPRI                                   lib/libstm32.a(stm32f10x_nvic.o)
+NVIC_GetCPUID                                     lib/libstm32.a(stm32f10x_nvic.o)
+NVIC_GetCurrentActiveHandler                      lib/libstm32.a(stm32f10x_nvic.o)
+NVIC_GetCurrentPendingIRQChannel                  lib/libstm32.a(stm32f10x_nvic.o)
+NVIC_GetFaultAddress                              lib/libstm32.a(stm32f10x_nvic.o)
+NVIC_GetFaultHandlerSources                       lib/libstm32.a(stm32f10x_nvic.o)
+NVIC_GetIRQChannelActiveBitStatus                 lib/libstm32.a(stm32f10x_nvic.o)
+NVIC_GetIRQChannelPendingBitStatus                lib/libstm32.a(stm32f10x_nvic.o)
+NVIC_GetSystemHandlerActiveBitStatus              lib/libstm32.a(stm32f10x_nvic.o)
+NVIC_GetSystemHandlerPendingBitStatus             lib/libstm32.a(stm32f10x_nvic.o)
+NVIC_Init                                         lib/libstm32.a(stm32f10x_nvic.o)
+                                                  main.o
+NVIC_PriorityGroupConfig                          lib/libstm32.a(stm32f10x_nvic.o)
+                                                  main.o
+NVIC_RESETFAULTMASK                               lib/libstm32.a(stm32f10x_nvic.o)
+NVIC_RESETPRIMASK                                 lib/libstm32.a(stm32f10x_nvic.o)
+NVIC_SCBDeInit                                    lib/libstm32.a(stm32f10x_nvic.o)
+NVIC_SETFAULTMASK                                 lib/libstm32.a(stm32f10x_nvic.o)
+NVIC_SETPRIMASK                                   lib/libstm32.a(stm32f10x_nvic.o)
+NVIC_SetIRQChannelPendingBit                      lib/libstm32.a(stm32f10x_nvic.o)
+NVIC_SetSystemHandlerPendingBit                   lib/libstm32.a(stm32f10x_nvic.o)
+NVIC_SetVectorTable                               lib/libstm32.a(stm32f10x_nvic.o)
+                                                  main.o
+NVIC_StructInit                                   lib/libstm32.a(stm32f10x_nvic.o)
+NVIC_SystemHandlerConfig                          lib/libstm32.a(stm32f10x_nvic.o)
+NVIC_SystemHandlerPriorityConfig                  lib/libstm32.a(stm32f10x_nvic.o)
+NVIC_SystemLPConfig                               lib/libstm32.a(stm32f10x_nvic.o)
+Out0_Process                                      lib/libstm32.a(usb_core.o)
+                                                  lib/libstm32.a(usb_int.o)
+PMAToUserBufferCopy                               lib/libstm32.a(usb_mem.o)
+                                                  lib/libstm32.a(usb_sil.o)
+                                                  lib/libstm32.a(usb_core.o)
+PVD_IRQHandler                                    stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+PendSVC                                           stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+Post0_Process                                     lib/libstm32.a(usb_core.o)
+PowerOff                                          USBInit.o
+PowerOn                                           USBInit.o
+                                                  usb_prop.o
+RCC_ADCCLKConfig                                  lib/libstm32.a(stm32f10x_rcc.o)
+RCC_AHBPeriphClockCmd                             lib/libstm32.a(stm32f10x_rcc.o)
+RCC_APB1PeriphClockCmd                            lib/libstm32.a(stm32f10x_rcc.o)
+                                                  main.o
+RCC_APB1PeriphResetCmd                            lib/libstm32.a(stm32f10x_rcc.o)
+                                                  lib/libstm32.a(stm32f10x_usart.o)
+                                                  lib/libstm32.a(stm32f10x_tim.o)
+RCC_APB2PeriphClockCmd                            lib/libstm32.a(stm32f10x_rcc.o)
+                                                  main.o
+RCC_APB2PeriphResetCmd                            lib/libstm32.a(stm32f10x_rcc.o)
+                                                  lib/libstm32.a(stm32f10x_usart.o)
+                                                  lib/libstm32.a(stm32f10x_tim.o)
+                                                  lib/libstm32.a(stm32f10x_gpio.o)
+RCC_AdjustHSICalibrationValue                     lib/libstm32.a(stm32f10x_rcc.o)
+RCC_BackupResetCmd                                lib/libstm32.a(stm32f10x_rcc.o)
+RCC_ClearFlag                                     lib/libstm32.a(stm32f10x_rcc.o)
+                                                  main.o
+RCC_ClearITPendingBit                             lib/libstm32.a(stm32f10x_rcc.o)
+RCC_ClockSecuritySystemCmd                        lib/libstm32.a(stm32f10x_rcc.o)
+RCC_Configuration                                 main.o
+RCC_DeInit                                        lib/libstm32.a(stm32f10x_rcc.o)
+                                                  main.o
+RCC_GetClocksFreq                                 lib/libstm32.a(stm32f10x_rcc.o)
+                                                  lib/libstm32.a(stm32f10x_usart.o)
+RCC_GetFlagStatus                                 lib/libstm32.a(stm32f10x_rcc.o)
+                                                  main.o
+RCC_GetITStatus                                   lib/libstm32.a(stm32f10x_rcc.o)
+RCC_GetSYSCLKSource                               lib/libstm32.a(stm32f10x_rcc.o)
+                                                  main.o
+RCC_HCLKConfig                                    lib/libstm32.a(stm32f10x_rcc.o)
+                                                  main.o
+RCC_HSEConfig                                     lib/libstm32.a(stm32f10x_rcc.o)
+                                                  main.o
+RCC_HSICmd                                        lib/libstm32.a(stm32f10x_rcc.o)
+RCC_IRQHandler                                    stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+RCC_ITConfig                                      lib/libstm32.a(stm32f10x_rcc.o)
+RCC_LSEConfig                                     lib/libstm32.a(stm32f10x_rcc.o)
+RCC_LSICmd                                        lib/libstm32.a(stm32f10x_rcc.o)
+RCC_MCOConfig                                     lib/libstm32.a(stm32f10x_rcc.o)
+RCC_PCLK1Config                                   lib/libstm32.a(stm32f10x_rcc.o)
+                                                  main.o
+RCC_PCLK2Config                                   lib/libstm32.a(stm32f10x_rcc.o)
+                                                  main.o
+RCC_PLLCmd                                        lib/libstm32.a(stm32f10x_rcc.o)
+                                                  main.o
+RCC_PLLConfig                                     lib/libstm32.a(stm32f10x_rcc.o)
+                                                  main.o
+RCC_RTCCLKCmd                                     lib/libstm32.a(stm32f10x_rcc.o)
+RCC_RTCCLKConfig                                  lib/libstm32.a(stm32f10x_rcc.o)
+RCC_SYSCLKConfig                                  lib/libstm32.a(stm32f10x_rcc.o)
+                                                  main.o
+RCC_USBCLKConfig                                  lib/libstm32.a(stm32f10x_rcc.o)
+                                                  main.o
+RCC_WaitForHSEStartUp                             lib/libstm32.a(stm32f10x_rcc.o)
+                                                  main.o
+RTCAlarm_IRQHandler                               stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+RTC_IRQHandler                                    stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+Request                                           usb_prop.o
+Reset_Handler                                     lib/libstm32.a(stm32f10x_vector.o)
+RxDBufferFromHost                                 main.o
+SDIO_IRQHandler                                   stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+SOF_Callback                                      usb_endp.o
+SPI1_IRQHandler                                   stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+SPI2_IRQHandler                                   stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+SPI3_IRQHandler                                   stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+SVCHandler                                        stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+SaveRState                                        lib/libstm32.a(usb_int.o)
+                                                  lib/libstm32.a(usb_core.o)
+SaveState                                         lib/libstm32.a(usb_init.o)
+SaveTState                                        lib/libstm32.a(usb_int.o)
+                                                  lib/libstm32.a(usb_core.o)
+SerialMonitor                                     main.o
+SetBTABLE                                         lib/libstm32.a(usb_regs.o)
+                                                  usb_prop.o
+SetCNTR                                           lib/libstm32.a(usb_regs.o)
+SetDADDR                                          lib/libstm32.a(usb_regs.o)
+SetDeviceAddress                                  lib/libstm32.a(usb_core.o)
+                                                  usb_prop.o
+SetDouBleBuffEPStall                              lib/libstm32.a(usb_regs.o)
+SetENDPOINT                                       lib/libstm32.a(usb_regs.o)
+SetEPAddress                                      lib/libstm32.a(usb_regs.o)
+SetEPCountRxReg                                   lib/libstm32.a(usb_regs.o)
+SetEPDblBuf0Addr                                  lib/libstm32.a(usb_regs.o)
+SetEPDblBuf0Count                                 lib/libstm32.a(usb_regs.o)
+SetEPDblBuf1Addr                                  lib/libstm32.a(usb_regs.o)
+SetEPDblBuf1Count                                 lib/libstm32.a(usb_regs.o)
+SetEPDblBuffAddr                                  lib/libstm32.a(usb_regs.o)
+SetEPDblBuffCount                                 lib/libstm32.a(usb_regs.o)
+SetEPDoubleBuff                                   lib/libstm32.a(usb_regs.o)
+SetEPRxAddr                                       lib/libstm32.a(usb_regs.o)
+                                                  usb_prop.o
+SetEPRxCount                                      lib/libstm32.a(usb_regs.o)
+                                                  lib/libstm32.a(usb_core.o)
+                                                  usb_prop.o
+SetEPRxStatus                                     lib/libstm32.a(usb_regs.o)
+                                                  usb_prop.o
+SetEPRxValid                                      lib/libstm32.a(usb_regs.o)
+                                                  usb_prop.o
+                                                  usb_endp.o
+SetEPTxAddr                                       lib/libstm32.a(usb_regs.o)
+                                                  usb_prop.o
+SetEPTxCount                                      lib/libstm32.a(usb_regs.o)
+                                                  lib/libstm32.a(usb_core.o)
+                                                  USBInit.o
+SetEPTxStatus                                     lib/libstm32.a(usb_regs.o)
+                                                  lib/libstm32.a(usb_core.o)
+                                                  usb_prop.o
+SetEPTxValid                                      lib/libstm32.a(usb_regs.o)
+                                                  USBInit.o
+SetEPType                                         lib/libstm32.a(usb_regs.o)
+                                                  usb_prop.o
+SetEP_KIND                                        lib/libstm32.a(usb_regs.o)
+SetISTR                                           lib/libstm32.a(usb_regs.o)
+Set_Status_Out                                    lib/libstm32.a(usb_regs.o)
+Setup0_Process                                    lib/libstm32.a(usb_core.o)
+                                                  lib/libstm32.a(usb_int.o)
+Standard_ClearFeature                             lib/libstm32.a(usb_core.o)
+Standard_GetConfiguration                         lib/libstm32.a(usb_core.o)
+Standard_GetDescriptorData                        lib/libstm32.a(usb_core.o)
+                                                  usb_prop.o
+Standard_GetInterface                             lib/libstm32.a(usb_core.o)
+Standard_GetStatus                                lib/libstm32.a(usb_core.o)
+Standard_SetConfiguration                         lib/libstm32.a(usb_core.o)
+Standard_SetDeviceFeature                         lib/libstm32.a(usb_core.o)
+Standard_SetEndPointFeature                       lib/libstm32.a(usb_core.o)
+Standard_SetInterface                             lib/libstm32.a(usb_core.o)
+StatusInfo                                        lib/libstm32.a(usb_core.o)
+StringCompare                                     main.o
+StringCopy                                        main.o
+String_Descriptor                                 usb_prop.o
+SysTickHandler                                    stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+SysTick_CLKSourceConfig                           lib/libstm32.a(stm32f10x_systick.o)
+SysTick_CounterCmd                                lib/libstm32.a(stm32f10x_systick.o)
+                                                  main.o
+SysTick_GetCounter                                lib/libstm32.a(stm32f10x_systick.o)
+SysTick_GetFlagStatus                             lib/libstm32.a(stm32f10x_systick.o)
+SysTick_ITConfig                                  lib/libstm32.a(stm32f10x_systick.o)
+                                                  main.o
+SysTick_SetReload                                 lib/libstm32.a(stm32f10x_systick.o)
+                                                  main.o
+TAMPER_IRQHandler                                 stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+TIM1_BRK_IRQHandler                               stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+TIM1_CC_IRQHandler                                stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+TIM1_TRG_COM_IRQHandler                           stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+TIM1_UP_IRQHandler                                stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+TIM2_IRQHandler                                   stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+TIM3_IRQHandler                                   stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+TIM4_IRQHandler                                   stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+TIM5_IRQHandler                                   stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+TIM6_IRQHandler                                   stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+TIM7_IRQHandler                                   stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+TIM8_BRK_IRQHandler                               stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+TIM8_CC_IRQHandler                                stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+TIM8_TRG_COM_IRQHandler                           stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+TIM8_UP_IRQHandler                                stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+TIM_ARRPreloadConfig                              lib/libstm32.a(stm32f10x_tim.o)
+TIM_BDTRConfig                                    lib/libstm32.a(stm32f10x_tim.o)
+TIM_BDTRStructInit                                lib/libstm32.a(stm32f10x_tim.o)
+TIM_CCPreloadControl                              lib/libstm32.a(stm32f10x_tim.o)
+TIM_CCxCmd                                        lib/libstm32.a(stm32f10x_tim.o)
+TIM_CCxNCmd                                       lib/libstm32.a(stm32f10x_tim.o)
+TIM_ClearFlag                                     lib/libstm32.a(stm32f10x_tim.o)
+                                                  main.o
+TIM_ClearITPendingBit                             lib/libstm32.a(stm32f10x_tim.o)
+                                                  stm32f10x_it.o
+TIM_ClearOC1Ref                                   lib/libstm32.a(stm32f10x_tim.o)
+TIM_ClearOC2Ref                                   lib/libstm32.a(stm32f10x_tim.o)
+TIM_ClearOC3Ref                                   lib/libstm32.a(stm32f10x_tim.o)
+TIM_ClearOC4Ref                                   lib/libstm32.a(stm32f10x_tim.o)
+TIM_Cmd                                           lib/libstm32.a(stm32f10x_tim.o)
+                                                  main.o
+TIM_CounterModeConfig                             lib/libstm32.a(stm32f10x_tim.o)
+TIM_CtrlPWMOutputs                                lib/libstm32.a(stm32f10x_tim.o)
+TIM_DMACmd                                        lib/libstm32.a(stm32f10x_tim.o)
+TIM_DMAConfig                                     lib/libstm32.a(stm32f10x_tim.o)
+TIM_DeInit                                        lib/libstm32.a(stm32f10x_tim.o)
+TIM_ETRClockMode1Config                           lib/libstm32.a(stm32f10x_tim.o)
+TIM_ETRClockMode2Config                           lib/libstm32.a(stm32f10x_tim.o)
+TIM_ETRConfig                                     lib/libstm32.a(stm32f10x_tim.o)
+TIM_EncoderInterfaceConfig                        lib/libstm32.a(stm32f10x_tim.o)
+TIM_ForcedOC1Config                               lib/libstm32.a(stm32f10x_tim.o)
+TIM_ForcedOC2Config                               lib/libstm32.a(stm32f10x_tim.o)
+TIM_ForcedOC3Config                               lib/libstm32.a(stm32f10x_tim.o)
+TIM_ForcedOC4Config                               lib/libstm32.a(stm32f10x_tim.o)
+TIM_GenerateEvent                                 lib/libstm32.a(stm32f10x_tim.o)
+TIM_GetCapture1                                   lib/libstm32.a(stm32f10x_tim.o)
+TIM_GetCapture2                                   lib/libstm32.a(stm32f10x_tim.o)
+TIM_GetCapture3                                   lib/libstm32.a(stm32f10x_tim.o)
+TIM_GetCapture4                                   lib/libstm32.a(stm32f10x_tim.o)
+TIM_GetCounter                                    lib/libstm32.a(stm32f10x_tim.o)
+TIM_GetFlagStatus                                 lib/libstm32.a(stm32f10x_tim.o)
+TIM_GetITStatus                                   lib/libstm32.a(stm32f10x_tim.o)
+TIM_GetPrescaler                                  lib/libstm32.a(stm32f10x_tim.o)
+TIM_ICInit                                        lib/libstm32.a(stm32f10x_tim.o)
+TIM_ICStructInit                                  lib/libstm32.a(stm32f10x_tim.o)
+TIM_ITConfig                                      lib/libstm32.a(stm32f10x_tim.o)
+                                                  main.o
+TIM_ITRxExternalClockConfig                       lib/libstm32.a(stm32f10x_tim.o)
+TIM_InternalClockConfig                           lib/libstm32.a(stm32f10x_tim.o)
+TIM_OC1FastConfig                                 lib/libstm32.a(stm32f10x_tim.o)
+TIM_OC1Init                                       lib/libstm32.a(stm32f10x_tim.o)
+TIM_OC1NPolarityConfig                            lib/libstm32.a(stm32f10x_tim.o)
+TIM_OC1PolarityConfig                             lib/libstm32.a(stm32f10x_tim.o)
+TIM_OC1PreloadConfig                              lib/libstm32.a(stm32f10x_tim.o)
+TIM_OC2FastConfig                                 lib/libstm32.a(stm32f10x_tim.o)
+TIM_OC2Init                                       lib/libstm32.a(stm32f10x_tim.o)
+TIM_OC2NPolarityConfig                            lib/libstm32.a(stm32f10x_tim.o)
+TIM_OC2PolarityConfig                             lib/libstm32.a(stm32f10x_tim.o)
+TIM_OC2PreloadConfig                              lib/libstm32.a(stm32f10x_tim.o)
+TIM_OC3FastConfig                                 lib/libstm32.a(stm32f10x_tim.o)
+TIM_OC3Init                                       lib/libstm32.a(stm32f10x_tim.o)
+TIM_OC3NPolarityConfig                            lib/libstm32.a(stm32f10x_tim.o)
+TIM_OC3PolarityConfig                             lib/libstm32.a(stm32f10x_tim.o)
+TIM_OC3PreloadConfig                              lib/libstm32.a(stm32f10x_tim.o)
+TIM_OC4FastConfig                                 lib/libstm32.a(stm32f10x_tim.o)
+TIM_OC4Init                                       lib/libstm32.a(stm32f10x_tim.o)
+TIM_OC4PolarityConfig                             lib/libstm32.a(stm32f10x_tim.o)
+TIM_OC4PreloadConfig                              lib/libstm32.a(stm32f10x_tim.o)
+TIM_OCStructInit                                  lib/libstm32.a(stm32f10x_tim.o)
+TIM_PWMIConfig                                    lib/libstm32.a(stm32f10x_tim.o)
+TIM_PrescalerConfig                               lib/libstm32.a(stm32f10x_tim.o)
+                                                  main.o
+TIM_SelectCCDMA                                   lib/libstm32.a(stm32f10x_tim.o)
+TIM_SelectCOM                                     lib/libstm32.a(stm32f10x_tim.o)
+TIM_SelectHallSensor                              lib/libstm32.a(stm32f10x_tim.o)
+TIM_SelectInputTrigger                            lib/libstm32.a(stm32f10x_tim.o)
+TIM_SelectMasterSlaveMode                         lib/libstm32.a(stm32f10x_tim.o)
+TIM_SelectOCxM                                    lib/libstm32.a(stm32f10x_tim.o)
+TIM_SelectOnePulseMode                            lib/libstm32.a(stm32f10x_tim.o)
+TIM_SelectOutputTrigger                           lib/libstm32.a(stm32f10x_tim.o)
+TIM_SelectSlaveMode                               lib/libstm32.a(stm32f10x_tim.o)
+TIM_SetAutoreload                                 lib/libstm32.a(stm32f10x_tim.o)
+TIM_SetClockDivision                              lib/libstm32.a(stm32f10x_tim.o)
+TIM_SetCompare1                                   lib/libstm32.a(stm32f10x_tim.o)
+TIM_SetCompare2                                   lib/libstm32.a(stm32f10x_tim.o)
+TIM_SetCompare3                                   lib/libstm32.a(stm32f10x_tim.o)
+TIM_SetCompare4                                   lib/libstm32.a(stm32f10x_tim.o)
+TIM_SetCounter                                    lib/libstm32.a(stm32f10x_tim.o)
+TIM_SetIC1Prescaler                               lib/libstm32.a(stm32f10x_tim.o)
+TIM_SetIC2Prescaler                               lib/libstm32.a(stm32f10x_tim.o)
+TIM_SetIC3Prescaler                               lib/libstm32.a(stm32f10x_tim.o)
+TIM_SetIC4Prescaler                               lib/libstm32.a(stm32f10x_tim.o)
+TIM_TIxExternalClockConfig                        lib/libstm32.a(stm32f10x_tim.o)
+TIM_TimeBaseInit                                  lib/libstm32.a(stm32f10x_tim.o)
+                                                  main.o
+TIM_TimeBaseStructInit                            lib/libstm32.a(stm32f10x_tim.o)
+TIM_UpdateDisableConfig                           lib/libstm32.a(stm32f10x_tim.o)
+TIM_UpdateRequestConfig                           lib/libstm32.a(stm32f10x_tim.o)
+Timer_Configuration                               main.o
+TimingDelay                                       stm32f10x_it.o
+                                                  main.o
+ToWord                                            lib/libstm32.a(usb_regs.o)
+ToggleDTOG_RX                                     lib/libstm32.a(usb_regs.o)
+ToggleDTOG_TX                                     lib/libstm32.a(usb_regs.o)
+TxDByte                                           main.o
+TxDHex16                                          main.o
+TxDHex32                                          main.o
+TxDHex8                                           main.o
+TxDString                                         main.o
+TxD_Dec_U8                                        main.o
+UART4_IRQHandler                                  stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+UART5_IRQHandler                                  stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+USART1_IRQHandler                                 stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+USART2_IRQHandler                                 stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+USART3_IRQHandler                                 stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+USART_ClearFlag                                   lib/libstm32.a(stm32f10x_usart.o)
+                                                  main.o
+USART_ClearITPendingBit                           lib/libstm32.a(stm32f10x_usart.o)
+USART_ClockInit                                   lib/libstm32.a(stm32f10x_usart.o)
+USART_ClockStructInit                             lib/libstm32.a(stm32f10x_usart.o)
+USART_Cmd                                         lib/libstm32.a(stm32f10x_usart.o)
+                                                  main.o
+USART_Configuration                               main.o
+USART_DMACmd                                      lib/libstm32.a(stm32f10x_usart.o)
+USART_DeInit                                      lib/libstm32.a(stm32f10x_usart.o)
+                                                  main.o
+USART_GetFlagStatus                               lib/libstm32.a(stm32f10x_usart.o)
+                                                  main.o
+USART_GetITStatus                                 lib/libstm32.a(stm32f10x_usart.o)
+                                                  stm32f10x_it.o
+USART_HalfDuplexCmd                               lib/libstm32.a(stm32f10x_usart.o)
+USART_ITConfig                                    lib/libstm32.a(stm32f10x_usart.o)
+                                                  main.o
+USART_Init                                        lib/libstm32.a(stm32f10x_usart.o)
+                                                  main.o
+USART_InitStructure                               main.o
+USART_IrDACmd                                     lib/libstm32.a(stm32f10x_usart.o)
+USART_IrDAConfig                                  lib/libstm32.a(stm32f10x_usart.o)
+USART_LINBreakDetectLengthConfig                  lib/libstm32.a(stm32f10x_usart.o)
+USART_LINCmd                                      lib/libstm32.a(stm32f10x_usart.o)
+USART_ReceiveData                                 lib/libstm32.a(stm32f10x_usart.o)
+                                                  stm32f10x_it.o
+USART_ReceiverWakeUpCmd                           lib/libstm32.a(stm32f10x_usart.o)
+USART_Rx_length                                   USBInit.o
+USART_SendBreak                                   lib/libstm32.a(stm32f10x_usart.o)
+USART_SendData                                    lib/libstm32.a(stm32f10x_usart.o)
+                                                  main.o
+USART_SetAddress                                  lib/libstm32.a(stm32f10x_usart.o)
+USART_SetGuardTime                                lib/libstm32.a(stm32f10x_usart.o)
+USART_SetPrescaler                                lib/libstm32.a(stm32f10x_usart.o)
+USART_SmartCardCmd                                lib/libstm32.a(stm32f10x_usart.o)
+USART_SmartCardNACKCmd                            lib/libstm32.a(stm32f10x_usart.o)
+USART_StructInit                                  lib/libstm32.a(stm32f10x_usart.o)
+                                                  main.o
+USART_WakeUpConfig                                lib/libstm32.a(stm32f10x_usart.o)
+USBWakeUp_IRQHandler                              stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+USB_Cable_Config                                  USBInit.o
+USB_HP_CAN_TX_IRQHandler                          stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+USB_Init                                          lib/libstm32.a(usb_init.o)
+                                                  main.o
+USB_LP_CAN_RX0_IRQHandler                         stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+USB_Rx_Buffer                                     usb_endp.o
+                                                  main.o
+USB_Rx_Cnt                                        usb_endp.o
+                                                  main.o
+USB_SIL_Init                                      lib/libstm32.a(usb_sil.o)
+                                                  usb_prop.o
+USB_SIL_Read                                      lib/libstm32.a(usb_sil.o)
+                                                  usb_endp.o
+USB_TxDByte                                       USBInit.o
+                                                  main.o
+USB_TxDHex16                                      main.o
+USB_TxDHex32                                      main.o
+USB_TxDHex8                                       main.o
+USB_TxDString                                     main.o
+                                                  usb_endp.o
+USB_TxD_Dec_U8                                    main.o
+USB_Tx_State                                      USBInit.o
+UsageFaultException                               stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+UsbVcpConnect                                     USBInit.o
+UsbVcpDisconnect                                  USBInit.o
+                                                  main.o
+UserToPMABufferCopy                               lib/libstm32.a(usb_mem.o)
+                                                  lib/libstm32.a(usb_core.o)
+                                                  USBInit.o
+User_Standard_Requests                            usb_prop.o
+                                                  lib/libstm32.a(usb_init.o)
+Virtual_Com_Port_ConfigDescriptor                 usb_desc.o
+                                                  usb_prop.o
+Virtual_Com_Port_Data_Setup                       usb_prop.o
+Virtual_Com_Port_DeviceDescriptor                 usb_desc.o
+                                                  usb_prop.o
+Virtual_Com_Port_GetConfigDescriptor              usb_prop.o
+Virtual_Com_Port_GetDeviceDescriptor              usb_prop.o
+Virtual_Com_Port_GetLineCoding                    usb_prop.o
+Virtual_Com_Port_GetStringDescriptor              usb_prop.o
+Virtual_Com_Port_Get_Interface_Setting            usb_prop.o
+Virtual_Com_Port_NoData_Setup                     usb_prop.o
+Virtual_Com_Port_Reset                            usb_prop.o
+Virtual_Com_Port_SetConfiguration                 usb_prop.o
+Virtual_Com_Port_SetDeviceAddress                 usb_prop.o
+Virtual_Com_Port_SetLineCoding                    usb_prop.o
+Virtual_Com_Port_Status_In                        usb_prop.o
+Virtual_Com_Port_Status_Out                       usb_prop.o
+Virtual_Com_Port_StringLangID                     usb_desc.o
+                                                  usb_prop.o
+Virtual_Com_Port_StringProduct                    usb_desc.o
+                                                  usb_prop.o
+Virtual_Com_Port_StringSerial                     usb_desc.o
+                                                  USBInit.o
+                                                  usb_prop.o
+Virtual_Com_Port_StringVendor                     usb_desc.o
+                                                  usb_prop.o
+Virtual_Com_Port_init                             usb_prop.o
+WWDG_IRQHandler                                   stm32f10x_it.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+WriteFlash64                                      usb_endp.o
+_Jv_RegisterClasses                               /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crtbegin.o
+__BASEPRICONFIG                                   lib/libstm32.a(cortexm3_macro.o)
+                                                  lib/libstm32.a(stm32f10x_nvic.o)
+__DMB                                             lib/libstm32.a(cortexm3_macro.o)
+__DSB                                             lib/libstm32.a(cortexm3_macro.o)
+                                                  lib/libstm32.a(stm32f10x_nvic.o)
+__GetBASEPRI                                      lib/libstm32.a(cortexm3_macro.o)
+                                                  lib/libstm32.a(stm32f10x_nvic.o)
+__ISB                                             lib/libstm32.a(cortexm3_macro.o)
+__MRS_CONTROL                                     lib/libstm32.a(cortexm3_macro.o)
+__MRS_MSP                                         lib/libstm32.a(cortexm3_macro.o)
+__MRS_PSP                                         lib/libstm32.a(cortexm3_macro.o)
+__MSR_CONTROL                                     lib/libstm32.a(cortexm3_macro.o)
+__MSR_MSP                                         lib/libstm32.a(cortexm3_macro.o)
+__MSR_PSP                                         lib/libstm32.a(cortexm3_macro.o)
+__RESETFAULTMASK                                  lib/libstm32.a(cortexm3_macro.o)
+                                                  lib/libstm32.a(stm32f10x_nvic.o)
+__RESETPRIMASK                                    lib/libstm32.a(cortexm3_macro.o)
+                                                  lib/libstm32.a(stm32f10x_nvic.o)
+__REV_HalfWord                                    lib/libstm32.a(cortexm3_macro.o)
+__REV_Word                                        lib/libstm32.a(cortexm3_macro.o)
+__SETFAULTMASK                                    lib/libstm32.a(cortexm3_macro.o)
+                                                  lib/libstm32.a(stm32f10x_nvic.o)
+__SETPRIMASK                                      lib/libstm32.a(cortexm3_macro.o)
+                                                  lib/libstm32.a(stm32f10x_nvic.o)
+__SEV                                             lib/libstm32.a(cortexm3_macro.o)
+__SVC                                             lib/libstm32.a(cortexm3_macro.o)
+__USBCDC_ISR                                      usb_istr.o
+                                                  stm32f10x_it.o
+__WFE                                             lib/libstm32.a(cortexm3_macro.o)
+__WFI                                             lib/libstm32.a(cortexm3_macro.o)
+__bss_end__                                       /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/crt0.o
+__bss_start__                                     /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/crt0.o
+__call_exitprocs                                  /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-__call_atexit.o)
+                                                  /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-exit.o)
+__deregister_frame_info                           /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crtbegin.o
+__dso_handle                                      /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crtbegin.o
+__fini_array_end                                  /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-fini.o)
+__fini_array_start                                /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-fini.o)
+__init_array_end                                  /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-init.o)
+__init_array_start                                /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-init.o)
+__libc_fini                                       /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-__call_atexit.o)
+__libc_fini_array                                 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-fini.o)
+                                                  /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-__call_atexit.o)
+                                                  /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/crt0.o
+__libc_init_array                                 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-init.o)
+                                                  /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/crt0.o
+__preinit_array_end                               /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-init.o)
+__preinit_array_start                             /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-init.o)
+__register_exitproc                               /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-__atexit.o)
+                                                  /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-atexit.o)
+                                                  /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/crt0.o
+__register_frame_info                             /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crtbegin.o
+__stack                                           /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/crt0.o
+_ebss                                             lib/libstm32.a(stm32f10x_vector.o)
+_edata                                            lib/libstm32.a(stm32f10x_vector.o)
+_estack                                           lib/libstm32.a(stm32f10x_vector.o)
+_exit                                             /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-exit.o)
+_fini                                             /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crti.o
+                                                  /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-fini.o)
+_global_impure_ptr                                /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-impure.o)
+                                                  /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-__call_atexit.o)
+                                                  /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-exit.o)
+                                                  /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-__atexit.o)
+_impure_ptr                                       /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-impure.o)
+_init                                             /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/crti.o
+                                                  /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-init.o)
+_mainCRTStartup                                   /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/crt0.o
+_sbss                                             lib/libstm32.a(stm32f10x_vector.o)
+_sdata                                            lib/libstm32.a(stm32f10x_vector.o)
+_sidata                                           lib/libstm32.a(stm32f10x_vector.o)
+_start                                            /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/crt0.o
+atexit                                            /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-atexit.o)
+                                                  /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-__call_atexit.o)
+bDeviceState                                      USBInit.o
+                                                  usb_prop.o
+                                                  usb_endp.o
+                                                  main.o
+bIntPackSOF                                       usb_istr.o
+comstatetemp                                      usb_prop.o
+dxl_get_baudrate                                  main.o
+exit                                              /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-exit.o)
+                                                  /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/crt0.o
+free                                              /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-__call_atexit.o)
+g_pfnVectors                                      lib/libstm32.a(stm32f10x_vector.o)
+gbCount                                           main.o
+gbDXLReadPointer                                  main.o
+gbDXLWritePointer                                 stm32f10x_it.o
+                                                  main.o
+gbFlashDownloadStart                              main.o
+                                                  usb_endp.o
+gbIsFlashLock                                     main.o
+                                                  usb_endp.o
+gbpDXLDataBuffer                                  stm32f10x_it.o
+                                                  main.o
+gbpRxBuffer                                       main.o
+gu32TimingCounter1ms                              main.o
+gu32TimingCounter1ms_Txd                          main.o
+gwAddressPointer                                  main.o
+                                                  usb_endp.o
+gwCalculatedCheckSum                              main.o
+                                                  usb_endp.o
+gwEndAddressPointer                               main.o
+gwReceivedCheckSumFromHost                        main.o
+gwRxTotalCount                                    main.o
+                                                  usb_endp.o
+gwUSARTReadPtr                                    main.o
+gwUSARTWritePtr                                   usb_endp.o
+                                                  stm32f10x_it.o
+                                                  main.o
+gwWriteProtectedPages                             main.o
+gwpUSARTBuffer                                    usb_endp.o
+                                                  stm32f10x_it.o
+                                                  main.o
+hardware_init_hook                                /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/crt0.o
+linecoding                                        usb_prop.o
+main                                              main.o
+                                                  lib/libstm32.a(stm32f10x_vector.o)
+                                                  /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/crt0.o
+malloc                                            /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-__atexit.o)
+memset                                            /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/libc.a(lib_a-memset.o)
+                                                  /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/crt0.o
+pEpInt_IN                                         usb_istr.o
+                                                  lib/libstm32.a(usb_int.o)
+pEpInt_OUT                                        usb_istr.o
+                                                  lib/libstm32.a(usb_int.o)
+pInformation                                      lib/libstm32.a(usb_core.o)
+                                                  lib/libstm32.a(usb_init.o)
+                                                  usb_prop.o
+pProperty                                         lib/libstm32.a(usb_core.o)
+                                                  lib/libstm32.a(usb_init.o)
+pUser_Standard_Requests                           lib/libstm32.a(usb_core.o)
+                                                  lib/libstm32.a(usb_init.o)
+software_init_hook                                /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/crt0.o
+start                                             /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/crt0.o
+wInterrupt_Mask                                   lib/libstm32.a(usb_sil.o)
+                                                  lib/libstm32.a(usb_init.o)
+                                                  USBInit.o
+wIstr                                             lib/libstm32.a(usb_int.o)
+                                                  usb_istr.o
