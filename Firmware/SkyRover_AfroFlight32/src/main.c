@@ -145,6 +145,8 @@ int main(void)
 
     serialInit(mcfg.serial_baudrate);
 
+    DEBUG_PRINT("Booting..\r\n");
+
     // drop out any sensors that don't seem to work, init all the others. halt if gyro is dead.
     sensorsAutodetect();
     imuInit(); // Mag is initialized inside imuInit

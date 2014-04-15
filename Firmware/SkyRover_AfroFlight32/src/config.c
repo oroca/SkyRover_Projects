@@ -167,7 +167,7 @@ static void resetConf(void)
     memset(&cfg, 0, sizeof(config_t));
 
     mcfg.version = EEPROM_CONF_VERSION;
-    mcfg.mixerConfiguration = MULTITYPE_QUADP;
+    mcfg.mixerConfiguration = MULTITYPE_QUADX;
     featureClearAll();    
     
     featureSet(FEATURE_SERIALRX);       // 시리얼포트로 HexAirBot 인터페이스 수신을 위해 
