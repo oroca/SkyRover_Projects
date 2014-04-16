@@ -61,7 +61,8 @@ int main(void)
         pwm_params.airplane = true;
     else
         pwm_params.airplane = false;
-    pwm_params.useUART = feature(FEATURE_GPS) || feature(FEATURE_SERIALRX); // spektrum/sbus support uses UART too
+    //pwm_params.useUART = feature(FEATURE_GPS) || feature(FEATURE_SERIALRX); // spektrum/sbus support uses UART too
+    pwm_params.useUART = feature(FEATURE_GPS);
     pwm_params.useSoftSerial = feature(FEATURE_SOFTSERIAL);
     pwm_params.usePPM = feature(FEATURE_PPM);
     pwm_params.enableInput = !feature(FEATURE_SERIALRX); // disable inputs if using spektrum
