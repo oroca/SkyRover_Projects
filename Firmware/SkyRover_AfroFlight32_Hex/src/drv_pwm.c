@@ -85,8 +85,8 @@ static const uint8_t multiPPM[] = {
 static const uint8_t multiPWM[] = {
     PWM1 | TYPE_IW,     // input #1
     PWM3 | TYPE_IW,
-    PWM11 | TYPE_IW,
-    PWM12 | TYPE_IW,
+    PWM9 | TYPE_IW,
+    PWM10 | TYPE_IW,
     PWM13 | TYPE_IW,
     PWM14 | TYPE_IW,
     PWM7 | TYPE_IW,
