@@ -213,13 +213,13 @@ typedef struct baro_t
 
 #define GYRO
 #define ACC
-#define MAG
+//#define MAG
 #define BARO
 //#define LEDRING
 //#define SONAR
 //#define BUZZER
 
-#define SENSORS_SET (SENSOR_ACC | SENSOR_BARO | SENSOR_MAG)
+#define SENSORS_SET (SENSOR_ACC | SENSOR_BARO )
 
 #else
 // Afroflight32
