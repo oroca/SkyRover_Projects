@@ -1,0 +1,2 @@
+Record=TopLevelDocument|FileName=SkyRover.SchDoc
+Record=HARD_PROCESSOR_COMPONENT|BaseComponentDesignator=U4|DocumentName=SkyRover.SchDoc|LibraryReference=STM32F103RBT6|SubProjectPath= |Configuration= |Description=STM32 ARM-based 32-bit MCU with 128 Kbytes Flash, 64-pin LQFP, Industrial Temperature|NexusDeviceId=STM32F103RBT6|SubPartUniqueId1=CNGWVLQE|SubPartDocPath1=SkyRover.SchDoc
