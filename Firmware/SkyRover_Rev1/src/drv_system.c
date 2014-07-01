@@ -28,6 +28,8 @@ static void cycleCounterInit(void)
 
 void SysTick_Handler(void)
 {
+    //-- FreeRTOS 인터럽트 호출 
+    //
     if (xTaskGetSchedulerState() != taskSCHEDULER_NOT_STARTED)
     {
         xPortSysTickHandler();

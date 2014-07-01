@@ -169,38 +169,13 @@ typedef struct baro_t
     baroCalculateFuncPtr calculate;
 } baro_t;
 
-// Hardware definitions and GPIO
-#ifdef FY90Q
- // FY90Q
-#define LED0_GPIO   GPIOC
-#define LED0_PIN    Pin_12
-#define LED1_GPIO   GPIOA
-#define LED1_PIN    Pin_15
 
-#define GYRO
-#define ACC
 
-#define SENSORS_SET (SENSOR_ACC)
 
-#else
 
-#ifdef OLIMEXINO
-// OLIMEXINO
+//--------- Hardware definitions and GPIO
 
-// LED2 is using one of the pwm pins (PWM2), so we must not use PWM2.  @See pwmInit()
-#define LED0_GPIO   GPIOA
-#define LED0_PIN    Pin_1 // D3, PA1/USART2_RTS/ADC1/TIM2_CH3 - "LED2" on silkscreen, Yellow
-#define LED1_GPIO   GPIOA
-#define LED1_PIN    Pin_5 // D13, PA5/SPI1_SCK/ADC5 - "LED1" on silkscreen, Green
 
-#define GYRO
-#define ACC
-
-#define SENSORS_SET (SENSOR_ACC)
-
-#else
-
-#ifdef SKYROVER
 // SkyRover
 #define LED0_GPIO   GPIOB
 #define LED0_PIN    Pin_4 // PB4 (LED)
@@ -221,30 +196,6 @@ typedef struct baro_t
 
 #define SENSORS_SET (SENSOR_ACC | SENSOR_BARO | SENSOR_MAG )
 
-#else
-// Afroflight32
-#define LED0_GPIO   GPIOB
-#define LED0_PIN    Pin_3 // PB3 (LED)
-#define LED1_GPIO   GPIOB
-#define LED1_PIN    Pin_4 // PB4 (LED)
-#define BEEP_GPIO   GPIOA
-#define BEEP_PIN    Pin_12 // PA12 (Buzzer)
-#define BARO_GPIO   GPIOC
-#define BARO_PIN    Pin_13
-
-#define GYRO
-#define ACC
-#define MAG
-#define BARO
-#define LEDRING
-#define SONAR
-#define BUZZER
-
-#define SENSORS_SET (SENSOR_ACC | SENSOR_BARO | SENSOR_MAG)
-#endif
-
-#endif
-#endif
 
 // Helpful macros
 #define LED0_TOGGLE              digitalToggle(LED0_GPIO, LED0_PIN);
@@ -269,31 +220,7 @@ typedef struct baro_t
 
 #include "utils.h"
 
-#ifdef FY90Q
- // FY90Q
-#include "drv_adc.h"
-#include "drv_i2c.h"
-#include "drv_pwm.h"
-#include "drv_uart.h"
-#else
 
-#ifdef OLIMEXINO
-// OLIMEXINO
-#include "drv_adc.h"
-#include "drv_i2c.h"
-#include "drv_spi.h"
-#include "drv_adxl345.h"
-#include "drv_mpu3050.h"
-#include "drv_mpu6050.h"
-#include "drv_l3g4200d.h"
-#include "drv_pwm.h"
-#include "drv_timer.h"
-#include "drv_serial.h"
-#include "drv_uart.h"
-#include "drv_softserial.h"
-#else
-
- // AfroFlight32
 #include "drv_adc.h"
 #include "drv_adxl345.h"
 #include "drv_bma280.h"
@@ -314,5 +241,3 @@ typedef struct baro_t
 #include "drv_softserial.h"
 #include "drv_hcsr04.h"
 
-#endif
-#endif

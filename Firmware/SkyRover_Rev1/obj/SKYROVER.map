@@ -1753,7 +1753,7 @@ LOAD /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib
                 0x0000000008003000                g_pfnVectors
                 0x000000000800310c                . = ALIGN (0x4)
 
-.text           0x0000000008003110    0x13ae4
+.text           0x0000000008003110    0x13adc
                 0x0000000008003110                . = ALIGN (0x4)
  *(.text)
  .text          0x0000000008003110       0x54 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/armv7-m/crtbegin.o
@@ -2201,1114 +2201,1114 @@ LOAD /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib
                 0x00000000080091d8       0x1c obj/SKYROVER/main.o
  .text._putc    0x00000000080091f4        0xc obj/SKYROVER/main.o
  .text.startup.main
-                0x0000000008009200      0x2d0 obj/SKYROVER/main.o
+                0x0000000008009200      0x2c8 obj/SKYROVER/main.o
                 0x0000000008009200                main
  .text.HardFault_Handler
-                0x00000000080094d0       0x14 obj/SKYROVER/main.o
-                0x00000000080094d0                HardFault_Handler
+                0x00000000080094c8       0x14 obj/SKYROVER/main.o
+                0x00000000080094c8                HardFault_Handler
  .text.servoMiddle
-                0x00000000080094e4       0x28 obj/SKYROVER/mixer.o
-                0x00000000080094e4                servoMiddle
+                0x00000000080094dc       0x28 obj/SKYROVER/mixer.o
+                0x00000000080094dc                servoMiddle
  .text.mixerResetMotors
-                0x000000000800950c       0x30 obj/SKYROVER/mixer.o
-                0x000000000800950c                mixerResetMotors
+                0x0000000008009504       0x30 obj/SKYROVER/mixer.o
+                0x0000000008009504                mixerResetMotors
  .text.mixerInit
-                0x000000000800953c      0x114 obj/SKYROVER/mixer.o
-                0x000000000800953c                mixerInit
+                0x0000000008009534      0x114 obj/SKYROVER/mixer.o
+                0x0000000008009534                mixerInit
  .text.mixerLoadMix
-                0x0000000008009650       0x4c obj/SKYROVER/mixer.o
-                0x0000000008009650                mixerLoadMix
+                0x0000000008009648       0x4c obj/SKYROVER/mixer.o
+                0x0000000008009648                mixerLoadMix
  .text.writeServos
-                0x000000000800969c       0xc0 obj/SKYROVER/mixer.o
-                0x000000000800969c                writeServos
+                0x0000000008009694       0xc0 obj/SKYROVER/mixer.o
+                0x0000000008009694                writeServos
  .text.writeMotors
-                0x000000000800975c       0x28 obj/SKYROVER/mixer.o
-                0x000000000800975c                writeMotors
+                0x0000000008009754       0x28 obj/SKYROVER/mixer.o
+                0x0000000008009754                writeMotors
  .text.writeAllMotors
-                0x0000000008009784       0x24 obj/SKYROVER/mixer.o
-                0x0000000008009784                writeAllMotors
+                0x000000000800977c       0x24 obj/SKYROVER/mixer.o
+                0x000000000800977c                writeAllMotors
  .text.mixTable
-                0x00000000080097a8      0x644 obj/SKYROVER/mixer.o
-                0x00000000080097a8                mixTable
+                0x00000000080097a0      0x644 obj/SKYROVER/mixer.o
+                0x00000000080097a0                mixTable
  .text.pidMultiWii
-                0x0000000008009dec      0x230 obj/SKYROVER/mw.o
+                0x0000000008009de4      0x230 obj/SKYROVER/mw.o
  .text.pidRewrite
-                0x000000000800a01c      0x164 obj/SKYROVER/mw.o
+                0x000000000800a014      0x164 obj/SKYROVER/mw.o
  .text.blinkLED
-                0x000000000800a180       0x4c obj/SKYROVER/mw.o
-                0x000000000800a180                blinkLED
- *fill*         0x000000000800a1cc        0x4 00
+                0x000000000800a178       0x4c obj/SKYROVER/mw.o
+                0x000000000800a178                blinkLED
+ *fill*         0x000000000800a1c4        0x4 00
  .text.annexCode
-                0x000000000800a1d0      0x410 obj/SKYROVER/mw.o
-                0x000000000800a1d0                annexCode
+                0x000000000800a1c8      0x410 obj/SKYROVER/mw.o
+                0x000000000800a1c8                annexCode
  .text.pwmReadRawRC
-                0x000000000800a5e0       0x28 obj/SKYROVER/mw.o
-                0x000000000800a5e0                pwmReadRawRC
+                0x000000000800a5d8       0x28 obj/SKYROVER/mw.o
+                0x000000000800a5d8                pwmReadRawRC
  .text.computeRC
-                0x000000000800a608       0xa0 obj/SKYROVER/mw.o
-                0x000000000800a608                computeRC
- .text.mwArm    0x000000000800a6a8       0x40 obj/SKYROVER/mw.o
-                0x000000000800a6a8                mwArm
+                0x000000000800a600       0xa0 obj/SKYROVER/mw.o
+                0x000000000800a600                computeRC
+ .text.mwArm    0x000000000800a6a0       0x40 obj/SKYROVER/mw.o
+                0x000000000800a6a0                mwArm
  .text.mwDisarm
-                0x000000000800a6e8       0x10 obj/SKYROVER/mw.o
-                0x000000000800a6e8                mwDisarm
+                0x000000000800a6e0       0x10 obj/SKYROVER/mw.o
+                0x000000000800a6e0                mwDisarm
  .text.setPIDController
-                0x000000000800a6f8       0x1c obj/SKYROVER/mw.o
-                0x000000000800a6f8                setPIDController
- .text.loop     0x000000000800a714      0xafc obj/SKYROVER/mw.o
-                0x000000000800a714                loop
+                0x000000000800a6f0       0x1c obj/SKYROVER/mw.o
+                0x000000000800a6f0                setPIDController
+ .text.loop     0x000000000800a70c      0xafc obj/SKYROVER/mw.o
+                0x000000000800a70c                loop
  .text.sensorsAutodetect
-                0x000000000800b210      0x1d8 obj/SKYROVER/sensors.o
-                0x000000000800b210                sensorsAutodetect
+                0x000000000800b208      0x1d8 obj/SKYROVER/sensors.o
+                0x000000000800b208                sensorsAutodetect
  .text.batteryAdcToVoltage
-                0x000000000800b3e8       0x3c obj/SKYROVER/sensors.o
-                0x000000000800b3e8                batteryAdcToVoltage
+                0x000000000800b3e0       0x3c obj/SKYROVER/sensors.o
+                0x000000000800b3e0                batteryAdcToVoltage
  .text.batteryInit
-                0x000000000800b424       0x58 obj/SKYROVER/sensors.o
-                0x000000000800b424                batteryInit
+                0x000000000800b41c       0x58 obj/SKYROVER/sensors.o
+                0x000000000800b41c                batteryInit
  .text.ACC_getADC
-                0x000000000800b47c      0x1cc obj/SKYROVER/sensors.o
-                0x000000000800b47c                ACC_getADC
+                0x000000000800b474      0x1cc obj/SKYROVER/sensors.o
+                0x000000000800b474                ACC_getADC
  .text.Baro_Common
-                0x000000000800b648       0x44 obj/SKYROVER/sensors.o
-                0x000000000800b648                Baro_Common
+                0x000000000800b640       0x44 obj/SKYROVER/sensors.o
+                0x000000000800b640                Baro_Common
  .text.Baro_update
-                0x000000000800b68c       0x70 obj/SKYROVER/sensors.o
-                0x000000000800b68c                Baro_update
+                0x000000000800b684       0x70 obj/SKYROVER/sensors.o
+                0x000000000800b684                Baro_update
  .text.Gyro_getADC
-                0x000000000800b6fc      0x198 obj/SKYROVER/sensors.o
-                0x000000000800b6fc                Gyro_getADC
+                0x000000000800b6f4      0x198 obj/SKYROVER/sensors.o
+                0x000000000800b6f4                Gyro_getADC
  .text.Mag_init
-                0x000000000800b894       0x20 obj/SKYROVER/sensors.o
-                0x000000000800b894                Mag_init
+                0x000000000800b88c       0x20 obj/SKYROVER/sensors.o
+                0x000000000800b88c                Mag_init
  .text.Mag_getADC
-                0x000000000800b8b4      0x120 obj/SKYROVER/sensors.o
-                0x000000000800b8b4                Mag_getADC
+                0x000000000800b8ac      0x120 obj/SKYROVER/sensors.o
+                0x000000000800b8ac                Mag_getADC
  .text.serialize32
-                0x000000000800b9d4       0x6c obj/SKYROVER/serial.o
-                0x000000000800b9d4                serialize32
+                0x000000000800b9cc       0x6c obj/SKYROVER/serial.o
+                0x000000000800b9cc                serialize32
  .text.serialize16
-                0x000000000800ba40       0x44 obj/SKYROVER/serial.o
-                0x000000000800ba40                serialize16
+                0x000000000800ba38       0x44 obj/SKYROVER/serial.o
+                0x000000000800ba38                serialize16
  .text.serialize8
-                0x000000000800ba84       0x20 obj/SKYROVER/serial.o
-                0x000000000800ba84                serialize8
- .text.read8    0x000000000800baa4       0x18 obj/SKYROVER/serial.o
-                0x000000000800baa4                read8
- .text.read16   0x000000000800babc       0x14 obj/SKYROVER/serial.o
-                0x000000000800babc                read16
- .text.read32   0x000000000800bad0       0x12 obj/SKYROVER/serial.o
-                0x000000000800bad0                read32
- *fill*         0x000000000800bae2        0x2 00
+                0x000000000800ba7c       0x20 obj/SKYROVER/serial.o
+                0x000000000800ba7c                serialize8
+ .text.read8    0x000000000800ba9c       0x18 obj/SKYROVER/serial.o
+                0x000000000800ba9c                read8
+ .text.read16   0x000000000800bab4       0x14 obj/SKYROVER/serial.o
+                0x000000000800bab4                read16
+ .text.read32   0x000000000800bac8       0x12 obj/SKYROVER/serial.o
+                0x000000000800bac8                read32
+ *fill*         0x000000000800bada        0x2 00
  .text.headSerialResponse
-                0x000000000800bae4       0x40 obj/SKYROVER/serial.o
-                0x000000000800bae4                headSerialResponse
+                0x000000000800badc       0x40 obj/SKYROVER/serial.o
+                0x000000000800badc                headSerialResponse
  .text.headSerialReply
-                0x000000000800bb24        0x8 obj/SKYROVER/serial.o
-                0x000000000800bb24                headSerialReply
+                0x000000000800bb1c        0x8 obj/SKYROVER/serial.o
+                0x000000000800bb1c                headSerialReply
  .text.headSerialError
-                0x000000000800bb2c        0x8 obj/SKYROVER/serial.o
-                0x000000000800bb2c                headSerialError
+                0x000000000800bb24        0x8 obj/SKYROVER/serial.o
+                0x000000000800bb24                headSerialError
  .text.tailSerialReply
-                0x000000000800bb34        0xc obj/SKYROVER/serial.o
-                0x000000000800bb34                tailSerialReply
+                0x000000000800bb2c        0xc obj/SKYROVER/serial.o
+                0x000000000800bb2c                tailSerialReply
  .text.s_struct
-                0x000000000800bb40       0x24 obj/SKYROVER/serial.o
-                0x000000000800bb40                s_struct
+                0x000000000800bb38       0x24 obj/SKYROVER/serial.o
+                0x000000000800bb38                s_struct
  .text.serializeNames
-                0x000000000800bb64       0x12 obj/SKYROVER/serial.o
-                0x000000000800bb64                serializeNames
- *fill*         0x000000000800bb76        0x2 00
+                0x000000000800bb5c       0x12 obj/SKYROVER/serial.o
+                0x000000000800bb5c                serializeNames
+ *fill*         0x000000000800bb6e        0x2 00
  .text.serializeBoxNamesReply
-                0x000000000800bb78       0x68 obj/SKYROVER/serial.o
-                0x000000000800bb78                serializeBoxNamesReply
+                0x000000000800bb70       0x68 obj/SKYROVER/serial.o
+                0x000000000800bb70                serializeBoxNamesReply
  .text.serialInit
-                0x000000000800bbe0      0x10c obj/SKYROVER/serial.o
-                0x000000000800bbe0                serialInit
+                0x000000000800bbd8      0x10c obj/SKYROVER/serial.o
+                0x000000000800bbd8                serialInit
  .text.serialCom
-                0x000000000800bcec      0xbac obj/SKYROVER/serial.o
-                0x000000000800bcec                serialCom
+                0x000000000800bce4      0xbac obj/SKYROVER/serial.o
+                0x000000000800bce4                serialCom
  .text.sbusReadRawRC
-                0x000000000800c898       0x20 obj/SKYROVER/sbus.o
+                0x000000000800c890       0x20 obj/SKYROVER/sbus.o
  .text.sbusDataReceive
-                0x000000000800c8b8       0x5c obj/SKYROVER/sbus.o
+                0x000000000800c8b0       0x5c obj/SKYROVER/sbus.o
  .text.sbusInit
-                0x000000000800c914       0x5c obj/SKYROVER/sbus.o
-                0x000000000800c914                sbusInit
+                0x000000000800c90c       0x5c obj/SKYROVER/sbus.o
+                0x000000000800c90c                sbusInit
  .text.sbusFrameComplete
-                0x000000000800c970       0xb0 obj/SKYROVER/sbus.o
-                0x000000000800c970                sbusFrameComplete
+                0x000000000800c968       0xb0 obj/SKYROVER/sbus.o
+                0x000000000800c968                sbusFrameComplete
  .text.sumdReadRawRC
-                0x000000000800ca20       0x1c obj/SKYROVER/sumd.o
+                0x000000000800ca18       0x1c obj/SKYROVER/sumd.o
  .text.sumdDataReceive
-                0x000000000800ca3c       0x74 obj/SKYROVER/sumd.o
+                0x000000000800ca34       0x74 obj/SKYROVER/sumd.o
  .text.sumdInit
-                0x000000000800cab0       0x30 obj/SKYROVER/sumd.o
-                0x000000000800cab0                sumdInit
+                0x000000000800caa8       0x30 obj/SKYROVER/sumd.o
+                0x000000000800caa8                sumdInit
  .text.sumdFrameComplete
-                0x000000000800cae0       0x68 obj/SKYROVER/sumd.o
-                0x000000000800cae0                sumdFrameComplete
+                0x000000000800cad8       0x68 obj/SKYROVER/sumd.o
+                0x000000000800cad8                sumdFrameComplete
  .text.spektrumDataReceive
-                0x000000000800cb48       0x68 obj/SKYROVER/spektrum.o
+                0x000000000800cb40       0x68 obj/SKYROVER/spektrum.o
  .text.spektrumReadRawRC
-                0x000000000800cbb0       0x90 obj/SKYROVER/spektrum.o
+                0x000000000800cba8       0x90 obj/SKYROVER/spektrum.o
  .text.spektrumInit
-                0x000000000800cc40       0x68 obj/SKYROVER/spektrum.o
-                0x000000000800cc40                spektrumInit
+                0x000000000800cc38       0x68 obj/SKYROVER/spektrum.o
+                0x000000000800cc38                spektrumInit
  .text.spektrumFrameComplete
-                0x000000000800cca8        0xc obj/SKYROVER/spektrum.o
-                0x000000000800cca8                spektrumFrameComplete
+                0x000000000800cca0        0xc obj/SKYROVER/spektrum.o
+                0x000000000800cca0                spektrumFrameComplete
  .text.sendDataHead
-                0x000000000800ccb4       0x20 obj/SKYROVER/telemetry.o
+                0x000000000800ccac       0x20 obj/SKYROVER/telemetry.o
  .text.sendTelemetryTail
-                0x000000000800ccd4       0x10 obj/SKYROVER/telemetry.o
+                0x000000000800cccc       0x10 obj/SKYROVER/telemetry.o
  .text.serializeFrsky
-                0x000000000800cce4       0x30 obj/SKYROVER/telemetry.o
+                0x000000000800ccdc       0x30 obj/SKYROVER/telemetry.o
  .text.serialize16
-                0x000000000800cd14       0x16 obj/SKYROVER/telemetry.o
- *fill*         0x000000000800cd2a        0x2 00
+                0x000000000800cd0c       0x16 obj/SKYROVER/telemetry.o
+ *fill*         0x000000000800cd22        0x2 00
  .text.initTelemetry
-                0x000000000800cd2c       0x30 obj/SKYROVER/telemetry.o
-                0x000000000800cd2c                initTelemetry
+                0x000000000800cd24       0x30 obj/SKYROVER/telemetry.o
+                0x000000000800cd24                initTelemetry
  .text.updateTelemetryState
-                0x000000000800cd5c       0x5c obj/SKYROVER/telemetry.o
-                0x000000000800cd5c                updateTelemetryState
+                0x000000000800cd54       0x5c obj/SKYROVER/telemetry.o
+                0x000000000800cd54                updateTelemetryState
  .text.sendTelemetry
-                0x000000000800cdb8      0x30c obj/SKYROVER/telemetry.o
-                0x000000000800cdb8                sendTelemetry
+                0x000000000800cdb0      0x30c obj/SKYROVER/telemetry.o
+                0x000000000800cdb0                sendTelemetry
  .text.gpioInit
-                0x000000000800d0c4       0x76 obj/SKYROVER/drv_gpio.o
-                0x000000000800d0c4                gpioInit
- *fill*         0x000000000800d13a        0x2 00
+                0x000000000800d0bc       0x76 obj/SKYROVER/drv_gpio.o
+                0x000000000800d0bc                gpioInit
+ *fill*         0x000000000800d132        0x2 00
  .text.gpioExtiLineConfig
-                0x000000000800d13c       0x34 obj/SKYROVER/drv_gpio.o
-                0x000000000800d13c                gpioExtiLineConfig
+                0x000000000800d134       0x34 obj/SKYROVER/drv_gpio.o
+                0x000000000800d134                gpioExtiLineConfig
  .text.i2c_ev_handler
-                0x000000000800d170      0x31c obj/SKYROVER/drv_i2c.o
+                0x000000000800d168      0x31c obj/SKYROVER/drv_i2c.o
  .text.I2C1_EV_IRQHandler
-                0x000000000800d48c        0x4 obj/SKYROVER/drv_i2c.o
-                0x000000000800d48c                I2C1_EV_IRQHandler
+                0x000000000800d484        0x4 obj/SKYROVER/drv_i2c.o
+                0x000000000800d484                I2C1_EV_IRQHandler
  .text.I2C2_EV_IRQHandler
-                0x000000000800d490        0x4 obj/SKYROVER/drv_i2c.o
-                0x000000000800d490                I2C2_EV_IRQHandler
- .text.i2cInit  0x000000000800d494      0x130 obj/SKYROVER/drv_i2c.o
-                0x000000000800d494                i2cInit
- .text.i2cRead  0x000000000800d5c4       0xc4 obj/SKYROVER/drv_i2c.o
-                0x000000000800d5c4                i2cRead
+                0x000000000800d488        0x4 obj/SKYROVER/drv_i2c.o
+                0x000000000800d488                I2C2_EV_IRQHandler
+ .text.i2cInit  0x000000000800d48c      0x130 obj/SKYROVER/drv_i2c.o
+                0x000000000800d48c                i2cInit
+ .text.i2cRead  0x000000000800d5bc       0xc4 obj/SKYROVER/drv_i2c.o
+                0x000000000800d5bc                i2cRead
  .text.i2cWriteBuffer
-                0x000000000800d688       0xc4 obj/SKYROVER/drv_i2c.o
-                0x000000000800d688                i2cWriteBuffer
+                0x000000000800d680       0xc4 obj/SKYROVER/drv_i2c.o
+                0x000000000800d680                i2cWriteBuffer
  .text.i2cWrite
-                0x000000000800d74c       0x10 obj/SKYROVER/drv_i2c.o
-                0x000000000800d74c                i2cWrite
+                0x000000000800d744       0x10 obj/SKYROVER/drv_i2c.o
+                0x000000000800d744                i2cWrite
  .text.i2c_er_handler
-                0x000000000800d75c       0xac obj/SKYROVER/drv_i2c.o
+                0x000000000800d754       0xac obj/SKYROVER/drv_i2c.o
  .text.I2C2_ER_IRQHandler
-                0x000000000800d808        0x4 obj/SKYROVER/drv_i2c.o
-                0x000000000800d808                I2C2_ER_IRQHandler
+                0x000000000800d800        0x4 obj/SKYROVER/drv_i2c.o
+                0x000000000800d800                I2C2_ER_IRQHandler
  .text.I2C1_ER_IRQHandler
-                0x000000000800d80c        0x4 obj/SKYROVER/drv_i2c.o
-                0x000000000800d80c                I2C1_ER_IRQHandler
+                0x000000000800d804        0x4 obj/SKYROVER/drv_i2c.o
+                0x000000000800d804                I2C1_ER_IRQHandler
  .text.i2cGetErrorCounter
-                0x000000000800d810        0xc obj/SKYROVER/drv_i2c.o
-                0x000000000800d810                i2cGetErrorCounter
+                0x000000000800d808        0xc obj/SKYROVER/drv_i2c.o
+                0x000000000800d808                i2cGetErrorCounter
  .text.SysTick_Handler
-                0x000000000800d81c       0x1c obj/SKYROVER/drv_system.o
-                0x000000000800d81c                SysTick_Handler
- .text.micros   0x000000000800d838       0x34 obj/SKYROVER/drv_system.o
-                0x000000000800d838                micros
- .text.millis   0x000000000800d86c        0xc obj/SKYROVER/drv_system.o
-                0x000000000800d86c                millis
+                0x000000000800d814       0x1c obj/SKYROVER/drv_system.o
+                0x000000000800d814                SysTick_Handler
+ .text.micros   0x000000000800d830       0x34 obj/SKYROVER/drv_system.o
+                0x000000000800d830                micros
+ .text.millis   0x000000000800d864        0xc obj/SKYROVER/drv_system.o
+                0x000000000800d864                millis
  .text.delayMicroseconds
-                0x000000000800d878       0x16 obj/SKYROVER/drv_system.o
-                0x000000000800d878                delayMicroseconds
- .text.delay    0x000000000800d88e       0x14 obj/SKYROVER/drv_system.o
-                0x000000000800d88e                delay
- *fill*         0x000000000800d8a2        0x2 00
+                0x000000000800d870       0x16 obj/SKYROVER/drv_system.o
+                0x000000000800d870                delayMicroseconds
+ .text.delay    0x000000000800d886       0x14 obj/SKYROVER/drv_system.o
+                0x000000000800d886                delay
+ *fill*         0x000000000800d89a        0x2 00
  .text.systemInit
-                0x000000000800d8a4      0x130 obj/SKYROVER/drv_system.o
-                0x000000000800d8a4                systemInit
+                0x000000000800d89c      0x130 obj/SKYROVER/drv_system.o
+                0x000000000800d89c                systemInit
  .text.failureMode
-                0x000000000800d9d4       0x38 obj/SKYROVER/drv_system.o
-                0x000000000800d9d4                failureMode
+                0x000000000800d9cc       0x38 obj/SKYROVER/drv_system.o
+                0x000000000800d9cc                failureMode
  .text.systemReset
-                0x000000000800da0c       0x20 obj/SKYROVER/drv_system.o
-                0x000000000800da0c                systemReset
+                0x000000000800da04       0x20 obj/SKYROVER/drv_system.o
+                0x000000000800da04                systemReset
  .text.systemBeep
-                0x000000000800da2c        0x2 obj/SKYROVER/drv_system.o
-                0x000000000800da2c                systemBeep
+                0x000000000800da24        0x2 obj/SKYROVER/drv_system.o
+                0x000000000800da24                systemBeep
  .text.serialWrite
-                0x000000000800da2e        0xa obj/SKYROVER/drv_serial.o
-                0x000000000800da2e                serialWrite
+                0x000000000800da26        0xa obj/SKYROVER/drv_serial.o
+                0x000000000800da26                serialWrite
  .text.serialPrint
-                0x000000000800da38       0x16 obj/SKYROVER/drv_serial.o
-                0x000000000800da38                serialPrint
+                0x000000000800da30       0x16 obj/SKYROVER/drv_serial.o
+                0x000000000800da30                serialPrint
  .text.serialTotalBytesWaiting
-                0x000000000800da4e        0xa obj/SKYROVER/drv_serial.o
-                0x000000000800da4e                serialTotalBytesWaiting
+                0x000000000800da46        0xa obj/SKYROVER/drv_serial.o
+                0x000000000800da46                serialTotalBytesWaiting
  .text.serialRead
-                0x000000000800da58        0xa obj/SKYROVER/drv_serial.o
-                0x000000000800da58                serialRead
+                0x000000000800da50        0xa obj/SKYROVER/drv_serial.o
+                0x000000000800da50                serialRead
  .text.serialSetBaudRate
-                0x000000000800da62        0xa obj/SKYROVER/drv_serial.o
-                0x000000000800da62                serialSetBaudRate
+                0x000000000800da5a        0xa obj/SKYROVER/drv_serial.o
+                0x000000000800da5a                serialSetBaudRate
  .text.isSerialTransmitBufferEmpty
-                0x000000000800da6c        0xa obj/SKYROVER/drv_serial.o
-                0x000000000800da6c                isSerialTransmitBufferEmpty
+                0x000000000800da64        0xa obj/SKYROVER/drv_serial.o
+                0x000000000800da64                isSerialTransmitBufferEmpty
  .text.softSerialTotalBytesWaiting
-                0x000000000800da76       0x18 obj/SKYROVER/drv_softserial.o
-                0x000000000800da76                softSerialTotalBytesWaiting
+                0x000000000800da6e       0x18 obj/SKYROVER/drv_softserial.o
+                0x000000000800da6e                softSerialTotalBytesWaiting
  .text.softSerialWriteByte
-                0x000000000800da8e       0x18 obj/SKYROVER/drv_softserial.o
-                0x000000000800da8e                softSerialWriteByte
+                0x000000000800da86       0x18 obj/SKYROVER/drv_softserial.o
+                0x000000000800da86                softSerialWriteByte
  .text.softSerialSetBaudRate
-                0x000000000800daa6        0x2 obj/SKYROVER/drv_softserial.o
-                0x000000000800daa6                softSerialSetBaudRate
+                0x000000000800da9e        0x2 obj/SKYROVER/drv_softserial.o
+                0x000000000800da9e                softSerialSetBaudRate
  .text.isSoftSerialTransmitBufferEmpty
-                0x000000000800daa8        0xe obj/SKYROVER/drv_softserial.o
-                0x000000000800daa8                isSoftSerialTransmitBufferEmpty
+                0x000000000800daa0        0xe obj/SKYROVER/drv_softserial.o
+                0x000000000800daa0                isSoftSerialTransmitBufferEmpty
  .text.softSerialReadByte
-                0x000000000800dab6       0x22 obj/SKYROVER/drv_softserial.o
-                0x000000000800dab6                softSerialReadByte
+                0x000000000800daae       0x22 obj/SKYROVER/drv_softserial.o
+                0x000000000800daae                softSerialReadByte
  .text.readRxSignal
-                0x000000000800dad8       0x20 obj/SKYROVER/drv_softserial.o
-                0x000000000800dad8                readRxSignal
+                0x000000000800dad0       0x20 obj/SKYROVER/drv_softserial.o
+                0x000000000800dad0                readRxSignal
  .text.setTxSignal
-                0x000000000800daf8       0x2e obj/SKYROVER/drv_softserial.o
-                0x000000000800daf8                setTxSignal
+                0x000000000800daf0       0x2e obj/SKYROVER/drv_softserial.o
+                0x000000000800daf0                setTxSignal
  .text.serialInputPortConfig
-                0x000000000800db26       0x20 obj/SKYROVER/drv_softserial.o
-                0x000000000800db26                serialInputPortConfig
- *fill*         0x000000000800db46        0x2 00
+                0x000000000800db1e       0x20 obj/SKYROVER/drv_softserial.o
+                0x000000000800db1e                serialInputPortConfig
+ *fill*         0x000000000800db3e        0x2 00
  .text.serialTimerConfig
-                0x000000000800db48       0x2c obj/SKYROVER/drv_softserial.o
-                0x000000000800db48                serialTimerConfig
+                0x000000000800db40       0x2c obj/SKYROVER/drv_softserial.o
+                0x000000000800db40                serialTimerConfig
  .text.serialOutputPortConfig
-                0x000000000800db74       0x20 obj/SKYROVER/drv_softserial.o
-                0x000000000800db74                serialOutputPortConfig
+                0x000000000800db6c       0x20 obj/SKYROVER/drv_softserial.o
+                0x000000000800db6c                serialOutputPortConfig
  .text.setupSoftSerial1
-                0x000000000800db94       0x8c obj/SKYROVER/drv_softserial.o
-                0x000000000800db94                setupSoftSerial1
+                0x000000000800db8c       0x8c obj/SKYROVER/drv_softserial.o
+                0x000000000800db8c                setupSoftSerial1
  .text.updateBufferIndex
-                0x000000000800dc20       0x14 obj/SKYROVER/drv_softserial.o
-                0x000000000800dc20                updateBufferIndex
+                0x000000000800dc18       0x14 obj/SKYROVER/drv_softserial.o
+                0x000000000800dc18                updateBufferIndex
  .text.searchForStartBit
-                0x000000000800dc34       0x30 obj/SKYROVER/drv_softserial.o
-                0x000000000800dc34                searchForStartBit
+                0x000000000800dc2c       0x30 obj/SKYROVER/drv_softserial.o
+                0x000000000800dc2c                searchForStartBit
  .text.searchForStopBit
-                0x000000000800dc64       0x38 obj/SKYROVER/drv_softserial.o
-                0x000000000800dc64                searchForStopBit
+                0x000000000800dc5c       0x38 obj/SKYROVER/drv_softserial.o
+                0x000000000800dc5c                searchForStopBit
  .text.readDataBit
-                0x000000000800dc9c       0x46 obj/SKYROVER/drv_softserial.o
-                0x000000000800dc9c                readDataBit
+                0x000000000800dc94       0x46 obj/SKYROVER/drv_softserial.o
+                0x000000000800dc94                readDataBit
  .text.processRxState
-                0x000000000800dce2       0x2a obj/SKYROVER/drv_softserial.o
-                0x000000000800dce2                processRxState
+                0x000000000800dcda       0x2a obj/SKYROVER/drv_softserial.o
+                0x000000000800dcda                processRxState
  .text.processTxState
-                0x000000000800dd0c       0x74 obj/SKYROVER/drv_softserial.o
-                0x000000000800dd0c                processTxState
+                0x000000000800dd04       0x74 obj/SKYROVER/drv_softserial.o
+                0x000000000800dd04                processTxState
  .text.onSerialTimer
-                0x000000000800dd80       0x20 obj/SKYROVER/drv_softserial.o
-                0x000000000800dd80                onSerialTimer
+                0x000000000800dd78       0x20 obj/SKYROVER/drv_softserial.o
+                0x000000000800dd78                onSerialTimer
  .text.uartTotalBytesWaiting
-                0x000000000800dda0       0x16 obj/SKYROVER/drv_uart.o
-                0x000000000800dda0                uartTotalBytesWaiting
+                0x000000000800dd98       0x16 obj/SKYROVER/drv_uart.o
+                0x000000000800dd98                uartTotalBytesWaiting
  .text.isUartTransmitBufferEmpty
-                0x000000000800ddb6       0x18 obj/SKYROVER/drv_uart.o
-                0x000000000800ddb6                isUartTransmitBufferEmpty
+                0x000000000800ddae       0x18 obj/SKYROVER/drv_uart.o
+                0x000000000800ddae                isUartTransmitBufferEmpty
  .text.uartStartTxDMA
-                0x000000000800ddce       0x30 obj/SKYROVER/drv_uart.o
+                0x000000000800ddc6       0x30 obj/SKYROVER/drv_uart.o
  .text.uartSetBaudRate
-                0x000000000800ddfe       0x4a obj/SKYROVER/drv_uart.o
-                0x000000000800ddfe                uartSetBaudRate
+                0x000000000800ddf6       0x4a obj/SKYROVER/drv_uart.o
+                0x000000000800ddf6                uartSetBaudRate
  .text.uartRead
-                0x000000000800de48       0x30 obj/SKYROVER/drv_uart.o
-                0x000000000800de48                uartRead
+                0x000000000800de40       0x30 obj/SKYROVER/drv_uart.o
+                0x000000000800de40                uartRead
  .text.uartWrite
-                0x000000000800de78       0x3c obj/SKYROVER/drv_uart.o
-                0x000000000800de78                uartWrite
+                0x000000000800de70       0x3c obj/SKYROVER/drv_uart.o
+                0x000000000800de70                uartWrite
  .text.serialUSART1
-                0x000000000800deb4       0xa0 obj/SKYROVER/drv_uart.o
-                0x000000000800deb4                serialUSART1
+                0x000000000800deac       0xa0 obj/SKYROVER/drv_uart.o
+                0x000000000800deac                serialUSART1
  .text.serialUSART2
-                0x000000000800df54       0x98 obj/SKYROVER/drv_uart.o
-                0x000000000800df54                serialUSART2
+                0x000000000800df4c       0x98 obj/SKYROVER/drv_uart.o
+                0x000000000800df4c                serialUSART2
  .text.uartOpen
-                0x000000000800dfec      0x170 obj/SKYROVER/drv_uart.o
-                0x000000000800dfec                uartOpen
+                0x000000000800dfe4      0x170 obj/SKYROVER/drv_uart.o
+                0x000000000800dfe4                uartOpen
  .text.DMA1_Channel4_IRQHandler
-                0x000000000800e15c       0x34 obj/SKYROVER/drv_uart.o
-                0x000000000800e15c                DMA1_Channel4_IRQHandler
+                0x000000000800e154       0x34 obj/SKYROVER/drv_uart.o
+                0x000000000800e154                DMA1_Channel4_IRQHandler
  .text.USART1_IRQHandler
-                0x000000000800e190       0x3c obj/SKYROVER/drv_uart.o
-                0x000000000800e190                USART1_IRQHandler
+                0x000000000800e188       0x3c obj/SKYROVER/drv_uart.o
+                0x000000000800e188                USART1_IRQHandler
  .text.USART2_IRQHandler
-                0x000000000800e1cc       0x78 obj/SKYROVER/drv_uart.o
-                0x000000000800e1cc                USART2_IRQHandler
- .text.uli2a    0x000000000800e244       0x4a obj/SKYROVER/printf.o
- .text.ui2a     0x000000000800e28e       0x4a obj/SKYROVER/printf.o
- .text.putchw   0x000000000800e2d8       0x48 obj/SKYROVER/printf.o
+                0x000000000800e1c4       0x78 obj/SKYROVER/drv_uart.o
+                0x000000000800e1c4                USART2_IRQHandler
+ .text.uli2a    0x000000000800e23c       0x4a obj/SKYROVER/printf.o
+ .text.ui2a     0x000000000800e286       0x4a obj/SKYROVER/printf.o
+ .text.putchw   0x000000000800e2d0       0x48 obj/SKYROVER/printf.o
  .text.tfp_format
-                0x000000000800e320      0x16c obj/SKYROVER/printf.o
-                0x000000000800e320                tfp_format
+                0x000000000800e318      0x16c obj/SKYROVER/printf.o
+                0x000000000800e318                tfp_format
  .text.init_printf
-                0x000000000800e48c       0x14 obj/SKYROVER/printf.o
-                0x000000000800e48c                init_printf
+                0x000000000800e484       0x14 obj/SKYROVER/printf.o
+                0x000000000800e484                init_printf
  .text.tfp_printf
-                0x000000000800e4a0       0x38 obj/SKYROVER/printf.o
-                0x000000000800e4a0                tfp_printf
+                0x000000000800e498       0x38 obj/SKYROVER/printf.o
+                0x000000000800e498                tfp_printf
  .text.constrain
-                0x000000000800e4d8       0x10 obj/SKYROVER/utils.o
-                0x000000000800e4d8                constrain
+                0x000000000800e4d0       0x10 obj/SKYROVER/utils.o
+                0x000000000800e4d0                constrain
  .text.initBoardAlignment
-                0x000000000800e4e8      0x170 obj/SKYROVER/utils.o
-                0x000000000800e4e8                initBoardAlignment
+                0x000000000800e4e0      0x170 obj/SKYROVER/utils.o
+                0x000000000800e4e0                initBoardAlignment
  .text.alignBoard
-                0x000000000800e658       0xc4 obj/SKYROVER/utils.o
-                0x000000000800e658                alignBoard
+                0x000000000800e650       0xc4 obj/SKYROVER/utils.o
+                0x000000000800e650                alignBoard
  .text.alignSensors
-                0x000000000800e71c       0x7c obj/SKYROVER/utils.o
-                0x000000000800e71c                alignSensors
+                0x000000000800e714       0x7c obj/SKYROVER/utils.o
+                0x000000000800e714                alignSensors
  .text.SystemInit
-                0x000000000800e798       0x4c obj/SKYROVER/system_stm32f10x.o
-                0x000000000800e798                SystemInit
+                0x000000000800e790       0x4c obj/SKYROVER/system_stm32f10x.o
+                0x000000000800e790                SystemInit
  .text.SystemCoreClockUpdate
-                0x000000000800e7e4       0x74 obj/SKYROVER/system_stm32f10x.o
-                0x000000000800e7e4                SystemCoreClockUpdate
+                0x000000000800e7dc       0x74 obj/SKYROVER/system_stm32f10x.o
+                0x000000000800e7dc                SystemCoreClockUpdate
  .text.SetSysClock
-                0x000000000800e858      0x15c obj/SKYROVER/system_stm32f10x.o
-                0x000000000800e858                SetSysClock
+                0x000000000800e850      0x15c obj/SKYROVER/system_stm32f10x.o
+                0x000000000800e850                SetSysClock
  .text.NVIC_PriorityGroupConfig
-                0x000000000800e9b4       0x14 obj/SKYROVER/misc.o
-                0x000000000800e9b4                NVIC_PriorityGroupConfig
+                0x000000000800e9ac       0x14 obj/SKYROVER/misc.o
+                0x000000000800e9ac                NVIC_PriorityGroupConfig
  .text.NVIC_Init
-                0x000000000800e9c8       0x68 obj/SKYROVER/misc.o
-                0x000000000800e9c8                NVIC_Init
+                0x000000000800e9c0       0x68 obj/SKYROVER/misc.o
+                0x000000000800e9c0                NVIC_Init
  .text.ADC_Init
-                0x000000000800ea30       0x48 obj/SKYROVER/stm32f10x_adc.o
-                0x000000000800ea30                ADC_Init
- .text.ADC_Cmd  0x000000000800ea78       0x12 obj/SKYROVER/stm32f10x_adc.o
-                0x000000000800ea78                ADC_Cmd
+                0x000000000800ea28       0x48 obj/SKYROVER/stm32f10x_adc.o
+                0x000000000800ea28                ADC_Init
+ .text.ADC_Cmd  0x000000000800ea70       0x12 obj/SKYROVER/stm32f10x_adc.o
+                0x000000000800ea70                ADC_Cmd
  .text.ADC_DMACmd
-                0x000000000800ea8a       0x12 obj/SKYROVER/stm32f10x_adc.o
-                0x000000000800ea8a                ADC_DMACmd
+                0x000000000800ea82       0x12 obj/SKYROVER/stm32f10x_adc.o
+                0x000000000800ea82                ADC_DMACmd
  .text.ADC_ResetCalibration
-                0x000000000800ea9c        0xa obj/SKYROVER/stm32f10x_adc.o
-                0x000000000800ea9c                ADC_ResetCalibration
+                0x000000000800ea94        0xa obj/SKYROVER/stm32f10x_adc.o
+                0x000000000800ea94                ADC_ResetCalibration
  .text.ADC_GetResetCalibrationStatus
-                0x000000000800eaa6        0x8 obj/SKYROVER/stm32f10x_adc.o
-                0x000000000800eaa6                ADC_GetResetCalibrationStatus
+                0x000000000800ea9e        0x8 obj/SKYROVER/stm32f10x_adc.o
+                0x000000000800ea9e                ADC_GetResetCalibrationStatus
  .text.ADC_StartCalibration
-                0x000000000800eaae        0xa obj/SKYROVER/stm32f10x_adc.o
-                0x000000000800eaae                ADC_StartCalibration
+                0x000000000800eaa6        0xa obj/SKYROVER/stm32f10x_adc.o
+                0x000000000800eaa6                ADC_StartCalibration
  .text.ADC_GetCalibrationStatus
-                0x000000000800eab8        0x8 obj/SKYROVER/stm32f10x_adc.o
-                0x000000000800eab8                ADC_GetCalibrationStatus
+                0x000000000800eab0        0x8 obj/SKYROVER/stm32f10x_adc.o
+                0x000000000800eab0                ADC_GetCalibrationStatus
  .text.ADC_SoftwareStartConvCmd
-                0x000000000800eac0       0x12 obj/SKYROVER/stm32f10x_adc.o
-                0x000000000800eac0                ADC_SoftwareStartConvCmd
+                0x000000000800eab8       0x12 obj/SKYROVER/stm32f10x_adc.o
+                0x000000000800eab8                ADC_SoftwareStartConvCmd
  .text.ADC_RegularChannelConfig
-                0x000000000800ead2       0x9a obj/SKYROVER/stm32f10x_adc.o
-                0x000000000800ead2                ADC_RegularChannelConfig
+                0x000000000800eaca       0x9a obj/SKYROVER/stm32f10x_adc.o
+                0x000000000800eaca                ADC_RegularChannelConfig
  .text.DMA_DeInit
-                0x000000000800eb6c       0xf0 obj/SKYROVER/stm32f10x_dma.o
-                0x000000000800eb6c                DMA_DeInit
+                0x000000000800eb64       0xf0 obj/SKYROVER/stm32f10x_dma.o
+                0x000000000800eb64                DMA_DeInit
  .text.DMA_Init
-                0x000000000800ec5c       0x40 obj/SKYROVER/stm32f10x_dma.o
-                0x000000000800ec5c                DMA_Init
+                0x000000000800ec54       0x40 obj/SKYROVER/stm32f10x_dma.o
+                0x000000000800ec54                DMA_Init
  .text.DMA_StructInit
-                0x000000000800ec9c       0x1a obj/SKYROVER/stm32f10x_dma.o
-                0x000000000800ec9c                DMA_StructInit
- .text.DMA_Cmd  0x000000000800ecb6       0x16 obj/SKYROVER/stm32f10x_dma.o
-                0x000000000800ecb6                DMA_Cmd
+                0x000000000800ec94       0x1a obj/SKYROVER/stm32f10x_dma.o
+                0x000000000800ec94                DMA_StructInit
+ .text.DMA_Cmd  0x000000000800ecae       0x16 obj/SKYROVER/stm32f10x_dma.o
+                0x000000000800ecae                DMA_Cmd
  .text.DMA_ITConfig
-                0x000000000800eccc       0x10 obj/SKYROVER/stm32f10x_dma.o
-                0x000000000800eccc                DMA_ITConfig
+                0x000000000800ecc4       0x10 obj/SKYROVER/stm32f10x_dma.o
+                0x000000000800ecc4                DMA_ITConfig
  .text.DMA_SetCurrDataCounter
-                0x000000000800ecdc        0x4 obj/SKYROVER/stm32f10x_dma.o
-                0x000000000800ecdc                DMA_SetCurrDataCounter
+                0x000000000800ecd4        0x4 obj/SKYROVER/stm32f10x_dma.o
+                0x000000000800ecd4                DMA_SetCurrDataCounter
  .text.DMA_GetCurrDataCounter
-                0x000000000800ece0        0x6 obj/SKYROVER/stm32f10x_dma.o
-                0x000000000800ece0                DMA_GetCurrDataCounter
- *fill*         0x000000000800ece6        0x2 00
+                0x000000000800ecd8        0x6 obj/SKYROVER/stm32f10x_dma.o
+                0x000000000800ecd8                DMA_GetCurrDataCounter
+ *fill*         0x000000000800ecde        0x2 00
  .text.DMA_ClearITPendingBit
-                0x000000000800ece8       0x14 obj/SKYROVER/stm32f10x_dma.o
-                0x000000000800ece8                DMA_ClearITPendingBit
+                0x000000000800ece0       0x14 obj/SKYROVER/stm32f10x_dma.o
+                0x000000000800ece0                DMA_ClearITPendingBit
  .text.EXTI_Init
-                0x000000000800ecfc       0x78 obj/SKYROVER/stm32f10x_exti.o
-                0x000000000800ecfc                EXTI_Init
+                0x000000000800ecf4       0x78 obj/SKYROVER/stm32f10x_exti.o
+                0x000000000800ecf4                EXTI_Init
  .text.EXTI_GetITStatus
-                0x000000000800ed74       0x20 obj/SKYROVER/stm32f10x_exti.o
-                0x000000000800ed74                EXTI_GetITStatus
+                0x000000000800ed6c       0x20 obj/SKYROVER/stm32f10x_exti.o
+                0x000000000800ed6c                EXTI_GetITStatus
  .text.EXTI_ClearITPendingBit
-                0x000000000800ed94        0xc obj/SKYROVER/stm32f10x_exti.o
-                0x000000000800ed94                EXTI_ClearITPendingBit
+                0x000000000800ed8c        0xc obj/SKYROVER/stm32f10x_exti.o
+                0x000000000800ed8c                EXTI_ClearITPendingBit
  .text.FLASH_Unlock
-                0x000000000800eda0       0x18 obj/SKYROVER/stm32f10x_flash.o
-                0x000000000800eda0                FLASH_Unlock
+                0x000000000800ed98       0x18 obj/SKYROVER/stm32f10x_flash.o
+                0x000000000800ed98                FLASH_Unlock
  .text.FLASH_Lock
-                0x000000000800edb8       0x10 obj/SKYROVER/stm32f10x_flash.o
-                0x000000000800edb8                FLASH_Lock
+                0x000000000800edb0       0x10 obj/SKYROVER/stm32f10x_flash.o
+                0x000000000800edb0                FLASH_Lock
  .text.FLASH_ClearFlag
-                0x000000000800edc8        0xc obj/SKYROVER/stm32f10x_flash.o
-                0x000000000800edc8                FLASH_ClearFlag
+                0x000000000800edc0        0xc obj/SKYROVER/stm32f10x_flash.o
+                0x000000000800edc0                FLASH_ClearFlag
  .text.FLASH_GetBank1Status
-                0x000000000800edd4       0x28 obj/SKYROVER/stm32f10x_flash.o
-                0x000000000800edd4                FLASH_GetBank1Status
+                0x000000000800edcc       0x28 obj/SKYROVER/stm32f10x_flash.o
+                0x000000000800edcc                FLASH_GetBank1Status
  .text.FLASH_WaitForLastOperation
-                0x000000000800edfc       0x22 obj/SKYROVER/stm32f10x_flash.o
-                0x000000000800edfc                FLASH_WaitForLastOperation
- *fill*         0x000000000800ee1e        0x2 00
+                0x000000000800edf4       0x22 obj/SKYROVER/stm32f10x_flash.o
+                0x000000000800edf4                FLASH_WaitForLastOperation
+ *fill*         0x000000000800ee16        0x2 00
  .text.FLASH_ProgramWord
-                0x000000000800ee20       0x54 obj/SKYROVER/stm32f10x_flash.o
-                0x000000000800ee20                FLASH_ProgramWord
+                0x000000000800ee18       0x54 obj/SKYROVER/stm32f10x_flash.o
+                0x000000000800ee18                FLASH_ProgramWord
  .text.FLASH_ErasePage
-                0x000000000800ee74       0x3c obj/SKYROVER/stm32f10x_flash.o
-                0x000000000800ee74                FLASH_ErasePage
+                0x000000000800ee6c       0x3c obj/SKYROVER/stm32f10x_flash.o
+                0x000000000800ee6c                FLASH_ErasePage
  .text.I2C_DeInit
-                0x000000000800eeb0       0x34 obj/SKYROVER/stm32f10x_i2c.o
-                0x000000000800eeb0                I2C_DeInit
+                0x000000000800eea8       0x34 obj/SKYROVER/stm32f10x_i2c.o
+                0x000000000800eea8                I2C_DeInit
  .text.I2C_Init
-                0x000000000800eee4       0xd4 obj/SKYROVER/stm32f10x_i2c.o
-                0x000000000800eee4                I2C_Init
+                0x000000000800eedc       0xd4 obj/SKYROVER/stm32f10x_i2c.o
+                0x000000000800eedc                I2C_Init
  .text.I2C_StructInit
-                0x000000000800efb8       0x1c obj/SKYROVER/stm32f10x_i2c.o
-                0x000000000800efb8                I2C_StructInit
- .text.I2C_Cmd  0x000000000800efd4       0x18 obj/SKYROVER/stm32f10x_i2c.o
-                0x000000000800efd4                I2C_Cmd
+                0x000000000800efb0       0x1c obj/SKYROVER/stm32f10x_i2c.o
+                0x000000000800efb0                I2C_StructInit
+ .text.I2C_Cmd  0x000000000800efcc       0x18 obj/SKYROVER/stm32f10x_i2c.o
+                0x000000000800efcc                I2C_Cmd
  .text.I2C_GenerateSTART
-                0x000000000800efec       0x18 obj/SKYROVER/stm32f10x_i2c.o
-                0x000000000800efec                I2C_GenerateSTART
+                0x000000000800efe4       0x18 obj/SKYROVER/stm32f10x_i2c.o
+                0x000000000800efe4                I2C_GenerateSTART
  .text.I2C_GenerateSTOP
-                0x000000000800f004       0x18 obj/SKYROVER/stm32f10x_i2c.o
-                0x000000000800f004                I2C_GenerateSTOP
+                0x000000000800effc       0x18 obj/SKYROVER/stm32f10x_i2c.o
+                0x000000000800effc                I2C_GenerateSTOP
  .text.I2C_AcknowledgeConfig
-                0x000000000800f01c       0x18 obj/SKYROVER/stm32f10x_i2c.o
-                0x000000000800f01c                I2C_AcknowledgeConfig
+                0x000000000800f014       0x18 obj/SKYROVER/stm32f10x_i2c.o
+                0x000000000800f014                I2C_AcknowledgeConfig
  .text.I2C_ITConfig
-                0x000000000800f034       0x12 obj/SKYROVER/stm32f10x_i2c.o
-                0x000000000800f034                I2C_ITConfig
+                0x000000000800f02c       0x12 obj/SKYROVER/stm32f10x_i2c.o
+                0x000000000800f02c                I2C_ITConfig
  .text.I2C_SendData
-                0x000000000800f046        0x4 obj/SKYROVER/stm32f10x_i2c.o
-                0x000000000800f046                I2C_SendData
+                0x000000000800f03e        0x4 obj/SKYROVER/stm32f10x_i2c.o
+                0x000000000800f03e                I2C_SendData
  .text.I2C_ReceiveData
-                0x000000000800f04a        0x6 obj/SKYROVER/stm32f10x_i2c.o
-                0x000000000800f04a                I2C_ReceiveData
+                0x000000000800f042        0x6 obj/SKYROVER/stm32f10x_i2c.o
+                0x000000000800f042                I2C_ReceiveData
  .text.I2C_Send7bitAddress
-                0x000000000800f050       0x10 obj/SKYROVER/stm32f10x_i2c.o
-                0x000000000800f050                I2C_Send7bitAddress
+                0x000000000800f048       0x10 obj/SKYROVER/stm32f10x_i2c.o
+                0x000000000800f048                I2C_Send7bitAddress
  .text.RCC_GetClocksFreq
-                0x000000000800f060       0x9c obj/SKYROVER/stm32f10x_rcc.o
-                0x000000000800f060                RCC_GetClocksFreq
+                0x000000000800f058       0x9c obj/SKYROVER/stm32f10x_rcc.o
+                0x000000000800f058                RCC_GetClocksFreq
  .text.RCC_AHBPeriphClockCmd
-                0x000000000800f0fc       0x18 obj/SKYROVER/stm32f10x_rcc.o
-                0x000000000800f0fc                RCC_AHBPeriphClockCmd
+                0x000000000800f0f4       0x18 obj/SKYROVER/stm32f10x_rcc.o
+                0x000000000800f0f4                RCC_AHBPeriphClockCmd
  .text.RCC_APB2PeriphClockCmd
-                0x000000000800f114       0x18 obj/SKYROVER/stm32f10x_rcc.o
-                0x000000000800f114                RCC_APB2PeriphClockCmd
+                0x000000000800f10c       0x18 obj/SKYROVER/stm32f10x_rcc.o
+                0x000000000800f10c                RCC_APB2PeriphClockCmd
  .text.RCC_APB1PeriphClockCmd
-                0x000000000800f12c       0x18 obj/SKYROVER/stm32f10x_rcc.o
-                0x000000000800f12c                RCC_APB1PeriphClockCmd
+                0x000000000800f124       0x18 obj/SKYROVER/stm32f10x_rcc.o
+                0x000000000800f124                RCC_APB1PeriphClockCmd
  .text.RCC_APB2PeriphResetCmd
-                0x000000000800f144       0x18 obj/SKYROVER/stm32f10x_rcc.o
-                0x000000000800f144                RCC_APB2PeriphResetCmd
+                0x000000000800f13c       0x18 obj/SKYROVER/stm32f10x_rcc.o
+                0x000000000800f13c                RCC_APB2PeriphResetCmd
  .text.RCC_APB1PeriphResetCmd
-                0x000000000800f15c       0x18 obj/SKYROVER/stm32f10x_rcc.o
-                0x000000000800f15c                RCC_APB1PeriphResetCmd
+                0x000000000800f154       0x18 obj/SKYROVER/stm32f10x_rcc.o
+                0x000000000800f154                RCC_APB1PeriphResetCmd
  .text.RCC_ClearFlag
-                0x000000000800f174       0x10 obj/SKYROVER/stm32f10x_rcc.o
-                0x000000000800f174                RCC_ClearFlag
+                0x000000000800f16c       0x10 obj/SKYROVER/stm32f10x_rcc.o
+                0x000000000800f16c                RCC_ClearFlag
  .text.SPI_I2S_DeInit
-                0x000000000800f184       0x64 obj/SKYROVER/stm32f10x_spi.o
-                0x000000000800f184                SPI_I2S_DeInit
+                0x000000000800f17c       0x64 obj/SKYROVER/stm32f10x_spi.o
+                0x000000000800f17c                SPI_I2S_DeInit
  .text.SPI_Init
-                0x000000000800f1e8       0x3e obj/SKYROVER/stm32f10x_spi.o
-                0x000000000800f1e8                SPI_Init
- .text.SPI_Cmd  0x000000000800f226       0x18 obj/SKYROVER/stm32f10x_spi.o
-                0x000000000800f226                SPI_Cmd
+                0x000000000800f1e0       0x3e obj/SKYROVER/stm32f10x_spi.o
+                0x000000000800f1e0                SPI_Init
+ .text.SPI_Cmd  0x000000000800f21e       0x18 obj/SKYROVER/stm32f10x_spi.o
+                0x000000000800f21e                SPI_Cmd
  .text.SPI_I2S_SendData
-                0x000000000800f23e        0x4 obj/SKYROVER/stm32f10x_spi.o
-                0x000000000800f23e                SPI_I2S_SendData
+                0x000000000800f236        0x4 obj/SKYROVER/stm32f10x_spi.o
+                0x000000000800f236                SPI_I2S_SendData
  .text.SPI_I2S_ReceiveData
-                0x000000000800f242        0x6 obj/SKYROVER/stm32f10x_spi.o
-                0x000000000800f242                SPI_I2S_ReceiveData
+                0x000000000800f23a        0x6 obj/SKYROVER/stm32f10x_spi.o
+                0x000000000800f23a                SPI_I2S_ReceiveData
  .text.SPI_I2S_GetFlagStatus
-                0x000000000800f248        0xc obj/SKYROVER/stm32f10x_spi.o
-                0x000000000800f248                SPI_I2S_GetFlagStatus
+                0x000000000800f240        0xc obj/SKYROVER/stm32f10x_spi.o
+                0x000000000800f240                SPI_I2S_GetFlagStatus
  .text.TI1_Config
-                0x000000000800f254       0x68 obj/SKYROVER/stm32f10x_tim.o
+                0x000000000800f24c       0x68 obj/SKYROVER/stm32f10x_tim.o
  .text.TI2_Config
-                0x000000000800f2bc       0x78 obj/SKYROVER/stm32f10x_tim.o
+                0x000000000800f2b4       0x78 obj/SKYROVER/stm32f10x_tim.o
  .text.TIM_TimeBaseInit
-                0x000000000800f334       0x94 obj/SKYROVER/stm32f10x_tim.o
-                0x000000000800f334                TIM_TimeBaseInit
+                0x000000000800f32c       0x94 obj/SKYROVER/stm32f10x_tim.o
+                0x000000000800f32c                TIM_TimeBaseInit
  .text.TIM_OC1Init
-                0x000000000800f3c8       0x88 obj/SKYROVER/stm32f10x_tim.o
-                0x000000000800f3c8                TIM_OC1Init
+                0x000000000800f3c0       0x88 obj/SKYROVER/stm32f10x_tim.o
+                0x000000000800f3c0                TIM_OC1Init
  .text.TIM_OC2Init
-                0x000000000800f450       0x88 obj/SKYROVER/stm32f10x_tim.o
-                0x000000000800f450                TIM_OC2Init
+                0x000000000800f448       0x88 obj/SKYROVER/stm32f10x_tim.o
+                0x000000000800f448                TIM_OC2Init
  .text.TIM_OC3Init
-                0x000000000800f4d8       0x84 obj/SKYROVER/stm32f10x_tim.o
-                0x000000000800f4d8                TIM_OC3Init
+                0x000000000800f4d0       0x84 obj/SKYROVER/stm32f10x_tim.o
+                0x000000000800f4d0                TIM_OC3Init
  .text.TIM_OC4Init
-                0x000000000800f55c       0x68 obj/SKYROVER/stm32f10x_tim.o
-                0x000000000800f55c                TIM_OC4Init
+                0x000000000800f554       0x68 obj/SKYROVER/stm32f10x_tim.o
+                0x000000000800f554                TIM_OC4Init
  .text.TIM_TimeBaseStructInit
-                0x000000000800f5c4       0x12 obj/SKYROVER/stm32f10x_tim.o
-                0x000000000800f5c4                TIM_TimeBaseStructInit
+                0x000000000800f5bc       0x12 obj/SKYROVER/stm32f10x_tim.o
+                0x000000000800f5bc                TIM_TimeBaseStructInit
  .text.TIM_OCStructInit
-                0x000000000800f5d6       0x14 obj/SKYROVER/stm32f10x_tim.o
-                0x000000000800f5d6                TIM_OCStructInit
+                0x000000000800f5ce       0x14 obj/SKYROVER/stm32f10x_tim.o
+                0x000000000800f5ce                TIM_OCStructInit
  .text.TIM_ICStructInit
-                0x000000000800f5ea       0x10 obj/SKYROVER/stm32f10x_tim.o
-                0x000000000800f5ea                TIM_ICStructInit
- .text.TIM_Cmd  0x000000000800f5fa       0x18 obj/SKYROVER/stm32f10x_tim.o
-                0x000000000800f5fa                TIM_Cmd
+                0x000000000800f5e2       0x10 obj/SKYROVER/stm32f10x_tim.o
+                0x000000000800f5e2                TIM_ICStructInit
+ .text.TIM_Cmd  0x000000000800f5f2       0x18 obj/SKYROVER/stm32f10x_tim.o
+                0x000000000800f5f2                TIM_Cmd
  .text.TIM_CtrlPWMOutputs
-                0x000000000800f612       0x1c obj/SKYROVER/stm32f10x_tim.o
-                0x000000000800f612                TIM_CtrlPWMOutputs
+                0x000000000800f60a       0x1c obj/SKYROVER/stm32f10x_tim.o
+                0x000000000800f60a                TIM_CtrlPWMOutputs
  .text.TIM_ITConfig
-                0x000000000800f62e       0x12 obj/SKYROVER/stm32f10x_tim.o
-                0x000000000800f62e                TIM_ITConfig
+                0x000000000800f626       0x12 obj/SKYROVER/stm32f10x_tim.o
+                0x000000000800f626                TIM_ITConfig
  .text.TIM_OC1PreloadConfig
-                0x000000000800f640       0x10 obj/SKYROVER/stm32f10x_tim.o
-                0x000000000800f640                TIM_OC1PreloadConfig
+                0x000000000800f638       0x10 obj/SKYROVER/stm32f10x_tim.o
+                0x000000000800f638                TIM_OC1PreloadConfig
  .text.TIM_OC2PreloadConfig
-                0x000000000800f650       0x14 obj/SKYROVER/stm32f10x_tim.o
-                0x000000000800f650                TIM_OC2PreloadConfig
+                0x000000000800f648       0x14 obj/SKYROVER/stm32f10x_tim.o
+                0x000000000800f648                TIM_OC2PreloadConfig
  .text.TIM_OC3PreloadConfig
-                0x000000000800f664       0x10 obj/SKYROVER/stm32f10x_tim.o
-                0x000000000800f664                TIM_OC3PreloadConfig
+                0x000000000800f65c       0x10 obj/SKYROVER/stm32f10x_tim.o
+                0x000000000800f65c                TIM_OC3PreloadConfig
  .text.TIM_OC4PreloadConfig
-                0x000000000800f674       0x14 obj/SKYROVER/stm32f10x_tim.o
-                0x000000000800f674                TIM_OC4PreloadConfig
+                0x000000000800f66c       0x14 obj/SKYROVER/stm32f10x_tim.o
+                0x000000000800f66c                TIM_OC4PreloadConfig
  .text.TIM_SetIC1Prescaler
-                0x000000000800f688       0x16 obj/SKYROVER/stm32f10x_tim.o
-                0x000000000800f688                TIM_SetIC1Prescaler
+                0x000000000800f680       0x16 obj/SKYROVER/stm32f10x_tim.o
+                0x000000000800f680                TIM_SetIC1Prescaler
  .text.TIM_SetIC2Prescaler
-                0x000000000800f69e       0x1a obj/SKYROVER/stm32f10x_tim.o
-                0x000000000800f69e                TIM_SetIC2Prescaler
+                0x000000000800f696       0x1a obj/SKYROVER/stm32f10x_tim.o
+                0x000000000800f696                TIM_SetIC2Prescaler
  .text.TIM_SetIC3Prescaler
-                0x000000000800f6b8       0x16 obj/SKYROVER/stm32f10x_tim.o
-                0x000000000800f6b8                TIM_SetIC3Prescaler
+                0x000000000800f6b0       0x16 obj/SKYROVER/stm32f10x_tim.o
+                0x000000000800f6b0                TIM_SetIC3Prescaler
  .text.TIM_SetIC4Prescaler
-                0x000000000800f6ce       0x1a obj/SKYROVER/stm32f10x_tim.o
-                0x000000000800f6ce                TIM_SetIC4Prescaler
+                0x000000000800f6c6       0x1a obj/SKYROVER/stm32f10x_tim.o
+                0x000000000800f6c6                TIM_SetIC4Prescaler
  .text.TIM_ICInit
-                0x000000000800f6e8      0x138 obj/SKYROVER/stm32f10x_tim.o
-                0x000000000800f6e8                TIM_ICInit
+                0x000000000800f6e0      0x138 obj/SKYROVER/stm32f10x_tim.o
+                0x000000000800f6e0                TIM_ICInit
  .text.TIM_GetCapture1
-                0x000000000800f820        0x6 obj/SKYROVER/stm32f10x_tim.o
-                0x000000000800f820                TIM_GetCapture1
+                0x000000000800f818        0x6 obj/SKYROVER/stm32f10x_tim.o
+                0x000000000800f818                TIM_GetCapture1
  .text.TIM_GetCapture2
-                0x000000000800f826        0x6 obj/SKYROVER/stm32f10x_tim.o
-                0x000000000800f826                TIM_GetCapture2
+                0x000000000800f81e        0x6 obj/SKYROVER/stm32f10x_tim.o
+                0x000000000800f81e                TIM_GetCapture2
  .text.TIM_GetCapture3
-                0x000000000800f82c        0x6 obj/SKYROVER/stm32f10x_tim.o
-                0x000000000800f82c                TIM_GetCapture3
+                0x000000000800f824        0x6 obj/SKYROVER/stm32f10x_tim.o
+                0x000000000800f824                TIM_GetCapture3
  .text.TIM_GetCapture4
-                0x000000000800f832        0x8 obj/SKYROVER/stm32f10x_tim.o
-                0x000000000800f832                TIM_GetCapture4
+                0x000000000800f82a        0x8 obj/SKYROVER/stm32f10x_tim.o
+                0x000000000800f82a                TIM_GetCapture4
  .text.TIM_GetITStatus
-                0x000000000800f83a       0x16 obj/SKYROVER/stm32f10x_tim.o
-                0x000000000800f83a                TIM_GetITStatus
+                0x000000000800f832       0x16 obj/SKYROVER/stm32f10x_tim.o
+                0x000000000800f832                TIM_GetITStatus
  .text.TIM_ClearITPendingBit
-                0x000000000800f850        0x8 obj/SKYROVER/stm32f10x_tim.o
-                0x000000000800f850                TIM_ClearITPendingBit
+                0x000000000800f848        0x8 obj/SKYROVER/stm32f10x_tim.o
+                0x000000000800f848                TIM_ClearITPendingBit
  .text.USART_Init
-                0x000000000800f858       0xb0 obj/SKYROVER/stm32f10x_usart.o
-                0x000000000800f858                USART_Init
+                0x000000000800f850       0xb0 obj/SKYROVER/stm32f10x_usart.o
+                0x000000000800f850                USART_Init
  .text.USART_Cmd
-                0x000000000800f908       0x18 obj/SKYROVER/stm32f10x_usart.o
-                0x000000000800f908                USART_Cmd
+                0x000000000800f900       0x18 obj/SKYROVER/stm32f10x_usart.o
+                0x000000000800f900                USART_Cmd
  .text.USART_ITConfig
-                0x000000000800f920       0x34 obj/SKYROVER/stm32f10x_usart.o
-                0x000000000800f920                USART_ITConfig
+                0x000000000800f918       0x34 obj/SKYROVER/stm32f10x_usart.o
+                0x000000000800f918                USART_ITConfig
  .text.USART_DMACmd
-                0x000000000800f954       0x12 obj/SKYROVER/stm32f10x_usart.o
-                0x000000000800f954                USART_DMACmd
+                0x000000000800f94c       0x12 obj/SKYROVER/stm32f10x_usart.o
+                0x000000000800f94c                USART_DMACmd
  .text.vListInitialise
-                0x000000000800f966       0x16 obj/SKYROVER/list.o
-                0x000000000800f966                vListInitialise
+                0x000000000800f95e       0x16 obj/SKYROVER/list.o
+                0x000000000800f95e                vListInitialise
  .text.vListInitialiseItem
-                0x000000000800f97c        0x6 obj/SKYROVER/list.o
-                0x000000000800f97c                vListInitialiseItem
+                0x000000000800f974        0x6 obj/SKYROVER/list.o
+                0x000000000800f974                vListInitialiseItem
  .text.vListInsertEnd
-                0x000000000800f982       0x18 obj/SKYROVER/list.o
-                0x000000000800f982                vListInsertEnd
+                0x000000000800f97a       0x18 obj/SKYROVER/list.o
+                0x000000000800f97a                vListInsertEnd
  .text.vListInsert
-                0x000000000800f99a       0x30 obj/SKYROVER/list.o
-                0x000000000800f99a                vListInsert
+                0x000000000800f992       0x30 obj/SKYROVER/list.o
+                0x000000000800f992                vListInsert
  .text.uxListRemove
-                0x000000000800f9ca       0x20 obj/SKYROVER/list.o
-                0x000000000800f9ca                uxListRemove
+                0x000000000800f9c2       0x20 obj/SKYROVER/list.o
+                0x000000000800f9c2                uxListRemove
  .text.prvUnlockQueue
-                0x000000000800f9ea       0x64 obj/SKYROVER/queue.o
+                0x000000000800f9e2       0x64 obj/SKYROVER/queue.o
  .text.prvCopyDataFromQueue
-                0x000000000800fa4e       0x26 obj/SKYROVER/queue.o
+                0x000000000800fa46       0x26 obj/SKYROVER/queue.o
  .text.prvCopyDataToQueue
-                0x000000000800fa74       0x66 obj/SKYROVER/queue.o
+                0x000000000800fa6c       0x66 obj/SKYROVER/queue.o
  .text.xQueueGenericReset
-                0x000000000800fada       0x64 obj/SKYROVER/queue.o
-                0x000000000800fada                xQueueGenericReset
+                0x000000000800fad2       0x64 obj/SKYROVER/queue.o
+                0x000000000800fad2                xQueueGenericReset
  .text.xQueueGenericCreate
-                0x000000000800fb3e       0x42 obj/SKYROVER/queue.o
-                0x000000000800fb3e                xQueueGenericCreate
+                0x000000000800fb36       0x42 obj/SKYROVER/queue.o
+                0x000000000800fb36                xQueueGenericCreate
  .text.xQueueGenericSend
-                0x000000000800fb80      0x100 obj/SKYROVER/queue.o
-                0x000000000800fb80                xQueueGenericSend
+                0x000000000800fb78      0x100 obj/SKYROVER/queue.o
+                0x000000000800fb78                xQueueGenericSend
  .text.xQueueGenericSendFromISR
-                0x000000000800fc80       0x84 obj/SKYROVER/queue.o
-                0x000000000800fc80                xQueueGenericSendFromISR
+                0x000000000800fc78       0x84 obj/SKYROVER/queue.o
+                0x000000000800fc78                xQueueGenericSendFromISR
  .text.xQueueGenericReceive
-                0x000000000800fd04      0x126 obj/SKYROVER/queue.o
-                0x000000000800fd04                xQueueGenericReceive
+                0x000000000800fcfc      0x126 obj/SKYROVER/queue.o
+                0x000000000800fcfc                xQueueGenericReceive
  .text.vQueueWaitForMessageRestricted
-                0x000000000800fe2a       0x3a obj/SKYROVER/queue.o
-                0x000000000800fe2a                vQueueWaitForMessageRestricted
+                0x000000000800fe22       0x3a obj/SKYROVER/queue.o
+                0x000000000800fe22                vQueueWaitForMessageRestricted
  .text.prvAddCurrentTaskToDelayedList
-                0x000000000800fe64       0x50 obj/SKYROVER/tasks.o
+                0x000000000800fe5c       0x50 obj/SKYROVER/tasks.o
  .text.xTaskGenericCreate
-                0x000000000800feb4      0x198 obj/SKYROVER/tasks.o
-                0x000000000800feb4                xTaskGenericCreate
+                0x000000000800feac      0x198 obj/SKYROVER/tasks.o
+                0x000000000800feac                xTaskGenericCreate
  .text.vTaskStartScheduler
-                0x000000000801004c       0x5c obj/SKYROVER/tasks.o
-                0x000000000801004c                vTaskStartScheduler
+                0x0000000008010044       0x5c obj/SKYROVER/tasks.o
+                0x0000000008010044                vTaskStartScheduler
  .text.vTaskSuspendAll
-                0x00000000080100a8       0x10 obj/SKYROVER/tasks.o
-                0x00000000080100a8                vTaskSuspendAll
+                0x00000000080100a0       0x10 obj/SKYROVER/tasks.o
+                0x00000000080100a0                vTaskSuspendAll
  .text.xTaskGetTickCount
-                0x00000000080100b8       0x18 obj/SKYROVER/tasks.o
-                0x00000000080100b8                xTaskGetTickCount
+                0x00000000080100b0       0x18 obj/SKYROVER/tasks.o
+                0x00000000080100b0                xTaskGetTickCount
  .text.xTaskIncrementTick
-                0x00000000080100d0      0x114 obj/SKYROVER/tasks.o
-                0x00000000080100d0                xTaskIncrementTick
+                0x00000000080100c8      0x114 obj/SKYROVER/tasks.o
+                0x00000000080100c8                xTaskIncrementTick
  .text.xTaskResumeAll
-                0x00000000080101e4       0xc8 obj/SKYROVER/tasks.o
-                0x00000000080101e4                xTaskResumeAll
+                0x00000000080101dc       0xc8 obj/SKYROVER/tasks.o
+                0x00000000080101dc                xTaskResumeAll
  .text.prvIdleTask
-                0x00000000080102ac       0x64 obj/SKYROVER/tasks.o
+                0x00000000080102a4       0x64 obj/SKYROVER/tasks.o
  .text.vTaskDelay
-                0x0000000008010310       0x3c obj/SKYROVER/tasks.o
-                0x0000000008010310                vTaskDelay
+                0x0000000008010308       0x3c obj/SKYROVER/tasks.o
+                0x0000000008010308                vTaskDelay
  .text.vTaskSwitchContext
-                0x000000000801034c       0x68 obj/SKYROVER/tasks.o
-                0x000000000801034c                vTaskSwitchContext
+                0x0000000008010344       0x68 obj/SKYROVER/tasks.o
+                0x0000000008010344                vTaskSwitchContext
  .text.vTaskPlaceOnEventList
-                0x00000000080103b4       0x4c obj/SKYROVER/tasks.o
-                0x00000000080103b4                vTaskPlaceOnEventList
+                0x00000000080103ac       0x4c obj/SKYROVER/tasks.o
+                0x00000000080103ac                vTaskPlaceOnEventList
  .text.vTaskPlaceOnEventListRestricted
-                0x0000000008010400       0x34 obj/SKYROVER/tasks.o
-                0x0000000008010400                vTaskPlaceOnEventListRestricted
+                0x00000000080103f8       0x34 obj/SKYROVER/tasks.o
+                0x00000000080103f8                vTaskPlaceOnEventListRestricted
  .text.xTaskRemoveFromEventList
-                0x0000000008010434       0x74 obj/SKYROVER/tasks.o
-                0x0000000008010434                xTaskRemoveFromEventList
+                0x000000000801042c       0x74 obj/SKYROVER/tasks.o
+                0x000000000801042c                xTaskRemoveFromEventList
  .text.vTaskSetTimeOutState
-                0x00000000080104a8       0x20 obj/SKYROVER/tasks.o
-                0x00000000080104a8                vTaskSetTimeOutState
+                0x00000000080104a0       0x20 obj/SKYROVER/tasks.o
+                0x00000000080104a0                vTaskSetTimeOutState
  .text.xTaskCheckForTimeOut
-                0x00000000080104c8       0x5c obj/SKYROVER/tasks.o
-                0x00000000080104c8                xTaskCheckForTimeOut
+                0x00000000080104c0       0x5c obj/SKYROVER/tasks.o
+                0x00000000080104c0                xTaskCheckForTimeOut
  .text.vTaskMissedYield
-                0x0000000008010524        0xc obj/SKYROVER/tasks.o
-                0x0000000008010524                vTaskMissedYield
+                0x000000000801051c        0xc obj/SKYROVER/tasks.o
+                0x000000000801051c                vTaskMissedYield
  .text.xTaskGetCurrentTaskHandle
-                0x0000000008010530        0xc obj/SKYROVER/tasks.o
-                0x0000000008010530                xTaskGetCurrentTaskHandle
+                0x0000000008010528        0xc obj/SKYROVER/tasks.o
+                0x0000000008010528                xTaskGetCurrentTaskHandle
  .text.xTaskGetSchedulerState
-                0x000000000801053c       0x1c obj/SKYROVER/tasks.o
-                0x000000000801053c                xTaskGetSchedulerState
+                0x0000000008010534       0x1c obj/SKYROVER/tasks.o
+                0x0000000008010534                xTaskGetSchedulerState
  .text.vTaskPriorityInherit
-                0x0000000008010558       0x6c obj/SKYROVER/tasks.o
-                0x0000000008010558                vTaskPriorityInherit
+                0x0000000008010550       0x6c obj/SKYROVER/tasks.o
+                0x0000000008010550                vTaskPriorityInherit
  .text.vTaskPriorityDisinherit
-                0x00000000080105c4       0x48 obj/SKYROVER/tasks.o
-                0x00000000080105c4                vTaskPriorityDisinherit
+                0x00000000080105bc       0x48 obj/SKYROVER/tasks.o
+                0x00000000080105bc                vTaskPriorityDisinherit
  .text.prvCheckForValidListAndQueue
-                0x000000000801060c       0x4c obj/SKYROVER/timers.o
+                0x0000000008010604       0x4c obj/SKYROVER/timers.o
  .text.prvInsertTimerInActiveList
-                0x0000000008010658       0x3c obj/SKYROVER/timers.o
+                0x0000000008010650       0x3c obj/SKYROVER/timers.o
  .text.xTimerCreateTimerTask
-                0x0000000008010694       0x40 obj/SKYROVER/timers.o
-                0x0000000008010694                xTimerCreateTimerTask
+                0x000000000801068c       0x40 obj/SKYROVER/timers.o
+                0x000000000801068c                xTimerCreateTimerTask
  .text.xTimerGenericCommand
-                0x00000000080106d4       0x44 obj/SKYROVER/timers.o
-                0x00000000080106d4                xTimerGenericCommand
+                0x00000000080106cc       0x44 obj/SKYROVER/timers.o
+                0x00000000080106cc                xTimerGenericCommand
  .text.prvSwitchTimerLists.isra.1
-                0x0000000008010718       0x64 obj/SKYROVER/timers.o
+                0x0000000008010710       0x64 obj/SKYROVER/timers.o
  .text.prvTimerTask
-                0x000000000801077c      0x150 obj/SKYROVER/timers.o
+                0x0000000008010774      0x150 obj/SKYROVER/timers.o
  .text.osThreadCreate
-                0x00000000080108cc       0x32 obj/SKYROVER/cmsis_os.o
-                0x00000000080108cc                osThreadCreate
+                0x00000000080108c4       0x32 obj/SKYROVER/cmsis_os.o
+                0x00000000080108c4                osThreadCreate
  .text.osKernelStart
-                0x00000000080108fe       0x10 obj/SKYROVER/cmsis_os.o
-                0x00000000080108fe                osKernelStart
- .text.osDelay  0x000000000801090e       0x10 obj/SKYROVER/cmsis_os.o
-                0x000000000801090e                osDelay
- *fill*         0x000000000801091e        0x2 00
+                0x00000000080108f6       0x10 obj/SKYROVER/cmsis_os.o
+                0x00000000080108f6                osKernelStart
+ .text.osDelay  0x0000000008010906       0x10 obj/SKYROVER/cmsis_os.o
+                0x0000000008010906                osDelay
+ *fill*         0x0000000008010916        0x2 00
  .text.pvPortMalloc
-                0x0000000008010920       0xb4 obj/SKYROVER/heap_2.o
-                0x0000000008010920                pvPortMalloc
+                0x0000000008010918       0xb4 obj/SKYROVER/heap_2.o
+                0x0000000008010918                pvPortMalloc
  .text.vPortFree
-                0x00000000080109d4       0x40 obj/SKYROVER/heap_2.o
-                0x00000000080109d4                vPortFree
+                0x00000000080109cc       0x40 obj/SKYROVER/heap_2.o
+                0x00000000080109cc                vPortFree
  .text.prvPortStartFirstTask
-                0x0000000008010a14       0x14 obj/SKYROVER/port.o
+                0x0000000008010a0c       0x14 obj/SKYROVER/port.o
  .text.pxPortInitialiseStack
-                0x0000000008010a28       0x1c obj/SKYROVER/port.o
-                0x0000000008010a28                pxPortInitialiseStack
+                0x0000000008010a20       0x1c obj/SKYROVER/port.o
+                0x0000000008010a20                pxPortInitialiseStack
  .text.SVC_Handler
-                0x0000000008010a44       0x20 obj/SKYROVER/port.o
-                0x0000000008010a44                SVC_Handler
+                0x0000000008010a3c       0x20 obj/SKYROVER/port.o
+                0x0000000008010a3c                SVC_Handler
  .text.vPortYield
-                0x0000000008010a64       0x18 obj/SKYROVER/port.o
-                0x0000000008010a64                vPortYield
+                0x0000000008010a5c       0x18 obj/SKYROVER/port.o
+                0x0000000008010a5c                vPortYield
  .text.ulPortSetInterruptMask
-                0x0000000008010a7c       0x10 obj/SKYROVER/port.o
-                0x0000000008010a7c                ulPortSetInterruptMask
+                0x0000000008010a74       0x10 obj/SKYROVER/port.o
+                0x0000000008010a74                ulPortSetInterruptMask
  .text.vPortEnterCritical
-                0x0000000008010a8c       0x1c obj/SKYROVER/port.o
-                0x0000000008010a8c                vPortEnterCritical
+                0x0000000008010a84       0x1c obj/SKYROVER/port.o
+                0x0000000008010a84                vPortEnterCritical
  .text.prvTaskExitError
-                0x0000000008010aa8       0x1c obj/SKYROVER/port.o
+                0x0000000008010aa0       0x1c obj/SKYROVER/port.o
  .text.vPortClearInterruptMask
-                0x0000000008010ac4        0x6 obj/SKYROVER/port.o
-                0x0000000008010ac4                vPortClearInterruptMask
- *fill*         0x0000000008010aca        0x2 00
+                0x0000000008010abc        0x6 obj/SKYROVER/port.o
+                0x0000000008010abc                vPortClearInterruptMask
+ *fill*         0x0000000008010ac2        0x2 00
  .text.vPortExitCritical
-                0x0000000008010acc       0x14 obj/SKYROVER/port.o
-                0x0000000008010acc                vPortExitCritical
+                0x0000000008010ac4       0x14 obj/SKYROVER/port.o
+                0x0000000008010ac4                vPortExitCritical
  .text.PendSV_Handler
-                0x0000000008010ae0       0x3c obj/SKYROVER/port.o
-                0x0000000008010ae0                PendSV_Handler
+                0x0000000008010ad8       0x3c obj/SKYROVER/port.o
+                0x0000000008010ad8                PendSV_Handler
  .text.xPortSysTickHandler
-                0x0000000008010b1c       0x24 obj/SKYROVER/port.o
-                0x0000000008010b1c                xPortSysTickHandler
+                0x0000000008010b14       0x24 obj/SKYROVER/port.o
+                0x0000000008010b14                xPortSysTickHandler
  .text.vPortSetupTimerInterrupt
-                0x0000000008010b40       0x24 obj/SKYROVER/port.o
-                0x0000000008010b40                vPortSetupTimerInterrupt
+                0x0000000008010b38       0x24 obj/SKYROVER/port.o
+                0x0000000008010b38                vPortSetupTimerInterrupt
  .text.xPortStartScheduler
-                0x0000000008010b64       0x8c obj/SKYROVER/port.o
-                0x0000000008010b64                xPortStartScheduler
+                0x0000000008010b5c       0x8c obj/SKYROVER/port.o
+                0x0000000008010b5c                xPortStartScheduler
  .text.vPortValidateInterruptPriority
-                0x0000000008010bf0       0x44 obj/SKYROVER/port.o
-                0x0000000008010bf0                vPortValidateInterruptPriority
- .text.cosf     0x0000000008010c34       0x68 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-sf_cos.o)
-                0x0000000008010c34                cosf
- .text.lrintf   0x0000000008010c9c       0x80 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-sf_lrint.o)
-                0x0000000008010c9c                lrintf
- .text.sinf     0x0000000008010d1c       0x78 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-sf_sin.o)
-                0x0000000008010d1c                sinf
- .text.atan2f   0x0000000008010d94        0x4 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-wf_atan2.o)
-                0x0000000008010d94                atan2f
- .text.powf     0x0000000008010d98      0x328 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-wf_pow.o)
-                0x0000000008010d98                powf
- .text.sqrtf    0x00000000080110c0       0x9c /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-wf_sqrt.o)
-                0x00000000080110c0                sqrtf
+                0x0000000008010be8       0x44 obj/SKYROVER/port.o
+                0x0000000008010be8                vPortValidateInterruptPriority
+ .text.cosf     0x0000000008010c2c       0x68 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-sf_cos.o)
+                0x0000000008010c2c                cosf
+ .text.lrintf   0x0000000008010c94       0x80 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-sf_lrint.o)
+                0x0000000008010c94                lrintf
+ .text.sinf     0x0000000008010d14       0x78 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-sf_sin.o)
+                0x0000000008010d14                sinf
+ .text.atan2f   0x0000000008010d8c        0x4 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-wf_atan2.o)
+                0x0000000008010d8c                atan2f
+ .text.powf     0x0000000008010d90      0x328 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-wf_pow.o)
+                0x0000000008010d90                powf
+ .text.sqrtf    0x00000000080110b8       0x9c /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-wf_sqrt.o)
+                0x00000000080110b8                sqrtf
  .text.__ieee754_atan2f
-                0x000000000801115c      0x14c /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-ef_atan2.o)
-                0x000000000801115c                __ieee754_atan2f
+                0x0000000008011154      0x14c /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-ef_atan2.o)
+                0x0000000008011154                __ieee754_atan2f
  .text.__ieee754_powf
-                0x00000000080112a8      0x740 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-ef_pow.o)
-                0x00000000080112a8                __ieee754_powf
+                0x00000000080112a0      0x740 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-ef_pow.o)
+                0x00000000080112a0                __ieee754_powf
  .text.__ieee754_rem_pio2f
-                0x00000000080119e8      0x358 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-ef_rem_pio2.o)
-                0x00000000080119e8                __ieee754_rem_pio2f
+                0x00000000080119e0      0x358 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-ef_rem_pio2.o)
+                0x00000000080119e0                __ieee754_rem_pio2f
  .text.__ieee754_sqrtf
-                0x0000000008011d40       0xd4 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-ef_sqrt.o)
-                0x0000000008011d40                __ieee754_sqrtf
+                0x0000000008011d38       0xd4 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-ef_sqrt.o)
+                0x0000000008011d38                __ieee754_sqrtf
  .text.__kernel_cosf
-                0x0000000008011e14      0x1b8 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-kf_cos.o)
-                0x0000000008011e14                __kernel_cosf
+                0x0000000008011e0c      0x1b8 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-kf_cos.o)
+                0x0000000008011e0c                __kernel_cosf
  .text.__kernel_rem_pio2f
-                0x0000000008011fcc      0xba0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-kf_rem_pio2.o)
-                0x0000000008011fcc                __kernel_rem_pio2f
+                0x0000000008011fc4      0xba0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-kf_rem_pio2.o)
+                0x0000000008011fc4                __kernel_rem_pio2f
  .text.__kernel_sinf
-                0x0000000008012b6c      0x100 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-kf_sin.o)
-                0x0000000008012b6c                __kernel_sinf
- .text.matherr  0x0000000008012c6c        0x4 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-s_matherr.o)
-                0x0000000008012c6c                matherr
- .text.rint     0x0000000008012c70      0x128 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-s_rint.o)
-                0x0000000008012c70                rint
- .text.atanf    0x0000000008012d98      0x258 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-sf_atan.o)
-                0x0000000008012d98                atanf
- .text.fabsf    0x0000000008012ff0        0x8 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-sf_fabs.o)
-                0x0000000008012ff0                fabsf
- .text.finitef  0x0000000008012ff8       0x10 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-sf_finite.o)
-                0x0000000008012ff8                finitef
- .text.floorf   0x0000000008013008       0x94 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-sf_floor.o)
-                0x0000000008013008                floorf
+                0x0000000008012b64      0x100 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-kf_sin.o)
+                0x0000000008012b64                __kernel_sinf
+ .text.matherr  0x0000000008012c64        0x4 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-s_matherr.o)
+                0x0000000008012c64                matherr
+ .text.rint     0x0000000008012c68      0x128 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-s_rint.o)
+                0x0000000008012c68                rint
+ .text.atanf    0x0000000008012d90      0x258 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-sf_atan.o)
+                0x0000000008012d90                atanf
+ .text.fabsf    0x0000000008012fe8        0x8 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-sf_fabs.o)
+                0x0000000008012fe8                fabsf
+ .text.finitef  0x0000000008012ff0       0x10 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-sf_finite.o)
+                0x0000000008012ff0                finitef
+ .text.floorf   0x0000000008013000       0x94 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-sf_floor.o)
+                0x0000000008013000                floorf
  .text.__fpclassifyf
-                0x000000000801309c       0x58 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-sf_fpclassify.o)
-                0x000000000801309c                __fpclassifyf
- .text.nanf     0x00000000080130f4        0x8 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-sf_nan.o)
-                0x00000000080130f4                nanf
- .text.scalbnf  0x00000000080130fc       0xc0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-sf_scalbn.o)
-                0x00000000080130fc                scalbnf
+                0x0000000008013094       0x58 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-sf_fpclassify.o)
+                0x0000000008013094                __fpclassifyf
+ .text.nanf     0x00000000080130ec        0x8 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-sf_nan.o)
+                0x00000000080130ec                nanf
+ .text.scalbnf  0x00000000080130f4       0xc0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-sf_scalbn.o)
+                0x00000000080130f4                scalbnf
  .text.copysignf
-                0x00000000080131bc        0xc /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-sf_copysign.o)
-                0x00000000080131bc                copysignf
+                0x00000000080131b4        0xc /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-sf_copysign.o)
+                0x00000000080131b4                copysignf
  .text.__register_exitproc
-                0x00000000080131c8       0xac /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-__atexit.o)
-                0x00000000080131c8                __register_exitproc
- .text.atoi     0x0000000008013274        0x8 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-atoi.o)
-                0x0000000008013274                atoi
- .text.bsearch  0x000000000801327c       0x40 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-bsearch.o)
-                0x000000000801327c                bsearch
- .text.__errno  0x00000000080132bc        0xc /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-errno.o)
-                0x00000000080132bc                __errno
+                0x00000000080131c0       0xac /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-__atexit.o)
+                0x00000000080131c0                __register_exitproc
+ .text.atoi     0x000000000801326c        0x8 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-atoi.o)
+                0x000000000801326c                atoi
+ .text.bsearch  0x0000000008013274       0x40 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-bsearch.o)
+                0x0000000008013274                bsearch
+ .text.__errno  0x00000000080132b4        0xc /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-errno.o)
+                0x00000000080132b4                __errno
  .text.__libc_fini_array
-                0x00000000080132c8       0x50 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-fini.o)
-                0x00000000080132c8                __libc_fini_array
+                0x00000000080132c0       0x50 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-fini.o)
+                0x00000000080132c0                __libc_fini_array
  .text.__libc_init_array
-                0x0000000008013318       0x94 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-init.o)
-                0x0000000008013318                __libc_init_array
- .text.memcpy   0x00000000080133ac      0x15c /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-memcpy.o)
-                0x00000000080133ac                memcpy
- .text.memset   0x0000000008013508      0x12c /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-memset.o)
-                0x0000000008013508                memset
- .text.strcat   0x0000000008013634       0x4c /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-strcat.o)
-                0x0000000008013634                strcat
- .text.strchr   0x0000000008013680       0xfc /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-strchr.o)
-                0x0000000008013680                strchr
- .text.strcpy   0x000000000801377c       0xbc /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-strcpy.o)
-                0x000000000801377c                strcpy
- .text.strlen   0x0000000008013838       0x60 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-strlen.o)
-                0x0000000008013838                strlen
+                0x0000000008013310       0x94 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-init.o)
+                0x0000000008013310                __libc_init_array
+ .text.memcpy   0x00000000080133a4      0x15c /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-memcpy.o)
+                0x00000000080133a4                memcpy
+ .text.memset   0x0000000008013500      0x12c /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-memset.o)
+                0x0000000008013500                memset
+ .text.strcat   0x000000000801362c       0x4c /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-strcat.o)
+                0x000000000801362c                strcat
+ .text.strchr   0x0000000008013678       0xfc /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-strchr.o)
+                0x0000000008013678                strchr
+ .text.strcpy   0x0000000008013774       0xbc /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-strcpy.o)
+                0x0000000008013774                strcpy
+ .text.strlen   0x0000000008013830       0x60 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-strlen.o)
+                0x0000000008013830                strlen
  .text.strncasecmp
-                0x0000000008013898       0xdc /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-strncasecmp.o)
-                0x0000000008013898                strncasecmp
- .text.strncpy  0x0000000008013974      0x10c /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-strncpy.o)
-                0x0000000008013974                strncpy
+                0x0000000008013890       0xdc /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-strncasecmp.o)
+                0x0000000008013890                strncasecmp
+ .text.strncpy  0x000000000801396c      0x10c /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-strncpy.o)
+                0x000000000801396c                strncpy
  .text.critical_factorization
-                0x0000000008013a80       0xbc /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-strstr.o)
+                0x0000000008013a78       0xbc /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-strstr.o)
  .text.two_way_long_needle
-                0x0000000008013b3c      0x300 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-strstr.o)
- .text.strstr   0x0000000008013e3c      0x2ec /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-strstr.o)
-                0x0000000008013e3c                strstr
- .text.strtok   0x0000000008014128       0x14 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-strtok.o)
-                0x0000000008014128                strtok
+                0x0000000008013b34      0x300 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-strstr.o)
+ .text.strstr   0x0000000008013e34      0x2ec /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-strstr.o)
+                0x0000000008013e34                strstr
+ .text.strtok   0x0000000008014120       0x14 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-strtok.o)
+                0x0000000008014120                strtok
  .text.__strtok_r
-                0x000000000801413c       0x60 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-strtok_r.o)
-                0x000000000801413c                __strtok_r
+                0x0000000008014134       0x60 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-strtok_r.o)
+                0x0000000008014134                __strtok_r
  .text._strtol_r
-                0x000000000801419c      0x130 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-strtol.o)
-                0x000000000801419c                _strtol_r
- .text.strtol   0x00000000080142cc       0x1c /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-strtol.o)
-                0x00000000080142cc                strtol
+                0x0000000008014194      0x130 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-strtol.o)
+                0x0000000008014194                _strtol_r
+ .text.strtol   0x00000000080142c4       0x1c /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-strtol.o)
+                0x00000000080142c4                strtol
  .text.startup.register_fini
-                0x00000000080142e8       0x14 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-__call_atexit.o)
- .text.atexit   0x00000000080142fc        0xc /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-atexit.o)
-                0x00000000080142fc                atexit
- .text.memchr   0x0000000008014308      0x140 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-memchr.o)
-                0x0000000008014308                memchr
- .text.memcmp   0x0000000008014448       0xb8 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-memcmp.o)
-                0x0000000008014448                memcmp
+                0x00000000080142e0       0x14 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-__call_atexit.o)
+ .text.atexit   0x00000000080142f4        0xc /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-atexit.o)
+                0x00000000080142f4                atexit
+ .text.memchr   0x0000000008014300      0x140 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-memchr.o)
+                0x0000000008014300                memchr
+ .text.memcmp   0x0000000008014440       0xb8 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-memcmp.o)
+                0x0000000008014440                memcmp
  *(.rodata)
- .rodata        0x0000000008014500        0x8 obj/SKYROVER/config.o
- .rodata        0x0000000008014508       0x28 obj/SKYROVER/main.o
- .rodata        0x0000000008014530       0x10 obj/SKYROVER/drv_system.o
+ .rodata        0x00000000080144f8        0x8 obj/SKYROVER/config.o
+ .rodata        0x0000000008014500       0x28 obj/SKYROVER/main.o
+ .rodata        0x0000000008014528       0x10 obj/SKYROVER/drv_system.o
  *(.rodata*)
  .rodata.airPPM
-                0x0000000008014540        0xc obj/SKYROVER/drv_pwm.o
+                0x0000000008014538        0xc obj/SKYROVER/drv_pwm.o
  .rodata.multiPPM
-                0x000000000801454c        0xc obj/SKYROVER/drv_pwm.o
+                0x0000000008014544        0xc obj/SKYROVER/drv_pwm.o
  .rodata.hardwareMaps
-                0x0000000008014558       0x10 obj/SKYROVER/drv_pwm.o
+                0x0000000008014550       0x10 obj/SKYROVER/drv_pwm.o
  .rodata.multiPWM
-                0x0000000008014568        0xf obj/SKYROVER/drv_pwm.o
+                0x0000000008014560        0xf obj/SKYROVER/drv_pwm.o
  .rodata.airPWM
-                0x0000000008014577        0xf obj/SKYROVER/drv_pwm.o
- *fill*         0x0000000008014586        0x2 00
+                0x000000000801456f        0xf obj/SKYROVER/drv_pwm.o
+ *fill*         0x000000000801457e        0x2 00
  .rodata.timerHardware
-                0x0000000008014588       0xe0 obj/SKYROVER/drv_timer.o
-                0x0000000008014588                timerHardware
+                0x0000000008014580       0xe0 obj/SKYROVER/drv_timer.o
+                0x0000000008014580                timerHardware
  .rodata.timers
-                0x0000000008014668       0x10 obj/SKYROVER/drv_timer.o
+                0x0000000008014660       0x10 obj/SKYROVER/drv_timer.o
  .rodata.channels
-                0x0000000008014678        0x4 obj/SKYROVER/drv_timer.o
+                0x0000000008014670        0x4 obj/SKYROVER/drv_timer.o
  .rodata.CSWTCH.19
-                0x000000000801467c       0x16 obj/SKYROVER/buzzer.o
- *fill*         0x0000000008014692        0x2 00
+                0x0000000008014674       0x16 obj/SKYROVER/buzzer.o
+ *fill*         0x000000000801468a        0x2 00
  .rodata.featureNames
-                0x0000000008014694       0x40 obj/SKYROVER/cli.o
+                0x000000000801468c       0x40 obj/SKYROVER/cli.o
  .rodata.mixerNames
-                0x00000000080146d4       0x5c obj/SKYROVER/cli.o
+                0x00000000080146cc       0x5c obj/SKYROVER/cli.o
  .rodata.cmdTable
-                0x0000000008014730       0xc0 obj/SKYROVER/cli.o
-                0x0000000008014730                cmdTable
+                0x0000000008014728       0xc0 obj/SKYROVER/cli.o
+                0x0000000008014728                cmdTable
  .rodata.accNames
-                0x00000000080147f0       0x1c obj/SKYROVER/cli.o
+                0x00000000080147e8       0x1c obj/SKYROVER/cli.o
  .rodata.str1.1
-                0x000000000801480c      0xdd0 obj/SKYROVER/cli.o
+                0x0000000008014804      0xdd0 obj/SKYROVER/cli.o
                                         0xe42 (size before relaxing)
  .rodata.sensorNames
-                0x00000000080155dc       0x20 obj/SKYROVER/cli.o
+                0x00000000080155d4       0x20 obj/SKYROVER/cli.o
  .rodata.valueTable
-                0x00000000080155fc      0x820 obj/SKYROVER/cli.o
-                0x00000000080155fc                valueTable
+                0x00000000080155f4      0x820 obj/SKYROVER/cli.o
+                0x00000000080155f4                valueTable
  .rodata.rcChannelLetters
-                0x0000000008015e1c        0x9 obj/SKYROVER/config.o
-                0x0000000008015e1c                rcChannelLetters
+                0x0000000008015e14        0x9 obj/SKYROVER/config.o
+                0x0000000008015e14                rcChannelLetters
  .rodata.str1.1
-                0x0000000008015e25        0x9 obj/SKYROVER/config.o
+                0x0000000008015e1d        0x9 obj/SKYROVER/config.o
  .rodata.str1.1
-                0x0000000008015e2e       0xda obj/SKYROVER/gps.o
+                0x0000000008015e26       0xda obj/SKYROVER/gps.o
                                          0xdb (size before relaxing)
  .rodata.ubloxInit
-                0x0000000008015f08       0x8c obj/SKYROVER/gps.o
+                0x0000000008015f00       0x8c obj/SKYROVER/gps.o
  .rodata.gpsInitData
-                0x0000000008015f94       0x3c obj/SKYROVER/gps.o
+                0x0000000008015f8c       0x3c obj/SKYROVER/gps.o
  .rodata.str1.1
-                0x0000000008015fd0       0x3e obj/SKYROVER/main.o
- *fill*         0x000000000801600e        0x2 00
+                0x0000000008015fc8       0x3e obj/SKYROVER/main.o
+ *fill*         0x0000000008016006        0x2 00
  .rodata.mixerY6
-                0x0000000008016010       0x60 obj/SKYROVER/mixer.o
+                0x0000000008016008       0x60 obj/SKYROVER/mixer.o
  .rodata.mixerTri
-                0x0000000008016070       0x30 obj/SKYROVER/mixer.o
+                0x0000000008016068       0x30 obj/SKYROVER/mixer.o
  .rodata.mixerHex6H
-                0x00000000080160a0       0x60 obj/SKYROVER/mixer.o
+                0x0000000008016098       0x60 obj/SKYROVER/mixer.o
  .rodata.mixerVtail4
-                0x0000000008016100       0x40 obj/SKYROVER/mixer.o
+                0x00000000080160f8       0x40 obj/SKYROVER/mixer.o
  .rodata.mixerQuadP
-                0x0000000008016140       0x40 obj/SKYROVER/mixer.o
+                0x0000000008016138       0x40 obj/SKYROVER/mixer.o
  .rodata.mixers
-                0x0000000008016180       0xb8 obj/SKYROVER/mixer.o
-                0x0000000008016180                mixers
+                0x0000000008016178       0xb8 obj/SKYROVER/mixer.o
+                0x0000000008016178                mixers
  .rodata.mixerOctoFlatP
-                0x0000000008016238       0x80 obj/SKYROVER/mixer.o
+                0x0000000008016230       0x80 obj/SKYROVER/mixer.o
  .rodata.mixerHex6P
-                0x00000000080162b8       0x60 obj/SKYROVER/mixer.o
+                0x00000000080162b0       0x60 obj/SKYROVER/mixer.o
  .rodata.mixerBi
-                0x0000000008016318       0x20 obj/SKYROVER/mixer.o
+                0x0000000008016310       0x20 obj/SKYROVER/mixer.o
  .rodata.mixerY4
-                0x0000000008016338       0x40 obj/SKYROVER/mixer.o
+                0x0000000008016330       0x40 obj/SKYROVER/mixer.o
  .rodata.mixerQuadX
-                0x0000000008016378       0x40 obj/SKYROVER/mixer.o
+                0x0000000008016370       0x40 obj/SKYROVER/mixer.o
  .rodata.mixerDualcopter
-                0x00000000080163b8       0x20 obj/SKYROVER/mixer.o
+                0x00000000080163b0       0x20 obj/SKYROVER/mixer.o
  .rodata.mixerOctoFlatX
-                0x00000000080163d8       0x80 obj/SKYROVER/mixer.o
+                0x00000000080163d0       0x80 obj/SKYROVER/mixer.o
  .rodata.mixerHex6X
-                0x0000000008016458       0x60 obj/SKYROVER/mixer.o
+                0x0000000008016450       0x60 obj/SKYROVER/mixer.o
  .rodata.mixerOctoX8
-                0x00000000080164b8       0x80 obj/SKYROVER/mixer.o
+                0x00000000080164b0       0x80 obj/SKYROVER/mixer.o
  .rodata.str1.1
-                0x0000000008016538       0x4a obj/SKYROVER/sensors.o
+                0x0000000008016530       0x4a obj/SKYROVER/sensors.o
  .rodata.pidnames
-                0x0000000008016582       0x30 obj/SKYROVER/serial.o
+                0x000000000801657a       0x30 obj/SKYROVER/serial.o
  .rodata.str1.1
-                0x00000000080165b2       0xaf obj/SKYROVER/serial.o
- *fill*         0x0000000008016661        0x3 00
+                0x00000000080165aa       0xaf obj/SKYROVER/serial.o
+ *fill*         0x0000000008016659        0x3 00
  .rodata.softSerialVTable
-                0x0000000008016664       0x14 obj/SKYROVER/drv_softserial.o
-                0x0000000008016664                softSerialVTable
+                0x000000000801665c       0x14 obj/SKYROVER/drv_softserial.o
+                0x000000000801665c                softSerialVTable
  .rodata.uartVTable
-                0x0000000008016678       0x14 obj/SKYROVER/drv_uart.o
-                0x0000000008016678                uartVTable
+                0x0000000008016670       0x14 obj/SKYROVER/drv_uart.o
+                0x0000000008016670                uartVTable
  .rodata.str1.1
-                0x000000000801668c        0x5 obj/SKYROVER/tasks.o
+                0x0000000008016684        0x5 obj/SKYROVER/tasks.o
  .rodata.str1.1
-                0x0000000008016691        0x8 obj/SKYROVER/timers.o
- *fill*         0x0000000008016699        0x3 00
- .rodata.TWO23  0x000000000801669c        0x8 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-sf_lrint.o)
+                0x0000000008016689        0x8 obj/SKYROVER/timers.o
+ *fill*         0x0000000008016691        0x3 00
+ .rodata.TWO23  0x0000000008016694        0x8 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-sf_lrint.o)
  .rodata.str1.4
-                0x00000000080166a4        0x5 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-wf_pow.o)
+                0x000000000801669c        0x5 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-wf_pow.o)
                                           0x8 (size before relaxing)
- *fill*         0x00000000080166a9        0x3 00
+ *fill*         0x00000000080166a1        0x3 00
  .rodata.str1.4
-                0x00000000080166ac        0x6 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-wf_sqrt.o)
+                0x00000000080166a4        0x6 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-wf_sqrt.o)
                                           0x8 (size before relaxing)
- *fill*         0x00000000080166b2        0x2 00
- .rodata.dp_h   0x00000000080166b4        0x8 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-ef_pow.o)
- .rodata.dp_l   0x00000000080166bc        0x8 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-ef_pow.o)
- .rodata.bp     0x00000000080166c4        0x8 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-ef_pow.o)
+ *fill*         0x00000000080166aa        0x2 00
+ .rodata.dp_h   0x00000000080166ac        0x8 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-ef_pow.o)
+ .rodata.dp_l   0x00000000080166b4        0x8 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-ef_pow.o)
+ .rodata.bp     0x00000000080166bc        0x8 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-ef_pow.o)
  .rodata.str1.4
                 0x0000000000000000        0x6 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-ef_pow.o)
                                           0x4 (size before relaxing)
  .rodata.npio2_hw
-                0x00000000080166cc       0x80 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-ef_rem_pio2.o)
+                0x00000000080166c4       0x80 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-ef_rem_pio2.o)
  .rodata.two_over_pi
-                0x000000000801674c      0x318 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-ef_rem_pio2.o)
+                0x0000000008016744      0x318 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-ef_rem_pio2.o)
  .rodata.init_jk
-                0x0000000008016a64        0xc /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-kf_rem_pio2.o)
- .rodata.PIo2   0x0000000008016a70       0x2c /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-kf_rem_pio2.o)
- *fill*         0x0000000008016a9c        0x4 00
- .rodata.TWO52  0x0000000008016aa0       0x10 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-s_rint.o)
+                0x0000000008016a5c        0xc /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-kf_rem_pio2.o)
+ .rodata.PIo2   0x0000000008016a68       0x2c /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-kf_rem_pio2.o)
+ *fill*         0x0000000008016a94        0x4 00
+ .rodata.TWO52  0x0000000008016a98       0x10 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-s_rint.o)
  .rodata.atanlo
-                0x0000000008016ab0       0x10 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-sf_atan.o)
+                0x0000000008016aa8       0x10 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-sf_atan.o)
  .rodata.atanhi
-                0x0000000008016ac0       0x10 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-sf_atan.o)
+                0x0000000008016ab8       0x10 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libm.a(lib_a-sf_atan.o)
  .rodata._ctype_
-                0x0000000008016ad0      0x104 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-ctype_.o)
-                0x0000000008016ad0                _ctype_
+                0x0000000008016ac8      0x104 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-ctype_.o)
+                0x0000000008016ac8                _ctype_
  .rodata.str1.4
-                0x0000000008016bd4        0x4 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-impure.o)
+                0x0000000008016bcc        0x4 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-impure.o)
  .rodata._global_impure_ptr
-                0x0000000008016bd8        0x4 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-impure.o)
-                0x0000000008016bd8                _global_impure_ptr
+                0x0000000008016bd0        0x4 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-impure.o)
+                0x0000000008016bd0                _global_impure_ptr
  *(.glue_7)
  .glue_7        0x0000000000000000        0x0 linker stubs
  *(.glue_7t)
  .glue_7t       0x0000000000000000        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x0000000008016bdc        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/armv7-m/crtbegin.o
+ .eh_frame      0x0000000008016bd4        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/armv7-m/crtbegin.o
  *(.init)
- .init          0x0000000008016bdc        0x4 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/armv7-m/crti.o
-                0x0000000008016bdc                _init
- .init          0x0000000008016be0        0x8 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/armv7-m/crtn.o
+ .init          0x0000000008016bd4        0x4 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/armv7-m/crti.o
+                0x0000000008016bd4                _init
+ .init          0x0000000008016bd8        0x8 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/armv7-m/crtn.o
  *(.fini)
- .fini          0x0000000008016be8        0x4 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/armv7-m/crti.o
-                0x0000000008016be8                _fini
- .fini          0x0000000008016bec        0x8 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/armv7-m/crtn.o
-                0x0000000008016bf4                . = ALIGN (0x4)
-                0x0000000008016bf4                _etext = .
+ .fini          0x0000000008016be0        0x4 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/armv7-m/crti.o
+                0x0000000008016be0                _fini
+ .fini          0x0000000008016be4        0x8 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/armv7-m/crtn.o
+                0x0000000008016bec                . = ALIGN (0x4)
+                0x0000000008016bec                _etext = .
 
-.vfp11_veneer   0x0000000008016bf4        0x0
+.vfp11_veneer   0x0000000008016bec        0x0
  .vfp11_veneer  0x0000000000000000        0x0 linker stubs
 
-.v4_bx          0x0000000008016bf4        0x0
+.v4_bx          0x0000000008016bec        0x0
  .v4_bx         0x0000000000000000        0x0 linker stubs
 
-.iplt           0x0000000008016bf4        0x0
+.iplt           0x0000000008016bec        0x0
  .iplt          0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/armv7-m/crtbegin.o
 
-.rel.dyn        0x0000000008016bf4        0x0
+.rel.dyn        0x0000000008016bec        0x0
  .rel.iplt      0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/armv7-m/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x0000000008016bf4        0x0
-                0x0000000008016bf4                __exidx_start = .
+.ARM            0x0000000008016bec        0x0
+                0x0000000008016bec                __exidx_start = .
  *(.ARM.exidx*)
-                0x0000000008016bf4                __exidx_end = .
+                0x0000000008016bec                __exidx_end = .
 
-.preinit_array  0x0000000008016bf4        0x0
-                0x0000000008016bf4                PROVIDE (__preinit_array_start, .)
+.preinit_array  0x0000000008016bec        0x0
+                0x0000000008016bec                PROVIDE (__preinit_array_start, .)
  *(.preinit_array*)
-                0x0000000008016bf4                PROVIDE (__preinit_array_end, .)
+                0x0000000008016bec                PROVIDE (__preinit_array_end, .)
 
-.init_array     0x0000000008016bf4        0x8
-                0x0000000008016bf4                PROVIDE (__init_array_start, .)
+.init_array     0x0000000008016bec        0x8
+                0x0000000008016bec                PROVIDE (__init_array_start, .)
  *(SORT(.init_array.*))
  .init_array.00000
-                0x0000000008016bf4        0x4 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-__call_atexit.o)
+                0x0000000008016bec        0x4 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m/libc.a(lib_a-__call_atexit.o)
  *(.init_array*)
- .init_array    0x0000000008016bf8        0x4 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/armv7-m/crtbegin.o
-                0x0000000008016bfc                PROVIDE (__init_array_end, .)
+ .init_array    0x0000000008016bf0        0x4 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/armv7-m/crtbegin.o
+                0x0000000008016bf4                PROVIDE (__init_array_end, .)
 
-.fini_array     0x0000000008016bfc        0x4
-                0x0000000008016bfc                PROVIDE (__fini_array_start, .)
+.fini_array     0x0000000008016bf4        0x4
+                0x0000000008016bf4                PROVIDE (__fini_array_start, .)
  *(.fini_array*)
- .fini_array    0x0000000008016bfc        0x4 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/armv7-m/crtbegin.o
+ .fini_array    0x0000000008016bf4        0x4 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/armv7-m/crtbegin.o
  *(SORT(.fini_array.*))
-                0x0000000008016c00                PROVIDE (__fini_array_end, .)
-                0x0000000008016c00                _sidata = .
+                0x0000000008016bf8                PROVIDE (__fini_array_end, .)
+                0x0000000008016bf8                _sidata = .
 
-.data           0x0000000020000000      0x5c4 load address 0x0000000008016c00
+.data           0x0000000020000000      0x5c4 load address 0x0000000008016bf8
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                _sdata = .
  *(.data)
@@ -3396,14 +3396,14 @@ LOAD /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib
                 0x00000000200005c4                . = ALIGN (0x4)
                 0x00000000200005c4                _edata = .
 
-.jcr            0x00000000200005c4        0x0 load address 0x00000000080171c4
+.jcr            0x00000000200005c4        0x0 load address 0x00000000080171bc
  .jcr           0x00000000200005c4        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/armv7-m/crtbegin.o
 
-.igot.plt       0x00000000200005c4        0x0 load address 0x00000000080171c4
+.igot.plt       0x00000000200005c4        0x0 load address 0x00000000080171bc
  .igot.plt      0x0000000000000000        0x0 /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/armv7-m/crtbegin.o
                 0x00000000200005c4                . = ALIGN (0x4)
 
-.bss            0x00000000200005c4     0x2a44 load address 0x00000000080171c4
+.bss            0x00000000200005c4     0x2a44 load address 0x00000000080171bc
                 0x00000000200005c4                _sbss = .
                 0x00000000200005c4                __bss_start__ = _sbss
  *(.bss)
@@ -4054,7 +4054,7 @@ LOAD /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib
                 0x0000000020003008                __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x0000000020003008      0x400 load address 0x00000000080171c4
+                0x0000000020003008      0x400 load address 0x00000000080171bc
                 0x0000000020003008                . = ALIGN (0x4)
                 0x0000000020003008                PROVIDE (end, .)
                 0x0000000020003008                PROVIDE (_end, .)

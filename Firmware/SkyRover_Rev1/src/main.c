@@ -6,6 +6,8 @@
 
 
 
+//-- Thread 관련 함수
+//
 osThreadId Thread_Loop_Handle, Thread_Serial_Handle;
 
 
@@ -38,6 +40,8 @@ static void Thread_Serial(void const *argument)
 
 
 
+
+
 core_t core;
 
 extern rcReadRawDataPtr rcReadRawFunc;
@@ -62,6 +66,10 @@ int fputc(int c, FILE *f)
 }
 #endif
 
+
+
+//-- main
+//
 int main(void)
 {
     uint8_t i;
@@ -70,7 +78,11 @@ int main(void)
     serialPort_t* loopbackPort = NULL;
 
 
+    //-- 시스템 초기화 
+    //
     systemInit();
+
+
 #ifdef USE_LAME_PRINTF
     init_printf(NULL, _putc);
 #endif
@@ -82,7 +94,8 @@ int main(void)
     // configure power ADC
     if (mcfg.power_adc_channel > 0 && (mcfg.power_adc_channel == 1 || mcfg.power_adc_channel == 9))
         adc_params.powerAdcChannel = mcfg.power_adc_channel;
-    else {
+    else 
+    {
         adc_params.powerAdcChannel = 0;
         mcfg.power_adc_channel = 0;
     }
@@ -94,13 +107,14 @@ int main(void)
     sensorsSet(SENSORS_SET);
 
     mixerInit(); // this will set core.useServo var depending on mixer type
+
     // when using airplane/wing mixer, servo/motor outputs are remapped
     if (mcfg.mixerConfiguration == MULTITYPE_AIRPLANE || mcfg.mixerConfiguration == MULTITYPE_FLYING_WING)
         pwm_params.airplane = true;
     else
         pwm_params.airplane = false;
     //pwm_params.useUART = feature(FEATURE_GPS) || feature(FEATURE_SERIALRX); // spektrum/sbus support uses UART too
-    pwm_params.useUART = feature(FEATURE_GPS);
+    pwm_params.useUART = 0;
     pwm_params.useSoftSerial = feature(FEATURE_SOFTSERIAL);
     pwm_params.usePPM = feature(FEATURE_PPM);
     pwm_params.enableInput = !feature(FEATURE_SERIALRX); // disable inputs if using spektrum
