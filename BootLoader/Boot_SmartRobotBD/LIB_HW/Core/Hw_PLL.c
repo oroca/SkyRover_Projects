@@ -87,5 +87,7 @@ void Hw_PLL_Init( void )
 				0x1 <<  4 | // IOPC
 				0x1 <<  3 | // IOPB
 				0x1 <<  2 | // IOPA
-				0x1 <<  0;  // AFIO					
+				0x1 <<  0;  // AFIO	
+
+					
 }

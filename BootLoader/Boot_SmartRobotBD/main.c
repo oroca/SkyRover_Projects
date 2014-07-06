@@ -82,6 +82,7 @@ int main(void)
 
 	if( Ap_ST32BL_RunBoot == TRUE )
 	{
+		//Hw_VCom_Init();
 
 		//-- 먼저 명령을 보낸 포트로 다운로드 시작 
 		//

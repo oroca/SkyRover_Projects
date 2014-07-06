@@ -82,6 +82,7 @@ void systemInit(void)
     uint32_t i;
     uint8_t gpio_count = sizeof(gpio_setup) / sizeof(gpio_setup[0]);
 
+
     // Configure the System clock frequency, HCLK, PCLK2 and PCLK1 prescalers
     // Configure the Flash Latency cycles and enable prefetch buffer
     SetSysClock();

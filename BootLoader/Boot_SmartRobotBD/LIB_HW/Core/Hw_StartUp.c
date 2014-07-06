@@ -68,8 +68,7 @@ void Hw_StartUp_Init(void)
 	u32 HSEStatus 	= 0;
 	unsigned long *pulSrc, *pulDest;	
 	
-	
-	
+
 	//-- Initialize data and bss
 	//  
 	
@@ -99,7 +98,8 @@ void Hw_StartUp_Init(void)
             
     //-- CR_HSEON_Set
     //
-	REG_RCC_CR |= (1<<16);	
+	REG_RCC_CR  |= (1<<16);	
+	REG_RCC_APB2ENR |= (1<<4);
 		
 	//-- 설정된 clock 이 설정 되었는지 확인
 	//

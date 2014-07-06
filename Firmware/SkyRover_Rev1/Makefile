@@ -38,6 +38,7 @@ VALID_TARGETS	 = NAZE FY90Q OLIMEXINO SKYROVER
 
 # Working directories
 ROOT		 = $(dir $(lastword $(MAKEFILE_LIST)))
+LIB_DIR		 = $(ROOT)/lib
 SRC_DIR		 = $(ROOT)/src
 CMSIS_DIR	 = $(ROOT)/lib/CMSIS
 STDPERIPH_DIR	 = $(ROOT)/lib/STM32F10x_StdPeriph_Driver
@@ -69,13 +70,18 @@ COMMON_SRC	 = startup_stm32f10x_md_gcc.s \
 		   drv_serial.c \
 		   drv_softserial.c \
 		   drv_uart.c \
+		   drv_vcom.c \
+		   drv_vcom_q.c \
 		   printf.c \
 		   utils.c \
 		   $(CMSIS_SRC) \
 		   $(STDPERIPH_SRC) \
 		   $(RTOS_1_SRC) \
 		   $(RTOS_2_SRC) \
-		   $(RTOS_3_SRC)
+		   $(RTOS_3_SRC) \
+		   $(USB_1_SRC)  \
+		   $(USB_2_SRC)  
+
 
 # Source files for the NAZE target
 NAZE_SRC	 = drv_adc.c \
@@ -169,6 +175,13 @@ VPATH		:= $(VPATH):$(RTOS_DIR)/Source/portable/GCC/ARM_CM3
 RTOS_3_SRC	 = $(notdir $(wildcard $(RTOS_DIR)/Source/portable/GCC/ARM_CM3/*.c))
 
 
+# Search path and source files for USB
+VPATH		:= $(VPATH):$(LIB_DIR)/STM32_USB-FS-Device_Driver/src
+USB_1_SRC	 = $(notdir $(wildcard $(LIB_DIR)/STM32_USB-FS-Device_Driver/src/*.c))
+VPATH		:= $(VPATH):$(LIB_DIR)/USB_Port
+USB_2_SRC	 = $(notdir $(wildcard $(LIB_DIR)/USB_Port/*.c))
+
+
 
 ###############################################################################
 # Things that might need changing to use different tools
@@ -188,6 +201,9 @@ INCLUDE_DIRS	 = $(SRC_DIR) \
 		   $(RTOS_DIR)/Source/CMSIS_RTOS \
 		   $(RTOS_DIR)/Source/include \
 		   $(RTOS_DIR)/Source/portable/GCC/ARM_CM3 \
+		   $(LIB_DIR)/STM32_USB-FS-Device_Driver/inc \
+		   $(LIB_DIR)/USB_Port \
+
 
 
 

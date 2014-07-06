@@ -19,13 +19,11 @@
 //
 #define  HW_VCOM_LOCAL
 
-#include "Hw_VCom.h"
+#include "drv_vcom.h"
 #include "hw_config.h"
 #include "usb_lib.h"
 #include "usb_desc.h"
 #include "usb_pwr.h"
-
-
 
 
 //-- 내부 선언
@@ -59,14 +57,11 @@ void Hw_VCom_Init( void )
 	Hw_VCom_RxdFuncPtr = NULL;
 
 
-	//Disable_ISR();
 	Set_System();
 
 	Set_USBClock();
 	USB_Interrupts_Config();
 	USB_Init();	
-
-	//Enable_ISR();
 }
 
 

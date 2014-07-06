@@ -2,7 +2,8 @@
 #include "mw.h"
 #include "cmsis_os.h"
 
-
+#include "usb_lib.h"
+#include "usb_pwr.h"
 
 
 
@@ -34,7 +35,10 @@ static void Thread_Serial(void const *argument)
 
     for (;;)
     {
-        osDelay(1);
+        if( bDeviceState == CONFIGURED )
+        {
+        }
+        osDelay(1000);
     }
 }
 
@@ -202,7 +206,7 @@ int main(void)
 
     DEBUG_PRINT("Booting..\r\n");
 
-
+    Hw_VCom_Init();
 
     // drop out any sensors that don't seem to work, init all the others. halt if gyro is dead.
     sensorsAutodetect();
@@ -275,4 +279,10 @@ void HardFault_Handler(void)
     // fall out of the sky
     writeAllMotors(mcfg.mincommand);
     while (1);
+}
+
+void dbg_print( char *str )
+{
+    serialPrint(core.mainport , str);
+    delay(50);
 }

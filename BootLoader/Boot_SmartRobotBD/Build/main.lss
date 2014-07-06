@@ -3,31 +3,31 @@ main.elf:     file format elf32-littlearm
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00001274  08000000  08000000  00008000  2**2
+  0 .text         00001284  08000000  08000000  00008000  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
   1 .bss          000010b8  20000000  20000000  00010000  2**9
                   ALLOC
   2 ._usrstack    00000100  200010b8  200010b8  00010000  2**0
                   ALLOC
-  3 .debug_info   00003254  00000000  00000000  00009274  2**0
+  3 .debug_info   00003254  00000000  00000000  00009284  2**0
                   CONTENTS, READONLY, DEBUGGING
-  4 .debug_abbrev 0000163b  00000000  00000000  0000c4c8  2**0
+  4 .debug_abbrev 0000163b  00000000  00000000  0000c4d8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_loc    000024a0  00000000  00000000  0000db03  2**0
+  5 .debug_loc    000024a0  00000000  00000000  0000db13  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_aranges 000004d8  00000000  00000000  0000ffa3  2**0
+  6 .debug_aranges 000004d8  00000000  00000000  0000ffb3  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_ranges 000005d8  00000000  00000000  0001047b  2**0
+  7 .debug_ranges 000005d8  00000000  00000000  0001048b  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00001521  00000000  00000000  00010a53  2**0
+  8 .debug_line   00001526  00000000  00000000  00010a63  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    000011f0  00000000  00000000  00011f74  2**0
+  9 .debug_str    000011fb  00000000  00000000  00011f89  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .comment      00000070  00000000  00000000  00013164  2**0
+ 10 .comment      00000070  00000000  00000000  00013184  2**0
                   CONTENTS, READONLY
- 11 .ARM.attributes 00000033  00000000  00000000  000131d4  2**0
+ 11 .ARM.attributes 00000033  00000000  00000000  000131f4  2**0
                   CONTENTS, READONLY
- 12 .debug_frame  00000b90  00000000  00000000  00013208  2**2
+ 12 .debug_frame  00000b90  00000000  00000000  00013228  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -44,7 +44,7 @@ void LED_Tick( void )
 {
  8000008:	b510      	push	{r4, lr}
 	Hw_Led_Toggle(0);
- 800000a:	f640 74d1 	movw	r4, #4049	; 0xfd1
+ 800000a:	f640 74e1 	movw	r4, #4065	; 0xfe1
  800000e:	2000      	movs	r0, #0
  8000010:	f6c0 0400 	movt	r4, #2048	; 0x800
  8000014:	47a0      	blx	r4
@@ -246,17 +246,17 @@ void Main_Init( void )
 					break;
  80000a8:	e7f5      	b.n	8000096 <main+0x7a>
  80000aa:	bf00      	nop
- 80000ac:	08000635 	.word	0x08000635
+ 80000ac:	08000645 	.word	0x08000645
  80000b0:	080000e5 	.word	0x080000e5
- 80000b4:	08000da5 	.word	0x08000da5
+ 80000b4:	08000db5 	.word	0x08000db5
  80000b8:	08000009 	.word	0x08000009
- 80000bc:	08000dc5 	.word	0x08000dc5
+ 80000bc:	08000dd5 	.word	0x08000dd5
  80000c0:	200000b5 	.word	0x200000b5
  80000c4:	08000539 	.word	0x08000539
- 80000c8:	0800103d 	.word	0x0800103d
- 80000cc:	08001075 	.word	0x08001075
- 80000d0:	08000e1d 	.word	0x08000e1d
- 80000d4:	08000ec5 	.word	0x08000ec5
+ 80000c8:	0800104d 	.word	0x0800104d
+ 80000cc:	08001085 	.word	0x08001085
+ 80000d0:	08000e2d 	.word	0x08000e2d
+ 80000d4:	08000ed5 	.word	0x08000ed5
  80000d8:	200000b4 	.word	0x200000b4
  80000dc:	08000165 	.word	0x08000165
  80000e0:	080003ad 	.word	0x080003ad
@@ -428,7 +428,7 @@ void Ap_ST32BL_SendByte( u8 ByteData )
 	Hw_Uart_Putch( Ap_ST32BL_UartPort, ByteData );
  8000166:	f240 02b4 	movw	r2, #180	; 0xb4
  800016a:	f2c2 0200 	movt	r2, #8192	; 0x2000
- 800016e:	f640 1311 	movw	r3, #2321	; 0x911
+ 800016e:	f640 1321 	movw	r3, #2337	; 0x921
      WORK    : 
      ARG     : void
      RET     : void   
@@ -454,7 +454,7 @@ u8 Ap_ST32BL_ReceiveByte( void )
 	Hw_Uart_Getch( Ap_ST32BL_UartPort );
  8000182:	f240 02b4 	movw	r2, #180	; 0xb4
  8000186:	f2c2 0200 	movt	r2, #8192	; 0x2000
- 800018a:	f640 03d1 	movw	r3, #2257	; 0x8d1
+ 800018a:	f640 03e1 	movw	r3, #2273	; 0x8e1
  800018e:	7810      	ldrb	r0, [r2, #0]
  8000190:	f6c0 0300 	movt	r3, #2048	; 0x800
  8000194:	4798      	blx	r3
@@ -695,12 +695,12 @@ u8 Ap_ST32BL_EraseFlash( void )
 }
  800023c:	b003      	add	sp, #12
  800023e:	bd00      	pop	{pc}
- 8000240:	0800112d 	.word	0x0800112d
- 8000244:	08001161 	.word	0x08001161
+ 8000240:	0800113d 	.word	0x0800113d
+ 8000244:	08001171 	.word	0x08001171
  8000248:	200000b7 	.word	0x200000b7
- 800024c:	0800122d 	.word	0x0800122d
+ 800024c:	0800123d 	.word	0x0800123d
  8000250:	200000b8 	.word	0x200000b8
- 8000254:	0800114d 	.word	0x0800114d
+ 8000254:	0800115d 	.word	0x0800115d
 
 08000258 <Ap_ST32BL_CheckFlashSector>:
      WORK    : 
@@ -839,8 +839,8 @@ u8 Ap_ST32BL_CheckFlashSector( u32 Address )
  80002a8:	4630      	mov	r0, r6
  80002aa:	e7e9      	b.n	8000280 <Ap_ST32BL_CheckFlashSector+0x28>
  80002ac:	200000b8 	.word	0x200000b8
- 80002b0:	0800122d 	.word	0x0800122d
- 80002b4:	0800114d 	.word	0x0800114d
+ 80002b0:	0800123d 	.word	0x0800123d
+ 80002b4:	0800115d 	.word	0x0800115d
 
 080002b8 <Ap_ST32BL_WriteFlash>:
      WORK    : 
@@ -1148,7 +1148,7 @@ u8 Ap_ST32BL_WriteFlash( u32 Address, u8 *pData, u32 DataSize )
  800039e:	b003      	add	sp, #12
  80003a0:	e8bd 83f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
  80003a4:	08000259 	.word	0x08000259
- 80003a8:	080011dd 	.word	0x080011dd
+ 80003a8:	080011ed 	.word	0x080011ed
 
 080003ac <Ap_ST32BL_Main>:
      WORK    : 
@@ -1165,10 +1165,10 @@ void Ap_ST32BL_Main( void )
 
 	JumpAddress =  *(u32 *)(HW_ST32BL_FLASH_START_ADDRESS + 4);
  80003b0:	f243 0304 	movw	r3, #12292	; 0x3004
-	//REG_RCC_AHBENR  = 0x00000014;
-	//REG_RCC_APB1ENR = 0x00000000;
 	//REG_RCC_APB2ENR = 0x00000000;	
 
+	//PowerOff();
+	//SET_BIT( REG_GPIOC_ODR, 13 );   
 
 	REG_RCC_APB1RSTR = 0xFFFFFFFF;
  80003b4:	f241 0010 	movw	r0, #4112	; 0x1010
@@ -1188,10 +1188,10 @@ void Ap_ST32BL_Main( void )
 
 	JumpAddress =  *(u32 *)(HW_ST32BL_FLASH_START_ADDRESS + 4);
  80003be:	f6c0 0300 	movt	r3, #2048	; 0x800
-	//REG_RCC_AHBENR  = 0x00000014;
-	//REG_RCC_APB1ENR = 0x00000000;
 	//REG_RCC_APB2ENR = 0x00000000;	
 
+	//PowerOff();
+	//SET_BIT( REG_GPIOC_ODR, 13 );   
 
 	REG_RCC_APB1RSTR = 0xFFFFFFFF;
  80003c2:	f2c4 0002 	movt	r0, #16386	; 0x4002
@@ -1208,10 +1208,10 @@ void Ap_ST32BL_Main( void )
 
 	JumpAddress =  *(u32 *)(HW_ST32BL_FLASH_START_ADDRESS + 4);
  80003d4:	9305      	str	r3, [sp, #20]
-	//REG_RCC_AHBENR  = 0x00000014;
-	//REG_RCC_APB1ENR = 0x00000000;
 	//REG_RCC_APB2ENR = 0x00000000;	
 
+	//PowerOff();
+	//SET_BIT( REG_GPIOC_ODR, 13 );   
 
 	REG_RCC_APB1RSTR = 0xFFFFFFFF;
  80003d6:	9003      	str	r0, [sp, #12]
@@ -1588,7 +1588,7 @@ void Ap_ST32BL_Main( void )
 			Ap_ST32BL_SendByte(STM32_COMM_ACK);	
 
 			Hw_Timer_Delay_ms(100);
- 80004c6:	f640 56d9 	movw	r6, #3545	; 0xdd9
+ 80004c6:	f640 56e9 	movw	r6, #3561	; 0xde9
 			//-- Receive Address 
 			//
 			CheckSumCalc = 0;
@@ -1620,10 +1620,10 @@ void Ap_ST32BL_Main( void )
 
 	JumpToApp = (pFunction) JumpAddress;
  80004da:	9805      	ldr	r0, [sp, #20]
-	//REG_RCC_AHBENR  = 0x00000014;
-	//REG_RCC_APB1ENR = 0x00000000;
 	//REG_RCC_APB2ENR = 0x00000000;	
 
+	//PowerOff();
+	//SET_BIT( REG_GPIOC_ODR, 13 );   
 
 	REG_RCC_APB1RSTR = 0xFFFFFFFF;
  80004dc:	9e03      	ldr	r6, [sp, #12]
@@ -1634,17 +1634,17 @@ void Ap_ST32BL_Main( void )
 
 	JumpToApp = (pFunction) JumpAddress;
  80004de:	6801      	ldr	r1, [r0, #0]
-	//REG_RCC_APB1ENR = 0x00000000;
-	//REG_RCC_APB2ENR = 0x00000000;	
 
+	//PowerOff();
+	//SET_BIT( REG_GPIOC_ODR, 13 );   
 
 	REG_RCC_APB1RSTR = 0xFFFFFFFF;
 	REG_RCC_APB2RSTR = 0xFFFFFFFF;
  80004e0:	9804      	ldr	r0, [sp, #16]
-	//REG_RCC_AHBENR  = 0x00000014;
-	//REG_RCC_APB1ENR = 0x00000000;
 	//REG_RCC_APB2ENR = 0x00000000;	
 
+	//PowerOff();
+	//SET_BIT( REG_GPIOC_ODR, 13 );   
 
 	REG_RCC_APB1RSTR = 0xFFFFFFFF;
  80004e2:	f04f 32ff 	mov.w	r2, #4294967295	; 0xffffffff
@@ -1736,10 +1736,10 @@ void Ap_ST32BL_Main( void )
 void Ap_ST32BL_JumpToApp( u32 Address )
 {
  8000538:	b510      	push	{r4, lr}
-	//REG_RCC_AHBENR  = 0x00000014;
-	//REG_RCC_APB1ENR = 0x00000000;
 	//REG_RCC_APB2ENR = 0x00000000;	
 
+	//PowerOff();
+	//SET_BIT( REG_GPIOC_ODR, 13 );   
 
 	REG_RCC_APB1RSTR = 0xFFFFFFFF;
  800053a:	f241 0210 	movw	r2, #4112	; 0x1010
@@ -1750,17 +1750,17 @@ void Ap_ST32BL_JumpToApp( u32 Address )
 
 	JumpAddress =  *(u32 *)(HW_ST32BL_FLASH_START_ADDRESS + 4);
  800053e:	f243 0404 	movw	r4, #12292	; 0x3004
-	//REG_RCC_APB1ENR = 0x00000000;
-	//REG_RCC_APB2ENR = 0x00000000;	
 
+	//PowerOff();
+	//SET_BIT( REG_GPIOC_ODR, 13 );   
 
 	REG_RCC_APB1RSTR = 0xFFFFFFFF;
 	REG_RCC_APB2RSTR = 0xFFFFFFFF;
  8000542:	f241 030c 	movw	r3, #4108	; 0x100c
-	//REG_RCC_AHBENR  = 0x00000014;
-	//REG_RCC_APB1ENR = 0x00000000;
 	//REG_RCC_APB2ENR = 0x00000000;	
 
+	//PowerOff();
+	//SET_BIT( REG_GPIOC_ODR, 13 );   
 
 	REG_RCC_APB1RSTR = 0xFFFFFFFF;
  8000546:	f2c4 0202 	movt	r2, #16386	; 0x4002
@@ -1780,10 +1780,10 @@ void Ap_ST32BL_JumpToApp( u32 Address )
 
 	JumpToApp = (pFunction) JumpAddress;
  8000558:	6824      	ldr	r4, [r4, #0]
-	//REG_RCC_AHBENR  = 0x00000014;
-	//REG_RCC_APB1ENR = 0x00000000;
 	//REG_RCC_APB2ENR = 0x00000000;	
 
+	//PowerOff();
+	//SET_BIT( REG_GPIOC_ODR, 13 );   
 
 	REG_RCC_APB1RSTR = 0xFFFFFFFF;
  800055a:	6010      	str	r0, [r2, #0]
@@ -1820,8 +1820,8 @@ void Hw_StartUp_Init(void)
 	pulSrc = &_sidata;
 
 	for(pulDest = &_sdata; pulDest < &_edata; )
- 8000572:	492a      	ldr	r1, [pc, #168]	; (800061c <zero_loop+0x62>)
- 8000574:	4b2a      	ldr	r3, [pc, #168]	; (8000620 <zero_loop+0x66>)
+ 8000572:	492e      	ldr	r1, [pc, #184]	; (800062c <zero_loop+0x72>)
+ 8000574:	4b2e      	ldr	r3, [pc, #184]	; (8000630 <zero_loop+0x76>)
  8000576:	4299      	cmp	r1, r3
  8000578:	d21b      	bcs.n	80005b2 <Hw_StartUp_Init+0x4a>
      WORK    :	 
@@ -1833,7 +1833,7 @@ void Hw_StartUp_Init(void)
  800057a:	1cda      	adds	r2, r3, #3
  800057c:	1d0c      	adds	r4, r1, #4
  800057e:	1b15      	subs	r5, r2, r4
- 8000580:	4828      	ldr	r0, [pc, #160]	; (8000624 <zero_loop+0x6a>)
+ 8000580:	482c      	ldr	r0, [pc, #176]	; (8000634 <zero_loop+0x7a>)
  8000582:	f025 0203 	bic.w	r2, r5, #3
  8000586:	1d16      	adds	r6, r2, #4
 	// Copy the data segment initializers from flash to SRAM
@@ -1914,8 +1914,8 @@ void Hw_StartUp_Init(void)
 	/* Zero fill the bss segment.  This is done with inline assembly since this
 	   will clear the value of pulDest if it is not kept in a register. */
 	__asm("  ldr     r0, =_sbss\n"
- 80005b2:	481e      	ldr	r0, [pc, #120]	; (800062c <zero_loop+0x72>)
- 80005b4:	491e      	ldr	r1, [pc, #120]	; (8000630 <zero_loop+0x76>)
+ 80005b2:	4822      	ldr	r0, [pc, #136]	; (800063c <zero_loop+0x82>)
+ 80005b4:	4922      	ldr	r1, [pc, #136]	; (8000640 <zero_loop+0x86>)
  80005b6:	f04f 0200 	mov.w	r2, #0
 
 080005ba <zero_loop>:
@@ -1928,3318 +1928,3331 @@ void Hw_StartUp_Init(void)
             
     //-- CR_HSEON_Set
     //
-	REG_RCC_CR |= (1<<16);	
+	REG_RCC_CR  |= (1<<16);	
  80005c6:	f44f 5280 	mov.w	r2, #4096	; 0x1000
  80005ca:	f2c4 0202 	movt	r2, #16386	; 0x4002
- 80005ce:	6811      	ldr	r1, [r2, #0]
- 80005d0:	f642 4310 	movw	r3, #11280	; 0x2c10
- 80005d4:	f441 3080 	orr.w	r0, r1, #65536	; 0x10000
- 80005d8:	6010      	str	r0, [r2, #0]
- 80005da:	e004      	b.n	80005e6 <zero_loop+0x2c>
+ 80005ce:	6810      	ldr	r0, [r2, #0]
+	REG_RCC_APB2ENR |= (1<<4);
+ 80005d0:	f241 0118 	movw	r1, #4120	; 0x1018
+	
+    // HSI or HSE 선택
+            
+    //-- CR_HSEON_Set
+    //
+	REG_RCC_CR  |= (1<<16);	
+ 80005d4:	f440 3380 	orr.w	r3, r0, #65536	; 0x10000
+ 80005d8:	6013      	str	r3, [r2, #0]
+	REG_RCC_APB2ENR |= (1<<4);
+ 80005da:	f2c4 0102 	movt	r1, #16386	; 0x4002
+ 80005de:	6808      	ldr	r0, [r1, #0]
+ 80005e0:	f642 4310 	movw	r3, #11280	; 0x2c10
+ 80005e4:	f040 0010 	orr.w	r0, r0, #16
+ 80005e8:	6008      	str	r0, [r1, #0]
+ 80005ea:	e004      	b.n	80005f6 <zero_loop+0x3c>
 		
 	//-- 설정된 clock 이 설정 되었는지 확인
 	//
 	do
 	{	
 		HSEStatus = REG_RCC_CR & (1<<17);	// HSE 인경우
- 80005dc:	6810      	ldr	r0, [r2, #0]
+ 80005ec:	6810      	ldr	r0, [r2, #0]
 		TimeOutCnt++;		
 	} while( (HSEStatus == 0) && (TimeOutCnt < 11280) );
- 80005de:	0381      	lsls	r1, r0, #14
- 80005e0:	d405      	bmi.n	80005ee <zero_loop+0x34>
- 80005e2:	3b01      	subs	r3, #1
- 80005e4:	d003      	beq.n	80005ee <zero_loop+0x34>
+ 80005ee:	0381      	lsls	r1, r0, #14
+ 80005f0:	d405      	bmi.n	80005fe <zero_loop+0x44>
+ 80005f2:	3b01      	subs	r3, #1
+ 80005f4:	d003      	beq.n	80005fe <zero_loop+0x44>
 		
 	//-- 설정된 clock 이 설정 되었는지 확인
 	//
 	do
 	{	
 		HSEStatus = REG_RCC_CR & (1<<17);	// HSE 인경우
- 80005e6:	6811      	ldr	r1, [r2, #0]
- 80005e8:	3b01      	subs	r3, #1
+ 80005f6:	6811      	ldr	r1, [r2, #0]
+ 80005f8:	3b01      	subs	r3, #1
 		TimeOutCnt++;		
 	} while( (HSEStatus == 0) && (TimeOutCnt < 11280) );
- 80005ea:	0388      	lsls	r0, r1, #14
- 80005ec:	d5f6      	bpl.n	80005dc <zero_loop+0x22>
+ 80005fa:	0388      	lsls	r0, r1, #14
+ 80005fc:	d5f6      	bpl.n	80005ec <zero_loop+0x32>
   
 
 	//-- FLASH Access 타이밍 설정
 	//
 	REG_FLASH_ACR |=  (1<<4);	// Prefetch buffer enable
- 80005ee:	f44f 5100 	mov.w	r1, #8192	; 0x2000
- 80005f2:	f2c4 0102 	movt	r1, #16386	; 0x4002
- 80005f6:	680a      	ldr	r2, [r1, #0]
- 80005f8:	f042 0010 	orr.w	r0, r2, #16
- 80005fc:	6008      	str	r0, [r1, #0]
+ 80005fe:	f44f 5100 	mov.w	r1, #8192	; 0x2000
+ 8000602:	f2c4 0102 	movt	r1, #16386	; 0x4002
+ 8000606:	680a      	ldr	r2, [r1, #0]
+ 8000608:	f042 0010 	orr.w	r0, r2, #16
+ 800060c:	6008      	str	r0, [r1, #0]
 	REG_FLASH_ACR &= ~(3<<0);	// LATENCY Clear
- 80005fe:	680b      	ldr	r3, [r1, #0]
- 8000600:	f023 0203 	bic.w	r2, r3, #3
- 8000604:	600a      	str	r2, [r1, #0]
+ 800060e:	680b      	ldr	r3, [r1, #0]
+ 8000610:	f023 0203 	bic.w	r2, r3, #3
+ 8000614:	600a      	str	r2, [r1, #0]
 	REG_FLASH_ACR |=  (2<<0);	// LATENCY = two wait
- 8000606:	6808      	ldr	r0, [r1, #0]
- 8000608:	f040 0302 	orr.w	r3, r0, #2
- 800060c:	600b      	str	r3, [r1, #0]
+ 8000616:	6808      	ldr	r0, [r1, #0]
+ 8000618:	f040 0302 	orr.w	r3, r0, #2
+ 800061c:	600b      	str	r3, [r1, #0]
 
 
     main();
- 800060e:	4906      	ldr	r1, [pc, #24]	; (8000628 <zero_loop+0x6e>)
- 8000610:	4788      	blx	r1
+ 800061e:	4906      	ldr	r1, [pc, #24]	; (8000638 <zero_loop+0x7e>)
+ 8000620:	4788      	blx	r1
 
 }
- 8000612:	e8bd 4079 	ldmia.w	sp!, {r0, r3, r4, r5, r6, lr}
- 8000616:	4685      	mov	sp, r0
- 8000618:	4770      	bx	lr
- 800061a:	bf00      	nop
- 800061c:	20000000 	.word	0x20000000
- 8000620:	20000000 	.word	0x20000000
- 8000624:	08001274 	.word	0x08001274
- 8000628:	0800001d 	.word	0x0800001d
+ 8000622:	e8bd 4079 	ldmia.w	sp!, {r0, r3, r4, r5, r6, lr}
+ 8000626:	4685      	mov	sp, r0
+ 8000628:	4770      	bx	lr
+ 800062a:	bf00      	nop
  800062c:	20000000 	.word	0x20000000
- 8000630:	200010b8 	.word	0x200010b8
+ 8000630:	20000000 	.word	0x20000000
+ 8000634:	08001284 	.word	0x08001284
+ 8000638:	0800001d 	.word	0x0800001d
+ 800063c:	20000000 	.word	0x20000000
+ 8000640:	200010b8 	.word	0x200010b8
 
-08000634 <Hw_Init>:
+08000644 <Hw_Init>:
      WORK    : 
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
 void Hw_Init( void )
 {
- 8000634:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 8000644:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
 	//-- PLL 설정
 	//
 	Hw_PLL_Init();
- 8000636:	f640 1351 	movw	r3, #2385	; 0x951
- 800063a:	f6c0 0300 	movt	r3, #2048	; 0x800
- 800063e:	4798      	blx	r3
+ 8000646:	f640 1361 	movw	r3, #2401	; 0x961
+ 800064a:	f6c0 0300 	movt	r3, #2048	; 0x800
+ 800064e:	4798      	blx	r3
 	
 	
 	//-- 인터럽트 관련 초기화
 	//
 	Hw_ISR_Init();
- 8000640:	f640 10e5 	movw	r0, #2533	; 0x9e5
- 8000644:	f6c0 0000 	movt	r0, #2048	; 0x800
- 8000648:	4780      	blx	r0
-	
+ 8000650:	f640 10f5 	movw	r0, #2549	; 0x9f5
+ 8000654:	f6c0 0000 	movt	r0, #2048	; 0x800
+ 8000658:	4780      	blx	r0
+
 		
 	//-- GPIO 기본값 설정
 	//
 	REG_GPIOA_CRL = 0x33333333;	// PA0 - 7
 	REG_GPIOA_CRH = 0x333334B3;	// PA8 - 15    //PA9,10,11,12는 가각 UART, USB에 할당됨
- 800064a:	f640 0604 	movw	r6, #2052	; 0x804
-	Hw_ISR_Init();
+ 800065a:	f640 0604 	movw	r6, #2052	; 0x804
 	
+
 		
 	//-- GPIO 기본값 설정
 	//
 	REG_GPIOA_CRL = 0x33333333;	// PA0 - 7
- 800064e:	f44f 6e00 	mov.w	lr, #2048	; 0x800
+ 800065e:	f44f 6e00 	mov.w	lr, #2048	; 0x800
 	REG_GPIOA_CRH = 0x333334B3;	// PA8 - 15    //PA9,10,11,12는 가각 UART, USB에 할당됨
- 8000652:	f243 47b3 	movw	r7, #13491	; 0x34b3
+ 8000662:	f243 47b3 	movw	r7, #13491	; 0x34b3
 	REG_GPIOB_CRL = 0x33333333;	// PB0 - 7
- 8000656:	f44f 6540 	mov.w	r5, #3072	; 0xc00
+ 8000666:	f44f 6540 	mov.w	r5, #3072	; 0xc00
 	REG_GPIOB_CRH = 0x33333333;	// PB8 - 15
- 800065a:	f640 4404 	movw	r4, #3076	; 0xc04
+ 800066a:	f640 4404 	movw	r4, #3076	; 0xc04
 	REG_GPIOC_CRH = 0x33444444;	// PC14, 15
- 800065e:	f241 0104 	movw	r1, #4100	; 0x1004
- 8000662:	f244 4044 	movw	r0, #17476	; 0x4444
-	Hw_ISR_Init();
+ 800066e:	f241 0104 	movw	r1, #4100	; 0x1004
+ 8000672:	f244 4044 	movw	r0, #17476	; 0x4444
 	
+
 		
 	//-- GPIO 기본값 설정
 	//
 	REG_GPIOA_CRL = 0x33333333;	// PA0 - 7
- 8000666:	f04f 3233 	mov.w	r2, #858993459	; 0x33333333
- 800066a:	f2c4 0e01 	movt	lr, #16385	; 0x4001
+ 8000676:	f04f 3233 	mov.w	r2, #858993459	; 0x33333333
+ 800067a:	f2c4 0e01 	movt	lr, #16385	; 0x4001
 	REG_GPIOA_CRH = 0x333334B3;	// PA8 - 15    //PA9,10,11,12는 가각 UART, USB에 할당됨
 	REG_GPIOB_CRL = 0x33333333;	// PB0 - 7
 	REG_GPIOB_CRH = 0x33333333;	// PB8 - 15
 	REG_GPIOC_CRH = 0x33444444;	// PC14, 15
- 800066e:	f2c3 3044 	movt	r0, #13124	; 0x3344
- 8000672:	f2c4 0101 	movt	r1, #16385	; 0x4001
-	
+ 800067e:	f2c3 3044 	movt	r0, #13124	; 0x3344
+ 8000682:	f2c4 0101 	movt	r1, #16385	; 0x4001
+
 		
 	//-- GPIO 기본값 설정
 	//
 	REG_GPIOA_CRL = 0x33333333;	// PA0 - 7
 	REG_GPIOA_CRH = 0x333334B3;	// PA8 - 15    //PA9,10,11,12는 가각 UART, USB에 할당됨
- 8000676:	f2c4 0601 	movt	r6, #16385	; 0x4001
- 800067a:	f2c3 3733 	movt	r7, #13107	; 0x3333
+ 8000686:	f2c4 0601 	movt	r6, #16385	; 0x4001
+ 800068a:	f2c3 3733 	movt	r7, #13107	; 0x3333
 	REG_GPIOB_CRL = 0x33333333;	// PB0 - 7
- 800067e:	f2c4 0501 	movt	r5, #16385	; 0x4001
+ 800068e:	f2c4 0501 	movt	r5, #16385	; 0x4001
 	REG_GPIOB_CRH = 0x33333333;	// PB8 - 15
- 8000682:	f2c4 0401 	movt	r4, #16385	; 0x4001
-	REG_GPIOC_CRH = 0x33444444;	// PC14, 15
-	
-	//Hw_DMA_Init();
-	Hw_Uart_Init();
- 8000686:	f640 0381 	movw	r3, #2177	; 0x881
-	Hw_ISR_Init();
-	
-		
-	//-- GPIO 기본값 설정
-	//
-	REG_GPIOA_CRL = 0x33333333;	// PA0 - 7
- 800068a:	f8ce 2000 	str.w	r2, [lr]
-	REG_GPIOB_CRL = 0x33333333;	// PB0 - 7
-	REG_GPIOB_CRH = 0x33333333;	// PB8 - 15
+ 8000692:	f2c4 0401 	movt	r4, #16385	; 0x4001
 	REG_GPIOC_CRH = 0x33444444;	// PC14, 15
 	
 	//Hw_DMA_Init();
 	Hw_Uart_Init();
- 800068e:	f6c0 0300 	movt	r3, #2048	; 0x800
+ 8000696:	f640 0391 	movw	r3, #2193	; 0x891
 	
+
+		
+	//-- GPIO 기본값 설정
+	//
+	REG_GPIOA_CRL = 0x33333333;	// PA0 - 7
+ 800069a:	f8ce 2000 	str.w	r2, [lr]
+	REG_GPIOB_CRL = 0x33333333;	// PB0 - 7
+	REG_GPIOB_CRH = 0x33333333;	// PB8 - 15
+	REG_GPIOC_CRH = 0x33444444;	// PC14, 15
+	
+	//Hw_DMA_Init();
+	Hw_Uart_Init();
+ 800069e:	f6c0 0300 	movt	r3, #2048	; 0x800
+
 		
 	//-- GPIO 기본값 설정
 	//
 	REG_GPIOA_CRL = 0x33333333;	// PA0 - 7
 	REG_GPIOA_CRH = 0x333334B3;	// PA8 - 15    //PA9,10,11,12는 가각 UART, USB에 할당됨
- 8000692:	6037      	str	r7, [r6, #0]
+ 80006a2:	6037      	str	r7, [r6, #0]
 	REG_GPIOB_CRL = 0x33333333;	// PB0 - 7
- 8000694:	602a      	str	r2, [r5, #0]
+ 80006a4:	602a      	str	r2, [r5, #0]
 	REG_GPIOB_CRH = 0x33333333;	// PB8 - 15
- 8000696:	6022      	str	r2, [r4, #0]
+ 80006a6:	6022      	str	r2, [r4, #0]
 	REG_GPIOC_CRH = 0x33444444;	// PC14, 15
- 8000698:	6008      	str	r0, [r1, #0]
+ 80006a8:	6008      	str	r0, [r1, #0]
 	
 	//Hw_DMA_Init();
 	Hw_Uart_Init();
- 800069a:	4798      	blx	r3
+ 80006aa:	4798      	blx	r3
 	Hw_Timer_Init();
- 800069c:	f640 2135 	movw	r1, #2613	; 0xa35
- 80006a0:	f6c0 0100 	movt	r1, #2048	; 0x800
- 80006a4:	4788      	blx	r1
+ 80006ac:	f640 2145 	movw	r1, #2629	; 0xa45
+ 80006b0:	f6c0 0100 	movt	r1, #2048	; 0x800
+ 80006b4:	4788      	blx	r1
 	//Hw_VCom_Init();
 	Hw_Led_Init();	
- 80006a6:	f640 7069 	movw	r0, #3945	; 0xf69
- 80006aa:	f6c0 0000 	movt	r0, #2048	; 0x800
- 80006ae:	4780      	blx	r0
- 80006b0:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
- 80006b2:	bf00      	nop
+ 80006b6:	f640 7079 	movw	r0, #3961	; 0xf79
+ 80006ba:	f6c0 0000 	movt	r0, #2048	; 0x800
+ 80006be:	4780      	blx	r0
+ 80006c0:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+ 80006c2:	bf00      	nop
 
-080006b4 <Hw_ISR_UART2_Handler>:
-
-
-//-- UART2 ISR
-//
-void Hw_ISR_UART2_Handler(void)
-{
- 80006b4:	b500      	push	{lr}
-	u8 UartData;
-				
-	UartData = REG_USART2_DR;
- 80006b6:	f244 4304 	movw	r3, #17412	; 0x4404
- 80006ba:	f2c4 0300 	movt	r3, #16384	; 0x4000
- 80006be:	6818      	ldr	r0, [r3, #0]
+080006c4 <Hw_ISR_UART2_Handler>:
 
 
 //-- UART2 ISR
 //
 void Hw_ISR_UART2_Handler(void)
 {
- 80006c0:	b083      	sub	sp, #12
+ 80006c4:	b500      	push	{lr}
 	u8 UartData;
 				
 	UartData = REG_USART2_DR;
- 80006c2:	a902      	add	r1, sp, #8
- 80006c4:	f801 0d01 	strb.w	r0, [r1, #-1]!
+ 80006c6:	f244 4304 	movw	r3, #17412	; 0x4404
+ 80006ca:	f2c4 0300 	movt	r3, #16384	; 0x4000
+ 80006ce:	6818      	ldr	r0, [r3, #0]
+
+
+//-- UART2 ISR
+//
+void Hw_ISR_UART2_Handler(void)
+{
+ 80006d0:	b083      	sub	sp, #12
+	u8 UartData;
+				
+	UartData = REG_USART2_DR;
+ 80006d2:	a902      	add	r1, sp, #8
+ 80006d4:	f801 0d01 	strb.w	r0, [r1, #-1]!
 	
 
 	Hw_Uart_Q_Push( 1, &UartData );
- 80006c8:	4a05      	ldr	r2, [pc, #20]	; (80006e0 <Hw_ISR_UART2_Handler+0x2c>)
- 80006ca:	2001      	movs	r0, #1
- 80006cc:	4790      	blx	r2
+ 80006d8:	4a05      	ldr	r2, [pc, #20]	; (80006f0 <Hw_ISR_UART2_Handler+0x2c>)
+ 80006da:	2001      	movs	r0, #1
+ 80006dc:	4790      	blx	r2
 
 	if( Hw_Uart_Ch[HW_UART_COM2].ISR_FuncPtr != NULL )
- 80006ce:	4905      	ldr	r1, [pc, #20]	; (80006e4 <Hw_ISR_UART2_Handler+0x30>)
- 80006d0:	694b      	ldr	r3, [r1, #20]
- 80006d2:	b113      	cbz	r3, 80006da <Hw_ISR_UART2_Handler+0x26>
+ 80006de:	4905      	ldr	r1, [pc, #20]	; (80006f4 <Hw_ISR_UART2_Handler+0x30>)
+ 80006e0:	694b      	ldr	r3, [r1, #20]
+ 80006e2:	b113      	cbz	r3, 80006ea <Hw_ISR_UART2_Handler+0x26>
 	{
 		(*Hw_Uart_Ch[HW_UART_COM2].ISR_FuncPtr)(UartData);	
- 80006d4:	f89d 0007 	ldrb.w	r0, [sp, #7]
- 80006d8:	4798      	blx	r3
+ 80006e4:	f89d 0007 	ldrb.w	r0, [sp, #7]
+ 80006e8:	4798      	blx	r3
 	} 
 }
- 80006da:	b003      	add	sp, #12
- 80006dc:	bd00      	pop	{pc}
- 80006de:	bf00      	nop
- 80006e0:	08000e4d 	.word	0x08000e4d
- 80006e4:	20000138 	.word	0x20000138
+ 80006ea:	b003      	add	sp, #12
+ 80006ec:	bd00      	pop	{pc}
+ 80006ee:	bf00      	nop
+ 80006f0:	08000e5d 	.word	0x08000e5d
+ 80006f4:	20000138 	.word	0x20000138
 
-080006e8 <Hw_ISR_UART1_Handler>:
-
-
-//-- UART1 ISR
-//
-void Hw_ISR_UART1_Handler(void)
-{
- 80006e8:	b500      	push	{lr}
-	u8 UartData;
-				
-	UartData = REG_USART1_DR;
- 80006ea:	f643 0304 	movw	r3, #14340	; 0x3804
- 80006ee:	f2c4 0301 	movt	r3, #16385	; 0x4001
- 80006f2:	6818      	ldr	r0, [r3, #0]
+080006f8 <Hw_ISR_UART1_Handler>:
 
 
 //-- UART1 ISR
 //
 void Hw_ISR_UART1_Handler(void)
 {
- 80006f4:	b083      	sub	sp, #12
+ 80006f8:	b500      	push	{lr}
 	u8 UartData;
 				
 	UartData = REG_USART1_DR;
- 80006f6:	a902      	add	r1, sp, #8
- 80006f8:	f801 0d01 	strb.w	r0, [r1, #-1]!
+ 80006fa:	f643 0304 	movw	r3, #14340	; 0x3804
+ 80006fe:	f2c4 0301 	movt	r3, #16385	; 0x4001
+ 8000702:	6818      	ldr	r0, [r3, #0]
+
+
+//-- UART1 ISR
+//
+void Hw_ISR_UART1_Handler(void)
+{
+ 8000704:	b083      	sub	sp, #12
+	u8 UartData;
+				
+	UartData = REG_USART1_DR;
+ 8000706:	a902      	add	r1, sp, #8
+ 8000708:	f801 0d01 	strb.w	r0, [r1, #-1]!
 	
 	Hw_Uart_Q_Push( 0, &UartData );
- 80006fc:	4a05      	ldr	r2, [pc, #20]	; (8000714 <Hw_ISR_UART1_Handler+0x2c>)
- 80006fe:	2000      	movs	r0, #0
- 8000700:	4790      	blx	r2
+ 800070c:	4a05      	ldr	r2, [pc, #20]	; (8000724 <Hw_ISR_UART1_Handler+0x2c>)
+ 800070e:	2000      	movs	r0, #0
+ 8000710:	4790      	blx	r2
 
 	if( Hw_Uart_Ch[HW_UART_COM1].ISR_FuncPtr != NULL )
- 8000702:	4905      	ldr	r1, [pc, #20]	; (8000718 <Hw_ISR_UART1_Handler+0x30>)
- 8000704:	688b      	ldr	r3, [r1, #8]
- 8000706:	b113      	cbz	r3, 800070e <Hw_ISR_UART1_Handler+0x26>
+ 8000712:	4905      	ldr	r1, [pc, #20]	; (8000728 <Hw_ISR_UART1_Handler+0x30>)
+ 8000714:	688b      	ldr	r3, [r1, #8]
+ 8000716:	b113      	cbz	r3, 800071e <Hw_ISR_UART1_Handler+0x26>
 	{
 		(*Hw_Uart_Ch[HW_UART_COM1].ISR_FuncPtr)(UartData);	
- 8000708:	f89d 0007 	ldrb.w	r0, [sp, #7]
- 800070c:	4798      	blx	r3
+ 8000718:	f89d 0007 	ldrb.w	r0, [sp, #7]
+ 800071c:	4798      	blx	r3
 	} 
 }
- 800070e:	b003      	add	sp, #12
- 8000710:	bd00      	pop	{pc}
- 8000712:	bf00      	nop
- 8000714:	08000e4d 	.word	0x08000e4d
- 8000718:	20000138 	.word	0x20000138
+ 800071e:	b003      	add	sp, #12
+ 8000720:	bd00      	pop	{pc}
+ 8000722:	bf00      	nop
+ 8000724:	08000e5d 	.word	0x08000e5d
+ 8000728:	20000138 	.word	0x20000138
 
-0800071c <Hw_Uart_Putch.part.0>:
+0800072c <Hw_Uart_Putch.part.0>:
 void Hw_Uart_Putch( u8 Ch,  char Uart_PutData )
 {
 	switch( Ch )
 	{
 		case HW_UART_COM1:
 		    while( !(REG_USART1_SR & 0x80) );
- 800071c:	f44f 5260 	mov.w	r2, #14336	; 0x3800
- 8000720:	f2c4 0201 	movt	r2, #16385	; 0x4001
- 8000724:	6813      	ldr	r3, [r2, #0]
- 8000726:	061b      	lsls	r3, r3, #24
- 8000728:	d5fc      	bpl.n	8000724 <Hw_Uart_Putch.part.0+0x8>
+ 800072c:	f44f 5260 	mov.w	r2, #14336	; 0x3800
+ 8000730:	f2c4 0201 	movt	r2, #16385	; 0x4001
+ 8000734:	6813      	ldr	r3, [r2, #0]
+ 8000736:	061b      	lsls	r3, r3, #24
+ 8000738:	d5fc      	bpl.n	8000734 <Hw_Uart_Putch.part.0+0x8>
     		REG_USART1_DR = Uart_PutData;
- 800072a:	f643 0104 	movw	r1, #14340	; 0x3804
- 800072e:	f2c4 0101 	movt	r1, #16385	; 0x4001
- 8000732:	6008      	str	r0, [r1, #0]
- 8000734:	4770      	bx	lr
- 8000736:	bf00      	nop
+ 800073a:	f643 0104 	movw	r1, #14340	; 0x3804
+ 800073e:	f2c4 0101 	movt	r1, #16385	; 0x4001
+ 8000742:	6008      	str	r0, [r1, #0]
+ 8000744:	4770      	bx	lr
+ 8000746:	bf00      	nop
 
-08000738 <Hw_Uart_Open_COM1>:
+08000748 <Hw_Uart_Open_COM1>:
      WORK    :
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
 void Hw_Uart_Open_COM1( u32 BaudData, void (*ISR_FuncPtr)(char Ch) )
 {	
- 8000738:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+ 8000748:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	Hw_Uart_Ch[HW_UART_COM1].ISR_FuncPtr = ISR_FuncPtr;
 	
 	
 	//-- Clock Enable
 	//
 	SET_BIT( REG_RCC_APB2ENR, 14 );		// USART1 Clock Enable
- 800073c:	f241 0618 	movw	r6, #4120	; 0x1018
- 8000740:	f2c4 0602 	movt	r6, #16386	; 0x4002
- 8000744:	6835      	ldr	r5, [r6, #0]
+ 800074c:	f241 0618 	movw	r6, #4120	; 0x1018
+ 8000750:	f2c4 0602 	movt	r6, #16386	; 0x4002
+ 8000754:	6835      	ldr	r5, [r6, #0]
      RET     : void
 ---------------------------------------------------------------------------*/
 void Hw_Uart_Open_COM1( u32 BaudData, void (*ISR_FuncPtr)(char Ch) )
 {	
 
 	Hw_Uart_Ch[HW_UART_COM1].Baud 		 = BaudData;
- 8000746:	f240 1338 	movw	r3, #312	; 0x138
- 800074a:	f2c2 0300 	movt	r3, #8192	; 0x2000
+ 8000756:	f240 1338 	movw	r3, #312	; 0x138
+ 800075a:	f2c2 0300 	movt	r3, #8192	; 0x2000
 	//
 	
 	
 	//-- USART1 설정
 	//	
 	REG_USART1_CR1  = 0 
- 800074e:	f643 040c 	movw	r4, #14348	; 0x380c
+ 800075e:	f643 040c 	movw	r4, #14348	; 0x380c
 					| ( 0 << 12 )		// 1 Start bit, 8 Data bits, n Stop bit
 					| ( 0 << 10 )		// Parity control disabled
 					| ( 1 <<  3 )		// Transmitter Enable
 					| ( 1 <<  2 );		// Receiver Enable					
 	REG_USART1_CR2  = ( 0 << 12 );		// 1 stop bit	
- 8000752:	f643 0c10 	movw	ip, #14352	; 0x3810
+ 8000762:	f643 0c10 	movw	ip, #14352	; 0x3810
 	REG_USART1_CR3  = 0;
- 8000756:	f643 0e14 	movw	lr, #14356	; 0x3814
+ 8000766:	f643 0e14 	movw	lr, #14356	; 0x3814
 	
 	
 	//-- 115200bps로 통신 속도 설정
 	//
 	REG_USART1_BRR  = 0
- 800075a:	f643 0708 	movw	r7, #14344	; 0x3808
+ 800076a:	f643 0708 	movw	r7, #14344	; 0x3808
      RET     : void
 ---------------------------------------------------------------------------*/
 void Hw_Uart_Open_COM1( u32 BaudData, void (*ISR_FuncPtr)(char Ch) )
 {	
 
 	Hw_Uart_Ch[HW_UART_COM1].Baud 		 = BaudData;
- 800075e:	6058      	str	r0, [r3, #4]
+ 800076e:	6058      	str	r0, [r3, #4]
 	Hw_Uart_Ch[HW_UART_COM1].ISR_FuncPtr = ISR_FuncPtr;
- 8000760:	6099      	str	r1, [r3, #8]
+ 8000770:	6099      	str	r1, [r3, #8]
 	//
 	
 	
 	//-- USART1 설정
 	//	
 	REG_USART1_CR1  = 0 
- 8000762:	f2c4 0401 	movt	r4, #16385	; 0x4001
+ 8000772:	f2c4 0401 	movt	r4, #16385	; 0x4001
 					| ( 0 << 12 )		// 1 Start bit, 8 Data bits, n Stop bit
 					| ( 0 << 10 )		// Parity control disabled
 					| ( 1 <<  3 )		// Transmitter Enable
 					| ( 1 <<  2 );		// Receiver Enable					
 	REG_USART1_CR2  = ( 0 << 12 );		// 1 stop bit	
- 8000766:	2200      	movs	r2, #0
-	Hw_Uart_Ch[HW_UART_COM1].ISR_FuncPtr = ISR_FuncPtr;
-	
-	
-	//-- Clock Enable
-	//
-	SET_BIT( REG_RCC_APB2ENR, 14 );		// USART1 Clock Enable
- 8000768:	f445 4880 	orr.w	r8, r5, #16384	; 0x4000
-	REG_USART1_CR1  = 0 
-					| ( 0 << 12 )		// 1 Start bit, 8 Data bits, n Stop bit
-					| ( 0 << 10 )		// Parity control disabled
-					| ( 1 <<  3 )		// Transmitter Enable
-					| ( 1 <<  2 );		// Receiver Enable					
-	REG_USART1_CR2  = ( 0 << 12 );		// 1 stop bit	
- 800076c:	f2c4 0c01 	movt	ip, #16385	; 0x4001
-	REG_USART1_CR3  = 0;
- 8000770:	f2c4 0e01 	movt	lr, #16385	; 0x4001
-	//
-	
-	
-	//-- USART1 설정
-	//	
-	REG_USART1_CR1  = 0 
- 8000774:	200c      	movs	r0, #12
-	REG_USART1_CR3  = 0;
-	
-	
-	//-- 115200bps로 통신 속도 설정
-	//
-	REG_USART1_BRR  = 0
- 8000776:	f240 2171 	movw	r1, #625	; 0x271
- 800077a:	f2c4 0701 	movt	r7, #16385	; 0x4001
-					| (  1 << 0 );		// DIV Fraction
-	
-
-	//-- 인터럽트 설정
-	//
-	SET_BIT( REG_NVIC_ISER( 37/32 ), 37%32 );	// NVIC 37번 USART1 인터럽트 활성화
- 800077e:	f24e 1504 	movw	r5, #57604	; 0xe104
+ 8000776:	2200      	movs	r2, #0
 	Hw_Uart_Ch[HW_UART_COM1].ISR_FuncPtr = ISR_FuncPtr;
 	
 	
 	//-- Clock Enable
 	//
 	SET_BIT( REG_RCC_APB2ENR, 14 );		// USART1 Clock Enable
- 8000782:	f8c6 8000 	str.w	r8, [r6]
-					| (  1 << 0 );		// DIV Fraction
-	
-
-	//-- 인터럽트 설정
-	//
-	SET_BIT( REG_NVIC_ISER( 37/32 ), 37%32 );	// NVIC 37번 USART1 인터럽트 활성화
- 8000786:	f2ce 0500 	movt	r5, #57344	; 0xe000
+ 8000778:	f445 4880 	orr.w	r8, r5, #16384	; 0x4000
+	REG_USART1_CR1  = 0 
+					| ( 0 << 12 )		// 1 Start bit, 8 Data bits, n Stop bit
+					| ( 0 << 10 )		// Parity control disabled
+					| ( 1 <<  3 )		// Transmitter Enable
+					| ( 1 <<  2 );		// Receiver Enable					
+	REG_USART1_CR2  = ( 0 << 12 );		// 1 stop bit	
+ 800077c:	f2c4 0c01 	movt	ip, #16385	; 0x4001
+	REG_USART1_CR3  = 0;
+ 8000780:	f2c4 0e01 	movt	lr, #16385	; 0x4001
 	//
 	
 	
 	//-- USART1 설정
 	//	
 	REG_USART1_CR1  = 0 
- 800078a:	6020      	str	r0, [r4, #0]
-					| ( 0 << 12 )		// 1 Start bit, 8 Data bits, n Stop bit
-					| ( 0 << 10 )		// Parity control disabled
-					| ( 1 <<  3 )		// Transmitter Enable
-					| ( 1 <<  2 );		// Receiver Enable					
-	REG_USART1_CR2  = ( 0 << 12 );		// 1 stop bit	
- 800078c:	f8cc 2000 	str.w	r2, [ip]
+ 8000784:	200c      	movs	r0, #12
 	REG_USART1_CR3  = 0;
- 8000790:	f8ce 2000 	str.w	r2, [lr]
 	
 	
 	//-- 115200bps로 통신 속도 설정
 	//
 	REG_USART1_BRR  = 0
- 8000794:	6039      	str	r1, [r7, #0]
+ 8000786:	f240 2171 	movw	r1, #625	; 0x271
+ 800078a:	f2c4 0701 	movt	r7, #16385	; 0x4001
 					| (  1 << 0 );		// DIV Fraction
 	
 
 	//-- 인터럽트 설정
 	//
 	SET_BIT( REG_NVIC_ISER( 37/32 ), 37%32 );	// NVIC 37번 USART1 인터럽트 활성화
- 8000796:	682b      	ldr	r3, [r5, #0]
- 8000798:	f043 0020 	orr.w	r0, r3, #32
- 800079c:	6028      	str	r0, [r5, #0]
+ 800078e:	f24e 1504 	movw	r5, #57604	; 0xe104
+	Hw_Uart_Ch[HW_UART_COM1].ISR_FuncPtr = ISR_FuncPtr;
+	
+	
+	//-- Clock Enable
+	//
+	SET_BIT( REG_RCC_APB2ENR, 14 );		// USART1 Clock Enable
+ 8000792:	f8c6 8000 	str.w	r8, [r6]
+					| (  1 << 0 );		// DIV Fraction
+	
+
+	//-- 인터럽트 설정
+	//
+	SET_BIT( REG_NVIC_ISER( 37/32 ), 37%32 );	// NVIC 37번 USART1 인터럽트 활성화
+ 8000796:	f2ce 0500 	movt	r5, #57344	; 0xe000
+	//
+	
+	
+	//-- USART1 설정
+	//	
+	REG_USART1_CR1  = 0 
+ 800079a:	6020      	str	r0, [r4, #0]
+					| ( 0 << 12 )		// 1 Start bit, 8 Data bits, n Stop bit
+					| ( 0 << 10 )		// Parity control disabled
+					| ( 1 <<  3 )		// Transmitter Enable
+					| ( 1 <<  2 );		// Receiver Enable					
+	REG_USART1_CR2  = ( 0 << 12 );		// 1 stop bit	
+ 800079c:	f8cc 2000 	str.w	r2, [ip]
+	REG_USART1_CR3  = 0;
+ 80007a0:	f8ce 2000 	str.w	r2, [lr]
+	
+	
+	//-- 115200bps로 통신 속도 설정
+	//
+	REG_USART1_BRR  = 0
+ 80007a4:	6039      	str	r1, [r7, #0]
+					| (  1 << 0 );		// DIV Fraction
+	
+
+	//-- 인터럽트 설정
+	//
+	SET_BIT( REG_NVIC_ISER( 37/32 ), 37%32 );	// NVIC 37번 USART1 인터럽트 활성화
+ 80007a6:	682b      	ldr	r3, [r5, #0]
+ 80007a8:	f043 0020 	orr.w	r0, r3, #32
+ 80007ac:	6028      	str	r0, [r5, #0]
 	SET_BIT( REG_USART1_CR1, 5 );				// RX 인터럽트 활성화
- 800079e:	6821      	ldr	r1, [r4, #0]
+ 80007ae:	6821      	ldr	r1, [r4, #0]
 	
 	Hw_ISR_SetIRQFunc( 37, (u32)Hw_ISR_UART1_Handler, 0 );
- 80007a0:	f640 13f9 	movw	r3, #2553	; 0x9f9
+ 80007b0:	f640 2309 	movw	r3, #2569	; 0xa09
 	
 
 	//-- 인터럽트 설정
 	//
 	SET_BIT( REG_NVIC_ISER( 37/32 ), 37%32 );	// NVIC 37번 USART1 인터럽트 활성화
 	SET_BIT( REG_USART1_CR1, 5 );				// RX 인터럽트 활성화
- 80007a4:	f041 0020 	orr.w	r0, r1, #32
+ 80007b4:	f041 0020 	orr.w	r0, r1, #32
 	
 	Hw_ISR_SetIRQFunc( 37, (u32)Hw_ISR_UART1_Handler, 0 );
- 80007a8:	f240 61e9 	movw	r1, #1769	; 0x6e9
+ 80007b8:	f240 61f9 	movw	r1, #1785	; 0x6f9
 	
 
 	//-- 인터럽트 설정
 	//
 	SET_BIT( REG_NVIC_ISER( 37/32 ), 37%32 );	// NVIC 37번 USART1 인터럽트 활성화
 	SET_BIT( REG_USART1_CR1, 5 );				// RX 인터럽트 활성화
- 80007ac:	6020      	str	r0, [r4, #0]
+ 80007bc:	6020      	str	r0, [r4, #0]
 	
 	Hw_ISR_SetIRQFunc( 37, (u32)Hw_ISR_UART1_Handler, 0 );
- 80007ae:	f6c0 0100 	movt	r1, #2048	; 0x800
- 80007b2:	2025      	movs	r0, #37	; 0x25
- 80007b4:	f6c0 0300 	movt	r3, #2048	; 0x800
- 80007b8:	4798      	blx	r3
+ 80007be:	f6c0 0100 	movt	r1, #2048	; 0x800
+ 80007c2:	2025      	movs	r0, #37	; 0x25
+ 80007c4:	f6c0 0300 	movt	r3, #2048	; 0x800
+ 80007c8:	4798      	blx	r3
 	
 	REG_USART1_CR1 |= ( 1 << 13 );	    // USART Enable
- 80007ba:	6822      	ldr	r2, [r4, #0]
- 80007bc:	f442 5100 	orr.w	r1, r2, #8192	; 0x2000
- 80007c0:	6021      	str	r1, [r4, #0]
- 80007c2:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
- 80007c6:	bf00      	nop
+ 80007ca:	6822      	ldr	r2, [r4, #0]
+ 80007cc:	f442 5100 	orr.w	r1, r2, #8192	; 0x2000
+ 80007d0:	6021      	str	r1, [r4, #0]
+ 80007d2:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+ 80007d6:	bf00      	nop
 
-080007c8 <Hw_Uart_Open_COM2>:
+080007d8 <Hw_Uart_Open_COM2>:
      WORK    :
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
 void Hw_Uart_Open_COM2( u32 BaudData, void (*ISR_FuncPtr)(char Ch) )
 {	
- 80007c8:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 80007d8:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
 	Hw_Uart_Ch[HW_UART_COM2].ISR_FuncPtr = ISR_FuncPtr;
 	
 	
 	//-- Clock Enable
 	//
 	SET_BIT( REG_RCC_APB1ENR, 17 );		// USART2 Clock Enable	PCLK2 = 72Mhz
- 80007ca:	f241 041c 	movw	r4, #4124	; 0x101c
- 80007ce:	f2c4 0402 	movt	r4, #16386	; 0x4002
- 80007d2:	6825      	ldr	r5, [r4, #0]
+ 80007da:	f241 041c 	movw	r4, #4124	; 0x101c
+ 80007de:	f2c4 0402 	movt	r4, #16386	; 0x4002
+ 80007e2:	6825      	ldr	r5, [r4, #0]
      RET     : void
 ---------------------------------------------------------------------------*/
 void Hw_Uart_Open_COM2( u32 BaudData, void (*ISR_FuncPtr)(char Ch) )
 {	
 
 	Hw_Uart_Ch[HW_UART_COM2].Baud 		 = BaudData;
- 80007d4:	f240 1238 	movw	r2, #312	; 0x138
- 80007d8:	f2c2 0200 	movt	r2, #8192	; 0x2000
+ 80007e4:	f240 1238 	movw	r2, #312	; 0x138
+ 80007e8:	f2c2 0200 	movt	r2, #8192	; 0x2000
 	Hw_Uart_Ch[HW_UART_COM2].ISR_FuncPtr = ISR_FuncPtr;
 	
 	
 	//-- Clock Enable
 	//
 	SET_BIT( REG_RCC_APB1ENR, 17 );		// USART2 Clock Enable	PCLK2 = 72Mhz
- 80007dc:	f445 3600 	orr.w	r6, r5, #131072	; 0x20000
+ 80007ec:	f445 3600 	orr.w	r6, r5, #131072	; 0x20000
 	
 	//-- I/O Port 설정
 	//
 	
 	// PA2 - TX
 	REG_GPIOA_CRL &= ~(0x0F << ( 8));	// Clear
- 80007e0:	f44f 6300 	mov.w	r3, #2048	; 0x800
+ 80007f0:	f44f 6300 	mov.w	r3, #2048	; 0x800
      RET     : void
 ---------------------------------------------------------------------------*/
 void Hw_Uart_Open_COM2( u32 BaudData, void (*ISR_FuncPtr)(char Ch) )
 {	
 
 	Hw_Uart_Ch[HW_UART_COM2].Baud 		 = BaudData;
- 80007e4:	6110      	str	r0, [r2, #16]
+ 80007f4:	6110      	str	r0, [r2, #16]
 	Hw_Uart_Ch[HW_UART_COM2].ISR_FuncPtr = ISR_FuncPtr;
- 80007e6:	6151      	str	r1, [r2, #20]
+ 80007f6:	6151      	str	r1, [r2, #20]
 	
 	//-- I/O Port 설정
 	//
 	
 	// PA2 - TX
 	REG_GPIOA_CRL &= ~(0x0F << ( 8));	// Clear
- 80007e8:	f2c4 0301 	movt	r3, #16385	; 0x4001
+ 80007f8:	f2c4 0301 	movt	r3, #16385	; 0x4001
 	Hw_Uart_Ch[HW_UART_COM2].ISR_FuncPtr = ISR_FuncPtr;
 	
 	
 	//-- Clock Enable
 	//
 	SET_BIT( REG_RCC_APB1ENR, 17 );		// USART2 Clock Enable	PCLK2 = 72Mhz
- 80007ec:	6026      	str	r6, [r4, #0]
+ 80007fc:	6026      	str	r6, [r4, #0]
 	
 	//-- I/O Port 설정
 	//
 	
 	// PA2 - TX
 	REG_GPIOA_CRL &= ~(0x0F << ( 8));	// Clear
- 80007ee:	6818      	ldr	r0, [r3, #0]
+ 80007fe:	6818      	ldr	r0, [r3, #0]
 	REG_GPIOA_CRL |=  (0x01 << (14));	// CNF    - Floating input	
 	
 
 	//-- USART2 설정
 	//	
 	REG_USART2_CR1  = 0 
- 80007f0:	f244 440c 	movw	r4, #17420	; 0x440c
+ 8000800:	f244 440c 	movw	r4, #17420	; 0x440c
 	
 	//-- I/O Port 설정
 	//
 	
 	// PA2 - TX
 	REG_GPIOA_CRL &= ~(0x0F << ( 8));	// Clear
- 80007f4:	f420 6170 	bic.w	r1, r0, #3840	; 0xf00
- 80007f8:	6019      	str	r1, [r3, #0]
+ 8000804:	f420 6170 	bic.w	r1, r0, #3840	; 0xf00
+ 8000808:	6019      	str	r1, [r3, #0]
 	REG_GPIOA_CRL |=  (0x03 << ( 8));	// MODE   - Output mode, max speed 50Mhz
- 80007fa:	681f      	ldr	r7, [r3, #0]
+ 800080a:	681f      	ldr	r7, [r3, #0]
 	REG_GPIOA_CRL |=  (0x01 << (14));	// CNF    - Floating input	
 	
 
 	//-- USART2 설정
 	//	
 	REG_USART2_CR1  = 0 
- 80007fc:	f2c4 0400 	movt	r4, #16384	; 0x4000
+ 800080c:	f2c4 0400 	movt	r4, #16384	; 0x4000
 	//-- I/O Port 설정
 	//
 	
 	// PA2 - TX
 	REG_GPIOA_CRL &= ~(0x0F << ( 8));	// Clear
 	REG_GPIOA_CRL |=  (0x03 << ( 8));	// MODE   - Output mode, max speed 50Mhz
- 8000800:	f447 7540 	orr.w	r5, r7, #768	; 0x300
- 8000804:	601d      	str	r5, [r3, #0]
+ 8000810:	f447 7540 	orr.w	r5, r7, #768	; 0x300
+ 8000814:	601d      	str	r5, [r3, #0]
 	REG_GPIOA_CRL |=  (0x02 << (10));	// CNF    - Alternate function output Push-pull
- 8000806:	681a      	ldr	r2, [r3, #0]
+ 8000816:	681a      	ldr	r2, [r3, #0]
 	REG_USART2_CR1  = 0 
 					| ( 0 << 12 )		// 1 Start bit, 8 Data bits, n Stop bit
 					| ( 0 << 10 )		// Parity control disabled
 					| ( 1 <<  3 )		// Transmitter Enable
 					| ( 1 <<  2 );		// Receiver Enable					
 	REG_USART2_CR2  = ( 0 << 12 );		// 1 stop bit	
- 8000808:	f244 4610 	movw	r6, #17424	; 0x4410
+ 8000818:	f244 4610 	movw	r6, #17424	; 0x4410
 	//
 	
 	// PA2 - TX
 	REG_GPIOA_CRL &= ~(0x0F << ( 8));	// Clear
 	REG_GPIOA_CRL |=  (0x03 << ( 8));	// MODE   - Output mode, max speed 50Mhz
 	REG_GPIOA_CRL |=  (0x02 << (10));	// CNF    - Alternate function output Push-pull
- 800080c:	f442 6000 	orr.w	r0, r2, #2048	; 0x800
- 8000810:	6018      	str	r0, [r3, #0]
+ 800081c:	f442 6000 	orr.w	r0, r2, #2048	; 0x800
+ 8000820:	6018      	str	r0, [r3, #0]
 										     	    	
 	// PA3 - RX
 	REG_GPIOA_CRL &= ~(0x0F << (12));	// Clear
- 8000812:	6819      	ldr	r1, [r3, #0]
+ 8000822:	6819      	ldr	r1, [r3, #0]
 					| ( 0 << 12 )		// 1 Start bit, 8 Data bits, n Stop bit
 					| ( 0 << 10 )		// Parity control disabled
 					| ( 1 <<  3 )		// Transmitter Enable
 					| ( 1 <<  2 );		// Receiver Enable					
 	REG_USART2_CR2  = ( 0 << 12 );		// 1 stop bit	
 	REG_USART2_CR3  = 0;
- 8000814:	f244 4514 	movw	r5, #17428	; 0x4414
+ 8000824:	f244 4514 	movw	r5, #17428	; 0x4414
 	REG_GPIOA_CRL &= ~(0x0F << ( 8));	// Clear
 	REG_GPIOA_CRL |=  (0x03 << ( 8));	// MODE   - Output mode, max speed 50Mhz
 	REG_GPIOA_CRL |=  (0x02 << (10));	// CNF    - Alternate function output Push-pull
 										     	    	
 	// PA3 - RX
 	REG_GPIOA_CRL &= ~(0x0F << (12));	// Clear
- 8000818:	f421 4770 	bic.w	r7, r1, #61440	; 0xf000
- 800081c:	601f      	str	r7, [r3, #0]
+ 8000828:	f421 4770 	bic.w	r7, r1, #61440	; 0xf000
+ 800082c:	601f      	str	r7, [r3, #0]
 	REG_GPIOA_CRL |=  (0x00 << (12));	// MODE   - Input mode
- 800081e:	681a      	ldr	r2, [r3, #0]
+ 800082e:	681a      	ldr	r2, [r3, #0]
 	REG_USART2_CR3  = 0;
 	
 	
 	//-- 115200bps로 통신 속도 설정
 	//
 	REG_USART2_BRR  = 0
- 8000820:	f244 4008 	movw	r0, #17416	; 0x4408
+ 8000830:	f244 4008 	movw	r0, #17416	; 0x4408
 	REG_GPIOA_CRL |=  (0x03 << ( 8));	// MODE   - Output mode, max speed 50Mhz
 	REG_GPIOA_CRL |=  (0x02 << (10));	// CNF    - Alternate function output Push-pull
 										     	    	
 	// PA3 - RX
 	REG_GPIOA_CRL &= ~(0x0F << (12));	// Clear
 	REG_GPIOA_CRL |=  (0x00 << (12));	// MODE   - Input mode
- 8000824:	601a      	str	r2, [r3, #0]
+ 8000834:	601a      	str	r2, [r3, #0]
 	REG_GPIOA_CRL |=  (0x01 << (14));	// CNF    - Floating input	
- 8000826:	6819      	ldr	r1, [r3, #0]
+ 8000836:	6819      	ldr	r1, [r3, #0]
 	REG_USART2_CR1  = 0 
 					| ( 0 << 12 )		// 1 Start bit, 8 Data bits, n Stop bit
 					| ( 0 << 10 )		// Parity control disabled
 					| ( 1 <<  3 )		// Transmitter Enable
 					| ( 1 <<  2 );		// Receiver Enable					
 	REG_USART2_CR2  = ( 0 << 12 );		// 1 stop bit	
- 8000828:	2200      	movs	r2, #0
+ 8000838:	2200      	movs	r2, #0
 	REG_GPIOA_CRL |=  (0x02 << (10));	// CNF    - Alternate function output Push-pull
 										     	    	
 	// PA3 - RX
 	REG_GPIOA_CRL &= ~(0x0F << (12));	// Clear
 	REG_GPIOA_CRL |=  (0x00 << (12));	// MODE   - Input mode
 	REG_GPIOA_CRL |=  (0x01 << (14));	// CNF    - Floating input	
- 800082a:	f441 4780 	orr.w	r7, r1, #16384	; 0x4000
- 800082e:	601f      	str	r7, [r3, #0]
+ 800083a:	f441 4780 	orr.w	r7, r1, #16384	; 0x4000
+ 800083e:	601f      	str	r7, [r3, #0]
 	
 
 	//-- USART2 설정
 	//	
 	REG_USART2_CR1  = 0 
- 8000830:	230c      	movs	r3, #12
- 8000832:	6023      	str	r3, [r4, #0]
+ 8000840:	230c      	movs	r3, #12
+ 8000842:	6023      	str	r3, [r4, #0]
 	REG_USART2_CR3  = 0;
 	
 	
 	//-- 115200bps로 통신 속도 설정
 	//
 	REG_USART2_BRR  = 0
- 8000834:	f2c4 0000 	movt	r0, #16384	; 0x4000
- 8000838:	f44f 739c 	mov.w	r3, #312	; 0x138
+ 8000844:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ 8000848:	f44f 739c 	mov.w	r3, #312	; 0x138
 	REG_USART2_CR1  = 0 
 					| ( 0 << 12 )		// 1 Start bit, 8 Data bits, n Stop bit
 					| ( 0 << 10 )		// Parity control disabled
 					| ( 1 <<  3 )		// Transmitter Enable
 					| ( 1 <<  2 );		// Receiver Enable					
 	REG_USART2_CR2  = ( 0 << 12 );		// 1 stop bit	
- 800083c:	f2c4 0600 	movt	r6, #16384	; 0x4000
+ 800084c:	f2c4 0600 	movt	r6, #16384	; 0x4000
 	REG_USART2_CR3  = 0;
- 8000840:	f2c4 0500 	movt	r5, #16384	; 0x4000
+ 8000850:	f2c4 0500 	movt	r5, #16384	; 0x4000
 					| (  8 << 0 );		// DIV Fraction
 	
 
 	//-- 인터럽트 설정
 	//
 	SET_BIT( REG_NVIC_ISER( 38/32 ), 38%32 );	// NVIC 37번 USART1 인터럽트 활성화
- 8000844:	f24e 1104 	movw	r1, #57604	; 0xe104
+ 8000854:	f24e 1104 	movw	r1, #57604	; 0xe104
 	REG_USART2_CR1  = 0 
 					| ( 0 << 12 )		// 1 Start bit, 8 Data bits, n Stop bit
 					| ( 0 << 10 )		// Parity control disabled
 					| ( 1 <<  3 )		// Transmitter Enable
 					| ( 1 <<  2 );		// Receiver Enable					
 	REG_USART2_CR2  = ( 0 << 12 );		// 1 stop bit	
- 8000848:	6032      	str	r2, [r6, #0]
+ 8000858:	6032      	str	r2, [r6, #0]
 					| (  8 << 0 );		// DIV Fraction
 	
 
 	//-- 인터럽트 설정
 	//
 	SET_BIT( REG_NVIC_ISER( 38/32 ), 38%32 );	// NVIC 37번 USART1 인터럽트 활성화
- 800084a:	f2ce 0100 	movt	r1, #57344	; 0xe000
+ 800085a:	f2ce 0100 	movt	r1, #57344	; 0xe000
 					| ( 0 << 12 )		// 1 Start bit, 8 Data bits, n Stop bit
 					| ( 0 << 10 )		// Parity control disabled
 					| ( 1 <<  3 )		// Transmitter Enable
 					| ( 1 <<  2 );		// Receiver Enable					
 	REG_USART2_CR2  = ( 0 << 12 );		// 1 stop bit	
 	REG_USART2_CR3  = 0;
- 800084e:	602a      	str	r2, [r5, #0]
+ 800085e:	602a      	str	r2, [r5, #0]
 	
 	
 	//-- 115200bps로 통신 속도 설정
 	//
 	REG_USART2_BRR  = 0
- 8000850:	6003      	str	r3, [r0, #0]
+ 8000860:	6003      	str	r3, [r0, #0]
 					| (  8 << 0 );		// DIV Fraction
 	
 
 	//-- 인터럽트 설정
 	//
 	SET_BIT( REG_NVIC_ISER( 38/32 ), 38%32 );	// NVIC 37번 USART1 인터럽트 활성화
- 8000852:	6808      	ldr	r0, [r1, #0]
- 8000854:	f040 0340 	orr.w	r3, r0, #64	; 0x40
- 8000858:	600b      	str	r3, [r1, #0]
+ 8000862:	6808      	ldr	r0, [r1, #0]
+ 8000864:	f040 0340 	orr.w	r3, r0, #64	; 0x40
+ 8000868:	600b      	str	r3, [r1, #0]
 	SET_BIT( REG_USART2_CR1, 5 );				// RX 인터럽트 활성화
- 800085a:	6821      	ldr	r1, [r4, #0]
+ 800086a:	6821      	ldr	r1, [r4, #0]
 	
 	Hw_ISR_SetIRQFunc( 38, (u32)Hw_ISR_UART2_Handler, 0 );
- 800085c:	f640 13f9 	movw	r3, #2553	; 0x9f9
+ 800086c:	f640 2309 	movw	r3, #2569	; 0xa09
 	
 
 	//-- 인터럽트 설정
 	//
 	SET_BIT( REG_NVIC_ISER( 38/32 ), 38%32 );	// NVIC 37번 USART1 인터럽트 활성화
 	SET_BIT( REG_USART2_CR1, 5 );				// RX 인터럽트 활성화
- 8000860:	f041 0020 	orr.w	r0, r1, #32
+ 8000870:	f041 0020 	orr.w	r0, r1, #32
 	
 	Hw_ISR_SetIRQFunc( 38, (u32)Hw_ISR_UART2_Handler, 0 );
- 8000864:	f240 61b5 	movw	r1, #1717	; 0x6b5
+ 8000874:	f240 61c5 	movw	r1, #1733	; 0x6c5
 	
 
 	//-- 인터럽트 설정
 	//
 	SET_BIT( REG_NVIC_ISER( 38/32 ), 38%32 );	// NVIC 37번 USART1 인터럽트 활성화
 	SET_BIT( REG_USART2_CR1, 5 );				// RX 인터럽트 활성화
- 8000868:	6020      	str	r0, [r4, #0]
+ 8000878:	6020      	str	r0, [r4, #0]
 	
 	Hw_ISR_SetIRQFunc( 38, (u32)Hw_ISR_UART2_Handler, 0 );
- 800086a:	f6c0 0100 	movt	r1, #2048	; 0x800
- 800086e:	2026      	movs	r0, #38	; 0x26
- 8000870:	f6c0 0300 	movt	r3, #2048	; 0x800
- 8000874:	4798      	blx	r3
+ 800087a:	f6c0 0100 	movt	r1, #2048	; 0x800
+ 800087e:	2026      	movs	r0, #38	; 0x26
+ 8000880:	f6c0 0300 	movt	r3, #2048	; 0x800
+ 8000884:	4798      	blx	r3
 	
 	REG_USART2_CR1 |= ( 1 << 13 );	    // USART Enable
- 8000876:	6822      	ldr	r2, [r4, #0]
- 8000878:	f442 5100 	orr.w	r1, r2, #8192	; 0x2000
- 800087c:	6021      	str	r1, [r4, #0]
- 800087e:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+ 8000886:	6822      	ldr	r2, [r4, #0]
+ 8000888:	f442 5100 	orr.w	r1, r2, #8192	; 0x2000
+ 800088c:	6021      	str	r1, [r4, #0]
+ 800088e:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
 
-08000880 <Hw_Uart_Init>:
+08000890 <Hw_Uart_Init>:
 ---------------------------------------------------------------------------*/
 void Hw_Uart_Init( void )
 {
 	u32 i;
 	
 	Hw_Uart_Q_Init();
- 8000880:	f640 53ed 	movw	r3, #3565	; 0xded
+ 8000890:	f640 53fd 	movw	r3, #3581	; 0xdfd
      WORK    :
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
 void Hw_Uart_Init( void )
 {
- 8000884:	b510      	push	{r4, lr}
+ 8000894:	b510      	push	{r4, lr}
 	u32 i;
 	
 	Hw_Uart_Q_Init();
- 8000886:	f6c0 0300 	movt	r3, #2048	; 0x800
- 800088a:	4798      	blx	r3
+ 8000896:	f6c0 0300 	movt	r3, #2048	; 0x800
+ 800089a:	4798      	blx	r3
 	
 	
 	for( i=0; i<HW_UART_MAX_CH; i++ )
 	{
 		Hw_Uart_Ch[i].Baud 		  = 0;
- 800088c:	f240 1338 	movw	r3, #312	; 0x138
- 8000890:	2400      	movs	r4, #0
- 8000892:	f2c2 0300 	movt	r3, #8192	; 0x2000
+ 800089c:	f240 1338 	movw	r3, #312	; 0x138
+ 80008a0:	2400      	movs	r4, #0
+ 80008a2:	f2c2 0300 	movt	r3, #8192	; 0x2000
 void Hw_Uart_Open( u8 Ch, u32 BaudData, void (*ISR_FuncPtr)(char Ch) )
 {	
 	switch( Ch )
 	{
 		case HW_UART_COM1:
 			Hw_Uart_Open_COM1( BaudData, ISR_FuncPtr );
- 8000896:	f240 7239 	movw	r2, #1849	; 0x739
- 800089a:	4621      	mov	r1, r4
+ 80008a6:	f240 7249 	movw	r2, #1865	; 0x749
+ 80008aa:	4621      	mov	r1, r4
 	Hw_Uart_Q_Init();
 	
 	
 	for( i=0; i<HW_UART_MAX_CH; i++ )
 	{
 		Hw_Uart_Ch[i].Baud 		  = 0;
- 800089c:	605c      	str	r4, [r3, #4]
+ 80008ac:	605c      	str	r4, [r3, #4]
 		Hw_Uart_Ch[i].ISR_FuncPtr = NULL;
- 800089e:	609c      	str	r4, [r3, #8]
+ 80008ae:	609c      	str	r4, [r3, #8]
 	Hw_Uart_Q_Init();
 	
 	
 	for( i=0; i<HW_UART_MAX_CH; i++ )
 	{
 		Hw_Uart_Ch[i].Baud 		  = 0;
- 80008a0:	611c      	str	r4, [r3, #16]
+ 80008b0:	611c      	str	r4, [r3, #16]
 		Hw_Uart_Ch[i].ISR_FuncPtr = NULL;
- 80008a2:	615c      	str	r4, [r3, #20]
+ 80008b2:	615c      	str	r4, [r3, #20]
 	Hw_Uart_Q_Init();
 	
 	
 	for( i=0; i<HW_UART_MAX_CH; i++ )
 	{
 		Hw_Uart_Ch[i].Baud 		  = 0;
- 80008a4:	61dc      	str	r4, [r3, #28]
+ 80008b4:	61dc      	str	r4, [r3, #28]
 		Hw_Uart_Ch[i].ISR_FuncPtr = NULL;
- 80008a6:	621c      	str	r4, [r3, #32]
+ 80008b6:	621c      	str	r4, [r3, #32]
 	Hw_Uart_Q_Init();
 	
 	
 	for( i=0; i<HW_UART_MAX_CH; i++ )
 	{
 		Hw_Uart_Ch[i].Baud 		  = 0;
- 80008a8:	629c      	str	r4, [r3, #40]	; 0x28
+ 80008b8:	629c      	str	r4, [r3, #40]	; 0x28
 		Hw_Uart_Ch[i].ISR_FuncPtr = NULL;
- 80008aa:	62dc      	str	r4, [r3, #44]	; 0x2c
+ 80008ba:	62dc      	str	r4, [r3, #44]	; 0x2c
 	Hw_Uart_Q_Init();
 	
 	
 	for( i=0; i<HW_UART_MAX_CH; i++ )
 	{
 		Hw_Uart_Ch[i].Baud 		  = 0;
- 80008ac:	635c      	str	r4, [r3, #52]	; 0x34
+ 80008bc:	635c      	str	r4, [r3, #52]	; 0x34
 		Hw_Uart_Ch[i].ISR_FuncPtr = NULL;
- 80008ae:	639c      	str	r4, [r3, #56]	; 0x38
+ 80008be:	639c      	str	r4, [r3, #56]	; 0x38
 	Hw_Uart_Q_Init();
 	
 	
 	for( i=0; i<HW_UART_MAX_CH; i++ )
 	{
 		Hw_Uart_Ch[i].Baud 		  = 0;
- 80008b0:	641c      	str	r4, [r3, #64]	; 0x40
+ 80008c0:	641c      	str	r4, [r3, #64]	; 0x40
 		Hw_Uart_Ch[i].ISR_FuncPtr = NULL;
- 80008b2:	645c      	str	r4, [r3, #68]	; 0x44
+ 80008c2:	645c      	str	r4, [r3, #68]	; 0x44
 void Hw_Uart_Open( u8 Ch, u32 BaudData, void (*ISR_FuncPtr)(char Ch) )
 {	
 	switch( Ch )
 	{
 		case HW_UART_COM1:
 			Hw_Uart_Open_COM1( BaudData, ISR_FuncPtr );
- 80008b4:	f44f 30e1 	mov.w	r0, #115200	; 0x1c200
- 80008b8:	f6c0 0200 	movt	r2, #2048	; 0x800
- 80008bc:	4790      	blx	r2
+ 80008c4:	f44f 30e1 	mov.w	r0, #115200	; 0x1c200
+ 80008c8:	f6c0 0200 	movt	r2, #2048	; 0x800
+ 80008cc:	4790      	blx	r2
 			break;
 			
 		case HW_UART_COM2:
 			Hw_Uart_Open_COM2( BaudData, ISR_FuncPtr );
- 80008be:	f240 73c9 	movw	r3, #1993	; 0x7c9
- 80008c2:	f44f 30e1 	mov.w	r0, #115200	; 0x1c200
- 80008c6:	4621      	mov	r1, r4
- 80008c8:	f6c0 0300 	movt	r3, #2048	; 0x800
- 80008cc:	4798      	blx	r3
- 80008ce:	bd10      	pop	{r4, pc}
+ 80008ce:	f240 73d9 	movw	r3, #2009	; 0x7d9
+ 80008d2:	f44f 30e1 	mov.w	r0, #115200	; 0x1c200
+ 80008d6:	4621      	mov	r1, r4
+ 80008d8:	f6c0 0300 	movt	r3, #2048	; 0x800
+ 80008dc:	4798      	blx	r3
+ 80008de:	bd10      	pop	{r4, pc}
 
-080008d0 <Hw_Uart_Getch>:
+080008e0 <Hw_Uart_Getch>:
 			: 시리얼 포트에서 문자 1바이트 읽는다.
      ARG
      RET
 ---------------------------------------------------------------------------*/
 u8 Hw_Uart_Getch( u8 Ch )
 {
- 80008d0:	b530      	push	{r4, r5, lr}
+ 80008e0:	b530      	push	{r4, r5, lr}
 	u8 Uart_GetData = 0;
- 80008d2:	2300      	movs	r3, #0
+ 80008e2:	2300      	movs	r3, #0
 			: 시리얼 포트에서 문자 1바이트 읽는다.
      ARG
      RET
 ---------------------------------------------------------------------------*/
 u8 Hw_Uart_Getch( u8 Ch )
 {
- 80008d4:	b083      	sub	sp, #12
+ 80008e4:	b083      	sub	sp, #12
 	u8 Uart_GetData = 0;
-
-	if( Ch == HW_UART_VCOM )
- 80008d6:	2805      	cmp	r0, #5
-			: 시리얼 포트에서 문자 1바이트 읽는다.
-     ARG
-     RET
----------------------------------------------------------------------------*/
-u8 Hw_Uart_Getch( u8 Ch )
-{
- 80008d8:	4604      	mov	r4, r0
-	u8 Uart_GetData = 0;
- 80008da:	f88d 3007 	strb.w	r3, [sp, #7]
 
 	if( Ch == HW_UART_VCOM )
- 80008de:	d00d      	beq.n	80008fc <Hw_Uart_Getch+0x2c>
- 80008e0:	4d08      	ldr	r5, [pc, #32]	; (8000904 <Hw_Uart_Getch+0x34>)
+ 80008e6:	2805      	cmp	r0, #5
+			: 시리얼 포트에서 문자 1바이트 읽는다.
+     ARG
+     RET
+---------------------------------------------------------------------------*/
+u8 Hw_Uart_Getch( u8 Ch )
+{
+ 80008e8:	4604      	mov	r4, r0
+	u8 Uart_GetData = 0;
+ 80008ea:	f88d 3007 	strb.w	r3, [sp, #7]
+
+	if( Ch == HW_UART_VCOM )
+ 80008ee:	d00d      	beq.n	800090c <Hw_Uart_Getch+0x2c>
+ 80008f0:	4d08      	ldr	r5, [pc, #32]	; (8000914 <Hw_Uart_Getch+0x34>)
 	}
 
 	while( 1 )
 	{
 		// 버퍼에 데이터 들어올때까지 기다린다.
 		if( HW_UART_Q_VAILD(Ch) > 0 ) break;
- 80008e2:	4620      	mov	r0, r4
- 80008e4:	47a8      	blx	r5
- 80008e6:	2800      	cmp	r0, #0
- 80008e8:	d0fb      	beq.n	80008e2 <Hw_Uart_Getch+0x12>
+ 80008f2:	4620      	mov	r0, r4
+ 80008f4:	47a8      	blx	r5
+ 80008f6:	2800      	cmp	r0, #0
+ 80008f8:	d0fb      	beq.n	80008f2 <Hw_Uart_Getch+0x12>
 	}
 
 	Hw_Uart_Q_Pop( Ch, &Uart_GetData );
- 80008ea:	4620      	mov	r0, r4
- 80008ec:	f10d 0107 	add.w	r1, sp, #7
- 80008f0:	4a05      	ldr	r2, [pc, #20]	; (8000908 <Hw_Uart_Getch+0x38>)
- 80008f2:	4790      	blx	r2
+ 80008fa:	4620      	mov	r0, r4
+ 80008fc:	f10d 0107 	add.w	r1, sp, #7
+ 8000900:	4a05      	ldr	r2, [pc, #20]	; (8000918 <Hw_Uart_Getch+0x38>)
+ 8000902:	4790      	blx	r2
 
 	return Uart_GetData;
- 80008f4:	f89d 0007 	ldrb.w	r0, [sp, #7]
+ 8000904:	f89d 0007 	ldrb.w	r0, [sp, #7]
 }
- 80008f8:	b003      	add	sp, #12
- 80008fa:	bd30      	pop	{r4, r5, pc}
+ 8000908:	b003      	add	sp, #12
+ 800090a:	bd30      	pop	{r4, r5, pc}
 {
 	u8 Uart_GetData = 0;
 
 	if( Ch == HW_UART_VCOM )
 	{
 		return Hw_VCom_Getch();
- 80008fc:	4803      	ldr	r0, [pc, #12]	; (800090c <Hw_Uart_Getch+0x3c>)
- 80008fe:	4780      	blx	r0
- 8000900:	e7fa      	b.n	80008f8 <Hw_Uart_Getch+0x28>
- 8000902:	bf00      	nop
- 8000904:	08000e1d 	.word	0x08000e1d
- 8000908:	08000ec5 	.word	0x08000ec5
- 800090c:	08000ffd 	.word	0x08000ffd
+ 800090c:	4803      	ldr	r0, [pc, #12]	; (800091c <Hw_Uart_Getch+0x3c>)
+ 800090e:	4780      	blx	r0
+ 8000910:	e7fa      	b.n	8000908 <Hw_Uart_Getch+0x28>
+ 8000912:	bf00      	nop
+ 8000914:	08000e2d 	.word	0x08000e2d
+ 8000918:	08000ed5 	.word	0x08000ed5
+ 800091c:	0800100d 	.word	0x0800100d
 
-08000910 <Hw_Uart_Putch>:
+08000920 <Hw_Uart_Putch>:
      ARG
      RET
 ---------------------------------------------------------------------------*/
 void Hw_Uart_Putch( u8 Ch,  char Uart_PutData )
 {
 	switch( Ch )
- 8000910:	2801      	cmp	r0, #1
+ 8000920:	2801      	cmp	r0, #1
 			: 시리얼 포트로 문자 1바이트 전송
      ARG
      RET
 ---------------------------------------------------------------------------*/
 void Hw_Uart_Putch( u8 Ch,  char Uart_PutData )
 {
- 8000912:	b508      	push	{r3, lr}
+ 8000922:	b508      	push	{r3, lr}
 	switch( Ch )
- 8000914:	d00a      	beq.n	800092c <Hw_Uart_Putch+0x1c>
- 8000916:	d305      	bcc.n	8000924 <Hw_Uart_Putch+0x14>
- 8000918:	2805      	cmp	r0, #5
- 800091a:	d102      	bne.n	8000922 <Hw_Uart_Putch+0x12>
+ 8000924:	d00a      	beq.n	800093c <Hw_Uart_Putch+0x1c>
+ 8000926:	d305      	bcc.n	8000934 <Hw_Uart_Putch+0x14>
+ 8000928:	2805      	cmp	r0, #5
+ 800092a:	d102      	bne.n	8000932 <Hw_Uart_Putch+0x12>
 
 		case HW_UART_COM5:
 			break;		
 
 		case HW_UART_VCOM:
 			Hw_VCom_Putch( Uart_PutData );
- 800091c:	4608      	mov	r0, r1
- 800091e:	4b0a      	ldr	r3, [pc, #40]	; (8000948 <Hw_Uart_Putch+0x38>)
- 8000920:	4798      	blx	r3
- 8000922:	bd08      	pop	{r3, pc}
- 8000924:	4608      	mov	r0, r1
- 8000926:	4909      	ldr	r1, [pc, #36]	; (800094c <Hw_Uart_Putch+0x3c>)
- 8000928:	4788      	blx	r1
- 800092a:	bd08      	pop	{r3, pc}
+ 800092c:	4608      	mov	r0, r1
+ 800092e:	4b0a      	ldr	r3, [pc, #40]	; (8000958 <Hw_Uart_Putch+0x38>)
+ 8000930:	4798      	blx	r3
+ 8000932:	bd08      	pop	{r3, pc}
+ 8000934:	4608      	mov	r0, r1
+ 8000936:	4909      	ldr	r1, [pc, #36]	; (800095c <Hw_Uart_Putch+0x3c>)
+ 8000938:	4788      	blx	r1
+ 800093a:	bd08      	pop	{r3, pc}
 		    while( !(REG_USART1_SR & 0x80) );
     		REG_USART1_DR = Uart_PutData;
 			break;
 			
 		case HW_UART_COM2:
 		    while( !(REG_USART2_SR & 0x80) );
- 800092c:	f44f 4288 	mov.w	r2, #17408	; 0x4400
- 8000930:	f2c4 0200 	movt	r2, #16384	; 0x4000
- 8000934:	6810      	ldr	r0, [r2, #0]
- 8000936:	0600      	lsls	r0, r0, #24
- 8000938:	d5fc      	bpl.n	8000934 <Hw_Uart_Putch+0x24>
+ 800093c:	f44f 4288 	mov.w	r2, #17408	; 0x4400
+ 8000940:	f2c4 0200 	movt	r2, #16384	; 0x4000
+ 8000944:	6810      	ldr	r0, [r2, #0]
+ 8000946:	0600      	lsls	r0, r0, #24
+ 8000948:	d5fc      	bpl.n	8000944 <Hw_Uart_Putch+0x24>
     		REG_USART2_DR = Uart_PutData;
- 800093a:	f244 4304 	movw	r3, #17412	; 0x4404
- 800093e:	f2c4 0300 	movt	r3, #16384	; 0x4000
- 8000942:	6019      	str	r1, [r3, #0]
+ 800094a:	f244 4304 	movw	r3, #17412	; 0x4404
+ 800094e:	f2c4 0300 	movt	r3, #16384	; 0x4000
+ 8000952:	6019      	str	r1, [r3, #0]
 			break;
- 8000944:	bd08      	pop	{r3, pc}
- 8000946:	bf00      	nop
- 8000948:	0800102d 	.word	0x0800102d
- 800094c:	0800071d 	.word	0x0800071d
+ 8000954:	bd08      	pop	{r3, pc}
+ 8000956:	bf00      	nop
+ 8000958:	0800103d 	.word	0x0800103d
+ 800095c:	0800072d 	.word	0x0800072d
 
-08000950 <Hw_PLL_Init>:
+08000960 <Hw_PLL_Init>:
 {
 	
 #if	CLOCK_EXT == 1
 	//-- PLL 설정 72Mhz로 설정함
 	//
 	REG_RCC_CFGR &= ~(0xF<<18 | 0x1<<17 | 0x1<<16 | 0xF<<4);
- 8000950:	f241 0304 	movw	r3, #4100	; 0x1004
- 8000954:	f2c4 0302 	movt	r3, #16386	; 0x4002
- 8000958:	681a      	ldr	r2, [r3, #0]
+ 8000960:	f241 0304 	movw	r3, #4100	; 0x1004
+ 8000964:	f2c4 0302 	movt	r3, #16386	; 0x4002
+ 8000968:	681a      	ldr	r2, [r3, #0]
 	REG_RCC_CFGR |=  (0x7<<18 | 0x1<<16);			// 8MHz
     REG_RCC_CR   |=  0x01 << 24;                    // PLLON
- 800095a:	f44f 5180 	mov.w	r1, #4096	; 0x1000
+ 800096a:	f44f 5180 	mov.w	r1, #4096	; 0x1000
 {
 	
 #if	CLOCK_EXT == 1
 	//-- PLL 설정 72Mhz로 설정함
 	//
 	REG_RCC_CFGR &= ~(0xF<<18 | 0x1<<17 | 0x1<<16 | 0xF<<4);
- 800095e:	f422 107c 	bic.w	r0, r2, #4128768	; 0x3f0000
- 8000962:	f020 02f0 	bic.w	r2, r0, #240	; 0xf0
- 8000966:	601a      	str	r2, [r3, #0]
+ 800096e:	f422 107c 	bic.w	r0, r2, #4128768	; 0x3f0000
+ 8000972:	f020 02f0 	bic.w	r2, r0, #240	; 0xf0
+ 8000976:	601a      	str	r2, [r3, #0]
 	REG_RCC_CFGR |=  (0x7<<18 | 0x1<<16);			// 8MHz
- 8000968:	6818      	ldr	r0, [r3, #0]
+ 8000978:	6818      	ldr	r0, [r3, #0]
     REG_RCC_CR   |=  0x01 << 24;                    // PLLON
- 800096a:	f2c4 0102 	movt	r1, #16386	; 0x4002
+ 800097a:	f2c4 0102 	movt	r1, #16386	; 0x4002
 	
 #if	CLOCK_EXT == 1
 	//-- PLL 설정 72Mhz로 설정함
 	//
 	REG_RCC_CFGR &= ~(0xF<<18 | 0x1<<17 | 0x1<<16 | 0xF<<4);
 	REG_RCC_CFGR |=  (0x7<<18 | 0x1<<16);			// 8MHz
- 800096e:	f440 12e8 	orr.w	r2, r0, #1900544	; 0x1d0000
- 8000972:	601a      	str	r2, [r3, #0]
+ 800097e:	f440 12e8 	orr.w	r2, r0, #1900544	; 0x1d0000
+ 8000982:	601a      	str	r2, [r3, #0]
     REG_RCC_CR   |=  0x01 << 24;                    // PLLON
- 8000974:	680b      	ldr	r3, [r1, #0]
+ 8000984:	680b      	ldr	r3, [r1, #0]
 
 	while( (REG_RCC_CR & (1<<25)) == 0 );			// PLLRDY
- 8000976:	4608      	mov	r0, r1
+ 8000986:	4608      	mov	r0, r1
 #if	CLOCK_EXT == 1
 	//-- PLL 설정 72Mhz로 설정함
 	//
 	REG_RCC_CFGR &= ~(0xF<<18 | 0x1<<17 | 0x1<<16 | 0xF<<4);
 	REG_RCC_CFGR |=  (0x7<<18 | 0x1<<16);			// 8MHz
     REG_RCC_CR   |=  0x01 << 24;                    // PLLON
- 8000978:	f043 7280 	orr.w	r2, r3, #16777216	; 0x1000000
- 800097c:	600a      	str	r2, [r1, #0]
+ 8000988:	f043 7280 	orr.w	r2, r3, #16777216	; 0x1000000
+ 800098c:	600a      	str	r2, [r1, #0]
 
 	while( (REG_RCC_CR & (1<<25)) == 0 );			// PLLRDY
- 800097e:	6801      	ldr	r1, [r0, #0]
- 8000980:	018b      	lsls	r3, r1, #6
- 8000982:	d5fc      	bpl.n	800097e <Hw_PLL_Init+0x2e>
+ 800098e:	6801      	ldr	r1, [r0, #0]
+ 8000990:	018b      	lsls	r3, r1, #6
+ 8000992:	d5fc      	bpl.n	800098e <Hw_PLL_Init+0x2e>
     /////Bits 1:0 SW : System clock switch
     //00: HSI selected as system clock
     //01: HSE selected as system clock
     //10: PLL selected as system clock   <----------------- 선택됨
     //11: not allowed
 	REG_RCC_CFGR &= ~0x3;
- 8000984:	f241 0304 	movw	r3, #4100	; 0x1004
- 8000988:	f2c4 0302 	movt	r3, #16386	; 0x4002
- 800098c:	6818      	ldr	r0, [r3, #0]
+ 8000994:	f241 0304 	movw	r3, #4100	; 0x1004
+ 8000998:	f2c4 0302 	movt	r3, #16386	; 0x4002
+ 800099c:	6818      	ldr	r0, [r3, #0]
 	//
 	REG_RCC_CFGR &= ~(0x7<<11);
 	REG_RCC_CFGR |=  (0x0<<11);
 
     
     while( (REG_RCC_CFGR & 0xC) != 0x08 );
- 800098e:	461a      	mov	r2, r3
+ 800099e:	461a      	mov	r2, r3
     /////Bits 1:0 SW : System clock switch
     //00: HSI selected as system clock
     //01: HSE selected as system clock
     //10: PLL selected as system clock   <----------------- 선택됨
     //11: not allowed
 	REG_RCC_CFGR &= ~0x3;
- 8000990:	f020 0103 	bic.w	r1, r0, #3
- 8000994:	6019      	str	r1, [r3, #0]
+ 80009a0:	f020 0103 	bic.w	r1, r0, #3
+ 80009a4:	6019      	str	r1, [r3, #0]
 	REG_RCC_CFGR |=  0x2;
- 8000996:	6818      	ldr	r0, [r3, #0]
- 8000998:	f040 0102 	orr.w	r1, r0, #2
- 800099c:	6019      	str	r1, [r3, #0]
+ 80009a6:	6818      	ldr	r0, [r3, #0]
+ 80009a8:	f040 0102 	orr.w	r1, r0, #2
+ 80009ac:	6019      	str	r1, [r3, #0]
 
 	// USB 72M * 2 / 3 = 48Mhz
 	//
 	CLR_BIT( REG_RCC_CFGR, 22 );
- 800099e:	6818      	ldr	r0, [r3, #0]
- 80009a0:	f420 0180 	bic.w	r1, r0, #4194304	; 0x400000
- 80009a4:	6019      	str	r1, [r3, #0]
+ 80009ae:	6818      	ldr	r0, [r3, #0]
+ 80009b0:	f420 0180 	bic.w	r1, r0, #4194304	; 0x400000
+ 80009b4:	6019      	str	r1, [r3, #0]
 
 	// APB1 - PCLK1 36Mhz
 	//
 	REG_RCC_CFGR &= ~(0x7<<8);
- 80009a6:	6818      	ldr	r0, [r3, #0]
- 80009a8:	f420 61e0 	bic.w	r1, r0, #1792	; 0x700
- 80009ac:	6019      	str	r1, [r3, #0]
+ 80009b6:	6818      	ldr	r0, [r3, #0]
+ 80009b8:	f420 61e0 	bic.w	r1, r0, #1792	; 0x700
+ 80009bc:	6019      	str	r1, [r3, #0]
 	REG_RCC_CFGR |=  (0x4<<8);
- 80009ae:	6818      	ldr	r0, [r3, #0]
- 80009b0:	f440 6180 	orr.w	r1, r0, #1024	; 0x400
- 80009b4:	6019      	str	r1, [r3, #0]
+ 80009be:	6818      	ldr	r0, [r3, #0]
+ 80009c0:	f440 6180 	orr.w	r1, r0, #1024	; 0x400
+ 80009c4:	6019      	str	r1, [r3, #0]
 	
 	// APB2 - PCLK2 72Mhz
 	//
 	REG_RCC_CFGR &= ~(0x7<<11);
- 80009b6:	6818      	ldr	r0, [r3, #0]
- 80009b8:	f420 5160 	bic.w	r1, r0, #14336	; 0x3800
- 80009bc:	6019      	str	r1, [r3, #0]
+ 80009c6:	6818      	ldr	r0, [r3, #0]
+ 80009c8:	f420 5160 	bic.w	r1, r0, #14336	; 0x3800
+ 80009cc:	6019      	str	r1, [r3, #0]
 	REG_RCC_CFGR |=  (0x0<<11);
- 80009be:	6818      	ldr	r0, [r3, #0]
- 80009c0:	6018      	str	r0, [r3, #0]
+ 80009ce:	6818      	ldr	r0, [r3, #0]
+ 80009d0:	6018      	str	r0, [r3, #0]
 
     
     while( (REG_RCC_CFGR & 0xC) != 0x08 );
- 80009c2:	6813      	ldr	r3, [r2, #0]
- 80009c4:	f003 010c 	and.w	r1, r3, #12
- 80009c8:	2908      	cmp	r1, #8
- 80009ca:	d1fa      	bne.n	80009c2 <Hw_PLL_Init+0x72>
+ 80009d2:	6813      	ldr	r3, [r2, #0]
+ 80009d4:	f003 010c 	and.w	r1, r3, #12
+ 80009d8:	2908      	cmp	r1, #8
+ 80009da:	d1fa      	bne.n	80009d2 <Hw_PLL_Init+0x72>
     
     //APB2에 있는 UART 등 주변장치에 Clock 소스 동작제어
     //UART가 동작되기 위해서는 GPIO와 Alternation Function IO가 동작상태에 있어야 함
 	REG_RCC_APB2ENR |= 0  |
- 80009cc:	f241 0018 	movw	r0, #4120	; 0x1018
- 80009d0:	f2c4 0002 	movt	r0, #16386	; 0x4002
- 80009d4:	6802      	ldr	r2, [r0, #0]
- 80009d6:	f442 4380 	orr.w	r3, r2, #16384	; 0x4000
- 80009da:	f043 011d 	orr.w	r1, r3, #29
- 80009de:	6001      	str	r1, [r0, #0]
- 80009e0:	4770      	bx	lr
- 80009e2:	bf00      	nop
+ 80009dc:	f241 0018 	movw	r0, #4120	; 0x1018
+ 80009e0:	f2c4 0002 	movt	r0, #16386	; 0x4002
+ 80009e4:	6802      	ldr	r2, [r0, #0]
+ 80009e6:	f442 4380 	orr.w	r3, r2, #16384	; 0x4000
+ 80009ea:	f043 011d 	orr.w	r1, r3, #29
+ 80009ee:	6001      	str	r1, [r0, #0]
+ 80009f0:	4770      	bx	lr
+ 80009f2:	bf00      	nop
 
-080009e4 <Hw_ISR_Init>:
+080009f4 <Hw_ISR_Init>:
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
 void Hw_ISR_Init( void )
 {
 	REG_SCB_VTOR = (u32)Hw_ISR_VectorTable;
- 80009e4:	f240 2300 	movw	r3, #512	; 0x200
- 80009e8:	f64e 5208 	movw	r2, #60680	; 0xed08
- 80009ec:	f2c2 0300 	movt	r3, #8192	; 0x2000
- 80009f0:	f2ce 0200 	movt	r2, #57344	; 0xe000
- 80009f4:	6013      	str	r3, [r2, #0]
- 80009f6:	4770      	bx	lr
+ 80009f4:	f240 2300 	movw	r3, #512	; 0x200
+ 80009f8:	f64e 5208 	movw	r2, #60680	; 0xed08
+ 80009fc:	f2c2 0300 	movt	r3, #8192	; 0x2000
+ 8000a00:	f2ce 0200 	movt	r2, #57344	; 0xe000
+ 8000a04:	6013      	str	r3, [r2, #0]
+ 8000a06:	4770      	bx	lr
 
-080009f8 <Hw_ISR_SetIRQFunc>:
+08000a08 <Hw_ISR_SetIRQFunc>:
 ---------------------------------------------------------------------------*/
 void Hw_ISR_SetIRQFunc( u8 ISR_Num, u32 FuncAddress, u8 ISR_Priority )
 {	
 	u32 ISR_StartOffset = 16;
 	
 	Hw_ISR_VectorTable[ ISR_StartOffset + ISR_Num ] = FuncAddress;	
- 80009f8:	f240 2300 	movw	r3, #512	; 0x200
- 80009fc:	3010      	adds	r0, #16
- 80009fe:	f2c2 0300 	movt	r3, #8192	; 0x2000
- 8000a02:	f843 1020 	str.w	r1, [r3, r0, lsl #2]
- 8000a06:	4770      	bx	lr
+ 8000a08:	f240 2300 	movw	r3, #512	; 0x200
+ 8000a0c:	3010      	adds	r0, #16
+ 8000a0e:	f2c2 0300 	movt	r3, #8192	; 0x2000
+ 8000a12:	f843 1020 	str.w	r1, [r3, r0, lsl #2]
+ 8000a16:	4770      	bx	lr
 
-08000a08 <Hw_ISR_SetIRQFuncByAddr>:
+08000a18 <Hw_ISR_SetIRQFuncByAddr>:
 ---------------------------------------------------------------------------*/
 void Hw_ISR_SetIRQFuncByAddr( u32 ISR_Addr, u32 FuncAddress, u8 ISR_Priority )
 {	
 	u32 ISR_StartOffset = ISR_Addr/4;
 	
 	Hw_ISR_VectorTable[ ISR_StartOffset ] = FuncAddress;	
- 8000a08:	f240 2300 	movw	r3, #512	; 0x200
+ 8000a18:	f240 2300 	movw	r3, #512	; 0x200
      			u8  ISR_Priority : 인터럽트 우선순위(작은값이 우선순위 높음)
      RET     : void
 ---------------------------------------------------------------------------*/
 void Hw_ISR_SetIRQFuncByAddr( u32 ISR_Addr, u32 FuncAddress, u8 ISR_Priority )
 {	
 	u32 ISR_StartOffset = ISR_Addr/4;
- 8000a0c:	0880      	lsrs	r0, r0, #2
+ 8000a1c:	0880      	lsrs	r0, r0, #2
 	
 	Hw_ISR_VectorTable[ ISR_StartOffset ] = FuncAddress;	
- 8000a0e:	f2c2 0300 	movt	r3, #8192	; 0x2000
- 8000a12:	f843 1020 	str.w	r1, [r3, r0, lsl #2]
- 8000a16:	4770      	bx	lr
+ 8000a1e:	f2c2 0300 	movt	r3, #8192	; 0x2000
+ 8000a22:	f843 1020 	str.w	r1, [r3, r0, lsl #2]
+ 8000a26:	4770      	bx	lr
 
-08000a18 <Hw_Timer_SetupISR>:
+08000a28 <Hw_Timer_SetupISR>:
      	 	 	 타이머 H/W 기능을 초기화 한다.
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
 void Hw_Timer_SetupISR( void )
 {	
- 8000a18:	b508      	push	{r3, lr}
+ 8000a28:	b508      	push	{r3, lr}
 	Hw_ISR_SetIRQFuncByAddr( 0x003C, (u32)Hw_Timer_ISR, 0 );	
- 8000a1a:	f640 5195 	movw	r1, #3477	; 0xd95
- 8000a1e:	f640 2309 	movw	r3, #2569	; 0xa09
- 8000a22:	203c      	movs	r0, #60	; 0x3c
- 8000a24:	f6c0 0100 	movt	r1, #2048	; 0x800
- 8000a28:	2200      	movs	r2, #0
- 8000a2a:	f6c0 0300 	movt	r3, #2048	; 0x800
- 8000a2e:	4798      	blx	r3
- 8000a30:	bd08      	pop	{r3, pc}
- 8000a32:	bf00      	nop
+ 8000a2a:	f640 51a5 	movw	r1, #3493	; 0xda5
+ 8000a2e:	f640 2319 	movw	r3, #2585	; 0xa19
+ 8000a32:	203c      	movs	r0, #60	; 0x3c
+ 8000a34:	f6c0 0100 	movt	r1, #2048	; 0x800
+ 8000a38:	2200      	movs	r2, #0
+ 8000a3a:	f6c0 0300 	movt	r3, #2048	; 0x800
+ 8000a3e:	4798      	blx	r3
+ 8000a40:	bd08      	pop	{r3, pc}
+ 8000a42:	bf00      	nop
 
-08000a34 <Hw_Timer_Init>:
+08000a44 <Hw_Timer_Init>:
      WORK    :
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
 void Hw_Timer_Init( void )
 {
- 8000a34:	b538      	push	{r3, r4, r5, lr}
+ 8000a44:	b538      	push	{r3, r4, r5, lr}
 	u8 i;
 	static u8 Excute = 0;
 
 	
 	if( Excute == 1 ) return;  // 이미 한번 실행했다면 정지.
- 8000a36:	4d33      	ldr	r5, [pc, #204]	; (8000b04 <Hw_Timer_Init+0xd0>)
- 8000a38:	782b      	ldrb	r3, [r5, #0]
- 8000a3a:	2b01      	cmp	r3, #1
- 8000a3c:	d061      	beq.n	8000b02 <Hw_Timer_Init+0xce>
+ 8000a46:	4d33      	ldr	r5, [pc, #204]	; (8000b14 <Hw_Timer_Init+0xd0>)
+ 8000a48:	782b      	ldrb	r3, [r5, #0]
+ 8000a4a:	2b01      	cmp	r3, #1
+ 8000a4c:	d061      	beq.n	8000b12 <Hw_Timer_Init+0xce>
 	
 	
 	// 구조체 초기화
 	for(i=0; i<TIMER_MAX; i++)
 	{
 		Timer_Tbl[i].Timer_En   = OFF;
- 8000a3e:	4832      	ldr	r0, [pc, #200]	; (8000b08 <Hw_Timer_Init+0xd4>)
- 8000a40:	2400      	movs	r4, #0
- 8000a42:	7004      	strb	r4, [r0, #0]
+ 8000a4e:	4832      	ldr	r0, [pc, #200]	; (8000b18 <Hw_Timer_Init+0xd4>)
+ 8000a50:	2400      	movs	r4, #0
+ 8000a52:	7004      	strb	r4, [r0, #0]
 		Timer_Tbl[i].Timer_Ctn  = 0;
- 8000a44:	8044      	strh	r4, [r0, #2]
+ 8000a54:	8044      	strh	r4, [r0, #2]
 		Timer_Tbl[i].Timer_Init = 0;
- 8000a46:	8084      	strh	r4, [r0, #4]
+ 8000a56:	8084      	strh	r4, [r0, #4]
 		Timer_Tbl[i].TmrFnct    = NULL;
- 8000a48:	6084      	str	r4, [r0, #8]
+ 8000a58:	6084      	str	r4, [r0, #8]
 	
 	
 	// 구조체 초기화
 	for(i=0; i<TIMER_MAX; i++)
 	{
 		Timer_Tbl[i].Timer_En   = OFF;
- 8000a4a:	7404      	strb	r4, [r0, #16]
+ 8000a5a:	7404      	strb	r4, [r0, #16]
 		Timer_Tbl[i].Timer_Ctn  = 0;
- 8000a4c:	8244      	strh	r4, [r0, #18]
+ 8000a5c:	8244      	strh	r4, [r0, #18]
 		Timer_Tbl[i].Timer_Init = 0;
- 8000a4e:	8284      	strh	r4, [r0, #20]
+ 8000a5e:	8284      	strh	r4, [r0, #20]
 		Timer_Tbl[i].TmrFnct    = NULL;
- 8000a50:	6184      	str	r4, [r0, #24]
+ 8000a60:	6184      	str	r4, [r0, #24]
 	
 	
 	// 구조체 초기화
 	for(i=0; i<TIMER_MAX; i++)
 	{
 		Timer_Tbl[i].Timer_En   = OFF;
- 8000a52:	f880 4020 	strb.w	r4, [r0, #32]
+ 8000a62:	f880 4020 	strb.w	r4, [r0, #32]
 		Timer_Tbl[i].Timer_Ctn  = 0;
- 8000a56:	8444      	strh	r4, [r0, #34]	; 0x22
+ 8000a66:	8444      	strh	r4, [r0, #34]	; 0x22
 		Timer_Tbl[i].Timer_Init = 0;
- 8000a58:	8484      	strh	r4, [r0, #36]	; 0x24
+ 8000a68:	8484      	strh	r4, [r0, #36]	; 0x24
 		Timer_Tbl[i].TmrFnct    = NULL;
- 8000a5a:	6284      	str	r4, [r0, #40]	; 0x28
+ 8000a6a:	6284      	str	r4, [r0, #40]	; 0x28
 	
 	
 	// 구조체 초기화
 	for(i=0; i<TIMER_MAX; i++)
 	{
 		Timer_Tbl[i].Timer_En   = OFF;
- 8000a5c:	f880 4030 	strb.w	r4, [r0, #48]	; 0x30
+ 8000a6c:	f880 4030 	strb.w	r4, [r0, #48]	; 0x30
 		Timer_Tbl[i].Timer_Ctn  = 0;
- 8000a60:	8644      	strh	r4, [r0, #50]	; 0x32
+ 8000a70:	8644      	strh	r4, [r0, #50]	; 0x32
 		Timer_Tbl[i].Timer_Init = 0;
- 8000a62:	8684      	strh	r4, [r0, #52]	; 0x34
+ 8000a72:	8684      	strh	r4, [r0, #52]	; 0x34
 		Timer_Tbl[i].TmrFnct    = NULL;
- 8000a64:	6384      	str	r4, [r0, #56]	; 0x38
+ 8000a74:	6384      	str	r4, [r0, #56]	; 0x38
 	
 	
 	// 구조체 초기화
 	for(i=0; i<TIMER_MAX; i++)
 	{
 		Timer_Tbl[i].Timer_En   = OFF;
- 8000a66:	f880 4040 	strb.w	r4, [r0, #64]	; 0x40
+ 8000a76:	f880 4040 	strb.w	r4, [r0, #64]	; 0x40
 		Timer_Tbl[i].Timer_Ctn  = 0;
- 8000a6a:	f8a0 4042 	strh.w	r4, [r0, #66]	; 0x42
+ 8000a7a:	f8a0 4042 	strh.w	r4, [r0, #66]	; 0x42
 		Timer_Tbl[i].Timer_Init = 0;
- 8000a6e:	f8a0 4044 	strh.w	r4, [r0, #68]	; 0x44
+ 8000a7e:	f8a0 4044 	strh.w	r4, [r0, #68]	; 0x44
 		Timer_Tbl[i].TmrFnct    = NULL;
- 8000a72:	6484      	str	r4, [r0, #72]	; 0x48
+ 8000a82:	6484      	str	r4, [r0, #72]	; 0x48
 	
 	
 	// 구조체 초기화
 	for(i=0; i<TIMER_MAX; i++)
 	{
 		Timer_Tbl[i].Timer_En   = OFF;
- 8000a74:	f880 4050 	strb.w	r4, [r0, #80]	; 0x50
+ 8000a84:	f880 4050 	strb.w	r4, [r0, #80]	; 0x50
 		Timer_Tbl[i].Timer_Ctn  = 0;
- 8000a78:	f8a0 4052 	strh.w	r4, [r0, #82]	; 0x52
+ 8000a88:	f8a0 4052 	strh.w	r4, [r0, #82]	; 0x52
 		Timer_Tbl[i].Timer_Init = 0;
- 8000a7c:	f8a0 4054 	strh.w	r4, [r0, #84]	; 0x54
+ 8000a8c:	f8a0 4054 	strh.w	r4, [r0, #84]	; 0x54
 		Timer_Tbl[i].TmrFnct    = NULL;
- 8000a80:	6584      	str	r4, [r0, #88]	; 0x58
+ 8000a90:	6584      	str	r4, [r0, #88]	; 0x58
 	
 	
 	// 구조체 초기화
 	for(i=0; i<TIMER_MAX; i++)
 	{
 		Timer_Tbl[i].Timer_En   = OFF;
- 8000a82:	f880 4060 	strb.w	r4, [r0, #96]	; 0x60
+ 8000a92:	f880 4060 	strb.w	r4, [r0, #96]	; 0x60
 		Timer_Tbl[i].Timer_Ctn  = 0;
- 8000a86:	f8a0 4062 	strh.w	r4, [r0, #98]	; 0x62
+ 8000a96:	f8a0 4062 	strh.w	r4, [r0, #98]	; 0x62
 		Timer_Tbl[i].Timer_Init = 0;
- 8000a8a:	f8a0 4064 	strh.w	r4, [r0, #100]	; 0x64
+ 8000a9a:	f8a0 4064 	strh.w	r4, [r0, #100]	; 0x64
 		Timer_Tbl[i].TmrFnct    = NULL;
- 8000a8e:	6684      	str	r4, [r0, #104]	; 0x68
+ 8000a9e:	6684      	str	r4, [r0, #104]	; 0x68
 	
 	
 	// 구조체 초기화
 	for(i=0; i<TIMER_MAX; i++)
 	{
 		Timer_Tbl[i].Timer_En   = OFF;
- 8000a90:	f880 4070 	strb.w	r4, [r0, #112]	; 0x70
+ 8000aa0:	f880 4070 	strb.w	r4, [r0, #112]	; 0x70
 		Timer_Tbl[i].Timer_Ctn  = 0;
- 8000a94:	f8a0 4072 	strh.w	r4, [r0, #114]	; 0x72
+ 8000aa4:	f8a0 4072 	strh.w	r4, [r0, #114]	; 0x72
 		Timer_Tbl[i].Timer_Init = 0;
- 8000a98:	f8a0 4074 	strh.w	r4, [r0, #116]	; 0x74
+ 8000aa8:	f8a0 4074 	strh.w	r4, [r0, #116]	; 0x74
 		Timer_Tbl[i].TmrFnct    = NULL;
- 8000a9c:	6784      	str	r4, [r0, #120]	; 0x78
+ 8000aac:	6784      	str	r4, [r0, #120]	; 0x78
 	
 	
 	// 구조체 초기화
 	for(i=0; i<TIMER_MAX; i++)
 	{
 		Timer_Tbl[i].Timer_En   = OFF;
- 8000a9e:	f880 4080 	strb.w	r4, [r0, #128]	; 0x80
+ 8000aae:	f880 4080 	strb.w	r4, [r0, #128]	; 0x80
 		Timer_Tbl[i].Timer_Init = 0;
 		Timer_Tbl[i].TmrFnct    = NULL;
 	}	                   
 	
 	
 	Hw_Timer_SetupISR();
- 8000aa2:	491a      	ldr	r1, [pc, #104]	; (8000b0c <Hw_Timer_Init+0xd8>)
+ 8000ab2:	491a      	ldr	r1, [pc, #104]	; (8000b1c <Hw_Timer_Init+0xd8>)
 	
 	// 구조체 초기화
 	for(i=0; i<TIMER_MAX; i++)
 	{
 		Timer_Tbl[i].Timer_En   = OFF;
 		Timer_Tbl[i].Timer_Ctn  = 0;
- 8000aa4:	f8a0 4082 	strh.w	r4, [r0, #130]	; 0x82
+ 8000ab4:	f8a0 4082 	strh.w	r4, [r0, #130]	; 0x82
 		Timer_Tbl[i].Timer_Init = 0;
- 8000aa8:	f8a0 4084 	strh.w	r4, [r0, #132]	; 0x84
+ 8000ab8:	f8a0 4084 	strh.w	r4, [r0, #132]	; 0x84
 		Timer_Tbl[i].TmrFnct    = NULL;
- 8000aac:	f8c0 4088 	str.w	r4, [r0, #136]	; 0x88
+ 8000abc:	f8c0 4088 	str.w	r4, [r0, #136]	; 0x88
 	
 	
 	// 구조체 초기화
 	for(i=0; i<TIMER_MAX; i++)
 	{
 		Timer_Tbl[i].Timer_En   = OFF;
- 8000ab0:	f880 4090 	strb.w	r4, [r0, #144]	; 0x90
+ 8000ac0:	f880 4090 	strb.w	r4, [r0, #144]	; 0x90
 		Timer_Tbl[i].Timer_Ctn  = 0;
- 8000ab4:	f8a0 4092 	strh.w	r4, [r0, #146]	; 0x92
+ 8000ac4:	f8a0 4092 	strh.w	r4, [r0, #146]	; 0x92
 		Timer_Tbl[i].Timer_Init = 0;
- 8000ab8:	f8a0 4094 	strh.w	r4, [r0, #148]	; 0x94
+ 8000ac8:	f8a0 4094 	strh.w	r4, [r0, #148]	; 0x94
 		Timer_Tbl[i].TmrFnct    = NULL;
- 8000abc:	f8c0 4098 	str.w	r4, [r0, #152]	; 0x98
+ 8000acc:	f8c0 4098 	str.w	r4, [r0, #152]	; 0x98
 	}	                   
 	
 	
 	Hw_Timer_SetupISR();
- 8000ac0:	4788      	blx	r1
+ 8000ad0:	4788      	blx	r1
      RET     : void
 ---------------------------------------------------------------------------*/
 void Hw_Timer_Setup( void )
 {
 
 	REG_STK_LOAD = 72000 - 1;	// 72000000 / 72000 = 1000us = 1ms
- 8000ac2:	f24e 0114 	movw	r1, #57364	; 0xe014
- 8000ac6:	f641 103f 	movw	r0, #6463	; 0x193f
+ 8000ad2:	f24e 0114 	movw	r1, #57364	; 0xe014
+ 8000ad6:	f641 103f 	movw	r0, #6463	; 0x193f
 	
 	REG_STK_VAL  = 0;	
- 8000aca:	f24e 0218 	movw	r2, #57368	; 0xe018
+ 8000ada:	f24e 0218 	movw	r2, #57368	; 0xe018
      RET     : void
 ---------------------------------------------------------------------------*/
 void Hw_Timer_Setup( void )
 {
 
 	REG_STK_LOAD = 72000 - 1;	// 72000000 / 72000 = 1000us = 1ms
- 8000ace:	f2ce 0100 	movt	r1, #57344	; 0xe000
- 8000ad2:	f2c0 0001 	movt	r0, #1
+ 8000ade:	f2ce 0100 	movt	r1, #57344	; 0xe000
+ 8000ae2:	f2c0 0001 	movt	r0, #1
 	
 	REG_STK_VAL  = 0;	
- 8000ad6:	f2ce 0200 	movt	r2, #57344	; 0xe000
+ 8000ae6:	f2ce 0200 	movt	r2, #57344	; 0xe000
 	
 	SET_BIT( REG_STK_CTRL, 2 );	// CLKSOURCE = Processor Clock 72Mhz		
- 8000ada:	f24e 0310 	movw	r3, #57360	; 0xe010
+ 8000aea:	f24e 0310 	movw	r3, #57360	; 0xe010
      RET     : void
 ---------------------------------------------------------------------------*/
 void Hw_Timer_Setup( void )
 {
 
 	REG_STK_LOAD = 72000 - 1;	// 72000000 / 72000 = 1000us = 1ms
- 8000ade:	6008      	str	r0, [r1, #0]
+ 8000aee:	6008      	str	r0, [r1, #0]
 	
 	REG_STK_VAL  = 0;	
 	
 	SET_BIT( REG_STK_CTRL, 2 );	// CLKSOURCE = Processor Clock 72Mhz		
- 8000ae0:	f2ce 0300 	movt	r3, #57344	; 0xe000
+ 8000af0:	f2ce 0300 	movt	r3, #57344	; 0xe000
 void Hw_Timer_Setup( void )
 {
 
 	REG_STK_LOAD = 72000 - 1;	// 72000000 / 72000 = 1000us = 1ms
 	
 	REG_STK_VAL  = 0;	
- 8000ae4:	6014      	str	r4, [r2, #0]
+ 8000af4:	6014      	str	r4, [r2, #0]
 	
 	SET_BIT( REG_STK_CTRL, 2 );	// CLKSOURCE = Processor Clock 72Mhz		
- 8000ae6:	6819      	ldr	r1, [r3, #0]
- 8000ae8:	f041 0004 	orr.w	r0, r1, #4
- 8000aec:	6018      	str	r0, [r3, #0]
+ 8000af6:	6819      	ldr	r1, [r3, #0]
+ 8000af8:	f041 0004 	orr.w	r0, r1, #4
+ 8000afc:	6018      	str	r0, [r3, #0]
 	SET_BIT( REG_STK_CTRL, 1 );	// 인터럽트 활성화		
- 8000aee:	681a      	ldr	r2, [r3, #0]
- 8000af0:	f042 0102 	orr.w	r1, r2, #2
- 8000af4:	6019      	str	r1, [r3, #0]
+ 8000afe:	681a      	ldr	r2, [r3, #0]
+ 8000b00:	f042 0102 	orr.w	r1, r2, #2
+ 8000b04:	6019      	str	r1, [r3, #0]
 	SET_BIT( REG_STK_CTRL, 0 );	// Counter Enable
- 8000af6:	6818      	ldr	r0, [r3, #0]
- 8000af8:	f040 0201 	orr.w	r2, r0, #1
- 8000afc:	601a      	str	r2, [r3, #0]
+ 8000b06:	6818      	ldr	r0, [r3, #0]
+ 8000b08:	f040 0201 	orr.w	r2, r0, #1
+ 8000b0c:	601a      	str	r2, [r3, #0]
 	
 	
 	Hw_Timer_SetupISR();
 	Hw_Timer_Setup();	
 
 	Excute = 1;
- 8000afe:	2301      	movs	r3, #1
- 8000b00:	702b      	strb	r3, [r5, #0]
- 8000b02:	bd38      	pop	{r3, r4, r5, pc}
- 8000b04:	200000a0 	.word	0x200000a0
- 8000b08:	20000000 	.word	0x20000000
- 8000b0c:	08000a19 	.word	0x08000a19
+ 8000b0e:	2301      	movs	r3, #1
+ 8000b10:	702b      	strb	r3, [r5, #0]
+ 8000b12:	bd38      	pop	{r3, r4, r5, pc}
+ 8000b14:	200000a0 	.word	0x200000a0
+ 8000b18:	20000000 	.word	0x20000000
+ 8000b1c:	08000a29 	.word	0x08000a29
 
-08000b10 <Hw_Timer_Tick>:
+08000b20 <Hw_Timer_Tick>:
 void Hw_Timer_Tick(void)
 {
 	u8 i;
 
 	
 	Hw_Timer_Counter++;
- 8000b10:	4a9d      	ldr	r2, [pc, #628]	; (8000d88 <Hw_Timer_Tick+0x278>)
+ 8000b20:	4a9d      	ldr	r2, [pc, #628]	; (8000d98 <Hw_Timer_Tick+0x278>)
 
 
 	if( Tmr_Ctn ) Tmr_Ctn--;
- 8000b12:	4b9e      	ldr	r3, [pc, #632]	; (8000d8c <Hw_Timer_Tick+0x27c>)
+ 8000b22:	4b9e      	ldr	r3, [pc, #632]	; (8000d9c <Hw_Timer_Tick+0x27c>)
 void Hw_Timer_Tick(void)
 {
 	u8 i;
 
 	
 	Hw_Timer_Counter++;
- 8000b14:	6811      	ldr	r1, [r2, #0]
+ 8000b24:	6811      	ldr	r1, [r2, #0]
 			타이머인터럽트 발생시에 실행되는 함수(1ms 혹은 10ms 단위로 실행)
      ARG	: void
      RET	: void
 ---------------------------------------------------------------------------*/
 void Hw_Timer_Tick(void)
 {
- 8000b16:	b510      	push	{r4, lr}
+ 8000b26:	b510      	push	{r4, lr}
 	u8 i;
 
 	
 	Hw_Timer_Counter++;
- 8000b18:	1c48      	adds	r0, r1, #1
- 8000b1a:	6010      	str	r0, [r2, #0]
+ 8000b28:	1c48      	adds	r0, r1, #1
+ 8000b2a:	6010      	str	r0, [r2, #0]
 
 
 	if( Tmr_Ctn ) Tmr_Ctn--;
- 8000b1c:	881c      	ldrh	r4, [r3, #0]
- 8000b1e:	b2a2      	uxth	r2, r4
- 8000b20:	b11a      	cbz	r2, 8000b2a <Hw_Timer_Tick+0x1a>
- 8000b22:	8819      	ldrh	r1, [r3, #0]
- 8000b24:	1e48      	subs	r0, r1, #1
- 8000b26:	b284      	uxth	r4, r0
- 8000b28:	801c      	strh	r4, [r3, #0]
+ 8000b2c:	881c      	ldrh	r4, [r3, #0]
+ 8000b2e:	b2a2      	uxth	r2, r4
+ 8000b30:	b11a      	cbz	r2, 8000b3a <Hw_Timer_Tick+0x1a>
+ 8000b32:	8819      	ldrh	r1, [r3, #0]
+ 8000b34:	1e48      	subs	r0, r1, #1
+ 8000b36:	b284      	uxth	r4, r0
+ 8000b38:	801c      	strh	r4, [r3, #0]
 	
 	
 			   
 	for(i=0; i<TIMER_MAX; i++)								// 타이머 갯수만큼
 	{
 		if( Timer_Tbl[i].Timer_En == ON)   					// 타이머가 활성화 됬니?
- 8000b2a:	4c99      	ldr	r4, [pc, #612]	; (8000d90 <Hw_Timer_Tick+0x280>)
- 8000b2c:	7823      	ldrb	r3, [r4, #0]
- 8000b2e:	2b01      	cmp	r3, #1
- 8000b30:	d030      	beq.n	8000b94 <Hw_Timer_Tick+0x84>
- 8000b32:	7c20      	ldrb	r0, [r4, #16]
- 8000b34:	4a96      	ldr	r2, [pc, #600]	; (8000d90 <Hw_Timer_Tick+0x280>)
- 8000b36:	2801      	cmp	r0, #1
- 8000b38:	d03e      	beq.n	8000bb8 <Hw_Timer_Tick+0xa8>
- 8000b3a:	f894 0020 	ldrb.w	r0, [r4, #32]
- 8000b3e:	4a94      	ldr	r2, [pc, #592]	; (8000d90 <Hw_Timer_Tick+0x280>)
- 8000b40:	2801      	cmp	r0, #1
- 8000b42:	d04c      	beq.n	8000bde <Hw_Timer_Tick+0xce>
- 8000b44:	f894 0030 	ldrb.w	r0, [r4, #48]	; 0x30
- 8000b48:	4a91      	ldr	r2, [pc, #580]	; (8000d90 <Hw_Timer_Tick+0x280>)
- 8000b4a:	2801      	cmp	r0, #1
- 8000b4c:	d05b      	beq.n	8000c06 <Hw_Timer_Tick+0xf6>
- 8000b4e:	f894 0040 	ldrb.w	r0, [r4, #64]	; 0x40
- 8000b52:	4a8f      	ldr	r2, [pc, #572]	; (8000d90 <Hw_Timer_Tick+0x280>)
- 8000b54:	2801      	cmp	r0, #1
- 8000b56:	d06a      	beq.n	8000c2e <Hw_Timer_Tick+0x11e>
- 8000b58:	f894 0050 	ldrb.w	r0, [r4, #80]	; 0x50
- 8000b5c:	4a8c      	ldr	r2, [pc, #560]	; (8000d90 <Hw_Timer_Tick+0x280>)
- 8000b5e:	2801      	cmp	r0, #1
- 8000b60:	d07d      	beq.n	8000c5e <Hw_Timer_Tick+0x14e>
- 8000b62:	f894 0060 	ldrb.w	r0, [r4, #96]	; 0x60
- 8000b66:	4a8a      	ldr	r2, [pc, #552]	; (8000d90 <Hw_Timer_Tick+0x280>)
- 8000b68:	2801      	cmp	r0, #1
- 8000b6a:	f000 8091 	beq.w	8000c90 <Hw_Timer_Tick+0x180>
- 8000b6e:	f894 0070 	ldrb.w	r0, [r4, #112]	; 0x70
- 8000b72:	4a87      	ldr	r2, [pc, #540]	; (8000d90 <Hw_Timer_Tick+0x280>)
- 8000b74:	2801      	cmp	r0, #1
- 8000b76:	f000 80a4 	beq.w	8000cc2 <Hw_Timer_Tick+0x1b2>
- 8000b7a:	f894 0080 	ldrb.w	r0, [r4, #128]	; 0x80
- 8000b7e:	4a84      	ldr	r2, [pc, #528]	; (8000d90 <Hw_Timer_Tick+0x280>)
- 8000b80:	2801      	cmp	r0, #1
- 8000b82:	f000 80b7 	beq.w	8000cf4 <Hw_Timer_Tick+0x1e4>
- 8000b86:	f894 0090 	ldrb.w	r0, [r4, #144]	; 0x90
- 8000b8a:	4a81      	ldr	r2, [pc, #516]	; (8000d90 <Hw_Timer_Tick+0x280>)
- 8000b8c:	2801      	cmp	r0, #1
- 8000b8e:	f000 80cb 	beq.w	8000d28 <Hw_Timer_Tick+0x218>
- 8000b92:	bd10      	pop	{r4, pc}
+ 8000b3a:	4c99      	ldr	r4, [pc, #612]	; (8000da0 <Hw_Timer_Tick+0x280>)
+ 8000b3c:	7823      	ldrb	r3, [r4, #0]
+ 8000b3e:	2b01      	cmp	r3, #1
+ 8000b40:	d030      	beq.n	8000ba4 <Hw_Timer_Tick+0x84>
+ 8000b42:	7c20      	ldrb	r0, [r4, #16]
+ 8000b44:	4a96      	ldr	r2, [pc, #600]	; (8000da0 <Hw_Timer_Tick+0x280>)
+ 8000b46:	2801      	cmp	r0, #1
+ 8000b48:	d03e      	beq.n	8000bc8 <Hw_Timer_Tick+0xa8>
+ 8000b4a:	f894 0020 	ldrb.w	r0, [r4, #32]
+ 8000b4e:	4a94      	ldr	r2, [pc, #592]	; (8000da0 <Hw_Timer_Tick+0x280>)
+ 8000b50:	2801      	cmp	r0, #1
+ 8000b52:	d04c      	beq.n	8000bee <Hw_Timer_Tick+0xce>
+ 8000b54:	f894 0030 	ldrb.w	r0, [r4, #48]	; 0x30
+ 8000b58:	4a91      	ldr	r2, [pc, #580]	; (8000da0 <Hw_Timer_Tick+0x280>)
+ 8000b5a:	2801      	cmp	r0, #1
+ 8000b5c:	d05b      	beq.n	8000c16 <Hw_Timer_Tick+0xf6>
+ 8000b5e:	f894 0040 	ldrb.w	r0, [r4, #64]	; 0x40
+ 8000b62:	4a8f      	ldr	r2, [pc, #572]	; (8000da0 <Hw_Timer_Tick+0x280>)
+ 8000b64:	2801      	cmp	r0, #1
+ 8000b66:	d06a      	beq.n	8000c3e <Hw_Timer_Tick+0x11e>
+ 8000b68:	f894 0050 	ldrb.w	r0, [r4, #80]	; 0x50
+ 8000b6c:	4a8c      	ldr	r2, [pc, #560]	; (8000da0 <Hw_Timer_Tick+0x280>)
+ 8000b6e:	2801      	cmp	r0, #1
+ 8000b70:	d07d      	beq.n	8000c6e <Hw_Timer_Tick+0x14e>
+ 8000b72:	f894 0060 	ldrb.w	r0, [r4, #96]	; 0x60
+ 8000b76:	4a8a      	ldr	r2, [pc, #552]	; (8000da0 <Hw_Timer_Tick+0x280>)
+ 8000b78:	2801      	cmp	r0, #1
+ 8000b7a:	f000 8091 	beq.w	8000ca0 <Hw_Timer_Tick+0x180>
+ 8000b7e:	f894 0070 	ldrb.w	r0, [r4, #112]	; 0x70
+ 8000b82:	4a87      	ldr	r2, [pc, #540]	; (8000da0 <Hw_Timer_Tick+0x280>)
+ 8000b84:	2801      	cmp	r0, #1
+ 8000b86:	f000 80a4 	beq.w	8000cd2 <Hw_Timer_Tick+0x1b2>
+ 8000b8a:	f894 0080 	ldrb.w	r0, [r4, #128]	; 0x80
+ 8000b8e:	4a84      	ldr	r2, [pc, #528]	; (8000da0 <Hw_Timer_Tick+0x280>)
+ 8000b90:	2801      	cmp	r0, #1
+ 8000b92:	f000 80b7 	beq.w	8000d04 <Hw_Timer_Tick+0x1e4>
+ 8000b96:	f894 0090 	ldrb.w	r0, [r4, #144]	; 0x90
+ 8000b9a:	4a81      	ldr	r2, [pc, #516]	; (8000da0 <Hw_Timer_Tick+0x280>)
+ 8000b9c:	2801      	cmp	r0, #1
+ 8000b9e:	f000 80cb 	beq.w	8000d38 <Hw_Timer_Tick+0x218>
+ 8000ba2:	bd10      	pop	{r4, pc}
 		{
 			Timer_Tbl[i].Timer_Ctn--;  						// 타이머값 감소
- 8000b94:	8862      	ldrh	r2, [r4, #2]
- 8000b96:	1e51      	subs	r1, r2, #1
- 8000b98:	b288      	uxth	r0, r1
- 8000b9a:	8060      	strh	r0, [r4, #2]
+ 8000ba4:	8862      	ldrh	r2, [r4, #2]
+ 8000ba6:	1e51      	subs	r1, r2, #1
+ 8000ba8:	b288      	uxth	r0, r1
+ 8000baa:	8060      	strh	r0, [r4, #2]
 
 			if(Timer_Tbl[i].Timer_Ctn == 0) 				// 타이머 오버플로어
- 8000b9c:	2800      	cmp	r0, #0
- 8000b9e:	d1c8      	bne.n	8000b32 <Hw_Timer_Tick+0x22>
+ 8000bac:	2800      	cmp	r0, #0
+ 8000bae:	d1c8      	bne.n	8000b42 <Hw_Timer_Tick+0x22>
 			{
 				if(Timer_Tbl[i].Timer_Mode == ONE_TIME)  	// 한번만 실행하는거면
- 8000ba0:	7863      	ldrb	r3, [r4, #1]
- 8000ba2:	2b01      	cmp	r3, #1
- 8000ba4:	f000 80d9 	beq.w	8000d5a <Hw_Timer_Tick+0x24a>
+ 8000bb0:	7863      	ldrb	r3, [r4, #1]
+ 8000bb2:	2b01      	cmp	r3, #1
+ 8000bb4:	f000 80d9 	beq.w	8000d6a <Hw_Timer_Tick+0x24a>
 
 				Timer_Tbl[i].Timer_En = OFF;     			// 타이머 OFF 한다.
 
 				Timer_Tbl[i].Timer_Ctn = Timer_Tbl[i].Timer_Init; // 타이머 초기화
- 8000ba8:	88a2      	ldrh	r2, [r4, #4]
+ 8000bb8:	88a2      	ldrh	r2, [r4, #4]
 
 				(*Timer_Tbl[i].TmrFnct)();  				// 전달변수 없이 함수 실행
- 8000baa:	68a1      	ldr	r1, [r4, #8]
+ 8000bba:	68a1      	ldr	r1, [r4, #8]
 			{
 				if(Timer_Tbl[i].Timer_Mode == ONE_TIME)  	// 한번만 실행하는거면
 
 				Timer_Tbl[i].Timer_En = OFF;     			// 타이머 OFF 한다.
 
 				Timer_Tbl[i].Timer_Ctn = Timer_Tbl[i].Timer_Init; // 타이머 초기화
- 8000bac:	8062      	strh	r2, [r4, #2]
+ 8000bbc:	8062      	strh	r2, [r4, #2]
 
 				(*Timer_Tbl[i].TmrFnct)();  				// 전달변수 없이 함수 실행
- 8000bae:	4788      	blx	r1
+ 8000bbe:	4788      	blx	r1
 	
 	
 			   
 	for(i=0; i<TIMER_MAX; i++)								// 타이머 갯수만큼
 	{
 		if( Timer_Tbl[i].Timer_En == ON)   					// 타이머가 활성화 됬니?
- 8000bb0:	7c20      	ldrb	r0, [r4, #16]
- 8000bb2:	4a77      	ldr	r2, [pc, #476]	; (8000d90 <Hw_Timer_Tick+0x280>)
- 8000bb4:	2801      	cmp	r0, #1
- 8000bb6:	d1c0      	bne.n	8000b3a <Hw_Timer_Tick+0x2a>
+ 8000bc0:	7c20      	ldrb	r0, [r4, #16]
+ 8000bc2:	4a77      	ldr	r2, [pc, #476]	; (8000da0 <Hw_Timer_Tick+0x280>)
+ 8000bc4:	2801      	cmp	r0, #1
+ 8000bc6:	d1c0      	bne.n	8000b4a <Hw_Timer_Tick+0x2a>
 		{
 			Timer_Tbl[i].Timer_Ctn--;  						// 타이머값 감소
- 8000bb8:	8a53      	ldrh	r3, [r2, #18]
- 8000bba:	1e59      	subs	r1, r3, #1
- 8000bbc:	b288      	uxth	r0, r1
- 8000bbe:	8250      	strh	r0, [r2, #18]
+ 8000bc8:	8a53      	ldrh	r3, [r2, #18]
+ 8000bca:	1e59      	subs	r1, r3, #1
+ 8000bcc:	b288      	uxth	r0, r1
+ 8000bce:	8250      	strh	r0, [r2, #18]
 
 			if(Timer_Tbl[i].Timer_Ctn == 0) 				// 타이머 오버플로어
- 8000bc0:	2800      	cmp	r0, #0
- 8000bc2:	d1ba      	bne.n	8000b3a <Hw_Timer_Tick+0x2a>
+ 8000bd0:	2800      	cmp	r0, #0
+ 8000bd2:	d1ba      	bne.n	8000b4a <Hw_Timer_Tick+0x2a>
 			{
 				if(Timer_Tbl[i].Timer_Mode == ONE_TIME)  	// 한번만 실행하는거면
- 8000bc4:	7c53      	ldrb	r3, [r2, #17]
- 8000bc6:	2b01      	cmp	r3, #1
- 8000bc8:	f000 80c5 	beq.w	8000d56 <Hw_Timer_Tick+0x246>
+ 8000bd4:	7c53      	ldrb	r3, [r2, #17]
+ 8000bd6:	2b01      	cmp	r3, #1
+ 8000bd8:	f000 80c5 	beq.w	8000d66 <Hw_Timer_Tick+0x246>
 
 				Timer_Tbl[i].Timer_En = OFF;     			// 타이머 OFF 한다.
 
 				Timer_Tbl[i].Timer_Ctn = Timer_Tbl[i].Timer_Init; // 타이머 초기화
- 8000bcc:	8aa2      	ldrh	r2, [r4, #20]
+ 8000bdc:	8aa2      	ldrh	r2, [r4, #20]
 
 				(*Timer_Tbl[i].TmrFnct)();  				// 전달변수 없이 함수 실행
- 8000bce:	69a1      	ldr	r1, [r4, #24]
+ 8000bde:	69a1      	ldr	r1, [r4, #24]
 			{
 				if(Timer_Tbl[i].Timer_Mode == ONE_TIME)  	// 한번만 실행하는거면
 
 				Timer_Tbl[i].Timer_En = OFF;     			// 타이머 OFF 한다.
 
 				Timer_Tbl[i].Timer_Ctn = Timer_Tbl[i].Timer_Init; // 타이머 초기화
- 8000bd0:	8262      	strh	r2, [r4, #18]
+ 8000be0:	8262      	strh	r2, [r4, #18]
 
 				(*Timer_Tbl[i].TmrFnct)();  				// 전달변수 없이 함수 실행
- 8000bd2:	4788      	blx	r1
+ 8000be2:	4788      	blx	r1
 	
 	
 			   
 	for(i=0; i<TIMER_MAX; i++)								// 타이머 갯수만큼
 	{
 		if( Timer_Tbl[i].Timer_En == ON)   					// 타이머가 활성화 됬니?
- 8000bd4:	f894 0020 	ldrb.w	r0, [r4, #32]
- 8000bd8:	4a6d      	ldr	r2, [pc, #436]	; (8000d90 <Hw_Timer_Tick+0x280>)
- 8000bda:	2801      	cmp	r0, #1
- 8000bdc:	d1b2      	bne.n	8000b44 <Hw_Timer_Tick+0x34>
+ 8000be4:	f894 0020 	ldrb.w	r0, [r4, #32]
+ 8000be8:	4a6d      	ldr	r2, [pc, #436]	; (8000da0 <Hw_Timer_Tick+0x280>)
+ 8000bea:	2801      	cmp	r0, #1
+ 8000bec:	d1b2      	bne.n	8000b54 <Hw_Timer_Tick+0x34>
 		{
 			Timer_Tbl[i].Timer_Ctn--;  						// 타이머값 감소
- 8000bde:	8c53      	ldrh	r3, [r2, #34]	; 0x22
- 8000be0:	1e59      	subs	r1, r3, #1
- 8000be2:	b288      	uxth	r0, r1
- 8000be4:	8450      	strh	r0, [r2, #34]	; 0x22
+ 8000bee:	8c53      	ldrh	r3, [r2, #34]	; 0x22
+ 8000bf0:	1e59      	subs	r1, r3, #1
+ 8000bf2:	b288      	uxth	r0, r1
+ 8000bf4:	8450      	strh	r0, [r2, #34]	; 0x22
 
 			if(Timer_Tbl[i].Timer_Ctn == 0) 				// 타이머 오버플로어
- 8000be6:	2800      	cmp	r0, #0
- 8000be8:	d1ac      	bne.n	8000b44 <Hw_Timer_Tick+0x34>
+ 8000bf6:	2800      	cmp	r0, #0
+ 8000bf8:	d1ac      	bne.n	8000b54 <Hw_Timer_Tick+0x34>
 			{
 				if(Timer_Tbl[i].Timer_Mode == ONE_TIME)  	// 한번만 실행하는거면
- 8000bea:	f892 3021 	ldrb.w	r3, [r2, #33]	; 0x21
- 8000bee:	2b01      	cmp	r3, #1
- 8000bf0:	f000 80c7 	beq.w	8000d82 <Hw_Timer_Tick+0x272>
+ 8000bfa:	f892 3021 	ldrb.w	r3, [r2, #33]	; 0x21
+ 8000bfe:	2b01      	cmp	r3, #1
+ 8000c00:	f000 80c7 	beq.w	8000d92 <Hw_Timer_Tick+0x272>
 
 				Timer_Tbl[i].Timer_En = OFF;     			// 타이머 OFF 한다.
 
 				Timer_Tbl[i].Timer_Ctn = Timer_Tbl[i].Timer_Init; // 타이머 초기화
- 8000bf4:	8ca2      	ldrh	r2, [r4, #36]	; 0x24
+ 8000c04:	8ca2      	ldrh	r2, [r4, #36]	; 0x24
 
 				(*Timer_Tbl[i].TmrFnct)();  				// 전달변수 없이 함수 실행
- 8000bf6:	6aa1      	ldr	r1, [r4, #40]	; 0x28
+ 8000c06:	6aa1      	ldr	r1, [r4, #40]	; 0x28
 			{
 				if(Timer_Tbl[i].Timer_Mode == ONE_TIME)  	// 한번만 실행하는거면
 
 				Timer_Tbl[i].Timer_En = OFF;     			// 타이머 OFF 한다.
 
 				Timer_Tbl[i].Timer_Ctn = Timer_Tbl[i].Timer_Init; // 타이머 초기화
- 8000bf8:	8462      	strh	r2, [r4, #34]	; 0x22
+ 8000c08:	8462      	strh	r2, [r4, #34]	; 0x22
 
 				(*Timer_Tbl[i].TmrFnct)();  				// 전달변수 없이 함수 실행
- 8000bfa:	4788      	blx	r1
+ 8000c0a:	4788      	blx	r1
 	
 	
 			   
 	for(i=0; i<TIMER_MAX; i++)								// 타이머 갯수만큼
 	{
 		if( Timer_Tbl[i].Timer_En == ON)   					// 타이머가 활성화 됬니?
- 8000bfc:	f894 0030 	ldrb.w	r0, [r4, #48]	; 0x30
- 8000c00:	4a63      	ldr	r2, [pc, #396]	; (8000d90 <Hw_Timer_Tick+0x280>)
- 8000c02:	2801      	cmp	r0, #1
- 8000c04:	d1a3      	bne.n	8000b4e <Hw_Timer_Tick+0x3e>
+ 8000c0c:	f894 0030 	ldrb.w	r0, [r4, #48]	; 0x30
+ 8000c10:	4a63      	ldr	r2, [pc, #396]	; (8000da0 <Hw_Timer_Tick+0x280>)
+ 8000c12:	2801      	cmp	r0, #1
+ 8000c14:	d1a3      	bne.n	8000b5e <Hw_Timer_Tick+0x3e>
 		{
 			Timer_Tbl[i].Timer_Ctn--;  						// 타이머값 감소
- 8000c06:	8e53      	ldrh	r3, [r2, #50]	; 0x32
- 8000c08:	1e59      	subs	r1, r3, #1
- 8000c0a:	b288      	uxth	r0, r1
- 8000c0c:	8650      	strh	r0, [r2, #50]	; 0x32
+ 8000c16:	8e53      	ldrh	r3, [r2, #50]	; 0x32
+ 8000c18:	1e59      	subs	r1, r3, #1
+ 8000c1a:	b288      	uxth	r0, r1
+ 8000c1c:	8650      	strh	r0, [r2, #50]	; 0x32
 
 			if(Timer_Tbl[i].Timer_Ctn == 0) 				// 타이머 오버플로어
- 8000c0e:	2800      	cmp	r0, #0
- 8000c10:	d19d      	bne.n	8000b4e <Hw_Timer_Tick+0x3e>
+ 8000c1e:	2800      	cmp	r0, #0
+ 8000c20:	d19d      	bne.n	8000b5e <Hw_Timer_Tick+0x3e>
 			{
 				if(Timer_Tbl[i].Timer_Mode == ONE_TIME)  	// 한번만 실행하는거면
- 8000c12:	f892 3031 	ldrb.w	r3, [r2, #49]	; 0x31
- 8000c16:	2b01      	cmp	r3, #1
- 8000c18:	f000 80b0 	beq.w	8000d7c <Hw_Timer_Tick+0x26c>
+ 8000c22:	f892 3031 	ldrb.w	r3, [r2, #49]	; 0x31
+ 8000c26:	2b01      	cmp	r3, #1
+ 8000c28:	f000 80b0 	beq.w	8000d8c <Hw_Timer_Tick+0x26c>
 
 				Timer_Tbl[i].Timer_En = OFF;     			// 타이머 OFF 한다.
 
 				Timer_Tbl[i].Timer_Ctn = Timer_Tbl[i].Timer_Init; // 타이머 초기화
- 8000c1c:	8ea2      	ldrh	r2, [r4, #52]	; 0x34
+ 8000c2c:	8ea2      	ldrh	r2, [r4, #52]	; 0x34
 
 				(*Timer_Tbl[i].TmrFnct)();  				// 전달변수 없이 함수 실행
- 8000c1e:	6ba1      	ldr	r1, [r4, #56]	; 0x38
+ 8000c2e:	6ba1      	ldr	r1, [r4, #56]	; 0x38
 			{
 				if(Timer_Tbl[i].Timer_Mode == ONE_TIME)  	// 한번만 실행하는거면
 
 				Timer_Tbl[i].Timer_En = OFF;     			// 타이머 OFF 한다.
 
 				Timer_Tbl[i].Timer_Ctn = Timer_Tbl[i].Timer_Init; // 타이머 초기화
- 8000c20:	8662      	strh	r2, [r4, #50]	; 0x32
+ 8000c30:	8662      	strh	r2, [r4, #50]	; 0x32
 
 				(*Timer_Tbl[i].TmrFnct)();  				// 전달변수 없이 함수 실행
- 8000c22:	4788      	blx	r1
+ 8000c32:	4788      	blx	r1
 	
 	
 			   
 	for(i=0; i<TIMER_MAX; i++)								// 타이머 갯수만큼
 	{
 		if( Timer_Tbl[i].Timer_En == ON)   					// 타이머가 활성화 됬니?
- 8000c24:	f894 0040 	ldrb.w	r0, [r4, #64]	; 0x40
- 8000c28:	4a59      	ldr	r2, [pc, #356]	; (8000d90 <Hw_Timer_Tick+0x280>)
- 8000c2a:	2801      	cmp	r0, #1
- 8000c2c:	d194      	bne.n	8000b58 <Hw_Timer_Tick+0x48>
+ 8000c34:	f894 0040 	ldrb.w	r0, [r4, #64]	; 0x40
+ 8000c38:	4a59      	ldr	r2, [pc, #356]	; (8000da0 <Hw_Timer_Tick+0x280>)
+ 8000c3a:	2801      	cmp	r0, #1
+ 8000c3c:	d194      	bne.n	8000b68 <Hw_Timer_Tick+0x48>
 		{
 			Timer_Tbl[i].Timer_Ctn--;  						// 타이머값 감소
- 8000c2e:	f8b2 3042 	ldrh.w	r3, [r2, #66]	; 0x42
- 8000c32:	1e59      	subs	r1, r3, #1
- 8000c34:	b288      	uxth	r0, r1
- 8000c36:	f8a2 0042 	strh.w	r0, [r2, #66]	; 0x42
+ 8000c3e:	f8b2 3042 	ldrh.w	r3, [r2, #66]	; 0x42
+ 8000c42:	1e59      	subs	r1, r3, #1
+ 8000c44:	b288      	uxth	r0, r1
+ 8000c46:	f8a2 0042 	strh.w	r0, [r2, #66]	; 0x42
 
 			if(Timer_Tbl[i].Timer_Ctn == 0) 				// 타이머 오버플로어
- 8000c3a:	2800      	cmp	r0, #0
- 8000c3c:	d18c      	bne.n	8000b58 <Hw_Timer_Tick+0x48>
+ 8000c4a:	2800      	cmp	r0, #0
+ 8000c4c:	d18c      	bne.n	8000b68 <Hw_Timer_Tick+0x48>
 			{
 				if(Timer_Tbl[i].Timer_Mode == ONE_TIME)  	// 한번만 실행하는거면
- 8000c3e:	f892 3041 	ldrb.w	r3, [r2, #65]	; 0x41
- 8000c42:	2b01      	cmp	r3, #1
- 8000c44:	f000 8097 	beq.w	8000d76 <Hw_Timer_Tick+0x266>
+ 8000c4e:	f892 3041 	ldrb.w	r3, [r2, #65]	; 0x41
+ 8000c52:	2b01      	cmp	r3, #1
+ 8000c54:	f000 8097 	beq.w	8000d86 <Hw_Timer_Tick+0x266>
 
 				Timer_Tbl[i].Timer_En = OFF;     			// 타이머 OFF 한다.
 
 				Timer_Tbl[i].Timer_Ctn = Timer_Tbl[i].Timer_Init; // 타이머 초기화
- 8000c48:	f8b4 2044 	ldrh.w	r2, [r4, #68]	; 0x44
+ 8000c58:	f8b4 2044 	ldrh.w	r2, [r4, #68]	; 0x44
 
 				(*Timer_Tbl[i].TmrFnct)();  				// 전달변수 없이 함수 실행
- 8000c4c:	6ca1      	ldr	r1, [r4, #72]	; 0x48
+ 8000c5c:	6ca1      	ldr	r1, [r4, #72]	; 0x48
 			{
 				if(Timer_Tbl[i].Timer_Mode == ONE_TIME)  	// 한번만 실행하는거면
 
 				Timer_Tbl[i].Timer_En = OFF;     			// 타이머 OFF 한다.
 
 				Timer_Tbl[i].Timer_Ctn = Timer_Tbl[i].Timer_Init; // 타이머 초기화
- 8000c4e:	f8a4 2042 	strh.w	r2, [r4, #66]	; 0x42
+ 8000c5e:	f8a4 2042 	strh.w	r2, [r4, #66]	; 0x42
 
 				(*Timer_Tbl[i].TmrFnct)();  				// 전달변수 없이 함수 실행
- 8000c52:	4788      	blx	r1
+ 8000c62:	4788      	blx	r1
 	
 	
 			   
 	for(i=0; i<TIMER_MAX; i++)								// 타이머 갯수만큼
 	{
 		if( Timer_Tbl[i].Timer_En == ON)   					// 타이머가 활성화 됬니?
- 8000c54:	f894 0050 	ldrb.w	r0, [r4, #80]	; 0x50
- 8000c58:	4a4d      	ldr	r2, [pc, #308]	; (8000d90 <Hw_Timer_Tick+0x280>)
- 8000c5a:	2801      	cmp	r0, #1
- 8000c5c:	d181      	bne.n	8000b62 <Hw_Timer_Tick+0x52>
+ 8000c64:	f894 0050 	ldrb.w	r0, [r4, #80]	; 0x50
+ 8000c68:	4a4d      	ldr	r2, [pc, #308]	; (8000da0 <Hw_Timer_Tick+0x280>)
+ 8000c6a:	2801      	cmp	r0, #1
+ 8000c6c:	d181      	bne.n	8000b72 <Hw_Timer_Tick+0x52>
 		{
 			Timer_Tbl[i].Timer_Ctn--;  						// 타이머값 감소
- 8000c5e:	f8b2 3052 	ldrh.w	r3, [r2, #82]	; 0x52
- 8000c62:	1e59      	subs	r1, r3, #1
- 8000c64:	b288      	uxth	r0, r1
- 8000c66:	f8a2 0052 	strh.w	r0, [r2, #82]	; 0x52
+ 8000c6e:	f8b2 3052 	ldrh.w	r3, [r2, #82]	; 0x52
+ 8000c72:	1e59      	subs	r1, r3, #1
+ 8000c74:	b288      	uxth	r0, r1
+ 8000c76:	f8a2 0052 	strh.w	r0, [r2, #82]	; 0x52
 
 			if(Timer_Tbl[i].Timer_Ctn == 0) 				// 타이머 오버플로어
- 8000c6a:	2800      	cmp	r0, #0
- 8000c6c:	f47f af79 	bne.w	8000b62 <Hw_Timer_Tick+0x52>
+ 8000c7a:	2800      	cmp	r0, #0
+ 8000c7c:	f47f af79 	bne.w	8000b72 <Hw_Timer_Tick+0x52>
 			{
 				if(Timer_Tbl[i].Timer_Mode == ONE_TIME)  	// 한번만 실행하는거면
- 8000c70:	f892 3051 	ldrb.w	r3, [r2, #81]	; 0x51
- 8000c74:	2b01      	cmp	r3, #1
- 8000c76:	d07b      	beq.n	8000d70 <Hw_Timer_Tick+0x260>
+ 8000c80:	f892 3051 	ldrb.w	r3, [r2, #81]	; 0x51
+ 8000c84:	2b01      	cmp	r3, #1
+ 8000c86:	d07b      	beq.n	8000d80 <Hw_Timer_Tick+0x260>
 
 				Timer_Tbl[i].Timer_En = OFF;     			// 타이머 OFF 한다.
 
 				Timer_Tbl[i].Timer_Ctn = Timer_Tbl[i].Timer_Init; // 타이머 초기화
- 8000c78:	f8b4 2054 	ldrh.w	r2, [r4, #84]	; 0x54
+ 8000c88:	f8b4 2054 	ldrh.w	r2, [r4, #84]	; 0x54
 
 				(*Timer_Tbl[i].TmrFnct)();  				// 전달변수 없이 함수 실행
- 8000c7c:	6da1      	ldr	r1, [r4, #88]	; 0x58
+ 8000c8c:	6da1      	ldr	r1, [r4, #88]	; 0x58
 			{
 				if(Timer_Tbl[i].Timer_Mode == ONE_TIME)  	// 한번만 실행하는거면
 
 				Timer_Tbl[i].Timer_En = OFF;     			// 타이머 OFF 한다.
 
 				Timer_Tbl[i].Timer_Ctn = Timer_Tbl[i].Timer_Init; // 타이머 초기화
- 8000c7e:	f8a4 2052 	strh.w	r2, [r4, #82]	; 0x52
+ 8000c8e:	f8a4 2052 	strh.w	r2, [r4, #82]	; 0x52
 
 				(*Timer_Tbl[i].TmrFnct)();  				// 전달변수 없이 함수 실행
- 8000c82:	4788      	blx	r1
+ 8000c92:	4788      	blx	r1
 	
 	
 			   
 	for(i=0; i<TIMER_MAX; i++)								// 타이머 갯수만큼
 	{
 		if( Timer_Tbl[i].Timer_En == ON)   					// 타이머가 활성화 됬니?
- 8000c84:	f894 0060 	ldrb.w	r0, [r4, #96]	; 0x60
- 8000c88:	4a41      	ldr	r2, [pc, #260]	; (8000d90 <Hw_Timer_Tick+0x280>)
- 8000c8a:	2801      	cmp	r0, #1
- 8000c8c:	f47f af6f 	bne.w	8000b6e <Hw_Timer_Tick+0x5e>
+ 8000c94:	f894 0060 	ldrb.w	r0, [r4, #96]	; 0x60
+ 8000c98:	4a41      	ldr	r2, [pc, #260]	; (8000da0 <Hw_Timer_Tick+0x280>)
+ 8000c9a:	2801      	cmp	r0, #1
+ 8000c9c:	f47f af6f 	bne.w	8000b7e <Hw_Timer_Tick+0x5e>
 		{
 			Timer_Tbl[i].Timer_Ctn--;  						// 타이머값 감소
- 8000c90:	f8b2 3062 	ldrh.w	r3, [r2, #98]	; 0x62
- 8000c94:	1e59      	subs	r1, r3, #1
- 8000c96:	b288      	uxth	r0, r1
- 8000c98:	f8a2 0062 	strh.w	r0, [r2, #98]	; 0x62
+ 8000ca0:	f8b2 3062 	ldrh.w	r3, [r2, #98]	; 0x62
+ 8000ca4:	1e59      	subs	r1, r3, #1
+ 8000ca6:	b288      	uxth	r0, r1
+ 8000ca8:	f8a2 0062 	strh.w	r0, [r2, #98]	; 0x62
 
 			if(Timer_Tbl[i].Timer_Ctn == 0) 				// 타이머 오버플로어
- 8000c9c:	2800      	cmp	r0, #0
- 8000c9e:	f47f af66 	bne.w	8000b6e <Hw_Timer_Tick+0x5e>
+ 8000cac:	2800      	cmp	r0, #0
+ 8000cae:	f47f af66 	bne.w	8000b7e <Hw_Timer_Tick+0x5e>
 			{
 				if(Timer_Tbl[i].Timer_Mode == ONE_TIME)  	// 한번만 실행하는거면
- 8000ca2:	f892 3061 	ldrb.w	r3, [r2, #97]	; 0x61
- 8000ca6:	2b01      	cmp	r3, #1
- 8000ca8:	d05f      	beq.n	8000d6a <Hw_Timer_Tick+0x25a>
+ 8000cb2:	f892 3061 	ldrb.w	r3, [r2, #97]	; 0x61
+ 8000cb6:	2b01      	cmp	r3, #1
+ 8000cb8:	d05f      	beq.n	8000d7a <Hw_Timer_Tick+0x25a>
 
 				Timer_Tbl[i].Timer_En = OFF;     			// 타이머 OFF 한다.
 
 				Timer_Tbl[i].Timer_Ctn = Timer_Tbl[i].Timer_Init; // 타이머 초기화
- 8000caa:	f8b4 2064 	ldrh.w	r2, [r4, #100]	; 0x64
+ 8000cba:	f8b4 2064 	ldrh.w	r2, [r4, #100]	; 0x64
 
 				(*Timer_Tbl[i].TmrFnct)();  				// 전달변수 없이 함수 실행
- 8000cae:	6ea1      	ldr	r1, [r4, #104]	; 0x68
+ 8000cbe:	6ea1      	ldr	r1, [r4, #104]	; 0x68
 			{
 				if(Timer_Tbl[i].Timer_Mode == ONE_TIME)  	// 한번만 실행하는거면
 
 				Timer_Tbl[i].Timer_En = OFF;     			// 타이머 OFF 한다.
 
 				Timer_Tbl[i].Timer_Ctn = Timer_Tbl[i].Timer_Init; // 타이머 초기화
- 8000cb0:	f8a4 2062 	strh.w	r2, [r4, #98]	; 0x62
+ 8000cc0:	f8a4 2062 	strh.w	r2, [r4, #98]	; 0x62
 
 				(*Timer_Tbl[i].TmrFnct)();  				// 전달변수 없이 함수 실행
- 8000cb4:	4788      	blx	r1
+ 8000cc4:	4788      	blx	r1
 	
 	
 			   
 	for(i=0; i<TIMER_MAX; i++)								// 타이머 갯수만큼
 	{
 		if( Timer_Tbl[i].Timer_En == ON)   					// 타이머가 활성화 됬니?
- 8000cb6:	f894 0070 	ldrb.w	r0, [r4, #112]	; 0x70
- 8000cba:	4a35      	ldr	r2, [pc, #212]	; (8000d90 <Hw_Timer_Tick+0x280>)
- 8000cbc:	2801      	cmp	r0, #1
- 8000cbe:	f47f af5c 	bne.w	8000b7a <Hw_Timer_Tick+0x6a>
+ 8000cc6:	f894 0070 	ldrb.w	r0, [r4, #112]	; 0x70
+ 8000cca:	4a35      	ldr	r2, [pc, #212]	; (8000da0 <Hw_Timer_Tick+0x280>)
+ 8000ccc:	2801      	cmp	r0, #1
+ 8000cce:	f47f af5c 	bne.w	8000b8a <Hw_Timer_Tick+0x6a>
 		{
 			Timer_Tbl[i].Timer_Ctn--;  						// 타이머값 감소
- 8000cc2:	f8b2 3072 	ldrh.w	r3, [r2, #114]	; 0x72
- 8000cc6:	1e59      	subs	r1, r3, #1
- 8000cc8:	b288      	uxth	r0, r1
- 8000cca:	f8a2 0072 	strh.w	r0, [r2, #114]	; 0x72
+ 8000cd2:	f8b2 3072 	ldrh.w	r3, [r2, #114]	; 0x72
+ 8000cd6:	1e59      	subs	r1, r3, #1
+ 8000cd8:	b288      	uxth	r0, r1
+ 8000cda:	f8a2 0072 	strh.w	r0, [r2, #114]	; 0x72
 
 			if(Timer_Tbl[i].Timer_Ctn == 0) 				// 타이머 오버플로어
- 8000cce:	2800      	cmp	r0, #0
- 8000cd0:	f47f af53 	bne.w	8000b7a <Hw_Timer_Tick+0x6a>
+ 8000cde:	2800      	cmp	r0, #0
+ 8000ce0:	f47f af53 	bne.w	8000b8a <Hw_Timer_Tick+0x6a>
 			{
 				if(Timer_Tbl[i].Timer_Mode == ONE_TIME)  	// 한번만 실행하는거면
- 8000cd4:	f892 3071 	ldrb.w	r3, [r2, #113]	; 0x71
- 8000cd8:	2b01      	cmp	r3, #1
- 8000cda:	d043      	beq.n	8000d64 <Hw_Timer_Tick+0x254>
+ 8000ce4:	f892 3071 	ldrb.w	r3, [r2, #113]	; 0x71
+ 8000ce8:	2b01      	cmp	r3, #1
+ 8000cea:	d043      	beq.n	8000d74 <Hw_Timer_Tick+0x254>
 
 				Timer_Tbl[i].Timer_En = OFF;     			// 타이머 OFF 한다.
 
 				Timer_Tbl[i].Timer_Ctn = Timer_Tbl[i].Timer_Init; // 타이머 초기화
- 8000cdc:	f8b4 2074 	ldrh.w	r2, [r4, #116]	; 0x74
+ 8000cec:	f8b4 2074 	ldrh.w	r2, [r4, #116]	; 0x74
 
 				(*Timer_Tbl[i].TmrFnct)();  				// 전달변수 없이 함수 실행
- 8000ce0:	6fa1      	ldr	r1, [r4, #120]	; 0x78
+ 8000cf0:	6fa1      	ldr	r1, [r4, #120]	; 0x78
 			{
 				if(Timer_Tbl[i].Timer_Mode == ONE_TIME)  	// 한번만 실행하는거면
 
 				Timer_Tbl[i].Timer_En = OFF;     			// 타이머 OFF 한다.
 
 				Timer_Tbl[i].Timer_Ctn = Timer_Tbl[i].Timer_Init; // 타이머 초기화
- 8000ce2:	f8a4 2072 	strh.w	r2, [r4, #114]	; 0x72
+ 8000cf2:	f8a4 2072 	strh.w	r2, [r4, #114]	; 0x72
 
 				(*Timer_Tbl[i].TmrFnct)();  				// 전달변수 없이 함수 실행
- 8000ce6:	4788      	blx	r1
+ 8000cf6:	4788      	blx	r1
 	
 	
 			   
 	for(i=0; i<TIMER_MAX; i++)								// 타이머 갯수만큼
 	{
 		if( Timer_Tbl[i].Timer_En == ON)   					// 타이머가 활성화 됬니?
- 8000ce8:	f894 0080 	ldrb.w	r0, [r4, #128]	; 0x80
- 8000cec:	4a28      	ldr	r2, [pc, #160]	; (8000d90 <Hw_Timer_Tick+0x280>)
- 8000cee:	2801      	cmp	r0, #1
- 8000cf0:	f47f af49 	bne.w	8000b86 <Hw_Timer_Tick+0x76>
+ 8000cf8:	f894 0080 	ldrb.w	r0, [r4, #128]	; 0x80
+ 8000cfc:	4a28      	ldr	r2, [pc, #160]	; (8000da0 <Hw_Timer_Tick+0x280>)
+ 8000cfe:	2801      	cmp	r0, #1
+ 8000d00:	f47f af49 	bne.w	8000b96 <Hw_Timer_Tick+0x76>
 		{
 			Timer_Tbl[i].Timer_Ctn--;  						// 타이머값 감소
- 8000cf4:	f8b2 3082 	ldrh.w	r3, [r2, #130]	; 0x82
- 8000cf8:	1e59      	subs	r1, r3, #1
- 8000cfa:	b288      	uxth	r0, r1
- 8000cfc:	f8a2 0082 	strh.w	r0, [r2, #130]	; 0x82
+ 8000d04:	f8b2 3082 	ldrh.w	r3, [r2, #130]	; 0x82
+ 8000d08:	1e59      	subs	r1, r3, #1
+ 8000d0a:	b288      	uxth	r0, r1
+ 8000d0c:	f8a2 0082 	strh.w	r0, [r2, #130]	; 0x82
 
 			if(Timer_Tbl[i].Timer_Ctn == 0) 				// 타이머 오버플로어
- 8000d00:	2800      	cmp	r0, #0
- 8000d02:	f47f af40 	bne.w	8000b86 <Hw_Timer_Tick+0x76>
+ 8000d10:	2800      	cmp	r0, #0
+ 8000d12:	f47f af40 	bne.w	8000b96 <Hw_Timer_Tick+0x76>
 			{
 				if(Timer_Tbl[i].Timer_Mode == ONE_TIME)  	// 한번만 실행하는거면
- 8000d06:	f892 3081 	ldrb.w	r3, [r2, #129]	; 0x81
- 8000d0a:	2b01      	cmp	r3, #1
- 8000d0c:	d027      	beq.n	8000d5e <Hw_Timer_Tick+0x24e>
+ 8000d16:	f892 3081 	ldrb.w	r3, [r2, #129]	; 0x81
+ 8000d1a:	2b01      	cmp	r3, #1
+ 8000d1c:	d027      	beq.n	8000d6e <Hw_Timer_Tick+0x24e>
 
 				Timer_Tbl[i].Timer_En = OFF;     			// 타이머 OFF 한다.
 
 				Timer_Tbl[i].Timer_Ctn = Timer_Tbl[i].Timer_Init; // 타이머 초기화
- 8000d0e:	f8b4 2084 	ldrh.w	r2, [r4, #132]	; 0x84
+ 8000d1e:	f8b4 2084 	ldrh.w	r2, [r4, #132]	; 0x84
 
 				(*Timer_Tbl[i].TmrFnct)();  				// 전달변수 없이 함수 실행
- 8000d12:	f8d4 1088 	ldr.w	r1, [r4, #136]	; 0x88
+ 8000d22:	f8d4 1088 	ldr.w	r1, [r4, #136]	; 0x88
 			{
 				if(Timer_Tbl[i].Timer_Mode == ONE_TIME)  	// 한번만 실행하는거면
 
 				Timer_Tbl[i].Timer_En = OFF;     			// 타이머 OFF 한다.
 
 				Timer_Tbl[i].Timer_Ctn = Timer_Tbl[i].Timer_Init; // 타이머 초기화
- 8000d16:	f8a4 2082 	strh.w	r2, [r4, #130]	; 0x82
+ 8000d26:	f8a4 2082 	strh.w	r2, [r4, #130]	; 0x82
 
 				(*Timer_Tbl[i].TmrFnct)();  				// 전달변수 없이 함수 실행
- 8000d1a:	4788      	blx	r1
+ 8000d2a:	4788      	blx	r1
 	
 	
 			   
 	for(i=0; i<TIMER_MAX; i++)								// 타이머 갯수만큼
 	{
 		if( Timer_Tbl[i].Timer_En == ON)   					// 타이머가 활성화 됬니?
- 8000d1c:	f894 0090 	ldrb.w	r0, [r4, #144]	; 0x90
- 8000d20:	4a1b      	ldr	r2, [pc, #108]	; (8000d90 <Hw_Timer_Tick+0x280>)
- 8000d22:	2801      	cmp	r0, #1
- 8000d24:	f47f af35 	bne.w	8000b92 <Hw_Timer_Tick+0x82>
+ 8000d2c:	f894 0090 	ldrb.w	r0, [r4, #144]	; 0x90
+ 8000d30:	4a1b      	ldr	r2, [pc, #108]	; (8000da0 <Hw_Timer_Tick+0x280>)
+ 8000d32:	2801      	cmp	r0, #1
+ 8000d34:	f47f af35 	bne.w	8000ba2 <Hw_Timer_Tick+0x82>
 		{
 			Timer_Tbl[i].Timer_Ctn--;  						// 타이머값 감소
- 8000d28:	f8b2 3092 	ldrh.w	r3, [r2, #146]	; 0x92
- 8000d2c:	1e59      	subs	r1, r3, #1
- 8000d2e:	b288      	uxth	r0, r1
- 8000d30:	f8a2 0092 	strh.w	r0, [r2, #146]	; 0x92
+ 8000d38:	f8b2 3092 	ldrh.w	r3, [r2, #146]	; 0x92
+ 8000d3c:	1e59      	subs	r1, r3, #1
+ 8000d3e:	b288      	uxth	r0, r1
+ 8000d40:	f8a2 0092 	strh.w	r0, [r2, #146]	; 0x92
 
 			if(Timer_Tbl[i].Timer_Ctn == 0) 				// 타이머 오버플로어
- 8000d34:	2800      	cmp	r0, #0
- 8000d36:	f47f af2c 	bne.w	8000b92 <Hw_Timer_Tick+0x82>
+ 8000d44:	2800      	cmp	r0, #0
+ 8000d46:	f47f af2c 	bne.w	8000ba2 <Hw_Timer_Tick+0x82>
 			{
 				if(Timer_Tbl[i].Timer_Mode == ONE_TIME)  	// 한번만 실행하는거면
- 8000d3a:	f892 3091 	ldrb.w	r3, [r2, #145]	; 0x91
+ 8000d4a:	f892 3091 	ldrb.w	r3, [r2, #145]	; 0x91
 
 				Timer_Tbl[i].Timer_En = OFF;     			// 타이머 OFF 한다.
 
 				Timer_Tbl[i].Timer_Ctn = Timer_Tbl[i].Timer_Init; // 타이머 초기화
 
 				(*Timer_Tbl[i].TmrFnct)();  				// 전달변수 없이 함수 실행
- 8000d3e:	f8d4 1098 	ldr.w	r1, [r4, #152]	; 0x98
+ 8000d4e:	f8d4 1098 	ldr.w	r1, [r4, #152]	; 0x98
 		{
 			Timer_Tbl[i].Timer_Ctn--;  						// 타이머값 감소
 
 			if(Timer_Tbl[i].Timer_Ctn == 0) 				// 타이머 오버플로어
 			{
 				if(Timer_Tbl[i].Timer_Mode == ONE_TIME)  	// 한번만 실행하는거면
- 8000d42:	2b01      	cmp	r3, #1
+ 8000d52:	2b01      	cmp	r3, #1
 
 				Timer_Tbl[i].Timer_En = OFF;     			// 타이머 OFF 한다.
- 8000d44:	bf08      	it	eq
- 8000d46:	f882 0090 	strbeq.w	r0, [r2, #144]	; 0x90
+ 8000d54:	bf08      	it	eq
+ 8000d56:	f882 0090 	strbeq.w	r0, [r2, #144]	; 0x90
 
 				Timer_Tbl[i].Timer_Ctn = Timer_Tbl[i].Timer_Init; // 타이머 초기화
- 8000d4a:	f8b4 2094 	ldrh.w	r2, [r4, #148]	; 0x94
- 8000d4e:	f8a4 2092 	strh.w	r2, [r4, #146]	; 0x92
+ 8000d5a:	f8b4 2094 	ldrh.w	r2, [r4, #148]	; 0x94
+ 8000d5e:	f8a4 2092 	strh.w	r2, [r4, #146]	; 0x92
 
 				(*Timer_Tbl[i].TmrFnct)();  				// 전달변수 없이 함수 실행
- 8000d52:	4788      	blx	r1
- 8000d54:	bd10      	pop	{r4, pc}
+ 8000d62:	4788      	blx	r1
+ 8000d64:	bd10      	pop	{r4, pc}
 
 			if(Timer_Tbl[i].Timer_Ctn == 0) 				// 타이머 오버플로어
 			{
 				if(Timer_Tbl[i].Timer_Mode == ONE_TIME)  	// 한번만 실행하는거면
 
 				Timer_Tbl[i].Timer_En = OFF;     			// 타이머 OFF 한다.
- 8000d56:	7410      	strb	r0, [r2, #16]
- 8000d58:	e738      	b.n	8000bcc <Hw_Timer_Tick+0xbc>
- 8000d5a:	7020      	strb	r0, [r4, #0]
- 8000d5c:	e724      	b.n	8000ba8 <Hw_Timer_Tick+0x98>
- 8000d5e:	f882 0080 	strb.w	r0, [r2, #128]	; 0x80
- 8000d62:	e7d4      	b.n	8000d0e <Hw_Timer_Tick+0x1fe>
- 8000d64:	f882 0070 	strb.w	r0, [r2, #112]	; 0x70
- 8000d68:	e7b8      	b.n	8000cdc <Hw_Timer_Tick+0x1cc>
- 8000d6a:	f882 0060 	strb.w	r0, [r2, #96]	; 0x60
- 8000d6e:	e79c      	b.n	8000caa <Hw_Timer_Tick+0x19a>
- 8000d70:	f882 0050 	strb.w	r0, [r2, #80]	; 0x50
- 8000d74:	e780      	b.n	8000c78 <Hw_Timer_Tick+0x168>
- 8000d76:	f882 0040 	strb.w	r0, [r2, #64]	; 0x40
- 8000d7a:	e765      	b.n	8000c48 <Hw_Timer_Tick+0x138>
- 8000d7c:	f882 0030 	strb.w	r0, [r2, #48]	; 0x30
- 8000d80:	e74c      	b.n	8000c1c <Hw_Timer_Tick+0x10c>
- 8000d82:	f882 0020 	strb.w	r0, [r2, #32]
- 8000d86:	e735      	b.n	8000bf4 <Hw_Timer_Tick+0xe4>
- 8000d88:	200000a4 	.word	0x200000a4
- 8000d8c:	200000a8 	.word	0x200000a8
- 8000d90:	20000000 	.word	0x20000000
+ 8000d66:	7410      	strb	r0, [r2, #16]
+ 8000d68:	e738      	b.n	8000bdc <Hw_Timer_Tick+0xbc>
+ 8000d6a:	7020      	strb	r0, [r4, #0]
+ 8000d6c:	e724      	b.n	8000bb8 <Hw_Timer_Tick+0x98>
+ 8000d6e:	f882 0080 	strb.w	r0, [r2, #128]	; 0x80
+ 8000d72:	e7d4      	b.n	8000d1e <Hw_Timer_Tick+0x1fe>
+ 8000d74:	f882 0070 	strb.w	r0, [r2, #112]	; 0x70
+ 8000d78:	e7b8      	b.n	8000cec <Hw_Timer_Tick+0x1cc>
+ 8000d7a:	f882 0060 	strb.w	r0, [r2, #96]	; 0x60
+ 8000d7e:	e79c      	b.n	8000cba <Hw_Timer_Tick+0x19a>
+ 8000d80:	f882 0050 	strb.w	r0, [r2, #80]	; 0x50
+ 8000d84:	e780      	b.n	8000c88 <Hw_Timer_Tick+0x168>
+ 8000d86:	f882 0040 	strb.w	r0, [r2, #64]	; 0x40
+ 8000d8a:	e765      	b.n	8000c58 <Hw_Timer_Tick+0x138>
+ 8000d8c:	f882 0030 	strb.w	r0, [r2, #48]	; 0x30
+ 8000d90:	e74c      	b.n	8000c2c <Hw_Timer_Tick+0x10c>
+ 8000d92:	f882 0020 	strb.w	r0, [r2, #32]
+ 8000d96:	e735      	b.n	8000c04 <Hw_Timer_Tick+0xe4>
+ 8000d98:	200000a4 	.word	0x200000a4
+ 8000d9c:	200000a8 	.word	0x200000a8
+ 8000da0:	20000000 	.word	0x20000000
 
-08000d94 <Hw_Timer_ISR>:
+08000da4 <Hw_Timer_ISR>:
 void Hw_Timer_Setup( void );
 
 
 
 void Hw_Timer_ISR(void)
 {
- 8000d94:	b508      	push	{r3, lr}
+ 8000da4:	b508      	push	{r3, lr}
 
 	Hw_Timer_Tick();  
- 8000d96:	f640 3311 	movw	r3, #2833	; 0xb11
- 8000d9a:	f6c0 0300 	movt	r3, #2048	; 0x800
- 8000d9e:	4798      	blx	r3
- 8000da0:	bd08      	pop	{r3, pc}
- 8000da2:	bf00      	nop
+ 8000da6:	f640 3321 	movw	r3, #2849	; 0xb21
+ 8000daa:	f6c0 0300 	movt	r3, #2048	; 0x800
+ 8000dae:	4798      	blx	r3
+ 8000db0:	bd08      	pop	{r3, pc}
+ 8000db2:	bf00      	nop
 
-08000da4 <Hw_Timer_Set>:
+08000db4 <Hw_Timer_Set>:
 			void (*Fnct)(void),void *arg : 실행할 타이머 함수.
      RET
      	 	void
 ---------------------------------------------------------------------------*/
 void Hw_Timer_Set(u8 TmrNum, u16 TmrData, u8 TmrMode, void (*Fnct)(void),void *arg)
 {
- 8000da4:	b410      	push	{r4}
+ 8000db4:	b410      	push	{r4}
 	Timer_Tbl[TmrNum].Timer_Mode = TmrMode;    // 모트설정
- 8000da6:	f240 0400 	movw	r4, #0
- 8000daa:	f2c2 0400 	movt	r4, #8192	; 0x2000
- 8000dae:	eb04 1000 	add.w	r0, r4, r0, lsl #4
+ 8000db6:	f240 0400 	movw	r4, #0
+ 8000dba:	f2c2 0400 	movt	r4, #8192	; 0x2000
+ 8000dbe:	eb04 1000 	add.w	r0, r4, r0, lsl #4
 	Timer_Tbl[TmrNum].TmrFnct    = Fnct;       // 실행할 함수
- 8000db2:	6083      	str	r3, [r0, #8]
+ 8000dc2:	6083      	str	r3, [r0, #8]
 	Timer_Tbl[TmrNum].TmrFnctArg = arg;        // 매개변수
- 8000db4:	9b01      	ldr	r3, [sp, #4]
+ 8000dc4:	9b01      	ldr	r3, [sp, #4]
      RET
      	 	void
 ---------------------------------------------------------------------------*/
 void Hw_Timer_Set(u8 TmrNum, u16 TmrData, u8 TmrMode, void (*Fnct)(void),void *arg)
 {
 	Timer_Tbl[TmrNum].Timer_Mode = TmrMode;    // 모트설정
- 8000db6:	7042      	strb	r2, [r0, #1]
+ 8000dc6:	7042      	strb	r2, [r0, #1]
 	Timer_Tbl[TmrNum].TmrFnct    = Fnct;       // 실행할 함수
 	Timer_Tbl[TmrNum].TmrFnctArg = arg;        // 매개변수
- 8000db8:	60c3      	str	r3, [r0, #12]
+ 8000dc8:	60c3      	str	r3, [r0, #12]
 	Timer_Tbl[TmrNum].Timer_Ctn  = TmrData;
- 8000dba:	8041      	strh	r1, [r0, #2]
+ 8000dca:	8041      	strh	r1, [r0, #2]
 	Timer_Tbl[TmrNum].Timer_Init = TmrData;
- 8000dbc:	8081      	strh	r1, [r0, #4]
+ 8000dcc:	8081      	strh	r1, [r0, #4]
 }
- 8000dbe:	bc10      	pop	{r4}
- 8000dc0:	4770      	bx	lr
- 8000dc2:	bf00      	nop
+ 8000dce:	bc10      	pop	{r4}
+ 8000dd0:	4770      	bx	lr
+ 8000dd2:	bf00      	nop
 
-08000dc4 <Hw_Timer_Start>:
+08000dd4 <Hw_Timer_Start>:
      ARG
      RET
 ---------------------------------------------------------------------------*/
 void Hw_Timer_Start(u8 TmrNum)
 {
 	if(TmrNum < TIMER_MAX)
- 8000dc4:	2809      	cmp	r0, #9
- 8000dc6:	d803      	bhi.n	8000dd0 <Hw_Timer_Start+0xc>
+ 8000dd4:	2809      	cmp	r0, #9
+ 8000dd6:	d803      	bhi.n	8000de0 <Hw_Timer_Start+0xc>
 		Timer_Tbl[TmrNum].Timer_En = ON;
- 8000dc8:	4b02      	ldr	r3, [pc, #8]	; (8000dd4 <Hw_Timer_Start+0x10>)
- 8000dca:	0100      	lsls	r0, r0, #4
- 8000dcc:	2201      	movs	r2, #1
- 8000dce:	541a      	strb	r2, [r3, r0]
- 8000dd0:	4770      	bx	lr
- 8000dd2:	bf00      	nop
- 8000dd4:	20000000 	.word	0x20000000
+ 8000dd8:	4b02      	ldr	r3, [pc, #8]	; (8000de4 <Hw_Timer_Start+0x10>)
+ 8000dda:	0100      	lsls	r0, r0, #4
+ 8000ddc:	2201      	movs	r2, #1
+ 8000dde:	541a      	strb	r2, [r3, r0]
+ 8000de0:	4770      	bx	lr
+ 8000de2:	bf00      	nop
+ 8000de4:	20000000 	.word	0x20000000
 
-08000dd8 <Hw_Timer_Delay_ms>:
+08000de8 <Hw_Timer_Delay_ms>:
      ARG
      RET
 ---------------------------------------------------------------------------*/
 void Hw_Timer_Delay_ms( u16 DelayData )
 {
 	Tmr_Ctn = DelayData;
- 8000dd8:	4a03      	ldr	r2, [pc, #12]	; (8000de8 <Hw_Timer_Delay_ms+0x10>)
- 8000dda:	8010      	strh	r0, [r2, #0]
+ 8000de8:	4a03      	ldr	r2, [pc, #12]	; (8000df8 <Hw_Timer_Delay_ms+0x10>)
+ 8000dea:	8010      	strh	r0, [r2, #0]
 	
 	while( Tmr_Ctn );
- 8000ddc:	8813      	ldrh	r3, [r2, #0]
- 8000dde:	b298      	uxth	r0, r3
- 8000de0:	2800      	cmp	r0, #0
- 8000de2:	d1fb      	bne.n	8000ddc <Hw_Timer_Delay_ms+0x4>
+ 8000dec:	8813      	ldrh	r3, [r2, #0]
+ 8000dee:	b298      	uxth	r0, r3
+ 8000df0:	2800      	cmp	r0, #0
+ 8000df2:	d1fb      	bne.n	8000dec <Hw_Timer_Delay_ms+0x4>
 }
- 8000de4:	4770      	bx	lr
- 8000de6:	bf00      	nop
- 8000de8:	200000a8 	.word	0x200000a8
+ 8000df4:	4770      	bx	lr
+ 8000df6:	bf00      	nop
+ 8000df8:	200000a8 	.word	0x200000a8
 
-08000dec <Hw_Uart_Q_Init>:
+08000dfc <Hw_Uart_Q_Init>:
 {
 	u8 i;
 
 	for( i=0; i<HW_UART_Q_CH_MAX; i++ )
 	{
 		Hw_Uart_Q_Start[i] = Hw_Uart_Q_End[i] = 0;
- 8000dec:	f240 4188 	movw	r1, #1160	; 0x488
- 8000df0:	f240 4298 	movw	r2, #1176	; 0x498
- 8000df4:	2300      	movs	r3, #0
- 8000df6:	f2c2 0100 	movt	r1, #8192	; 0x2000
- 8000dfa:	f2c2 0200 	movt	r2, #8192	; 0x2000
- 8000dfe:	800b      	strh	r3, [r1, #0]
- 8000e00:	8013      	strh	r3, [r2, #0]
- 8000e02:	804b      	strh	r3, [r1, #2]
- 8000e04:	8053      	strh	r3, [r2, #2]
- 8000e06:	808b      	strh	r3, [r1, #4]
- 8000e08:	8093      	strh	r3, [r2, #4]
- 8000e0a:	80cb      	strh	r3, [r1, #6]
- 8000e0c:	80d3      	strh	r3, [r2, #6]
- 8000e0e:	810b      	strh	r3, [r1, #8]
- 8000e10:	8113      	strh	r3, [r2, #8]
- 8000e12:	814b      	strh	r3, [r1, #10]
- 8000e14:	8153      	strh	r3, [r2, #10]
- 8000e16:	818b      	strh	r3, [r1, #12]
- 8000e18:	8193      	strh	r3, [r2, #12]
- 8000e1a:	4770      	bx	lr
+ 8000dfc:	f240 4188 	movw	r1, #1160	; 0x488
+ 8000e00:	f240 4298 	movw	r2, #1176	; 0x498
+ 8000e04:	2300      	movs	r3, #0
+ 8000e06:	f2c2 0100 	movt	r1, #8192	; 0x2000
+ 8000e0a:	f2c2 0200 	movt	r2, #8192	; 0x2000
+ 8000e0e:	800b      	strh	r3, [r1, #0]
+ 8000e10:	8013      	strh	r3, [r2, #0]
+ 8000e12:	804b      	strh	r3, [r1, #2]
+ 8000e14:	8053      	strh	r3, [r2, #2]
+ 8000e16:	808b      	strh	r3, [r1, #4]
+ 8000e18:	8093      	strh	r3, [r2, #4]
+ 8000e1a:	80cb      	strh	r3, [r1, #6]
+ 8000e1c:	80d3      	strh	r3, [r2, #6]
+ 8000e1e:	810b      	strh	r3, [r1, #8]
+ 8000e20:	8113      	strh	r3, [r2, #8]
+ 8000e22:	814b      	strh	r3, [r1, #10]
+ 8000e24:	8153      	strh	r3, [r2, #10]
+ 8000e26:	818b      	strh	r3, [r1, #12]
+ 8000e28:	8193      	strh	r3, [r2, #12]
+ 8000e2a:	4770      	bx	lr
 
-08000e1c <HW_UART_Q_VAILD>:
+08000e2c <HW_UART_Q_VAILD>:
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
 u32 HW_UART_Q_SIZE( u8 Ch )
 {
 	return (Hw_Uart_Q_Start[Ch] - Hw_Uart_Q_End[Ch] + HW_UART_Q_BUFFER_MAX) % HW_UART_Q_BUFFER_MAX;
- 8000e1c:	4b09      	ldr	r3, [pc, #36]	; (8000e44 <HW_UART_Q_VAILD+0x28>)
- 8000e1e:	490a      	ldr	r1, [pc, #40]	; (8000e48 <HW_UART_Q_VAILD+0x2c>)
- 8000e20:	f933 2010 	ldrsh.w	r2, [r3, r0, lsl #1]
- 8000e24:	f931 3010 	ldrsh.w	r3, [r1, r0, lsl #1]
- 8000e28:	201f      	movs	r0, #31
- 8000e2a:	1ad2      	subs	r2, r2, r3
- 8000e2c:	3220      	adds	r2, #32
- 8000e2e:	f2c8 0000 	movt	r0, #32768	; 0x8000
- 8000e32:	4010      	ands	r0, r2
- 8000e34:	2800      	cmp	r0, #0
- 8000e36:	db00      	blt.n	8000e3a <HW_UART_Q_VAILD+0x1e>
+ 8000e2c:	4b09      	ldr	r3, [pc, #36]	; (8000e54 <HW_UART_Q_VAILD+0x28>)
+ 8000e2e:	490a      	ldr	r1, [pc, #40]	; (8000e58 <HW_UART_Q_VAILD+0x2c>)
+ 8000e30:	f933 2010 	ldrsh.w	r2, [r3, r0, lsl #1]
+ 8000e34:	f931 3010 	ldrsh.w	r3, [r1, r0, lsl #1]
+ 8000e38:	201f      	movs	r0, #31
+ 8000e3a:	1ad2      	subs	r2, r2, r3
+ 8000e3c:	3220      	adds	r2, #32
+ 8000e3e:	f2c8 0000 	movt	r0, #32768	; 0x8000
+ 8000e42:	4010      	ands	r0, r2
+ 8000e44:	2800      	cmp	r0, #0
+ 8000e46:	db00      	blt.n	8000e4a <HW_UART_Q_VAILD+0x1e>
      RET     : void
 ---------------------------------------------------------------------------*/
 u32 HW_UART_Q_VAILD( u8 Ch )
 {
 	return HW_UART_Q_SIZE(Ch);
 }
- 8000e38:	4770      	bx	lr
+ 8000e48:	4770      	bx	lr
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
 u32 HW_UART_Q_SIZE( u8 Ch )
 {
 	return (Hw_Uart_Q_Start[Ch] - Hw_Uart_Q_End[Ch] + HW_UART_Q_BUFFER_MAX) % HW_UART_Q_BUFFER_MAX;
- 8000e3a:	3801      	subs	r0, #1
- 8000e3c:	f060 011f 	orn	r1, r0, #31
- 8000e40:	1c48      	adds	r0, r1, #1
+ 8000e4a:	3801      	subs	r0, #1
+ 8000e4c:	f060 011f 	orn	r1, r0, #31
+ 8000e50:	1c48      	adds	r0, r1, #1
      RET     : void
 ---------------------------------------------------------------------------*/
 u32 HW_UART_Q_VAILD( u8 Ch )
 {
 	return HW_UART_Q_SIZE(Ch);
 }
- 8000e42:	4770      	bx	lr
- 8000e44:	20000498 	.word	0x20000498
- 8000e48:	20000488 	.word	0x20000488
+ 8000e52:	4770      	bx	lr
+ 8000e54:	20000498 	.word	0x20000498
+ 8000e58:	20000488 	.word	0x20000488
 
-08000e4c <Hw_Uart_Q_Push>:
+08000e5c <Hw_Uart_Q_Push>:
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
 u32 HW_UART_Q_SIZE( u8 Ch )
 {
 	return (Hw_Uart_Q_Start[Ch] - Hw_Uart_Q_End[Ch] + HW_UART_Q_BUFFER_MAX) % HW_UART_Q_BUFFER_MAX;
- 8000e4c:	4a1a      	ldr	r2, [pc, #104]	; (8000eb8 <Hw_Uart_Q_Push+0x6c>)
- 8000e4e:	4b1b      	ldr	r3, [pc, #108]	; (8000ebc <Hw_Uart_Q_Push+0x70>)
+ 8000e5c:	4a1a      	ldr	r2, [pc, #104]	; (8000ec8 <Hw_Uart_Q_Push+0x6c>)
+ 8000e5e:	4b1b      	ldr	r3, [pc, #108]	; (8000ecc <Hw_Uart_Q_Push+0x70>)
      WORK    : 
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
 u8 Hw_Uart_Q_Push( u8 Ch, u8  *PushData )
 {
- 8000e50:	b4f0      	push	{r4, r5, r6, r7}
+ 8000e60:	b4f0      	push	{r4, r5, r6, r7}
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
 u32 HW_UART_Q_SIZE( u8 Ch )
 {
 	return (Hw_Uart_Q_Start[Ch] - Hw_Uart_Q_End[Ch] + HW_UART_Q_BUFFER_MAX) % HW_UART_Q_BUFFER_MAX;
- 8000e52:	f832 5010 	ldrh.w	r5, [r2, r0, lsl #1]
- 8000e56:	f933 6010 	ldrsh.w	r6, [r3, r0, lsl #1]
- 8000e5a:	b22c      	sxth	r4, r5
- 8000e5c:	231f      	movs	r3, #31
- 8000e5e:	1ba6      	subs	r6, r4, r6
- 8000e60:	3620      	adds	r6, #32
- 8000e62:	f2c8 0300 	movt	r3, #32768	; 0x8000
- 8000e66:	4033      	ands	r3, r6
- 8000e68:	2b00      	cmp	r3, #0
- 8000e6a:	db18      	blt.n	8000e9e <Hw_Uart_Q_Push+0x52>
+ 8000e62:	f832 5010 	ldrh.w	r5, [r2, r0, lsl #1]
+ 8000e66:	f933 6010 	ldrsh.w	r6, [r3, r0, lsl #1]
+ 8000e6a:	b22c      	sxth	r4, r5
+ 8000e6c:	231f      	movs	r3, #31
+ 8000e6e:	1ba6      	subs	r6, r4, r6
+ 8000e70:	3620      	adds	r6, #32
+ 8000e72:	f2c8 0300 	movt	r3, #32768	; 0x8000
+ 8000e76:	4033      	ands	r3, r6
+ 8000e78:	2b00      	cmp	r3, #0
+ 8000e7a:	db18      	blt.n	8000eae <Hw_Uart_Q_Push+0x52>
      RET     : void
 ---------------------------------------------------------------------------*/
 u8 Hw_Uart_Q_Push( u8 Ch, u8  *PushData )
 {
 
 	if (HW_UART_Q_SIZE(Ch) == (HW_UART_Q_BUFFER_MAX-1)) return FALSE;
- 8000e6c:	2b1f      	cmp	r3, #31
- 8000e6e:	d01c      	beq.n	8000eaa <Hw_Uart_Q_Push+0x5e>
+ 8000e7c:	2b1f      	cmp	r3, #31
+ 8000e7e:	d01c      	beq.n	8000eba <Hw_Uart_Q_Push+0x5e>
 
 	Hw_Uart_Q_Buffer[Ch][Hw_Uart_Q_Start[Ch]++]  = *PushData;
- 8000e70:	3501      	adds	r5, #1
- 8000e72:	b2ad      	uxth	r5, r5
+ 8000e80:	3501      	adds	r5, #1
+ 8000e82:	b2ad      	uxth	r5, r5
 	Hw_Uart_Q_Start[Ch] 						%= HW_UART_Q_BUFFER_MAX;
- 8000e74:	231f      	movs	r3, #31
+ 8000e84:	231f      	movs	r3, #31
 u8 Hw_Uart_Q_Push( u8 Ch, u8  *PushData )
 {
 
 	if (HW_UART_Q_SIZE(Ch) == (HW_UART_Q_BUFFER_MAX-1)) return FALSE;
 
 	Hw_Uart_Q_Buffer[Ch][Hw_Uart_Q_Start[Ch]++]  = *PushData;
- 8000e76:	780e      	ldrb	r6, [r1, #0]
+ 8000e86:	780e      	ldrb	r6, [r1, #0]
 	Hw_Uart_Q_Start[Ch] 						%= HW_UART_Q_BUFFER_MAX;
- 8000e78:	f2c8 0300 	movt	r3, #32768	; 0x8000
- 8000e7c:	b229      	sxth	r1, r5
- 8000e7e:	400b      	ands	r3, r1
+ 8000e88:	f2c8 0300 	movt	r3, #32768	; 0x8000
+ 8000e8c:	b229      	sxth	r1, r5
+ 8000e8e:	400b      	ands	r3, r1
 u8 Hw_Uart_Q_Push( u8 Ch, u8  *PushData )
 {
 
 	if (HW_UART_Q_SIZE(Ch) == (HW_UART_Q_BUFFER_MAX-1)) return FALSE;
 
 	Hw_Uart_Q_Buffer[Ch][Hw_Uart_Q_Start[Ch]++]  = *PushData;
- 8000e80:	eb00 1740 	add.w	r7, r0, r0, lsl #5
- 8000e84:	490e      	ldr	r1, [pc, #56]	; (8000ec0 <Hw_Uart_Q_Push+0x74>)
- 8000e86:	193c      	adds	r4, r7, r4
+ 8000e90:	eb00 1740 	add.w	r7, r0, r0, lsl #5
+ 8000e94:	490e      	ldr	r1, [pc, #56]	; (8000ed0 <Hw_Uart_Q_Push+0x74>)
+ 8000e96:	193c      	adds	r4, r7, r4
 	Hw_Uart_Q_Start[Ch] 						%= HW_UART_Q_BUFFER_MAX;
- 8000e88:	2b00      	cmp	r3, #0
+ 8000e98:	2b00      	cmp	r3, #0
 u8 Hw_Uart_Q_Push( u8 Ch, u8  *PushData )
 {
 
 	if (HW_UART_Q_SIZE(Ch) == (HW_UART_Q_BUFFER_MAX-1)) return FALSE;
 
 	Hw_Uart_Q_Buffer[Ch][Hw_Uart_Q_Start[Ch]++]  = *PushData;
- 8000e8a:	550e      	strb	r6, [r1, r4]
- 8000e8c:	f822 5010 	strh.w	r5, [r2, r0, lsl #1]
+ 8000e9a:	550e      	strb	r6, [r1, r4]
+ 8000e9c:	f822 5010 	strh.w	r5, [r2, r0, lsl #1]
 	Hw_Uart_Q_Start[Ch] 						%= HW_UART_Q_BUFFER_MAX;
- 8000e90:	db0d      	blt.n	8000eae <Hw_Uart_Q_Push+0x62>
- 8000e92:	4909      	ldr	r1, [pc, #36]	; (8000eb8 <Hw_Uart_Q_Push+0x6c>)
- 8000e94:	f821 3010 	strh.w	r3, [r1, r0, lsl #1]
+ 8000ea0:	db0d      	blt.n	8000ebe <Hw_Uart_Q_Push+0x62>
+ 8000ea2:	4909      	ldr	r1, [pc, #36]	; (8000ec8 <Hw_Uart_Q_Push+0x6c>)
+ 8000ea4:	f821 3010 	strh.w	r3, [r1, r0, lsl #1]
 
 	return TRUE;
- 8000e98:	2001      	movs	r0, #1
+ 8000ea8:	2001      	movs	r0, #1
 }
- 8000e9a:	bcf0      	pop	{r4, r5, r6, r7}
- 8000e9c:	4770      	bx	lr
+ 8000eaa:	bcf0      	pop	{r4, r5, r6, r7}
+ 8000eac:	4770      	bx	lr
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
 u32 HW_UART_Q_SIZE( u8 Ch )
 {
 	return (Hw_Uart_Q_Start[Ch] - Hw_Uart_Q_End[Ch] + HW_UART_Q_BUFFER_MAX) % HW_UART_Q_BUFFER_MAX;
- 8000e9e:	3b01      	subs	r3, #1
- 8000ea0:	f063 031f 	orn	r3, r3, #31
- 8000ea4:	3301      	adds	r3, #1
+ 8000eae:	3b01      	subs	r3, #1
+ 8000eb0:	f063 031f 	orn	r3, r3, #31
+ 8000eb4:	3301      	adds	r3, #1
      RET     : void
 ---------------------------------------------------------------------------*/
 u8 Hw_Uart_Q_Push( u8 Ch, u8  *PushData )
 {
 
 	if (HW_UART_Q_SIZE(Ch) == (HW_UART_Q_BUFFER_MAX-1)) return FALSE;
- 8000ea6:	2b1f      	cmp	r3, #31
- 8000ea8:	d1e2      	bne.n	8000e70 <Hw_Uart_Q_Push+0x24>
- 8000eaa:	2000      	movs	r0, #0
- 8000eac:	e7f5      	b.n	8000e9a <Hw_Uart_Q_Push+0x4e>
+ 8000eb6:	2b1f      	cmp	r3, #31
+ 8000eb8:	d1e2      	bne.n	8000e80 <Hw_Uart_Q_Push+0x24>
+ 8000eba:	2000      	movs	r0, #0
+ 8000ebc:	e7f5      	b.n	8000eaa <Hw_Uart_Q_Push+0x4e>
 
 	Hw_Uart_Q_Buffer[Ch][Hw_Uart_Q_Start[Ch]++]  = *PushData;
 	Hw_Uart_Q_Start[Ch] 						%= HW_UART_Q_BUFFER_MAX;
- 8000eae:	1e5a      	subs	r2, r3, #1
- 8000eb0:	f062 031f 	orn	r3, r2, #31
- 8000eb4:	3301      	adds	r3, #1
- 8000eb6:	e7ec      	b.n	8000e92 <Hw_Uart_Q_Push+0x46>
- 8000eb8:	20000498 	.word	0x20000498
- 8000ebc:	20000488 	.word	0x20000488
- 8000ec0:	20000390 	.word	0x20000390
+ 8000ebe:	1e5a      	subs	r2, r3, #1
+ 8000ec0:	f062 031f 	orn	r3, r2, #31
+ 8000ec4:	3301      	adds	r3, #1
+ 8000ec6:	e7ec      	b.n	8000ea2 <Hw_Uart_Q_Push+0x46>
+ 8000ec8:	20000498 	.word	0x20000498
+ 8000ecc:	20000488 	.word	0x20000488
+ 8000ed0:	20000390 	.word	0x20000390
 
-08000ec4 <Hw_Uart_Q_Pop>:
+08000ed4 <Hw_Uart_Q_Pop>:
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
 u32 HW_UART_Q_SIZE( u8 Ch )
 {
 	return (Hw_Uart_Q_Start[Ch] - Hw_Uart_Q_End[Ch] + HW_UART_Q_BUFFER_MAX) % HW_UART_Q_BUFFER_MAX;
- 8000ec4:	4a1a      	ldr	r2, [pc, #104]	; (8000f30 <Hw_Uart_Q_Pop+0x6c>)
- 8000ec6:	4b1b      	ldr	r3, [pc, #108]	; (8000f34 <Hw_Uart_Q_Pop+0x70>)
+ 8000ed4:	4a1a      	ldr	r2, [pc, #104]	; (8000f40 <Hw_Uart_Q_Pop+0x6c>)
+ 8000ed6:	4b1b      	ldr	r3, [pc, #108]	; (8000f44 <Hw_Uart_Q_Pop+0x70>)
      WORK    :
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
 u8 Hw_Uart_Q_Pop( u8 Ch, u8 *pData )
 {
- 8000ec8:	b470      	push	{r4, r5, r6}
+ 8000ed8:	b470      	push	{r4, r5, r6}
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
 u32 HW_UART_Q_SIZE( u8 Ch )
 {
 	return (Hw_Uart_Q_Start[Ch] - Hw_Uart_Q_End[Ch] + HW_UART_Q_BUFFER_MAX) % HW_UART_Q_BUFFER_MAX;
- 8000eca:	f832 5010 	ldrh.w	r5, [r2, r0, lsl #1]
- 8000ece:	f933 6010 	ldrsh.w	r6, [r3, r0, lsl #1]
- 8000ed2:	b22c      	sxth	r4, r5
- 8000ed4:	231f      	movs	r3, #31
- 8000ed6:	1b36      	subs	r6, r6, r4
- 8000ed8:	3620      	adds	r6, #32
- 8000eda:	f2c8 0300 	movt	r3, #32768	; 0x8000
- 8000ede:	4033      	ands	r3, r6
- 8000ee0:	2b00      	cmp	r3, #0
- 8000ee2:	db17      	blt.n	8000f14 <Hw_Uart_Q_Pop+0x50>
+ 8000eda:	f832 5010 	ldrh.w	r5, [r2, r0, lsl #1]
+ 8000ede:	f933 6010 	ldrsh.w	r6, [r3, r0, lsl #1]
+ 8000ee2:	b22c      	sxth	r4, r5
+ 8000ee4:	231f      	movs	r3, #31
+ 8000ee6:	1b36      	subs	r6, r6, r4
+ 8000ee8:	3620      	adds	r6, #32
+ 8000eea:	f2c8 0300 	movt	r3, #32768	; 0x8000
+ 8000eee:	4033      	ands	r3, r6
+ 8000ef0:	2b00      	cmp	r3, #0
+ 8000ef2:	db17      	blt.n	8000f24 <Hw_Uart_Q_Pop+0x50>
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
 u8 Hw_Uart_Q_Pop( u8 Ch, u8 *pData )
 {
 	if (HW_UART_Q_SIZE(Ch) == 0) return FALSE;
- 8000ee4:	b1e3      	cbz	r3, 8000f20 <Hw_Uart_Q_Pop+0x5c>
+ 8000ef4:	b1e3      	cbz	r3, 8000f30 <Hw_Uart_Q_Pop+0x5c>
 
 	*pData = Hw_Uart_Q_Buffer[Ch][Hw_Uart_Q_End[Ch]++];
- 8000ee6:	eb00 1640 	add.w	r6, r0, r0, lsl #5
- 8000eea:	3501      	adds	r5, #1
- 8000eec:	1934      	adds	r4, r6, r4
- 8000eee:	4e12      	ldr	r6, [pc, #72]	; (8000f38 <Hw_Uart_Q_Pop+0x74>)
- 8000ef0:	b2ad      	uxth	r5, r5
+ 8000ef6:	eb00 1640 	add.w	r6, r0, r0, lsl #5
+ 8000efa:	3501      	adds	r5, #1
+ 8000efc:	1934      	adds	r4, r6, r4
+ 8000efe:	4e12      	ldr	r6, [pc, #72]	; (8000f48 <Hw_Uart_Q_Pop+0x74>)
+ 8000f00:	b2ad      	uxth	r5, r5
 
 	Hw_Uart_Q_End[Ch] %= HW_UART_Q_BUFFER_MAX;
- 8000ef2:	231f      	movs	r3, #31
+ 8000f02:	231f      	movs	r3, #31
 ---------------------------------------------------------------------------*/
 u8 Hw_Uart_Q_Pop( u8 Ch, u8 *pData )
 {
 	if (HW_UART_Q_SIZE(Ch) == 0) return FALSE;
 
 	*pData = Hw_Uart_Q_Buffer[Ch][Hw_Uart_Q_End[Ch]++];
- 8000ef4:	5d34      	ldrb	r4, [r6, r4]
+ 8000f04:	5d34      	ldrb	r4, [r6, r4]
 
 	Hw_Uart_Q_End[Ch] %= HW_UART_Q_BUFFER_MAX;
- 8000ef6:	f2c8 0300 	movt	r3, #32768	; 0x8000
- 8000efa:	b22e      	sxth	r6, r5
- 8000efc:	4033      	ands	r3, r6
- 8000efe:	2b00      	cmp	r3, #0
+ 8000f06:	f2c8 0300 	movt	r3, #32768	; 0x8000
+ 8000f0a:	b22e      	sxth	r6, r5
+ 8000f0c:	4033      	ands	r3, r6
+ 8000f0e:	2b00      	cmp	r3, #0
 ---------------------------------------------------------------------------*/
 u8 Hw_Uart_Q_Pop( u8 Ch, u8 *pData )
 {
 	if (HW_UART_Q_SIZE(Ch) == 0) return FALSE;
 
 	*pData = Hw_Uart_Q_Buffer[Ch][Hw_Uart_Q_End[Ch]++];
- 8000f00:	700c      	strb	r4, [r1, #0]
- 8000f02:	f822 5010 	strh.w	r5, [r2, r0, lsl #1]
+ 8000f10:	700c      	strb	r4, [r1, #0]
+ 8000f12:	f822 5010 	strh.w	r5, [r2, r0, lsl #1]
 
 	Hw_Uart_Q_End[Ch] %= HW_UART_Q_BUFFER_MAX;
- 8000f06:	db0d      	blt.n	8000f24 <Hw_Uart_Q_Pop+0x60>
- 8000f08:	4909      	ldr	r1, [pc, #36]	; (8000f30 <Hw_Uart_Q_Pop+0x6c>)
- 8000f0a:	f821 3010 	strh.w	r3, [r1, r0, lsl #1]
+ 8000f16:	db0d      	blt.n	8000f34 <Hw_Uart_Q_Pop+0x60>
+ 8000f18:	4909      	ldr	r1, [pc, #36]	; (8000f40 <Hw_Uart_Q_Pop+0x6c>)
+ 8000f1a:	f821 3010 	strh.w	r3, [r1, r0, lsl #1]
 
     return TRUE;
- 8000f0e:	2001      	movs	r0, #1
+ 8000f1e:	2001      	movs	r0, #1
 }
- 8000f10:	bc70      	pop	{r4, r5, r6}
- 8000f12:	4770      	bx	lr
+ 8000f20:	bc70      	pop	{r4, r5, r6}
+ 8000f22:	4770      	bx	lr
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
 u32 HW_UART_Q_SIZE( u8 Ch )
 {
 	return (Hw_Uart_Q_Start[Ch] - Hw_Uart_Q_End[Ch] + HW_UART_Q_BUFFER_MAX) % HW_UART_Q_BUFFER_MAX;
- 8000f14:	3b01      	subs	r3, #1
- 8000f16:	f063 031f 	orn	r3, r3, #31
- 8000f1a:	3301      	adds	r3, #1
+ 8000f24:	3b01      	subs	r3, #1
+ 8000f26:	f063 031f 	orn	r3, r3, #31
+ 8000f2a:	3301      	adds	r3, #1
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
 u8 Hw_Uart_Q_Pop( u8 Ch, u8 *pData )
 {
 	if (HW_UART_Q_SIZE(Ch) == 0) return FALSE;
- 8000f1c:	2b00      	cmp	r3, #0
- 8000f1e:	d1e2      	bne.n	8000ee6 <Hw_Uart_Q_Pop+0x22>
- 8000f20:	4618      	mov	r0, r3
- 8000f22:	e7f5      	b.n	8000f10 <Hw_Uart_Q_Pop+0x4c>
+ 8000f2c:	2b00      	cmp	r3, #0
+ 8000f2e:	d1e2      	bne.n	8000ef6 <Hw_Uart_Q_Pop+0x22>
+ 8000f30:	4618      	mov	r0, r3
+ 8000f32:	e7f5      	b.n	8000f20 <Hw_Uart_Q_Pop+0x4c>
 
 	*pData = Hw_Uart_Q_Buffer[Ch][Hw_Uart_Q_End[Ch]++];
 
 	Hw_Uart_Q_End[Ch] %= HW_UART_Q_BUFFER_MAX;
- 8000f24:	1e59      	subs	r1, r3, #1
- 8000f26:	f061 021f 	orn	r2, r1, #31
- 8000f2a:	1c53      	adds	r3, r2, #1
- 8000f2c:	e7ec      	b.n	8000f08 <Hw_Uart_Q_Pop+0x44>
- 8000f2e:	bf00      	nop
- 8000f30:	20000488 	.word	0x20000488
- 8000f34:	20000498 	.word	0x20000498
- 8000f38:	20000390 	.word	0x20000390
+ 8000f34:	1e59      	subs	r1, r3, #1
+ 8000f36:	f061 021f 	orn	r2, r1, #31
+ 8000f3a:	1c53      	adds	r3, r2, #1
+ 8000f3c:	e7ec      	b.n	8000f18 <Hw_Uart_Q_Pop+0x44>
+ 8000f3e:	bf00      	nop
+ 8000f40:	20000488 	.word	0x20000488
+ 8000f44:	20000498 	.word	0x20000498
+ 8000f48:	20000390 	.word	0x20000390
 
-08000f3c <Hw_Led_Off>:
+08000f4c <Hw_Led_Off>:
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
 void Hw_Led_Off( u8 Ch )
 {
 	switch( Ch )
- 8000f3c:	b940      	cbnz	r0, 8000f50 <Hw_Led_Off+0x14>
+ 8000f4c:	b940      	cbnz	r0, 8000f60 <Hw_Led_Off+0x14>
 	{
 		case 0:
 			SET_BIT( REG_GPIOB_ODR, 4 );
- 8000f3e:	f640 410c 	movw	r1, #3084	; 0xc0c
- 8000f42:	f2c4 0101 	movt	r1, #16385	; 0x4001
- 8000f46:	680b      	ldr	r3, [r1, #0]
- 8000f48:	f043 0210 	orr.w	r2, r3, #16
- 8000f4c:	600a      	str	r2, [r1, #0]
- 8000f4e:	4770      	bx	lr
+ 8000f4e:	f640 410c 	movw	r1, #3084	; 0xc0c
+ 8000f52:	f2c4 0101 	movt	r1, #16385	; 0x4001
+ 8000f56:	680b      	ldr	r3, [r1, #0]
+ 8000f58:	f043 0210 	orr.w	r2, r3, #16
+ 8000f5c:	600a      	str	r2, [r1, #0]
+ 8000f5e:	4770      	bx	lr
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
 void Hw_Led_Off( u8 Ch )
 {
 	switch( Ch )
- 8000f50:	2801      	cmp	r0, #1
- 8000f52:	d000      	beq.n	8000f56 <Hw_Led_Off+0x1a>
- 8000f54:	4770      	bx	lr
+ 8000f60:	2801      	cmp	r0, #1
+ 8000f62:	d000      	beq.n	8000f66 <Hw_Led_Off+0x1a>
+ 8000f64:	4770      	bx	lr
 		case 0:
 			SET_BIT( REG_GPIOB_ODR, 4 );
 			break;
 
 		case 1:
 			SET_BIT( REG_GPIOB_ODR, 5 );
- 8000f56:	f640 430c 	movw	r3, #3084	; 0xc0c
- 8000f5a:	f2c4 0301 	movt	r3, #16385	; 0x4001
- 8000f5e:	681a      	ldr	r2, [r3, #0]
- 8000f60:	f042 0020 	orr.w	r0, r2, #32
- 8000f64:	6018      	str	r0, [r3, #0]
- 8000f66:	4770      	bx	lr
+ 8000f66:	f640 430c 	movw	r3, #3084	; 0xc0c
+ 8000f6a:	f2c4 0301 	movt	r3, #16385	; 0x4001
+ 8000f6e:	681a      	ldr	r2, [r3, #0]
+ 8000f70:	f042 0020 	orr.w	r0, r2, #32
+ 8000f74:	6018      	str	r0, [r3, #0]
+ 8000f76:	4770      	bx	lr
 
-08000f68 <Hw_Led_Init>:
+08000f78 <Hw_Led_Init>:
 {
 	u32 PinNum;
 
 	//-- JTAG 핀을 Disable하고 PB3,4를 GPIO로 사용한다.(핀구성에 따라 사용하지 않을수 있음)
 	//
 	REG_AFIO_MAPR &= ~(0x07 << 24);
- 8000f68:	2204      	movs	r2, #4
- 8000f6a:	f2c4 0201 	movt	r2, #16385	; 0x4001
- 8000f6e:	6811      	ldr	r1, [r2, #0]
+ 8000f78:	2204      	movs	r2, #4
+ 8000f7a:	f2c4 0201 	movt	r2, #16385	; 0x4001
+ 8000f7e:	6811      	ldr	r1, [r2, #0]
      WORK    : 
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
 void Hw_Led_Init( void )
 {
- 8000f70:	b510      	push	{r4, lr}
+ 8000f80:	b510      	push	{r4, lr}
 	u32 PinNum;
 
 	//-- JTAG 핀을 Disable하고 PB3,4를 GPIO로 사용한다.(핀구성에 따라 사용하지 않을수 있음)
 	//
 	REG_AFIO_MAPR &= ~(0x07 << 24);
- 8000f72:	f021 60e0 	bic.w	r0, r1, #117440512	; 0x7000000
- 8000f76:	6010      	str	r0, [r2, #0]
+ 8000f82:	f021 60e0 	bic.w	r0, r1, #117440512	; 0x7000000
+ 8000f86:	6010      	str	r0, [r2, #0]
 	REG_AFIO_MAPR |=  (0x04 << 24);
- 8000f78:	6814      	ldr	r4, [r2, #0]
+ 8000f88:	6814      	ldr	r4, [r2, #0]
 	
 	
 	
 	PinNum = 4;
 	REG_GPIOB_CRL &= ~(0x0F << (PinNum*4+0));	// Clear
- 8000f7a:	f44f 6340 	mov.w	r3, #3072	; 0xc00
+ 8000f8a:	f44f 6340 	mov.w	r3, #3072	; 0xc00
 	u32 PinNum;
 
 	//-- JTAG 핀을 Disable하고 PB3,4를 GPIO로 사용한다.(핀구성에 따라 사용하지 않을수 있음)
 	//
 	REG_AFIO_MAPR &= ~(0x07 << 24);
 	REG_AFIO_MAPR |=  (0x04 << 24);
- 8000f7e:	f044 6180 	orr.w	r1, r4, #67108864	; 0x4000000
- 8000f82:	6011      	str	r1, [r2, #0]
+ 8000f8e:	f044 6180 	orr.w	r1, r4, #67108864	; 0x4000000
+ 8000f92:	6011      	str	r1, [r2, #0]
 	
 	
 	
 	PinNum = 4;
 	REG_GPIOB_CRL &= ~(0x0F << (PinNum*4+0));	// Clear
- 8000f84:	f2c4 0301 	movt	r3, #16385	; 0x4001
- 8000f88:	681a      	ldr	r2, [r3, #0]
+ 8000f94:	f2c4 0301 	movt	r3, #16385	; 0x4001
+ 8000f98:	681a      	ldr	r2, [r3, #0]
 void Hw_Led_Off( u8 Ch )
 {
 	switch( Ch )
 	{
 		case 0:
 			SET_BIT( REG_GPIOB_ODR, 4 );
- 8000f8a:	f640 410c 	movw	r1, #3084	; 0xc0c
+ 8000f9a:	f640 410c 	movw	r1, #3084	; 0xc0c
 	REG_AFIO_MAPR |=  (0x04 << 24);
 	
 	
 	
 	PinNum = 4;
 	REG_GPIOB_CRL &= ~(0x0F << (PinNum*4+0));	// Clear
- 8000f8e:	f422 2070 	bic.w	r0, r2, #983040	; 0xf0000
- 8000f92:	6018      	str	r0, [r3, #0]
+ 8000f9e:	f422 2070 	bic.w	r0, r2, #983040	; 0xf0000
+ 8000fa2:	6018      	str	r0, [r3, #0]
 	REG_GPIOB_CRL |=  (0x03 << (PinNum*4+0));	// MODE, PB.3 Output mode, max speed 50Mhz
- 8000f94:	681c      	ldr	r4, [r3, #0]
+ 8000fa4:	681c      	ldr	r4, [r3, #0]
 void Hw_Led_Off( u8 Ch )
 {
 	switch( Ch )
 	{
 		case 0:
 			SET_BIT( REG_GPIOB_ODR, 4 );
- 8000f96:	f2c4 0101 	movt	r1, #16385	; 0x4001
+ 8000fa6:	f2c4 0101 	movt	r1, #16385	; 0x4001
 	
 	
 	
 	PinNum = 4;
 	REG_GPIOB_CRL &= ~(0x0F << (PinNum*4+0));	// Clear
 	REG_GPIOB_CRL |=  (0x03 << (PinNum*4+0));	// MODE, PB.3 Output mode, max speed 50Mhz
- 8000f9a:	f444 3240 	orr.w	r2, r4, #196608	; 0x30000
- 8000f9e:	601a      	str	r2, [r3, #0]
+ 8000faa:	f444 3240 	orr.w	r2, r4, #196608	; 0x30000
+ 8000fae:	601a      	str	r2, [r3, #0]
 	REG_GPIOB_CRL |=  (0x00 << (PinNum*4+2));	// CNF,  PB.3 General purpose output push-pul
- 8000fa0:	6818      	ldr	r0, [r3, #0]
+ 8000fb0:	6818      	ldr	r0, [r3, #0]
 	REG_GPIOB_CRL &= ~(0x0F << (PinNum*5+0));	// Clear
 	REG_GPIOB_CRL |=  (0x03 << (PinNum*5+0));	// MODE, PB.3 Output mode, max speed 50Mhz
 	REG_GPIOB_CRL |=  (0x00 << (PinNum*5+2));	// CNF,  PB.3 General purpose output push-pul
 
 	Hw_Led_Off(0);
 	Hw_Led_Off(1);	
- 8000fa2:	f640 723d 	movw	r2, #3901	; 0xf3d
+ 8000fb2:	f640 724d 	movw	r2, #3917	; 0xf4d
 	
 	
 	PinNum = 4;
 	REG_GPIOB_CRL &= ~(0x0F << (PinNum*4+0));	// Clear
 	REG_GPIOB_CRL |=  (0x03 << (PinNum*4+0));	// MODE, PB.3 Output mode, max speed 50Mhz
 	REG_GPIOB_CRL |=  (0x00 << (PinNum*4+2));	// CNF,  PB.3 General purpose output push-pul
- 8000fa6:	6018      	str	r0, [r3, #0]
+ 8000fb6:	6018      	str	r0, [r3, #0]
 	
 	PinNum = 5;
 	REG_GPIOB_CRL &= ~(0x0F << (PinNum*5+0));	// Clear
- 8000fa8:	681c      	ldr	r4, [r3, #0]
+ 8000fb8:	681c      	ldr	r4, [r3, #0]
 	REG_GPIOB_CRL |=  (0x03 << (PinNum*5+0));	// MODE, PB.3 Output mode, max speed 50Mhz
 	REG_GPIOB_CRL |=  (0x00 << (PinNum*5+2));	// CNF,  PB.3 General purpose output push-pul
 
 	Hw_Led_Off(0);
 	Hw_Led_Off(1);	
- 8000faa:	2001      	movs	r0, #1
+ 8000fba:	2001      	movs	r0, #1
 	REG_GPIOB_CRL &= ~(0x0F << (PinNum*4+0));	// Clear
 	REG_GPIOB_CRL |=  (0x03 << (PinNum*4+0));	// MODE, PB.3 Output mode, max speed 50Mhz
 	REG_GPIOB_CRL |=  (0x00 << (PinNum*4+2));	// CNF,  PB.3 General purpose output push-pul
 	
 	PinNum = 5;
 	REG_GPIOB_CRL &= ~(0x0F << (PinNum*5+0));	// Clear
- 8000fac:	f024 54f0 	bic.w	r4, r4, #503316480	; 0x1e000000
- 8000fb0:	601c      	str	r4, [r3, #0]
-	REG_GPIOB_CRL |=  (0x03 << (PinNum*5+0));	// MODE, PB.3 Output mode, max speed 50Mhz
- 8000fb2:	681c      	ldr	r4, [r3, #0]
-	REG_GPIOB_CRL |=  (0x00 << (PinNum*5+2));	// CNF,  PB.3 General purpose output push-pul
-
-	Hw_Led_Off(0);
-	Hw_Led_Off(1);	
- 8000fb4:	f6c0 0200 	movt	r2, #2048	; 0x800
-	REG_GPIOB_CRL |=  (0x03 << (PinNum*4+0));	// MODE, PB.3 Output mode, max speed 50Mhz
-	REG_GPIOB_CRL |=  (0x00 << (PinNum*4+2));	// CNF,  PB.3 General purpose output push-pul
-	
-	PinNum = 5;
-	REG_GPIOB_CRL &= ~(0x0F << (PinNum*5+0));	// Clear
-	REG_GPIOB_CRL |=  (0x03 << (PinNum*5+0));	// MODE, PB.3 Output mode, max speed 50Mhz
- 8000fb8:	f044 64c0 	orr.w	r4, r4, #100663296	; 0x6000000
- 8000fbc:	601c      	str	r4, [r3, #0]
-	REG_GPIOB_CRL |=  (0x00 << (PinNum*5+2));	// CNF,  PB.3 General purpose output push-pul
- 8000fbe:	681c      	ldr	r4, [r3, #0]
+ 8000fbc:	f024 54f0 	bic.w	r4, r4, #503316480	; 0x1e000000
  8000fc0:	601c      	str	r4, [r3, #0]
+	REG_GPIOB_CRL |=  (0x03 << (PinNum*5+0));	// MODE, PB.3 Output mode, max speed 50Mhz
+ 8000fc2:	681c      	ldr	r4, [r3, #0]
+	REG_GPIOB_CRL |=  (0x00 << (PinNum*5+2));	// CNF,  PB.3 General purpose output push-pul
+
+	Hw_Led_Off(0);
+	Hw_Led_Off(1);	
+ 8000fc4:	f6c0 0200 	movt	r2, #2048	; 0x800
+	REG_GPIOB_CRL |=  (0x03 << (PinNum*4+0));	// MODE, PB.3 Output mode, max speed 50Mhz
+	REG_GPIOB_CRL |=  (0x00 << (PinNum*4+2));	// CNF,  PB.3 General purpose output push-pul
+	
+	PinNum = 5;
+	REG_GPIOB_CRL &= ~(0x0F << (PinNum*5+0));	// Clear
+	REG_GPIOB_CRL |=  (0x03 << (PinNum*5+0));	// MODE, PB.3 Output mode, max speed 50Mhz
+ 8000fc8:	f044 64c0 	orr.w	r4, r4, #100663296	; 0x6000000
+ 8000fcc:	601c      	str	r4, [r3, #0]
+	REG_GPIOB_CRL |=  (0x00 << (PinNum*5+2));	// CNF,  PB.3 General purpose output push-pul
+ 8000fce:	681c      	ldr	r4, [r3, #0]
+ 8000fd0:	601c      	str	r4, [r3, #0]
 void Hw_Led_Off( u8 Ch )
 {
 	switch( Ch )
 	{
 		case 0:
 			SET_BIT( REG_GPIOB_ODR, 4 );
- 8000fc2:	680b      	ldr	r3, [r1, #0]
- 8000fc4:	f043 0310 	orr.w	r3, r3, #16
- 8000fc8:	600b      	str	r3, [r1, #0]
+ 8000fd2:	680b      	ldr	r3, [r1, #0]
+ 8000fd4:	f043 0310 	orr.w	r3, r3, #16
+ 8000fd8:	600b      	str	r3, [r1, #0]
 	REG_GPIOB_CRL &= ~(0x0F << (PinNum*5+0));	// Clear
 	REG_GPIOB_CRL |=  (0x03 << (PinNum*5+0));	// MODE, PB.3 Output mode, max speed 50Mhz
 	REG_GPIOB_CRL |=  (0x00 << (PinNum*5+2));	// CNF,  PB.3 General purpose output push-pul
 
 	Hw_Led_Off(0);
 	Hw_Led_Off(1);	
- 8000fca:	4790      	blx	r2
- 8000fcc:	bd10      	pop	{r4, pc}
- 8000fce:	bf00      	nop
+ 8000fda:	4790      	blx	r2
+ 8000fdc:	bd10      	pop	{r4, pc}
+ 8000fde:	bf00      	nop
 
-08000fd0 <Hw_Led_Toggle>:
+08000fe0 <Hw_Led_Toggle>:
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
 void Hw_Led_Toggle( u8 Ch )
 {
 	switch( Ch )
- 8000fd0:	b940      	cbnz	r0, 8000fe4 <Hw_Led_Toggle+0x14>
+ 8000fe0:	b940      	cbnz	r0, 8000ff4 <Hw_Led_Toggle+0x14>
 	{
 		case 0:
 			TGL_BIT( REG_GPIOB_ODR, 4 );
- 8000fd2:	f640 410c 	movw	r1, #3084	; 0xc0c
- 8000fd6:	f2c4 0101 	movt	r1, #16385	; 0x4001
- 8000fda:	680b      	ldr	r3, [r1, #0]
- 8000fdc:	f083 0210 	eor.w	r2, r3, #16
- 8000fe0:	600a      	str	r2, [r1, #0]
+ 8000fe2:	f640 410c 	movw	r1, #3084	; 0xc0c
+ 8000fe6:	f2c4 0101 	movt	r1, #16385	; 0x4001
+ 8000fea:	680b      	ldr	r3, [r1, #0]
+ 8000fec:	f083 0210 	eor.w	r2, r3, #16
+ 8000ff0:	600a      	str	r2, [r1, #0]
 			break;
- 8000fe2:	4770      	bx	lr
+ 8000ff2:	4770      	bx	lr
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
 void Hw_Led_Toggle( u8 Ch )
 {
 	switch( Ch )
- 8000fe4:	2801      	cmp	r0, #1
- 8000fe6:	d000      	beq.n	8000fea <Hw_Led_Toggle+0x1a>
- 8000fe8:	4770      	bx	lr
+ 8000ff4:	2801      	cmp	r0, #1
+ 8000ff6:	d000      	beq.n	8000ffa <Hw_Led_Toggle+0x1a>
+ 8000ff8:	4770      	bx	lr
 		case 0:
 			TGL_BIT( REG_GPIOB_ODR, 4 );
 			break;
 
 		case 1:
 			TGL_BIT( REG_GPIOB_ODR, 5 );
- 8000fea:	f640 430c 	movw	r3, #3084	; 0xc0c
- 8000fee:	f2c4 0301 	movt	r3, #16385	; 0x4001
- 8000ff2:	681a      	ldr	r2, [r3, #0]
- 8000ff4:	f082 0020 	eor.w	r0, r2, #32
- 8000ff8:	6018      	str	r0, [r3, #0]
- 8000ffa:	4770      	bx	lr
+ 8000ffa:	f640 430c 	movw	r3, #3084	; 0xc0c
+ 8000ffe:	f2c4 0301 	movt	r3, #16385	; 0x4001
+ 8001002:	681a      	ldr	r2, [r3, #0]
+ 8001004:	f082 0020 	eor.w	r0, r2, #32
+ 8001008:	6018      	str	r0, [r3, #0]
+ 800100a:	4770      	bx	lr
 
-08000ffc <Hw_VCom_Getch>:
+0800100c <Hw_VCom_Getch>:
 			: 시리얼 포트에서 문자 1바이트 읽는다.
      ARG
      RET
 ---------------------------------------------------------------------------*/
 u8 Hw_VCom_Getch( void )
 {
- 8000ffc:	b510      	push	{r4, lr}
+ 800100c:	b510      	push	{r4, lr}
 	u8 Uart_GetData = 0;
- 8000ffe:	2300      	movs	r3, #0
+ 800100e:	2300      	movs	r3, #0
 			: 시리얼 포트에서 문자 1바이트 읽는다.
      ARG
      RET
 ---------------------------------------------------------------------------*/
 u8 Hw_VCom_Getch( void )
 {
- 8001000:	b082      	sub	sp, #8
- 8001002:	4c08      	ldr	r4, [pc, #32]	; (8001024 <Hw_VCom_Getch+0x28>)
+ 8001010:	b082      	sub	sp, #8
+ 8001012:	4c08      	ldr	r4, [pc, #32]	; (8001034 <Hw_VCom_Getch+0x28>)
 	u8 Uart_GetData = 0;
- 8001004:	f88d 3007 	strb.w	r3, [sp, #7]
+ 8001014:	f88d 3007 	strb.w	r3, [sp, #7]
 
 	while( 1 )
 	{
 		// 버퍼에 데이터 들어올때까지 기다린다.
 		if( HW_VCOM_Q_VAILD(0) > 0 ) break;
- 8001008:	2000      	movs	r0, #0
- 800100a:	47a0      	blx	r4
- 800100c:	2800      	cmp	r0, #0
- 800100e:	d0fb      	beq.n	8001008 <Hw_VCom_Getch+0xc>
+ 8001018:	2000      	movs	r0, #0
+ 800101a:	47a0      	blx	r4
+ 800101c:	2800      	cmp	r0, #0
+ 800101e:	d0fb      	beq.n	8001018 <Hw_VCom_Getch+0xc>
 	}
 
 	Hw_VCom_Q_Pop( 0, &Uart_GetData );
- 8001010:	2000      	movs	r0, #0
- 8001012:	f10d 0107 	add.w	r1, sp, #7
- 8001016:	4a04      	ldr	r2, [pc, #16]	; (8001028 <Hw_VCom_Getch+0x2c>)
- 8001018:	4790      	blx	r2
+ 8001020:	2000      	movs	r0, #0
+ 8001022:	f10d 0107 	add.w	r1, sp, #7
+ 8001026:	4a04      	ldr	r2, [pc, #16]	; (8001038 <Hw_VCom_Getch+0x2c>)
+ 8001028:	4790      	blx	r2
 
 	return Uart_GetData;
 }
- 800101a:	f89d 0007 	ldrb.w	r0, [sp, #7]
- 800101e:	b002      	add	sp, #8
- 8001020:	bd10      	pop	{r4, pc}
- 8001022:	bf00      	nop
- 8001024:	0800103d 	.word	0x0800103d
- 8001028:	08001075 	.word	0x08001075
+ 800102a:	f89d 0007 	ldrb.w	r0, [sp, #7]
+ 800102e:	b002      	add	sp, #8
+ 8001030:	bd10      	pop	{r4, pc}
+ 8001032:	bf00      	nop
+ 8001034:	0800104d 	.word	0x0800104d
+ 8001038:	08001085 	.word	0x08001085
 
-0800102c <Hw_VCom_Putch>:
+0800103c <Hw_VCom_Putch>:
 			: 시리얼 포트로 문자 1바이트 전송
      ARG
      RET
 ---------------------------------------------------------------------------*/
 void Hw_VCom_Putch( char Uart_PutData )
 {
- 800102c:	b508      	push	{r3, lr}
+ 800103c:	b508      	push	{r3, lr}
 	USB_Send_Data( Uart_PutData );
- 800102e:	f241 03f5 	movw	r3, #4341	; 0x10f5
- 8001032:	f6c0 0300 	movt	r3, #2048	; 0x800
- 8001036:	4798      	blx	r3
- 8001038:	bd08      	pop	{r3, pc}
- 800103a:	bf00      	nop
+ 800103e:	f241 1305 	movw	r3, #4357	; 0x1105
+ 8001042:	f6c0 0300 	movt	r3, #2048	; 0x800
+ 8001046:	4798      	blx	r3
+ 8001048:	bd08      	pop	{r3, pc}
+ 800104a:	bf00      	nop
 
-0800103c <HW_VCOM_Q_VAILD>:
+0800104c <HW_VCOM_Q_VAILD>:
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
 u32 HW_VCOM_Q_SIZE( u8 Ch )
 {
 	return (Hw_VCom_Q_Start[Ch] - Hw_VCom_Q_End[Ch] + HW_VCOM_Q_BUFFER_MAX) % HW_VCOM_Q_BUFFER_MAX;
- 800103c:	4b0b      	ldr	r3, [pc, #44]	; (800106c <HW_VCOM_Q_VAILD+0x30>)
- 800103e:	490c      	ldr	r1, [pc, #48]	; (8001070 <HW_VCOM_Q_VAILD+0x34>)
- 8001040:	f933 2010 	ldrsh.w	r2, [r3, r0, lsl #1]
- 8001044:	f931 3010 	ldrsh.w	r3, [r1, r0, lsl #1]
- 8001048:	f240 30ff 	movw	r0, #1023	; 0x3ff
- 800104c:	1ad2      	subs	r2, r2, r3
- 800104e:	f502 6180 	add.w	r1, r2, #1024	; 0x400
- 8001052:	f2c8 0000 	movt	r0, #32768	; 0x8000
- 8001056:	4008      	ands	r0, r1
- 8001058:	2800      	cmp	r0, #0
- 800105a:	db00      	blt.n	800105e <HW_VCOM_Q_VAILD+0x22>
+ 800104c:	4b0b      	ldr	r3, [pc, #44]	; (800107c <HW_VCOM_Q_VAILD+0x30>)
+ 800104e:	490c      	ldr	r1, [pc, #48]	; (8001080 <HW_VCOM_Q_VAILD+0x34>)
+ 8001050:	f933 2010 	ldrsh.w	r2, [r3, r0, lsl #1]
+ 8001054:	f931 3010 	ldrsh.w	r3, [r1, r0, lsl #1]
+ 8001058:	f240 30ff 	movw	r0, #1023	; 0x3ff
+ 800105c:	1ad2      	subs	r2, r2, r3
+ 800105e:	f502 6180 	add.w	r1, r2, #1024	; 0x400
+ 8001062:	f2c8 0000 	movt	r0, #32768	; 0x8000
+ 8001066:	4008      	ands	r0, r1
+ 8001068:	2800      	cmp	r0, #0
+ 800106a:	db00      	blt.n	800106e <HW_VCOM_Q_VAILD+0x22>
      RET     : void
 ---------------------------------------------------------------------------*/
 u32 HW_VCOM_Q_VAILD( u8 Ch )
 {
 	return HW_VCOM_Q_SIZE(Ch);
 }
- 800105c:	4770      	bx	lr
+ 800106c:	4770      	bx	lr
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
 u32 HW_VCOM_Q_SIZE( u8 Ch )
 {
 	return (Hw_VCom_Q_Start[Ch] - Hw_VCom_Q_End[Ch] + HW_VCOM_Q_BUFFER_MAX) % HW_VCOM_Q_BUFFER_MAX;
- 800105e:	3801      	subs	r0, #1
- 8001060:	ea6f 5380 	mvn.w	r3, r0, lsl #22
- 8001064:	ea6f 5293 	mvn.w	r2, r3, lsr #22
- 8001068:	1c50      	adds	r0, r2, #1
+ 800106e:	3801      	subs	r0, #1
+ 8001070:	ea6f 5380 	mvn.w	r3, r0, lsl #22
+ 8001074:	ea6f 5293 	mvn.w	r2, r3, lsr #22
+ 8001078:	1c50      	adds	r0, r2, #1
      RET     : void
 ---------------------------------------------------------------------------*/
 u32 HW_VCOM_Q_VAILD( u8 Ch )
 {
 	return HW_VCOM_Q_SIZE(Ch);
 }
- 800106a:	4770      	bx	lr
- 800106c:	200008b0 	.word	0x200008b0
- 8001070:	200008ac 	.word	0x200008ac
+ 800107a:	4770      	bx	lr
+ 800107c:	200008b0 	.word	0x200008b0
+ 8001080:	200008ac 	.word	0x200008ac
 
-08001074 <Hw_VCom_Q_Pop>:
+08001084 <Hw_VCom_Q_Pop>:
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
 u32 HW_VCOM_Q_SIZE( u8 Ch )
 {
 	return (Hw_VCom_Q_Start[Ch] - Hw_VCom_Q_End[Ch] + HW_VCOM_Q_BUFFER_MAX) % HW_VCOM_Q_BUFFER_MAX;
- 8001074:	4b1c      	ldr	r3, [pc, #112]	; (80010e8 <Hw_VCom_Q_Pop+0x74>)
+ 8001084:	4b1c      	ldr	r3, [pc, #112]	; (80010f8 <Hw_VCom_Q_Pop+0x74>)
      WORK    :
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
 u8 Hw_VCom_Q_Pop( u8 Ch, u8 *pData )
 {
- 8001076:	b430      	push	{r4, r5}
+ 8001086:	b430      	push	{r4, r5}
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
 u32 HW_VCOM_Q_SIZE( u8 Ch )
 {
 	return (Hw_VCom_Q_Start[Ch] - Hw_VCom_Q_End[Ch] + HW_VCOM_Q_BUFFER_MAX) % HW_VCOM_Q_BUFFER_MAX;
- 8001078:	4c1c      	ldr	r4, [pc, #112]	; (80010ec <Hw_VCom_Q_Pop+0x78>)
- 800107a:	f833 2010 	ldrh.w	r2, [r3, r0, lsl #1]
- 800107e:	f934 5010 	ldrsh.w	r5, [r4, r0, lsl #1]
- 8001082:	b214      	sxth	r4, r2
- 8001084:	1b2d      	subs	r5, r5, r4
- 8001086:	f240 33ff 	movw	r3, #1023	; 0x3ff
- 800108a:	f505 6580 	add.w	r5, r5, #1024	; 0x400
- 800108e:	f2c8 0300 	movt	r3, #32768	; 0x8000
- 8001092:	402b      	ands	r3, r5
- 8001094:	2b00      	cmp	r3, #0
- 8001096:	db15      	blt.n	80010c4 <Hw_VCom_Q_Pop+0x50>
+ 8001088:	4c1c      	ldr	r4, [pc, #112]	; (80010fc <Hw_VCom_Q_Pop+0x78>)
+ 800108a:	f833 2010 	ldrh.w	r2, [r3, r0, lsl #1]
+ 800108e:	f934 5010 	ldrsh.w	r5, [r4, r0, lsl #1]
+ 8001092:	b214      	sxth	r4, r2
+ 8001094:	1b2d      	subs	r5, r5, r4
+ 8001096:	f240 33ff 	movw	r3, #1023	; 0x3ff
+ 800109a:	f505 6580 	add.w	r5, r5, #1024	; 0x400
+ 800109e:	f2c8 0300 	movt	r3, #32768	; 0x8000
+ 80010a2:	402b      	ands	r3, r5
+ 80010a4:	2b00      	cmp	r3, #0
+ 80010a6:	db15      	blt.n	80010d4 <Hw_VCom_Q_Pop+0x50>
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
 u8 Hw_VCom_Q_Pop( u8 Ch, u8 *pData )
 {
 	if (HW_VCOM_Q_SIZE(Ch) == 0) return FALSE;
- 8001098:	b1e3      	cbz	r3, 80010d4 <Hw_VCom_Q_Pop+0x60>
+ 80010a8:	b1e3      	cbz	r3, 80010e4 <Hw_VCom_Q_Pop+0x60>
 
 	*pData = Hw_VCom_Q_Buffer[Ch][Hw_VCom_Q_End[Ch]++];
- 800109a:	eb00 2580 	add.w	r5, r0, r0, lsl #10
- 800109e:	192c      	adds	r4, r5, r4
- 80010a0:	3201      	adds	r2, #1
+ 80010aa:	eb00 2580 	add.w	r5, r0, r0, lsl #10
+ 80010ae:	192c      	adds	r4, r5, r4
+ 80010b0:	3201      	adds	r2, #1
 
 	Hw_VCom_Q_End[Ch] %= HW_VCOM_Q_BUFFER_MAX;
- 80010a2:	f240 33ff 	movw	r3, #1023	; 0x3ff
+ 80010b2:	f240 33ff 	movw	r3, #1023	; 0x3ff
 ---------------------------------------------------------------------------*/
 u8 Hw_VCom_Q_Pop( u8 Ch, u8 *pData )
 {
 	if (HW_VCOM_Q_SIZE(Ch) == 0) return FALSE;
 
 	*pData = Hw_VCom_Q_Buffer[Ch][Hw_VCom_Q_End[Ch]++];
- 80010a6:	4d12      	ldr	r5, [pc, #72]	; (80010f0 <Hw_VCom_Q_Pop+0x7c>)
+ 80010b6:	4d12      	ldr	r5, [pc, #72]	; (8001100 <Hw_VCom_Q_Pop+0x7c>)
 
 	Hw_VCom_Q_End[Ch] %= HW_VCOM_Q_BUFFER_MAX;
- 80010a8:	b212      	sxth	r2, r2
- 80010aa:	f2c8 0300 	movt	r3, #32768	; 0x8000
+ 80010b8:	b212      	sxth	r2, r2
+ 80010ba:	f2c8 0300 	movt	r3, #32768	; 0x8000
 ---------------------------------------------------------------------------*/
 u8 Hw_VCom_Q_Pop( u8 Ch, u8 *pData )
 {
 	if (HW_VCOM_Q_SIZE(Ch) == 0) return FALSE;
 
 	*pData = Hw_VCom_Q_Buffer[Ch][Hw_VCom_Q_End[Ch]++];
- 80010ae:	5d2c      	ldrb	r4, [r5, r4]
+ 80010be:	5d2c      	ldrb	r4, [r5, r4]
 
 	Hw_VCom_Q_End[Ch] %= HW_VCOM_Q_BUFFER_MAX;
- 80010b0:	4013      	ands	r3, r2
- 80010b2:	2b00      	cmp	r3, #0
+ 80010c0:	4013      	ands	r3, r2
+ 80010c2:	2b00      	cmp	r3, #0
 ---------------------------------------------------------------------------*/
 u8 Hw_VCom_Q_Pop( u8 Ch, u8 *pData )
 {
 	if (HW_VCOM_Q_SIZE(Ch) == 0) return FALSE;
 
 	*pData = Hw_VCom_Q_Buffer[Ch][Hw_VCom_Q_End[Ch]++];
- 80010b4:	700c      	strb	r4, [r1, #0]
+ 80010c4:	700c      	strb	r4, [r1, #0]
 
 	Hw_VCom_Q_End[Ch] %= HW_VCOM_Q_BUFFER_MAX;
- 80010b6:	db0f      	blt.n	80010d8 <Hw_VCom_Q_Pop+0x64>
- 80010b8:	490b      	ldr	r1, [pc, #44]	; (80010e8 <Hw_VCom_Q_Pop+0x74>)
- 80010ba:	f821 3010 	strh.w	r3, [r1, r0, lsl #1]
+ 80010c6:	db0f      	blt.n	80010e8 <Hw_VCom_Q_Pop+0x64>
+ 80010c8:	490b      	ldr	r1, [pc, #44]	; (80010f8 <Hw_VCom_Q_Pop+0x74>)
+ 80010ca:	f821 3010 	strh.w	r3, [r1, r0, lsl #1]
 
     return TRUE;
- 80010be:	2001      	movs	r0, #1
+ 80010ce:	2001      	movs	r0, #1
 }
- 80010c0:	bc30      	pop	{r4, r5}
- 80010c2:	4770      	bx	lr
+ 80010d0:	bc30      	pop	{r4, r5}
+ 80010d2:	4770      	bx	lr
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
 u32 HW_VCOM_Q_SIZE( u8 Ch )
 {
 	return (Hw_VCom_Q_Start[Ch] - Hw_VCom_Q_End[Ch] + HW_VCOM_Q_BUFFER_MAX) % HW_VCOM_Q_BUFFER_MAX;
- 80010c4:	3b01      	subs	r3, #1
- 80010c6:	ea6f 5383 	mvn.w	r3, r3, lsl #22
- 80010ca:	ea6f 5393 	mvn.w	r3, r3, lsr #22
- 80010ce:	3301      	adds	r3, #1
+ 80010d4:	3b01      	subs	r3, #1
+ 80010d6:	ea6f 5383 	mvn.w	r3, r3, lsl #22
+ 80010da:	ea6f 5393 	mvn.w	r3, r3, lsr #22
+ 80010de:	3301      	adds	r3, #1
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
 u8 Hw_VCom_Q_Pop( u8 Ch, u8 *pData )
 {
 	if (HW_VCOM_Q_SIZE(Ch) == 0) return FALSE;
- 80010d0:	2b00      	cmp	r3, #0
- 80010d2:	d1e2      	bne.n	800109a <Hw_VCom_Q_Pop+0x26>
- 80010d4:	4618      	mov	r0, r3
- 80010d6:	e7f3      	b.n	80010c0 <Hw_VCom_Q_Pop+0x4c>
+ 80010e0:	2b00      	cmp	r3, #0
+ 80010e2:	d1e2      	bne.n	80010aa <Hw_VCom_Q_Pop+0x26>
+ 80010e4:	4618      	mov	r0, r3
+ 80010e6:	e7f3      	b.n	80010d0 <Hw_VCom_Q_Pop+0x4c>
 
 	*pData = Hw_VCom_Q_Buffer[Ch][Hw_VCom_Q_End[Ch]++];
 
 	Hw_VCom_Q_End[Ch] %= HW_VCOM_Q_BUFFER_MAX;
- 80010d8:	1e59      	subs	r1, r3, #1
- 80010da:	ea6f 5381 	mvn.w	r3, r1, lsl #22
- 80010de:	ea6f 5293 	mvn.w	r2, r3, lsr #22
- 80010e2:	1c53      	adds	r3, r2, #1
- 80010e4:	e7e8      	b.n	80010b8 <Hw_VCom_Q_Pop+0x44>
- 80010e6:	bf00      	nop
- 80010e8:	200008ac 	.word	0x200008ac
- 80010ec:	200008b0 	.word	0x200008b0
- 80010f0:	200004a8 	.word	0x200004a8
+ 80010e8:	1e59      	subs	r1, r3, #1
+ 80010ea:	ea6f 5381 	mvn.w	r3, r1, lsl #22
+ 80010ee:	ea6f 5293 	mvn.w	r2, r3, lsr #22
+ 80010f2:	1c53      	adds	r3, r2, #1
+ 80010f4:	e7e8      	b.n	80010c8 <Hw_VCom_Q_Pop+0x44>
+ 80010f6:	bf00      	nop
+ 80010f8:	200008ac 	.word	0x200008ac
+ 80010fc:	200008b0 	.word	0x200008b0
+ 8001100:	200004a8 	.word	0x200004a8
 
-080010f4 <USB_Send_Data>:
+08001104 <USB_Send_Data>:
 	
 	//-- 전송 버퍼가 꽉 차면 기다린다.
 	//
 	while(1)
 	{
 		if( (USART_Rx_length + 1) < USART_RX_DATA_SIZE ) break;
- 80010f4:	4b0a      	ldr	r3, [pc, #40]	; (8001120 <USB_Send_Data+0x2c>)
+ 8001104:	4b0a      	ldr	r3, [pc, #40]	; (8001130 <USB_Send_Data+0x2c>)
 * Description    : send the received data from UART 0 to USB.
 * Input          : None.
 * Return         : none.
 *******************************************************************************/
 void USB_Send_Data( u8 SendData )
 {
- 80010f6:	b410      	push	{r4}
+ 8001106:	b410      	push	{r4}
 	
 	//-- 전송 버퍼가 꽉 차면 기다린다.
 	//
 	while(1)
 	{
 		if( (USART_Rx_length + 1) < USART_RX_DATA_SIZE ) break;
- 80010f8:	6819      	ldr	r1, [r3, #0]
- 80010fa:	1c4a      	adds	r2, r1, #1
- 80010fc:	f5b2 6f00 	cmp.w	r2, #2048	; 0x800
- 8001100:	d20c      	bcs.n	800111c <USB_Send_Data+0x28>
+ 8001108:	6819      	ldr	r1, [r3, #0]
+ 800110a:	1c4a      	adds	r2, r1, #1
+ 800110c:	f5b2 6f00 	cmp.w	r2, #2048	; 0x800
+ 8001110:	d20c      	bcs.n	800112c <USB_Send_Data+0x28>
 	}
 	
 	
 	USART_Rx_Buffer[USART_Rx_ptr_in] = SendData;
- 8001102:	4b08      	ldr	r3, [pc, #32]	; (8001124 <USB_Send_Data+0x30>)
- 8001104:	4c08      	ldr	r4, [pc, #32]	; (8001128 <USB_Send_Data+0x34>)
- 8001106:	6819      	ldr	r1, [r3, #0]
+ 8001112:	4b08      	ldr	r3, [pc, #32]	; (8001134 <USB_Send_Data+0x30>)
+ 8001114:	4c08      	ldr	r4, [pc, #32]	; (8001138 <USB_Send_Data+0x34>)
+ 8001116:	6819      	ldr	r1, [r3, #0]
 	USART_Rx_ptr_in++;
- 8001108:	1c4a      	adds	r2, r1, #1
+ 8001118:	1c4a      	adds	r2, r1, #1
   
 	/* To avoid buffer overflow */
 	if(USART_Rx_ptr_in == USART_RX_DATA_SIZE)
- 800110a:	f5b2 6f00 	cmp.w	r2, #2048	; 0x800
+ 800111a:	f5b2 6f00 	cmp.w	r2, #2048	; 0x800
 	{
 		if( (USART_Rx_length + 1) < USART_RX_DATA_SIZE ) break;
 	}
 	
 	
 	USART_Rx_Buffer[USART_Rx_ptr_in] = SendData;
- 800110e:	5460      	strb	r0, [r4, r1]
+ 800111e:	5460      	strb	r0, [r4, r1]
 	USART_Rx_ptr_in++;
- 8001110:	601a      	str	r2, [r3, #0]
+ 8001120:	601a      	str	r2, [r3, #0]
   
 	/* To avoid buffer overflow */
 	if(USART_Rx_ptr_in == USART_RX_DATA_SIZE)
- 8001112:	d101      	bne.n	8001118 <USB_Send_Data+0x24>
+ 8001122:	d101      	bne.n	8001128 <USB_Send_Data+0x24>
 	{
 		USART_Rx_ptr_in = 0;
- 8001114:	2000      	movs	r0, #0
- 8001116:	6018      	str	r0, [r3, #0]
+ 8001124:	2000      	movs	r0, #0
+ 8001126:	6018      	str	r0, [r3, #0]
 	}
 }
- 8001118:	bc10      	pop	{r4}
- 800111a:	4770      	bx	lr
- 800111c:	e7fe      	b.n	800111c <USB_Send_Data+0x28>
- 800111e:	bf00      	nop
- 8001120:	200000b0 	.word	0x200000b0
- 8001124:	200000ac 	.word	0x200000ac
- 8001128:	200008b8 	.word	0x200008b8
+ 8001128:	bc10      	pop	{r4}
+ 800112a:	4770      	bx	lr
+ 800112c:	e7fe      	b.n	800112c <USB_Send_Data+0x28>
+ 800112e:	bf00      	nop
+ 8001130:	200000b0 	.word	0x200000b0
+ 8001134:	200000ac 	.word	0x200000ac
+ 8001138:	200008b8 	.word	0x200008b8
 
-0800112c <FLASH_Unlock>:
+0800113c <FLASH_Unlock>:
 * Return         : None
 *******************************************************************************/
 void FLASH_Unlock(void)
 {
   /* Authorize the FPEC Access */
   FLASH->KEYR = FLASH_KEY1;
- 800112c:	f44f 5300 	mov.w	r3, #8192	; 0x2000
- 8001130:	f240 1123 	movw	r1, #291	; 0x123
+ 800113c:	f44f 5300 	mov.w	r3, #8192	; 0x2000
+ 8001140:	f240 1123 	movw	r1, #291	; 0x123
   FLASH->KEYR = FLASH_KEY2;
- 8001134:	f648 12ab 	movw	r2, #35243	; 0x89ab
+ 8001144:	f648 12ab 	movw	r2, #35243	; 0x89ab
 * Return         : None
 *******************************************************************************/
 void FLASH_Unlock(void)
 {
   /* Authorize the FPEC Access */
   FLASH->KEYR = FLASH_KEY1;
- 8001138:	f2c4 0302 	movt	r3, #16386	; 0x4002
- 800113c:	f2c4 5167 	movt	r1, #17767	; 0x4567
+ 8001148:	f2c4 0302 	movt	r3, #16386	; 0x4002
+ 800114c:	f2c4 5167 	movt	r1, #17767	; 0x4567
   FLASH->KEYR = FLASH_KEY2;
- 8001140:	f6cc 52ef 	movt	r2, #52719	; 0xcdef
+ 8001150:	f6cc 52ef 	movt	r2, #52719	; 0xcdef
 * Return         : None
 *******************************************************************************/
 void FLASH_Unlock(void)
 {
   /* Authorize the FPEC Access */
   FLASH->KEYR = FLASH_KEY1;
- 8001144:	6059      	str	r1, [r3, #4]
+ 8001154:	6059      	str	r1, [r3, #4]
   FLASH->KEYR = FLASH_KEY2;
- 8001146:	605a      	str	r2, [r3, #4]
- 8001148:	4770      	bx	lr
- 800114a:	bf00      	nop
+ 8001156:	605a      	str	r2, [r3, #4]
+ 8001158:	4770      	bx	lr
+ 800115a:	bf00      	nop
 
-0800114c <FLASH_Lock>:
+0800115c <FLASH_Lock>:
 * Return         : None
 *******************************************************************************/
 void FLASH_Lock(void)
 {
   /* Set the Lock Bit to lock the FPEC and the FCR */
   FLASH->CR |= CR_LOCK_Set;
- 800114c:	f44f 5300 	mov.w	r3, #8192	; 0x2000
- 8001150:	f2c4 0302 	movt	r3, #16386	; 0x4002
- 8001154:	691a      	ldr	r2, [r3, #16]
- 8001156:	f042 0080 	orr.w	r0, r2, #128	; 0x80
- 800115a:	6118      	str	r0, [r3, #16]
- 800115c:	4770      	bx	lr
- 800115e:	bf00      	nop
+ 800115c:	f44f 5300 	mov.w	r3, #8192	; 0x2000
+ 8001160:	f2c4 0302 	movt	r3, #16386	; 0x4002
+ 8001164:	691a      	ldr	r2, [r3, #16]
+ 8001166:	f042 0080 	orr.w	r0, r2, #128	; 0x80
+ 800116a:	6118      	str	r0, [r3, #16]
+ 800116c:	4770      	bx	lr
+ 800116e:	bf00      	nop
 
-08001160 <FLASH_ClearFlag>:
+08001170 <FLASH_ClearFlag>:
 {
   /* Check the parameters */
   assert_param(IS_FLASH_CLEAR_FLAG(FLASH_FLAG)) ;
   
   /* Clear the flags */
   FLASH->SR = FLASH_FLAG;
- 8001160:	f44f 5300 	mov.w	r3, #8192	; 0x2000
- 8001164:	f2c4 0302 	movt	r3, #16386	; 0x4002
- 8001168:	60d8      	str	r0, [r3, #12]
- 800116a:	4770      	bx	lr
+ 8001170:	f44f 5300 	mov.w	r3, #8192	; 0x2000
+ 8001174:	f2c4 0302 	movt	r3, #16386	; 0x4002
+ 8001178:	60d8      	str	r0, [r3, #12]
+ 800117a:	4770      	bx	lr
 
-0800116c <FLASH_GetStatus>:
+0800117c <FLASH_GetStatus>:
 *******************************************************************************/
 FLASH_Status FLASH_GetStatus(void)
 {
   FLASH_Status flashstatus = FLASH_COMPLETE;
   
   if((FLASH->SR & FLASH_FLAG_BSY) == FLASH_FLAG_BSY) 
- 800116c:	f44f 5300 	mov.w	r3, #8192	; 0x2000
- 8001170:	f2c4 0302 	movt	r3, #16386	; 0x4002
- 8001174:	68da      	ldr	r2, [r3, #12]
- 8001176:	07d1      	lsls	r1, r2, #31
- 8001178:	d40b      	bmi.n	8001192 <FLASH_GetStatus+0x26>
+ 800117c:	f44f 5300 	mov.w	r3, #8192	; 0x2000
+ 8001180:	f2c4 0302 	movt	r3, #16386	; 0x4002
+ 8001184:	68da      	ldr	r2, [r3, #12]
+ 8001186:	07d1      	lsls	r1, r2, #31
+ 8001188:	d40b      	bmi.n	80011a2 <FLASH_GetStatus+0x26>
   {
     flashstatus = FLASH_BUSY;
   }
   else 
   {  
     if(FLASH->SR & FLASH_FLAG_PGERR)
- 800117a:	68d8      	ldr	r0, [r3, #12]
- 800117c:	0742      	lsls	r2, r0, #29
- 800117e:	d501      	bpl.n	8001184 <FLASH_GetStatus+0x18>
+ 800118a:	68d8      	ldr	r0, [r3, #12]
+ 800118c:	0742      	lsls	r2, r0, #29
+ 800118e:	d501      	bpl.n	8001194 <FLASH_GetStatus+0x18>
     { 
       flashstatus = FLASH_ERROR_PG;
- 8001180:	2002      	movs	r0, #2
+ 8001190:	2002      	movs	r0, #2
       }
     }
   }
   /* Return the Flash Status */
   return flashstatus;
 }
- 8001182:	4770      	bx	lr
+ 8001192:	4770      	bx	lr
     { 
       flashstatus = FLASH_ERROR_PG;
     }
     else 
     {
       if(FLASH->SR & FLASH_FLAG_WRPRTERR)
- 8001184:	68d9      	ldr	r1, [r3, #12]
- 8001186:	f011 0f10 	tst.w	r1, #16
+ 8001194:	68d9      	ldr	r1, [r3, #12]
+ 8001196:	f011 0f10 	tst.w	r1, #16
       {
         flashstatus = FLASH_ERROR_WRP;
- 800118a:	bf0c      	ite	eq
- 800118c:	2004      	moveq	r0, #4
- 800118e:	2003      	movne	r0, #3
- 8001190:	4770      	bx	lr
+ 800119a:	bf0c      	ite	eq
+ 800119c:	2004      	moveq	r0, #4
+ 800119e:	2003      	movne	r0, #3
+ 80011a0:	4770      	bx	lr
 {
   FLASH_Status flashstatus = FLASH_COMPLETE;
   
   if((FLASH->SR & FLASH_FLAG_BSY) == FLASH_FLAG_BSY) 
   {
     flashstatus = FLASH_BUSY;
- 8001192:	2001      	movs	r0, #1
- 8001194:	4770      	bx	lr
- 8001196:	bf00      	nop
+ 80011a2:	2001      	movs	r0, #1
+ 80011a4:	4770      	bx	lr
+ 80011a6:	bf00      	nop
 
-08001198 <FLASH_WaitForLastOperation>:
+080011a8 <FLASH_WaitForLastOperation>:
 * Return         : FLASH Status: The returned value can be: FLASH_BUSY, 
 *                  FLASH_ERROR_PG, FLASH_ERROR_WRP, FLASH_COMPLETE or 
 *                  FLASH_TIMEOUT.
 *******************************************************************************/
 FLASH_Status FLASH_WaitForLastOperation(u32 Timeout)
 { 
- 8001198:	b5f0      	push	{r4, r5, r6, r7, lr}
+ 80011a8:	b5f0      	push	{r4, r5, r6, r7, lr}
   FLASH_Status status = FLASH_COMPLETE;
    
   /* Check for the Flash Status */
   status = FLASH_GetStatus();
- 800119a:	4d0f      	ldr	r5, [pc, #60]	; (80011d8 <FLASH_WaitForLastOperation+0x40>)
+ 80011aa:	4d0f      	ldr	r5, [pc, #60]	; (80011e8 <FLASH_WaitForLastOperation+0x40>)
 * Return         : FLASH Status: The returned value can be: FLASH_BUSY, 
 *                  FLASH_ERROR_PG, FLASH_ERROR_WRP, FLASH_COMPLETE or 
 *                  FLASH_TIMEOUT.
 *******************************************************************************/
 FLASH_Status FLASH_WaitForLastOperation(u32 Timeout)
 { 
- 800119c:	b083      	sub	sp, #12
- 800119e:	4604      	mov	r4, r0
+ 80011ac:	b083      	sub	sp, #12
+ 80011ae:	4604      	mov	r4, r0
   FLASH_Status status = FLASH_COMPLETE;
    
   /* Check for the Flash Status */
   status = FLASH_GetStatus();
- 80011a0:	47a8      	blx	r5
+ 80011b0:	47a8      	blx	r5
 
   /* Wait for a Flash operation to complete or a TIMEOUT to occur */
   while((status == FLASH_BUSY) && (Timeout != 0x00))
- 80011a2:	2801      	cmp	r0, #1
- 80011a4:	d115      	bne.n	80011d2 <FLASH_WaitForLastOperation+0x3a>
- 80011a6:	b18c      	cbz	r4, 80011cc <FLASH_WaitForLastOperation+0x34>
+ 80011b2:	2801      	cmp	r0, #1
+ 80011b4:	d115      	bne.n	80011e2 <FLASH_WaitForLastOperation+0x3a>
+ 80011b6:	b18c      	cbz	r4, 80011dc <FLASH_WaitForLastOperation+0x34>
 * Output         : None
 * Return         : None
 *******************************************************************************/
 static void delay(void)
 {
   vu32 i = 0;
- 80011a8:	2700      	movs	r7, #0
+ 80011b8:	2700      	movs	r7, #0
 
   for(i = 0xFF; i != 0; i--)
- 80011aa:	26ff      	movs	r6, #255	; 0xff
+ 80011ba:	26ff      	movs	r6, #255	; 0xff
 * Output         : None
 * Return         : None
 *******************************************************************************/
 static void delay(void)
 {
   vu32 i = 0;
- 80011ac:	9701      	str	r7, [sp, #4]
+ 80011bc:	9701      	str	r7, [sp, #4]
 
   for(i = 0xFF; i != 0; i--)
- 80011ae:	9601      	str	r6, [sp, #4]
- 80011b0:	9b01      	ldr	r3, [sp, #4]
- 80011b2:	b12b      	cbz	r3, 80011c0 <FLASH_WaitForLastOperation+0x28>
- 80011b4:	9801      	ldr	r0, [sp, #4]
- 80011b6:	1e41      	subs	r1, r0, #1
- 80011b8:	9101      	str	r1, [sp, #4]
- 80011ba:	9a01      	ldr	r2, [sp, #4]
- 80011bc:	2a00      	cmp	r2, #0
- 80011be:	d1f9      	bne.n	80011b4 <FLASH_WaitForLastOperation+0x1c>
+ 80011be:	9601      	str	r6, [sp, #4]
+ 80011c0:	9b01      	ldr	r3, [sp, #4]
+ 80011c2:	b12b      	cbz	r3, 80011d0 <FLASH_WaitForLastOperation+0x28>
+ 80011c4:	9801      	ldr	r0, [sp, #4]
+ 80011c6:	1e41      	subs	r1, r0, #1
+ 80011c8:	9101      	str	r1, [sp, #4]
+ 80011ca:	9a01      	ldr	r2, [sp, #4]
+ 80011cc:	2a00      	cmp	r2, #0
+ 80011ce:	d1f9      	bne.n	80011c4 <FLASH_WaitForLastOperation+0x1c>
 
   /* Wait for a Flash operation to complete or a TIMEOUT to occur */
   while((status == FLASH_BUSY) && (Timeout != 0x00))
   {
     delay();
     status = FLASH_GetStatus();
- 80011c0:	47a8      	blx	r5
+ 80011d0:	47a8      	blx	r5
     Timeout--;
- 80011c2:	3c01      	subs	r4, #1
+ 80011d2:	3c01      	subs	r4, #1
    
   /* Check for the Flash Status */
   status = FLASH_GetStatus();
 
   /* Wait for a Flash operation to complete or a TIMEOUT to occur */
   while((status == FLASH_BUSY) && (Timeout != 0x00))
- 80011c4:	2801      	cmp	r0, #1
- 80011c6:	d104      	bne.n	80011d2 <FLASH_WaitForLastOperation+0x3a>
- 80011c8:	2c00      	cmp	r4, #0
- 80011ca:	d1ef      	bne.n	80011ac <FLASH_WaitForLastOperation+0x14>
+ 80011d4:	2801      	cmp	r0, #1
+ 80011d6:	d104      	bne.n	80011e2 <FLASH_WaitForLastOperation+0x3a>
+ 80011d8:	2c00      	cmp	r4, #0
+ 80011da:	d1ef      	bne.n	80011bc <FLASH_WaitForLastOperation+0x14>
     Timeout--;
   }
 
   if(Timeout == 0x00 )
   {
     status = FLASH_TIMEOUT;
- 80011cc:	2005      	movs	r0, #5
+ 80011dc:	2005      	movs	r0, #5
   }
 
   /* Return the operation status */
   return status;
 }
- 80011ce:	b003      	add	sp, #12
- 80011d0:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ 80011de:	b003      	add	sp, #12
+ 80011e0:	bdf0      	pop	{r4, r5, r6, r7, pc}
     delay();
     status = FLASH_GetStatus();
     Timeout--;
   }
 
   if(Timeout == 0x00 )
- 80011d2:	2c00      	cmp	r4, #0
- 80011d4:	d1fb      	bne.n	80011ce <FLASH_WaitForLastOperation+0x36>
- 80011d6:	e7f9      	b.n	80011cc <FLASH_WaitForLastOperation+0x34>
- 80011d8:	0800116d 	.word	0x0800116d
+ 80011e2:	2c00      	cmp	r4, #0
+ 80011e4:	d1fb      	bne.n	80011de <FLASH_WaitForLastOperation+0x36>
+ 80011e6:	e7f9      	b.n	80011dc <FLASH_WaitForLastOperation+0x34>
+ 80011e8:	0800117d 	.word	0x0800117d
 
-080011dc <FLASH_ProgramWord>:
+080011ec <FLASH_ProgramWord>:
 * Return         : FLASH Status: The returned value can be: FLASH_BUSY, 
 *                  FLASH_ERROR_PG, FLASH_ERROR_WRP, FLASH_COMPLETE or 
 *                  FLASH_TIMEOUT. 
 *******************************************************************************/
 FLASH_Status FLASH_ProgramWord(u32 Address, u32 Data)
 {
- 80011dc:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 80011de:	4605      	mov	r5, r0
+ 80011ec:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 80011ee:	4605      	mov	r5, r0
 
   /* Check the parameters */
   assert_param(IS_FLASH_ADDRESS(Address));
 
   /* Wait for last operation to be completed */
   status = FLASH_WaitForLastOperation(ProgramTimeout);
- 80011e0:	4c11      	ldr	r4, [pc, #68]	; (8001228 <FLASH_ProgramWord+0x4c>)
- 80011e2:	200f      	movs	r0, #15
+ 80011f0:	4c11      	ldr	r4, [pc, #68]	; (8001238 <FLASH_ProgramWord+0x4c>)
+ 80011f2:	200f      	movs	r0, #15
 * Return         : FLASH Status: The returned value can be: FLASH_BUSY, 
 *                  FLASH_ERROR_PG, FLASH_ERROR_WRP, FLASH_COMPLETE or 
 *                  FLASH_TIMEOUT. 
 *******************************************************************************/
 FLASH_Status FLASH_ProgramWord(u32 Address, u32 Data)
 {
- 80011e4:	460e      	mov	r6, r1
+ 80011f4:	460e      	mov	r6, r1
 
   /* Check the parameters */
   assert_param(IS_FLASH_ADDRESS(Address));
 
   /* Wait for last operation to be completed */
   status = FLASH_WaitForLastOperation(ProgramTimeout);
- 80011e6:	47a0      	blx	r4
+ 80011f6:	47a0      	blx	r4
   
   if(status == FLASH_COMPLETE)
- 80011e8:	2804      	cmp	r0, #4
- 80011ea:	d000      	beq.n	80011ee <FLASH_ProgramWord+0x12>
+ 80011f8:	2804      	cmp	r0, #4
+ 80011fa:	d000      	beq.n	80011fe <FLASH_ProgramWord+0x12>
       }
      }
   }
   /* Return the Program Status */
   return status;
 }
- 80011ec:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+ 80011fc:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
   
   if(status == FLASH_COMPLETE)
   {
     /* if the previous operation is completed, proceed to program the new first 
     half word */
     FLASH->CR |= CR_PG_Set;
- 80011ee:	f44f 5700 	mov.w	r7, #8192	; 0x2000
- 80011f2:	f2c4 0702 	movt	r7, #16386	; 0x4002
- 80011f6:	693a      	ldr	r2, [r7, #16]
+ 80011fe:	f44f 5700 	mov.w	r7, #8192	; 0x2000
+ 8001202:	f2c4 0702 	movt	r7, #16386	; 0x4002
+ 8001206:	693a      	ldr	r2, [r7, #16]
   
     *(vu16*)Address = (u16)Data;
- 80011f8:	b2b3      	uxth	r3, r6
+ 8001208:	b2b3      	uxth	r3, r6
   
   if(status == FLASH_COMPLETE)
   {
     /* if the previous operation is completed, proceed to program the new first 
     half word */
     FLASH->CR |= CR_PG_Set;
- 80011fa:	f042 0001 	orr.w	r0, r2, #1
- 80011fe:	6138      	str	r0, [r7, #16]
+ 800120a:	f042 0001 	orr.w	r0, r2, #1
+ 800120e:	6138      	str	r0, [r7, #16]
   
     *(vu16*)Address = (u16)Data;
 
     /* Wait for last operation to be completed */
     status = FLASH_WaitForLastOperation(ProgramTimeout);
- 8001200:	200f      	movs	r0, #15
+ 8001210:	200f      	movs	r0, #15
   {
     /* if the previous operation is completed, proceed to program the new first 
     half word */
     FLASH->CR |= CR_PG_Set;
   
     *(vu16*)Address = (u16)Data;
- 8001202:	802b      	strh	r3, [r5, #0]
+ 8001212:	802b      	strh	r3, [r5, #0]
 
     /* Wait for last operation to be completed */
     status = FLASH_WaitForLastOperation(ProgramTimeout);
- 8001204:	47a0      	blx	r4
+ 8001214:	47a0      	blx	r4
  
     if(status == FLASH_COMPLETE)
- 8001206:	2804      	cmp	r0, #4
- 8001208:	d009      	beq.n	800121e <FLASH_ProgramWord+0x42>
+ 8001216:	2804      	cmp	r0, #4
+ 8001218:	d009      	beq.n	800122e <FLASH_ProgramWord+0x42>
       *(vu16*)(Address + 2) = Data >> 16;
     
       /* Wait for last operation to be completed */
       status = FLASH_WaitForLastOperation(ProgramTimeout);
         
       if(status != FLASH_BUSY)
- 800120a:	2801      	cmp	r0, #1
- 800120c:	d005      	beq.n	800121a <FLASH_ProgramWord+0x3e>
+ 800121a:	2801      	cmp	r0, #1
+ 800121c:	d005      	beq.n	800122a <FLASH_ProgramWord+0x3e>
     else
     {
       if (status != FLASH_BUSY)
       {
         /* Disable the PG Bit */
         FLASH->CR &= CR_PG_Reset;
- 800120e:	6939      	ldr	r1, [r7, #16]
- 8001210:	f641 72fe 	movw	r2, #8190	; 0x1ffe
- 8001214:	400a      	ands	r2, r1
- 8001216:	613a      	str	r2, [r7, #16]
+ 800121e:	6939      	ldr	r1, [r7, #16]
+ 8001220:	f641 72fe 	movw	r2, #8190	; 0x1ffe
+ 8001224:	400a      	ands	r2, r1
+ 8001226:	613a      	str	r2, [r7, #16]
       }
      }
   }
   /* Return the Program Status */
   return status;
 }
- 8001218:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+ 8001228:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
 * Return         : FLASH Status: The returned value can be: FLASH_BUSY, 
 *                  FLASH_ERROR_PG, FLASH_ERROR_WRP, FLASH_COMPLETE or 
 *                  FLASH_TIMEOUT. 
 *******************************************************************************/
 FLASH_Status FLASH_ProgramWord(u32 Address, u32 Data)
 {
- 800121a:	2001      	movs	r0, #1
- 800121c:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+ 800122a:	2001      	movs	r0, #1
+ 800122c:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
  
     if(status == FLASH_COMPLETE)
     {
       /* if the previous operation is completed, proceed to program the new second 
       half word */
       *(vu16*)(Address + 2) = Data >> 16;
- 800121e:	0c36      	lsrs	r6, r6, #16
- 8001220:	806e      	strh	r6, [r5, #2]
+ 800122e:	0c36      	lsrs	r6, r6, #16
+ 8001230:	806e      	strh	r6, [r5, #2]
     
       /* Wait for last operation to be completed */
       status = FLASH_WaitForLastOperation(ProgramTimeout);
- 8001222:	200f      	movs	r0, #15
- 8001224:	47a0      	blx	r4
- 8001226:	e7f0      	b.n	800120a <FLASH_ProgramWord+0x2e>
- 8001228:	08001199 	.word	0x08001199
+ 8001232:	200f      	movs	r0, #15
+ 8001234:	47a0      	blx	r4
+ 8001236:	e7f0      	b.n	800121a <FLASH_ProgramWord+0x2e>
+ 8001238:	080011a9 	.word	0x080011a9
 
-0800122c <FLASH_ErasePage>:
+0800123c <FLASH_ErasePage>:
 * Return         : FLASH Status: The returned value can be: FLASH_BUSY, 
 *                  FLASH_ERROR_PG, FLASH_ERROR_WRP, FLASH_COMPLETE or 
 *                  FLASH_TIMEOUT.
 *******************************************************************************/
 FLASH_Status FLASH_ErasePage(u32 Page_Address)
 {
- 800122c:	b570      	push	{r4, r5, r6, lr}
- 800122e:	4606      	mov	r6, r0
+ 800123c:	b570      	push	{r4, r5, r6, lr}
+ 800123e:	4606      	mov	r6, r0
 
   /* Check the parameters */
   assert_param(IS_FLASH_ADDRESS(Page_Address));
 
   /* Wait for last operation to be completed */
   status = FLASH_WaitForLastOperation(EraseTimeout);
- 8001230:	4c0f      	ldr	r4, [pc, #60]	; (8001270 <FLASH_ErasePage+0x44>)
- 8001232:	f640 70ff 	movw	r0, #4095	; 0xfff
- 8001236:	47a0      	blx	r4
+ 8001240:	4c0f      	ldr	r4, [pc, #60]	; (8001280 <FLASH_ErasePage+0x44>)
+ 8001242:	f640 70ff 	movw	r0, #4095	; 0xfff
+ 8001246:	47a0      	blx	r4
   
   if(status == FLASH_COMPLETE)
- 8001238:	2804      	cmp	r0, #4
- 800123a:	d000      	beq.n	800123e <FLASH_ErasePage+0x12>
+ 8001248:	2804      	cmp	r0, #4
+ 800124a:	d000      	beq.n	800124e <FLASH_ErasePage+0x12>
       FLASH->CR &= CR_PER_Reset;
     }
   }
   /* Return the Erase Status */
   return status;
 }
- 800123c:	bd70      	pop	{r4, r5, r6, pc}
+ 800124c:	bd70      	pop	{r4, r5, r6, pc}
   status = FLASH_WaitForLastOperation(EraseTimeout);
   
   if(status == FLASH_COMPLETE)
   { 
     /* if the previous operation is completed, proceed to erase the page */
     FLASH->CR|= CR_PER_Set;
- 800123e:	f44f 5500 	mov.w	r5, #8192	; 0x2000
- 8001242:	f2c4 0502 	movt	r5, #16386	; 0x4002
- 8001246:	692b      	ldr	r3, [r5, #16]
+ 800124e:	f44f 5500 	mov.w	r5, #8192	; 0x2000
+ 8001252:	f2c4 0502 	movt	r5, #16386	; 0x4002
+ 8001256:	692b      	ldr	r3, [r5, #16]
     FLASH->AR = Page_Address; 
     FLASH->CR|= CR_STRT_Set;
     
     /* Wait for last operation to be completed */
     status = FLASH_WaitForLastOperation(EraseTimeout);
- 8001248:	f640 70ff 	movw	r0, #4095	; 0xfff
+ 8001258:	f640 70ff 	movw	r0, #4095	; 0xfff
   status = FLASH_WaitForLastOperation(EraseTimeout);
   
   if(status == FLASH_COMPLETE)
   { 
     /* if the previous operation is completed, proceed to erase the page */
     FLASH->CR|= CR_PER_Set;
- 800124c:	f043 0102 	orr.w	r1, r3, #2
- 8001250:	6129      	str	r1, [r5, #16]
+ 800125c:	f043 0102 	orr.w	r1, r3, #2
+ 8001260:	6129      	str	r1, [r5, #16]
     FLASH->AR = Page_Address; 
- 8001252:	616e      	str	r6, [r5, #20]
+ 8001262:	616e      	str	r6, [r5, #20]
     FLASH->CR|= CR_STRT_Set;
- 8001254:	692a      	ldr	r2, [r5, #16]
- 8001256:	f042 0340 	orr.w	r3, r2, #64	; 0x40
- 800125a:	612b      	str	r3, [r5, #16]
+ 8001264:	692a      	ldr	r2, [r5, #16]
+ 8001266:	f042 0340 	orr.w	r3, r2, #64	; 0x40
+ 800126a:	612b      	str	r3, [r5, #16]
     
     /* Wait for last operation to be completed */
     status = FLASH_WaitForLastOperation(EraseTimeout);
- 800125c:	47a0      	blx	r4
+ 800126c:	47a0      	blx	r4
 
     if(status != FLASH_BUSY)
- 800125e:	2801      	cmp	r0, #1
- 8001260:	d0ec      	beq.n	800123c <FLASH_ErasePage+0x10>
+ 800126e:	2801      	cmp	r0, #1
+ 8001270:	d0ec      	beq.n	800124c <FLASH_ErasePage+0x10>
     {
       /* if the erase operation is completed, disable the PER Bit */
       FLASH->CR &= CR_PER_Reset;
- 8001262:	6929      	ldr	r1, [r5, #16]
- 8001264:	f641 72fd 	movw	r2, #8189	; 0x1ffd
- 8001268:	400a      	ands	r2, r1
- 800126a:	612a      	str	r2, [r5, #16]
+ 8001272:	6929      	ldr	r1, [r5, #16]
+ 8001274:	f641 72fd 	movw	r2, #8189	; 0x1ffd
+ 8001278:	400a      	ands	r2, r1
+ 800127a:	612a      	str	r2, [r5, #16]
     }
   }
   /* Return the Erase Status */
   return status;
 }
- 800126c:	bd70      	pop	{r4, r5, r6, pc}
- 800126e:	bf00      	nop
- 8001270:	08001199 	.word	0x08001199
+ 800127c:	bd70      	pop	{r4, r5, r6, pc}
+ 800127e:	bf00      	nop
+ 8001280:	080011a9 	.word	0x080011a9
