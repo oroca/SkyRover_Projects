@@ -1,0 +1,2509 @@
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"stm32f10x_flash.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.FLASH_SetLatency,"ax",%progbits
+  19              		.align	1
+  20              		.global	FLASH_SetLatency
+  21              		.thumb
+  22              		.thumb_func
+  24              	FLASH_SetLatency:
+  25              	.LFB0:
+  26              		.file 1 "../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c"
+   1:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /******************** (C) COPYRIGHT 2008 STMicroelectronics ********************
+   2:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * File Name          : stm32f10x_flash.c
+   3:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Author             : MCD Application Team
+   4:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Version            : V2.0.3
+   5:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Date               : 09/22/2008
+   6:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Description        : This file provides all the FLASH firmware functions.
+   7:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** ********************************************************************************
+   8:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
+   9:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE TIME.
+  10:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * AS A RESULT, STMICROELECTRONICS SHALL NOT BE HELD LIABLE FOR ANY DIRECT,
+  11:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING FROM THE
+  12:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE CODING
+  13:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+  14:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *******************************************************************************/
+  15:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+  16:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /* Includes ------------------------------------------------------------------*/
+  17:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** #include "stm32f10x_flash.h"
+  18:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+  19:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /* Private typedef -----------------------------------------------------------*/
+  20:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /* Private define ------------------------------------------------------------*/
+  21:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /* Flash Access Control Register bits */
+  22:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** #define ACR_LATENCY_Mask         ((u32)0x00000038)
+  23:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** #define ACR_HLFCYA_Mask          ((u32)0xFFFFFFF7)
+  24:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** #define ACR_PRFTBE_Mask          ((u32)0xFFFFFFEF)
+  25:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+  26:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** #ifdef _FLASH_PROG
+  27:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /* Flash Access Control Register bits */
+  28:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** #define ACR_PRFTBS_Mask          ((u32)0x00000020) 
+  29:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+  30:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /* Flash Control Register bits */
+  31:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** #define CR_PG_Set                ((u32)0x00000001)
+  32:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** #define CR_PG_Reset              ((u32)0x00001FFE) 
+  33:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+  34:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** #define CR_PER_Set               ((u32)0x00000002)
+  35:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** #define CR_PER_Reset             ((u32)0x00001FFD)
+  36:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+  37:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** #define CR_MER_Set               ((u32)0x00000004)
+  38:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** #define CR_MER_Reset             ((u32)0x00001FFB)
+  39:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+  40:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** #define CR_OPTPG_Set             ((u32)0x00000010)
+  41:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** #define CR_OPTPG_Reset           ((u32)0x00001FEF)
+  42:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+  43:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** #define CR_OPTER_Set             ((u32)0x00000020)
+  44:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** #define CR_OPTER_Reset           ((u32)0x00001FDF)
+  45:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+  46:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** #define CR_STRT_Set              ((u32)0x00000040)
+  47:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 							 
+  48:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** #define CR_LOCK_Set              ((u32)0x00000080)
+  49:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+  50:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /* FLASH Mask */
+  51:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** #define RDPRT_Mask               ((u32)0x00000002)
+  52:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** #define WRP0_Mask                ((u32)0x000000FF)
+  53:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** #define WRP1_Mask                ((u32)0x0000FF00)
+  54:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** #define WRP2_Mask                ((u32)0x00FF0000)
+  55:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** #define WRP3_Mask                ((u32)0xFF000000)
+  56:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+  57:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /* FLASH Keys */
+  58:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** #define RDP_Key                  ((u16)0x00A5)
+  59:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** #define FLASH_KEY1               ((u32)0x45670123)
+  60:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** #define FLASH_KEY2               ((u32)0xCDEF89AB)
+  61:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+  62:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /* Delay definition */   
+  63:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** #define EraseTimeout             ((u32)0x00000FFF)
+  64:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** #define ProgramTimeout           ((u32)0x0000000F)
+  65:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** #endif
+  66:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+  67:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /* Private macro -------------------------------------------------------------*/
+  68:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /* Private variables ---------------------------------------------------------*/
+  69:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /* Private function prototypes -----------------------------------------------*/
+  70:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** #ifdef _FLASH_PROG
+  71:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** static void delay(void);
+  72:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** #endif
+  73:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+  74:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /* Private functions ---------------------------------------------------------*/
+  75:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /*******************************************************************************
+  76:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Function Name  : FLASH_SetLatency
+  77:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Description    : Sets the code latency value.
+  78:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Input          : - FLASH_Latency: specifies the FLASH Latency value.
+  79:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                    This parameter can be one of the following values:
+  80:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                       - FLASH_Latency_0: FLASH Zero Latency cycle
+  81:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                       - FLASH_Latency_1: FLASH One Latency cycle
+  82:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                       - FLASH_Latency_2: FLASH Two Latency cycles
+  83:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Output         : None
+  84:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Return         : None
+  85:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *******************************************************************************/
+  86:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** void FLASH_SetLatency(u32 FLASH_Latency)
+  87:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+  27              		.loc 1 87 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  32              	.LVL0:
+  88:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Check the parameters */
+  89:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   assert_param(IS_FLASH_LATENCY(FLASH_Latency));
+  90:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   
+  91:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Sets the Latency value */
+  92:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FLASH->ACR &= ACR_LATENCY_Mask;
+  33              		.loc 1 92 0
+  34 0000 044B     		ldr	r3, .L2
+  35 0002 1A68     		ldr	r2, [r3, #0]
+  36 0004 02F03801 		and	r1, r2, #56
+  37 0008 1960     		str	r1, [r3, #0]
+  93:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FLASH->ACR |= FLASH_Latency;
+  38              		.loc 1 93 0
+  39 000a 1A68     		ldr	r2, [r3, #0]
+  40 000c 1043     		orrs	r0, r0, r2
+  41              	.LVL1:
+  42 000e 1860     		str	r0, [r3, #0]
+  43 0010 7047     		bx	lr
+  44              	.L3:
+  45 0012 00BF     		.align	2
+  46              	.L2:
+  47 0014 00200240 		.word	1073881088
+  48              		.cfi_endproc
+  49              	.LFE0:
+  51              		.section	.text.FLASH_HalfCycleAccessCmd,"ax",%progbits
+  52              		.align	1
+  53              		.global	FLASH_HalfCycleAccessCmd
+  54              		.thumb
+  55              		.thumb_func
+  57              	FLASH_HalfCycleAccessCmd:
+  58              	.LFB1:
+  94:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+  95:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+  96:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /*******************************************************************************
+  97:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Function Name  : FLASH_HalfCycleAccessCmd
+  98:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Description    : Enables or disables the Half cycle flash access.
+  99:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Input          : - FLASH_HalfCycle: specifies the FLASH Half cycle Access mode.
+ 100:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                    This parameter can be one of the following values:
+ 101:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                       - FLASH_HalfCycleAccess_Enable: FLASH Half Cycle Enable
+ 102:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                       - FLASH_HalfCycleAccess_Disable: FLASH Half Cycle Disable
+ 103:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Output         : None
+ 104:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Return         : None
+ 105:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *******************************************************************************/
+ 106:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** void FLASH_HalfCycleAccessCmd(u32 FLASH_HalfCycleAccess)
+ 107:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+  59              		.loc 1 107 0
+  60              		.cfi_startproc
+  61              		@ args = 0, pretend = 0, frame = 0
+  62              		@ frame_needed = 0, uses_anonymous_args = 0
+  63              		@ link register save eliminated.
+  64              	.LVL2:
+ 108:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Check the parameters */
+ 109:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   assert_param(IS_FLASH_HALFCYCLEACCESS_STATE(FLASH_HalfCycleAccess));
+ 110:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   
+ 111:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Enable or disable the Half cycle access */
+ 112:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FLASH->ACR &= ACR_HLFCYA_Mask;
+  65              		.loc 1 112 0
+  66 0000 044B     		ldr	r3, .L5
+  67 0002 1A68     		ldr	r2, [r3, #0]
+  68 0004 22F00801 		bic	r1, r2, #8
+  69 0008 1960     		str	r1, [r3, #0]
+ 113:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FLASH->ACR |= FLASH_HalfCycleAccess;
+  70              		.loc 1 113 0
+  71 000a 1A68     		ldr	r2, [r3, #0]
+  72 000c 1043     		orrs	r0, r0, r2
+  73              	.LVL3:
+  74 000e 1860     		str	r0, [r3, #0]
+  75 0010 7047     		bx	lr
+  76              	.L6:
+  77 0012 00BF     		.align	2
+  78              	.L5:
+  79 0014 00200240 		.word	1073881088
+  80              		.cfi_endproc
+  81              	.LFE1:
+  83              		.section	.text.FLASH_PrefetchBufferCmd,"ax",%progbits
+  84              		.align	1
+  85              		.global	FLASH_PrefetchBufferCmd
+  86              		.thumb
+  87              		.thumb_func
+  89              	FLASH_PrefetchBufferCmd:
+  90              	.LFB2:
+ 114:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+ 115:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 116:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /*******************************************************************************
+ 117:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Function Name  : FLASH_PrefetchBufferCmd
+ 118:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Description    : Enables or disables the Prefetch Buffer.
+ 119:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Input          : - FLASH_PrefetchBuffer: specifies the Prefetch buffer status.
+ 120:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                    This parameter can be one of the following values:
+ 121:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                       - FLASH_PrefetchBuffer_Enable: FLASH Prefetch Buffer Enable
+ 122:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                       - FLASH_PrefetchBuffer_Disable: FLASH Prefetch Buffer Disable
+ 123:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Output         : None
+ 124:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Return         : None
+ 125:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *******************************************************************************/
+ 126:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** void FLASH_PrefetchBufferCmd(u32 FLASH_PrefetchBuffer)
+ 127:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+  91              		.loc 1 127 0
+  92              		.cfi_startproc
+  93              		@ args = 0, pretend = 0, frame = 0
+  94              		@ frame_needed = 0, uses_anonymous_args = 0
+  95              		@ link register save eliminated.
+  96              	.LVL4:
+ 128:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Check the parameters */
+ 129:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   assert_param(IS_FLASH_PREFETCHBUFFER_STATE(FLASH_PrefetchBuffer));
+ 130:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   
+ 131:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Enable or disable the Prefetch Buffer */
+ 132:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FLASH->ACR &= ACR_PRFTBE_Mask;
+  97              		.loc 1 132 0
+  98 0000 044B     		ldr	r3, .L8
+  99 0002 1A68     		ldr	r2, [r3, #0]
+ 100 0004 22F01001 		bic	r1, r2, #16
+ 101 0008 1960     		str	r1, [r3, #0]
+ 133:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FLASH->ACR |= FLASH_PrefetchBuffer;
+ 102              		.loc 1 133 0
+ 103 000a 1A68     		ldr	r2, [r3, #0]
+ 104 000c 1043     		orrs	r0, r0, r2
+ 105              	.LVL5:
+ 106 000e 1860     		str	r0, [r3, #0]
+ 107 0010 7047     		bx	lr
+ 108              	.L9:
+ 109 0012 00BF     		.align	2
+ 110              	.L8:
+ 111 0014 00200240 		.word	1073881088
+ 112              		.cfi_endproc
+ 113              	.LFE2:
+ 115              		.section	.text.FLASH_Unlock,"ax",%progbits
+ 116              		.align	1
+ 117              		.global	FLASH_Unlock
+ 118              		.thumb
+ 119              		.thumb_func
+ 121              	FLASH_Unlock:
+ 122              	.LFB3:
+ 134:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+ 135:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 136:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** #ifdef _FLASH_PROG
+ 137:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /*******************************************************************************
+ 138:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Function Name  : FLASH_Unlock
+ 139:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Description    : Unlocks the FLASH Program Erase Controller.
+ 140:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Input          : None
+ 141:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Output         : None
+ 142:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Return         : None
+ 143:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *******************************************************************************/
+ 144:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** void FLASH_Unlock(void)
+ 145:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 123              		.loc 1 145 0
+ 124              		.cfi_startproc
+ 125              		@ args = 0, pretend = 0, frame = 0
+ 126              		@ frame_needed = 0, uses_anonymous_args = 0
+ 127              		@ link register save eliminated.
+ 146:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Authorize the FPEC Access */
+ 147:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FLASH->KEYR = FLASH_KEY1;
+ 128              		.loc 1 147 0
+ 129 0000 034A     		ldr	r2, .L11
+ 130 0002 044B     		ldr	r3, .L11+4
+ 148:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FLASH->KEYR = FLASH_KEY2;
+ 131              		.loc 1 148 0
+ 132 0004 02F18830 		add	r0, r2, #-2004318072
+ 147:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FLASH->KEYR = FLASH_KEY1;
+ 133              		.loc 1 147 0
+ 134 0008 5A60     		str	r2, [r3, #4]
+ 135              		.loc 1 148 0
+ 136 000a 5860     		str	r0, [r3, #4]
+ 137 000c 7047     		bx	lr
+ 138              	.L12:
+ 139 000e 00BF     		.align	2
+ 140              	.L11:
+ 141 0010 23016745 		.word	1164378403
+ 142 0014 00200240 		.word	1073881088
+ 143              		.cfi_endproc
+ 144              	.LFE3:
+ 146              		.section	.text.FLASH_Lock,"ax",%progbits
+ 147              		.align	1
+ 148              		.global	FLASH_Lock
+ 149              		.thumb
+ 150              		.thumb_func
+ 152              	FLASH_Lock:
+ 153              	.LFB4:
+ 149:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+ 150:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 151:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /*******************************************************************************
+ 152:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Function Name  : FLASH_Lock
+ 153:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Description    : Locks the FLASH Program Erase Controller.
+ 154:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Input          : None
+ 155:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Output         : None
+ 156:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Return         : None
+ 157:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *******************************************************************************/
+ 158:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** void FLASH_Lock(void)
+ 159:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 154              		.loc 1 159 0
+ 155              		.cfi_startproc
+ 156              		@ args = 0, pretend = 0, frame = 0
+ 157              		@ frame_needed = 0, uses_anonymous_args = 0
+ 158              		@ link register save eliminated.
+ 160:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Set the Lock Bit to lock the FPEC and the FCR */
+ 161:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FLASH->CR |= CR_LOCK_Set;
+ 159              		.loc 1 161 0
+ 160 0000 024B     		ldr	r3, .L14
+ 161 0002 1A69     		ldr	r2, [r3, #16]
+ 162 0004 42F08000 		orr	r0, r2, #128
+ 163 0008 1861     		str	r0, [r3, #16]
+ 164 000a 7047     		bx	lr
+ 165              	.L15:
+ 166              		.align	2
+ 167              	.L14:
+ 168 000c 00200240 		.word	1073881088
+ 169              		.cfi_endproc
+ 170              	.LFE4:
+ 172              		.section	.text.FLASH_GetUserOptionByte,"ax",%progbits
+ 173              		.align	1
+ 174              		.global	FLASH_GetUserOptionByte
+ 175              		.thumb
+ 176              		.thumb_func
+ 178              	FLASH_GetUserOptionByte:
+ 179              	.LFB14:
+ 162:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+ 163:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 164:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /*******************************************************************************
+ 165:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Function Name  : FLASH_ErasePage
+ 166:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Description    : Erases a specified FLASH page.
+ 167:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Input          : - Page_Address: The page address to be erased.
+ 168:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Output         : None
+ 169:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Return         : FLASH Status: The returned value can be: FLASH_BUSY, 
+ 170:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                  FLASH_ERROR_PG, FLASH_ERROR_WRP, FLASH_COMPLETE or 
+ 171:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                  FLASH_TIMEOUT.
+ 172:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *******************************************************************************/
+ 173:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** FLASH_Status FLASH_ErasePage(u32 Page_Address)
+ 174:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 175:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FLASH_Status status = FLASH_COMPLETE;
+ 176:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 177:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Check the parameters */
+ 178:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   assert_param(IS_FLASH_ADDRESS(Page_Address));
+ 179:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 180:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Wait for last operation to be completed */
+ 181:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   status = FLASH_WaitForLastOperation(EraseTimeout);
+ 182:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   
+ 183:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   if(status == FLASH_COMPLETE)
+ 184:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   { 
+ 185:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     /* if the previous operation is completed, proceed to erase the page */
+ 186:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->CR|= CR_PER_Set;
+ 187:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->AR = Page_Address; 
+ 188:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->CR|= CR_STRT_Set;
+ 189:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     
+ 190:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     /* Wait for last operation to be completed */
+ 191:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     status = FLASH_WaitForLastOperation(EraseTimeout);
+ 192:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 193:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     if(status != FLASH_BUSY)
+ 194:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     {
+ 195:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       /* if the erase operation is completed, disable the PER Bit */
+ 196:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       FLASH->CR &= CR_PER_Reset;
+ 197:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     }
+ 198:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   }
+ 199:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Return the Erase Status */
+ 200:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   return status;
+ 201:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+ 202:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 203:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /*******************************************************************************
+ 204:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Function Name  : FLASH_EraseAllPages
+ 205:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Description    : Erases all FLASH pages.
+ 206:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Input          : None
+ 207:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Output         : None
+ 208:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Return         : FLASH Status: The returned value can be: FLASH_BUSY, 
+ 209:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                  FLASH_ERROR_PG, FLASH_ERROR_WRP, FLASH_COMPLETE or 
+ 210:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                  FLASH_TIMEOUT.
+ 211:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *******************************************************************************/
+ 212:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** FLASH_Status FLASH_EraseAllPages(void)
+ 213:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 214:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FLASH_Status status = FLASH_COMPLETE;
+ 215:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 216:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Wait for last operation to be completed */
+ 217:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   status = FLASH_WaitForLastOperation(EraseTimeout);
+ 218:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   
+ 219:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   if(status == FLASH_COMPLETE)
+ 220:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   {
+ 221:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     /* if the previous operation is completed, proceed to erase all pages */
+ 222:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****      FLASH->CR |= CR_MER_Set;
+ 223:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****      FLASH->CR |= CR_STRT_Set;
+ 224:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     
+ 225:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     /* Wait for last operation to be completed */
+ 226:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     status = FLASH_WaitForLastOperation(EraseTimeout);
+ 227:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 228:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     if(status != FLASH_BUSY)
+ 229:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     {
+ 230:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       /* if the erase operation is completed, disable the MER Bit */
+ 231:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       FLASH->CR &= CR_MER_Reset;
+ 232:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     }
+ 233:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   }	   
+ 234:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Return the Erase Status */
+ 235:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   return status;
+ 236:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+ 237:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 238:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /*******************************************************************************
+ 239:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Function Name  : FLASH_EraseOptionBytes
+ 240:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Description    : Erases the FLASH option bytes.
+ 241:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Input          : None
+ 242:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Output         : None
+ 243:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Return         : FLASH Status: The returned value can be: FLASH_BUSY, 
+ 244:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                  FLASH_ERROR_PG, FLASH_ERROR_WRP, FLASH_COMPLETE or 
+ 245:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                  FLASH_TIMEOUT.
+ 246:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *******************************************************************************/
+ 247:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** FLASH_Status FLASH_EraseOptionBytes(void)
+ 248:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 249:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FLASH_Status status = FLASH_COMPLETE;
+ 250:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   
+ 251:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Wait for last operation to be completed */
+ 252:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   status = FLASH_WaitForLastOperation(EraseTimeout);
+ 253:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 254:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   if(status == FLASH_COMPLETE)
+ 255:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   {
+ 256:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     /* Authorize the small information block programming */
+ 257:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->OPTKEYR = FLASH_KEY1;
+ 258:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->OPTKEYR = FLASH_KEY2;
+ 259:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     
+ 260:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     /* if the previous operation is completed, proceed to erase the option bytes */
+ 261:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->CR |= CR_OPTER_Set;
+ 262:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->CR |= CR_STRT_Set;
+ 263:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 264:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     /* Wait for last operation to be completed */
+ 265:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     status = FLASH_WaitForLastOperation(EraseTimeout);
+ 266:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     
+ 267:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     if(status == FLASH_COMPLETE)
+ 268:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     {
+ 269:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       /* if the erase operation is completed, disable the OPTER Bit */
+ 270:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       FLASH->CR &= CR_OPTER_Reset;
+ 271:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****        
+ 272:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       /* Enable the Option Bytes Programming operation */
+ 273:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       FLASH->CR |= CR_OPTPG_Set;
+ 274:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 275:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       /* Enable the readout access */
+ 276:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       OB->RDP= RDP_Key; 
+ 277:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 278:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       /* Wait for last operation to be completed */
+ 279:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 280:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****  
+ 281:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       if(status != FLASH_BUSY)
+ 282:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       {
+ 283:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****         /* if the program operation is completed, disable the OPTPG Bit */
+ 284:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****         FLASH->CR &= CR_OPTPG_Reset;
+ 285:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       }
+ 286:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     }
+ 287:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     else
+ 288:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     {
+ 289:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       if (status != FLASH_BUSY)
+ 290:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       {
+ 291:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****         /* Disable the OPTPG Bit */
+ 292:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****         FLASH->CR &= CR_OPTPG_Reset;
+ 293:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       }
+ 294:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     }  
+ 295:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   }
+ 296:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Return the erase status */
+ 297:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   return status;
+ 298:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+ 299:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 300:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /*******************************************************************************
+ 301:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Function Name  : FLASH_ProgramWord
+ 302:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Description    : Programs a word at a specified address.
+ 303:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Input          : - Address: specifies the address to be programmed.
+ 304:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                  - Data: specifies the data to be programmed.
+ 305:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Output         : None
+ 306:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Return         : FLASH Status: The returned value can be: FLASH_BUSY, 
+ 307:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                  FLASH_ERROR_PG, FLASH_ERROR_WRP, FLASH_COMPLETE or 
+ 308:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                  FLASH_TIMEOUT. 
+ 309:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *******************************************************************************/
+ 310:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** FLASH_Status FLASH_ProgramWord(u32 Address, u32 Data)
+ 311:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 312:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FLASH_Status status = FLASH_COMPLETE;
+ 313:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 314:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Check the parameters */
+ 315:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   assert_param(IS_FLASH_ADDRESS(Address));
+ 316:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 317:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Wait for last operation to be completed */
+ 318:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 319:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   
+ 320:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   if(status == FLASH_COMPLETE)
+ 321:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   {
+ 322:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     /* if the previous operation is completed, proceed to program the new first 
+ 323:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     half word */
+ 324:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->CR |= CR_PG_Set;
+ 325:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   
+ 326:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     *(vu16*)Address = (u16)Data;
+ 327:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 328:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     /* Wait for last operation to be completed */
+ 329:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 330:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****  
+ 331:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     if(status == FLASH_COMPLETE)
+ 332:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     {
+ 333:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       /* if the previous operation is completed, proceed to program the new second 
+ 334:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       half word */
+ 335:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       *(vu16*)(Address + 2) = Data >> 16;
+ 336:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     
+ 337:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       /* Wait for last operation to be completed */
+ 338:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 339:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****         
+ 340:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       if(status != FLASH_BUSY)
+ 341:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       {
+ 342:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****         /* Disable the PG Bit */
+ 343:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****         FLASH->CR &= CR_PG_Reset;
+ 344:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       }
+ 345:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     }
+ 346:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     else
+ 347:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     {
+ 348:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       if (status != FLASH_BUSY)
+ 349:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       {
+ 350:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****         /* Disable the PG Bit */
+ 351:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****         FLASH->CR &= CR_PG_Reset;
+ 352:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       }
+ 353:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****      }
+ 354:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   }
+ 355:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Return the Program Status */
+ 356:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   return status;
+ 357:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+ 358:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 359:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /*******************************************************************************
+ 360:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Function Name  : FLASH_ProgramHalfWord
+ 361:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Description    : Programs a half word at a specified address.
+ 362:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Input          : - Address: specifies the address to be programmed.
+ 363:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                  - Data: specifies the data to be programmed.
+ 364:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Output         : None
+ 365:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Return         : FLASH Status: The returned value can be: FLASH_BUSY, 
+ 366:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                  FLASH_ERROR_PG, FLASH_ERROR_WRP, FLASH_COMPLETE or 
+ 367:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                  FLASH_TIMEOUT. 
+ 368:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *******************************************************************************/
+ 369:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** FLASH_Status FLASH_ProgramHalfWord(u32 Address, u16 Data)
+ 370:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 371:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FLASH_Status status = FLASH_COMPLETE;
+ 372:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 373:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Check the parameters */
+ 374:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   assert_param(IS_FLASH_ADDRESS(Address));
+ 375:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 376:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Wait for last operation to be completed */
+ 377:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 378:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   
+ 379:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   if(status == FLASH_COMPLETE)
+ 380:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   {
+ 381:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     /* if the previous operation is completed, proceed to program the new data */
+ 382:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->CR |= CR_PG_Set;
+ 383:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   
+ 384:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     *(vu16*)Address = Data;
+ 385:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     /* Wait for last operation to be completed */
+ 386:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 387:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 388:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     if(status != FLASH_BUSY)
+ 389:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     {
+ 390:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       /* if the program operation is completed, disable the PG Bit */
+ 391:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       FLASH->CR &= CR_PG_Reset;
+ 392:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     }
+ 393:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   } 
+ 394:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Return the Program Status */
+ 395:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   return status;
+ 396:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+ 397:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 398:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /*******************************************************************************
+ 399:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Function Name  : FLASH_ProgramOptionByteData
+ 400:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Description    : Programs a half word at a specified Option Byte Data address.
+ 401:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Input          : - Address: specifies the address to be programmed.
+ 402:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                    This parameter can be 0x1FFFF804 or 0x1FFFF806. 
+ 403:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                  - Data: specifies the data to be programmed.
+ 404:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Output         : None
+ 405:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Return         : FLASH Status: The returned value can be: FLASH_BUSY, 
+ 406:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                  FLASH_ERROR_PG, FLASH_ERROR_WRP, FLASH_COMPLETE or 
+ 407:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                  FLASH_TIMEOUT. 
+ 408:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *******************************************************************************/
+ 409:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** FLASH_Status FLASH_ProgramOptionByteData(u32 Address, u8 Data)
+ 410:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 411:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FLASH_Status status = FLASH_COMPLETE;
+ 412:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 413:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Check the parameters */
+ 414:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   assert_param(IS_OB_DATA_ADDRESS(Address));
+ 415:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 416:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 417:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 418:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   if(status == FLASH_COMPLETE)
+ 419:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   {
+ 420:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     /* Authorize the small information block programming */
+ 421:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->OPTKEYR = FLASH_KEY1;
+ 422:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->OPTKEYR = FLASH_KEY2;
+ 423:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 424:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     /* Enables the Option Bytes Programming operation */
+ 425:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->CR |= CR_OPTPG_Set; 
+ 426:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     *(vu16*)Address = Data;
+ 427:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     
+ 428:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     /* Wait for last operation to be completed */
+ 429:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 430:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 431:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     if(status != FLASH_BUSY)
+ 432:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     {
+ 433:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       /* if the program operation is completed, disable the OPTPG Bit */
+ 434:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       FLASH->CR &= CR_OPTPG_Reset;
+ 435:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     }
+ 436:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   }    
+ 437:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Return the Option Byte Data Program Status */
+ 438:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   return status;      
+ 439:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+ 440:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 441:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /*******************************************************************************
+ 442:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Function Name  : FLASH_EnableWriteProtection
+ 443:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Description    : Write protects the desired pages
+ 444:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Input          : - FLASH_Pages: specifies the address of the pages to be 
+ 445:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                    write protected. This parameter can be:
+ 446:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                    - For STM32F10Xxx Medium-density devices (FLASH page size equal to 1 KB)
+ 447:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                       - A value between FLASH_WRProt_Pages0to3 and 
+ 448:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                         FLASH_WRProt_Pages124to127
+ 449:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                    - For STM32F10Xxx High-density devices (FLASH page size equal to 2 KB) 
+ 450:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                       - A value between FLASH_WRProt_Pages0to1 and
+ 451:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                         FLASH_WRProt_Pages60to61 or FLASH_WRProt_Pages62to255 
+ 452:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                       - FLASH_WRProt_AllPages
+ 453:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Output         : None
+ 454:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Return         : FLASH Status: The returned value can be: FLASH_BUSY, 
+ 455:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                  FLASH_ERROR_PG, FLASH_ERROR_WRP, FLASH_COMPLETE or 
+ 456:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                  FLASH_TIMEOUT.
+ 457:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *******************************************************************************/
+ 458:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** FLASH_Status FLASH_EnableWriteProtection(u32 FLASH_Pages)
+ 459:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 460:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   u16 WRP0_Data = 0xFFFF, WRP1_Data = 0xFFFF, WRP2_Data = 0xFFFF, WRP3_Data = 0xFFFF;
+ 461:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   
+ 462:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FLASH_Status status = FLASH_COMPLETE;
+ 463:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   
+ 464:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Check the parameters */
+ 465:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   assert_param(IS_FLASH_WRPROT_PAGE(FLASH_Pages));
+ 466:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   
+ 467:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FLASH_Pages = (u32)(~FLASH_Pages);
+ 468:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   WRP0_Data = (vu16)(FLASH_Pages & WRP0_Mask);
+ 469:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   WRP1_Data = (vu16)((FLASH_Pages & WRP1_Mask) >> 8);
+ 470:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   WRP2_Data = (vu16)((FLASH_Pages & WRP2_Mask) >> 16);
+ 471:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   WRP3_Data = (vu16)((FLASH_Pages & WRP3_Mask) >> 24);
+ 472:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   
+ 473:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Wait for last operation to be completed */
+ 474:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 475:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   
+ 476:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   if(status == FLASH_COMPLETE)
+ 477:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   {
+ 478:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     /* Authorizes the small information block programming */
+ 479:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->OPTKEYR = FLASH_KEY1;
+ 480:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->OPTKEYR = FLASH_KEY2;
+ 481:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->CR |= CR_OPTPG_Set;
+ 482:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 483:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     if(WRP0_Data != 0xFF)
+ 484:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     {
+ 485:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       OB->WRP0 = WRP0_Data;
+ 486:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       
+ 487:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       /* Wait for last operation to be completed */
+ 488:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 489:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     }
+ 490:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     if((status == FLASH_COMPLETE) && (WRP1_Data != 0xFF))
+ 491:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     {
+ 492:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       OB->WRP1 = WRP1_Data;
+ 493:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       
+ 494:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       /* Wait for last operation to be completed */
+ 495:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 496:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     }
+ 497:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 498:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     if((status == FLASH_COMPLETE) && (WRP2_Data != 0xFF))
+ 499:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     {
+ 500:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       OB->WRP2 = WRP2_Data;
+ 501:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       
+ 502:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       /* Wait for last operation to be completed */
+ 503:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 504:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     }
+ 505:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     
+ 506:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     if((status == FLASH_COMPLETE)&& (WRP3_Data != 0xFF))
+ 507:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     {
+ 508:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       OB->WRP3 = WRP3_Data;
+ 509:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****      
+ 510:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       /* Wait for last operation to be completed */
+ 511:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 512:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     }
+ 513:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****           
+ 514:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     if(status != FLASH_BUSY)
+ 515:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     {
+ 516:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       /* if the program operation is completed, disable the OPTPG Bit */
+ 517:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       FLASH->CR &= CR_OPTPG_Reset;
+ 518:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     }
+ 519:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   } 
+ 520:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Return the write protection operation Status */
+ 521:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   return status;       
+ 522:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+ 523:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 524:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /*******************************************************************************
+ 525:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Function Name  : FLASH_ReadOutProtection
+ 526:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Description    : Enables or disables the read out protection.
+ 527:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                  If the user has already programmed the other option bytes before 
+ 528:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                  calling this function, he must re-program them since this 
+ 529:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                  function erases all option bytes.
+ 530:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Input          : - Newstate: new state of the ReadOut Protection.
+ 531:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                    This parameter can be: ENABLE or DISABLE.
+ 532:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Output         : None
+ 533:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Return         : FLASH Status: The returned value can be: FLASH_BUSY, 
+ 534:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                  FLASH_ERROR_PG, FLASH_ERROR_WRP, FLASH_COMPLETE or 
+ 535:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                  FLASH_TIMEOUT.
+ 536:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *******************************************************************************/
+ 537:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** FLASH_Status FLASH_ReadOutProtection(FunctionalState NewState)
+ 538:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 539:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FLASH_Status status = FLASH_COMPLETE;
+ 540:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 541:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Check the parameters */
+ 542:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
+ 543:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 544:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   status = FLASH_WaitForLastOperation(EraseTimeout);
+ 545:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 546:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   if(status == FLASH_COMPLETE)
+ 547:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   {
+ 548:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     /* Authorizes the small information block programming */
+ 549:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->OPTKEYR = FLASH_KEY1;
+ 550:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->OPTKEYR = FLASH_KEY2;
+ 551:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 552:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->CR |= CR_OPTER_Set;
+ 553:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->CR |= CR_STRT_Set;
+ 554:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 555:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     /* Wait for last operation to be completed */
+ 556:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     status = FLASH_WaitForLastOperation(EraseTimeout);
+ 557:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 558:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     if(status == FLASH_COMPLETE)
+ 559:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     {
+ 560:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       /* if the erase operation is completed, disable the OPTER Bit */
+ 561:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       FLASH->CR &= CR_OPTER_Reset;
+ 562:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 563:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       /* Enable the Option Bytes Programming operation */
+ 564:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       FLASH->CR |= CR_OPTPG_Set; 
+ 565:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 566:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       if(NewState != DISABLE)
+ 567:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       {
+ 568:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****         OB->RDP = 0x00;
+ 569:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       }
+ 570:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       else
+ 571:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       {
+ 572:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****         OB->RDP = RDP_Key;  
+ 573:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       }
+ 574:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 575:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       /* Wait for last operation to be completed */
+ 576:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       status = FLASH_WaitForLastOperation(EraseTimeout); 
+ 577:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     
+ 578:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       if(status != FLASH_BUSY)
+ 579:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       {
+ 580:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****         /* if the program operation is completed, disable the OPTPG Bit */
+ 581:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****         FLASH->CR &= CR_OPTPG_Reset;
+ 582:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       }
+ 583:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     }
+ 584:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     else 
+ 585:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     {
+ 586:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       if(status != FLASH_BUSY)
+ 587:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       {
+ 588:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****         /* Disable the OPTER Bit */
+ 589:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****         FLASH->CR &= CR_OPTER_Reset;
+ 590:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       }
+ 591:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     }
+ 592:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   }
+ 593:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Return the protection operation Status */
+ 594:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   return status;      
+ 595:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+ 596:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   	
+ 597:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /*******************************************************************************
+ 598:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Function Name  : FLASH_UserOptionByteConfig
+ 599:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Description    : Programs the FLASH User Option Byte: IWDG_SW / RST_STOP /
+ 600:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                  RST_STDBY.
+ 601:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Input          : - OB_IWDG: Selects the IWDG mode
+ 602:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                     This parameter can be one of the following values:
+ 603:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                     - OB_IWDG_SW: Software IWDG selected
+ 604:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                     - OB_IWDG_HW: Hardware IWDG selected
+ 605:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                  - OB_STOP: Reset event when entering STOP mode.
+ 606:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                     This parameter can be one of the following values:
+ 607:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                     - OB_STOP_NoRST: No reset generated when entering in STOP
+ 608:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                     - OB_STOP_RST: Reset generated when entering in STOP
+ 609:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                  - OB_STDBY: Reset event when entering Standby mode.
+ 610:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                    This parameter can be one of the following values:
+ 611:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                     - OB_STDBY_NoRST: No reset generated when entering in STANDBY
+ 612:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                     - OB_STDBY_RST: Reset generated when entering in STANDBY
+ 613:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Output         : None
+ 614:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Return         : FLASH Status: The returned value can be: FLASH_BUSY, 
+ 615:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                  FLASH_ERROR_PG, FLASH_ERROR_WRP, FLASH_COMPLETE or 
+ 616:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                  FLASH_TIMEOUT.
+ 617:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *******************************************************************************/
+ 618:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** FLASH_Status FLASH_UserOptionByteConfig(u16 OB_IWDG, u16 OB_STOP, u16 OB_STDBY)
+ 619:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 620:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FLASH_Status status = FLASH_COMPLETE; 
+ 621:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 622:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Check the parameters */
+ 623:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   assert_param(IS_OB_IWDG_SOURCE(OB_IWDG));
+ 624:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   assert_param(IS_OB_STOP_SOURCE(OB_STOP));
+ 625:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   assert_param(IS_OB_STDBY_SOURCE(OB_STDBY));
+ 626:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 627:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Authorize the small information block programming */
+ 628:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FLASH->OPTKEYR = FLASH_KEY1;
+ 629:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FLASH->OPTKEYR = FLASH_KEY2;
+ 630:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   
+ 631:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Wait for last operation to be completed */
+ 632:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 633:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   
+ 634:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   if(status == FLASH_COMPLETE)
+ 635:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   {  
+ 636:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     /* Enable the Option Bytes Programming operation */
+ 637:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->CR |= CR_OPTPG_Set; 
+ 638:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****            
+ 639:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     OB->USER = ( OB_IWDG | OB_STOP |OB_STDBY) | (u16)0xF8; 
+ 640:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   
+ 641:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     /* Wait for last operation to be completed */
+ 642:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 643:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 644:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     if(status != FLASH_BUSY)
+ 645:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     {
+ 646:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       /* if the program operation is completed, disable the OPTPG Bit */
+ 647:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       FLASH->CR &= CR_OPTPG_Reset;
+ 648:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     }
+ 649:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   }    
+ 650:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Return the Option Byte program Status */
+ 651:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   return status;
+ 652:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+ 653:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 654:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /*******************************************************************************
+ 655:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Function Name  : FLASH_GetUserOptionByte
+ 656:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Description    : Returns the FLASH User Option Bytes values.
+ 657:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Input          : None
+ 658:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Output         : None
+ 659:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Return         : The FLASH User Option Bytes values:IWDG_SW(Bit0), RST_STOP(Bit1)
+ 660:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                  and RST_STDBY(Bit2).
+ 661:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *******************************************************************************/
+ 662:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** u32 FLASH_GetUserOptionByte(void)
+ 663:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 180              		.loc 1 663 0
+ 181              		.cfi_startproc
+ 182              		@ args = 0, pretend = 0, frame = 0
+ 183              		@ frame_needed = 0, uses_anonymous_args = 0
+ 184              		@ link register save eliminated.
+ 664:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Return the User Option Byte */
+ 665:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   return (u32)(FLASH->OBR >> 2);
+ 185              		.loc 1 665 0
+ 186 0000 014B     		ldr	r3, .L17
+ 187 0002 D869     		ldr	r0, [r3, #28]
+ 666:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+ 188              		.loc 1 666 0
+ 189 0004 8008     		lsrs	r0, r0, #2
+ 190 0006 7047     		bx	lr
+ 191              	.L18:
+ 192              		.align	2
+ 193              	.L17:
+ 194 0008 00200240 		.word	1073881088
+ 195              		.cfi_endproc
+ 196              	.LFE14:
+ 198              		.section	.text.FLASH_GetWriteProtectionOptionByte,"ax",%progbits
+ 199              		.align	1
+ 200              		.global	FLASH_GetWriteProtectionOptionByte
+ 201              		.thumb
+ 202              		.thumb_func
+ 204              	FLASH_GetWriteProtectionOptionByte:
+ 205              	.LFB15:
+ 667:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 668:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /*******************************************************************************
+ 669:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Function Name  : FLASH_GetWriteProtectionOptionByte
+ 670:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Description    : Returns the FLASH Write Protection Option Bytes Register value.
+ 671:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Input          : None
+ 672:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Output         : None
+ 673:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Return         : The FLASH Write Protection  Option Bytes Register value
+ 674:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *******************************************************************************/
+ 675:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** u32 FLASH_GetWriteProtectionOptionByte(void)
+ 676:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 206              		.loc 1 676 0
+ 207              		.cfi_startproc
+ 208              		@ args = 0, pretend = 0, frame = 0
+ 209              		@ frame_needed = 0, uses_anonymous_args = 0
+ 210              		@ link register save eliminated.
+ 677:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Return the Falsh write protection Register value */
+ 678:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   return (u32)(FLASH->WRPR);
+ 211              		.loc 1 678 0
+ 212 0000 014B     		ldr	r3, .L20
+ 213 0002 186A     		ldr	r0, [r3, #32]
+ 679:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+ 214              		.loc 1 679 0
+ 215 0004 7047     		bx	lr
+ 216              	.L21:
+ 217 0006 00BF     		.align	2
+ 218              	.L20:
+ 219 0008 00200240 		.word	1073881088
+ 220              		.cfi_endproc
+ 221              	.LFE15:
+ 223              		.section	.text.FLASH_GetReadOutProtectionStatus,"ax",%progbits
+ 224              		.align	1
+ 225              		.global	FLASH_GetReadOutProtectionStatus
+ 226              		.thumb
+ 227              		.thumb_func
+ 229              	FLASH_GetReadOutProtectionStatus:
+ 230              	.LFB16:
+ 680:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 681:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /*******************************************************************************
+ 682:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Function Name  : FLASH_GetReadOutProtectionStatus
+ 683:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Description    : Checks whether the FLASH Read Out Protection Status is set 
+ 684:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                  or not.
+ 685:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Input          : None
+ 686:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Output         : None
+ 687:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Return         : FLASH ReadOut Protection Status(SET or RESET)
+ 688:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *******************************************************************************/
+ 689:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** FlagStatus FLASH_GetReadOutProtectionStatus(void)
+ 690:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 231              		.loc 1 690 0
+ 232              		.cfi_startproc
+ 233              		@ args = 0, pretend = 0, frame = 0
+ 234              		@ frame_needed = 0, uses_anonymous_args = 0
+ 235              		@ link register save eliminated.
+ 236              	.LVL6:
+ 691:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FlagStatus readoutstatus = RESET;
+ 692:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 693:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   if ((FLASH->OBR & RDPRT_Mask) != (u32)RESET)
+ 237              		.loc 1 693 0
+ 238 0000 024B     		ldr	r3, .L23
+ 239 0002 D869     		ldr	r0, [r3, #28]
+ 240              	.LVL7:
+ 694:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   {
+ 695:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     readoutstatus = SET;
+ 696:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   }
+ 697:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   else
+ 698:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   {
+ 699:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     readoutstatus = RESET;
+ 700:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   }
+ 701:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   return readoutstatus;
+ 702:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+ 241              		.loc 1 702 0
+ 242 0004 C0F34000 		ubfx	r0, r0, #1, #1
+ 243              	.LVL8:
+ 244 0008 7047     		bx	lr
+ 245              	.L24:
+ 246 000a 00BF     		.align	2
+ 247              	.L23:
+ 248 000c 00200240 		.word	1073881088
+ 249              		.cfi_endproc
+ 250              	.LFE16:
+ 252              		.section	.text.FLASH_GetPrefetchBufferStatus,"ax",%progbits
+ 253              		.align	1
+ 254              		.global	FLASH_GetPrefetchBufferStatus
+ 255              		.thumb
+ 256              		.thumb_func
+ 258              	FLASH_GetPrefetchBufferStatus:
+ 259              	.LFB17:
+ 703:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 704:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /*******************************************************************************
+ 705:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Function Name  : FLASH_GetPrefetchBufferStatus
+ 706:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Description    : Checks whether the FLASH Prefetch Buffer status is set or not.
+ 707:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Input          : None
+ 708:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Output         : None
+ 709:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Return         : FLASH Prefetch Buffer Status (SET or RESET).
+ 710:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *******************************************************************************/
+ 711:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** FlagStatus FLASH_GetPrefetchBufferStatus(void)
+ 712:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 260              		.loc 1 712 0
+ 261              		.cfi_startproc
+ 262              		@ args = 0, pretend = 0, frame = 0
+ 263              		@ frame_needed = 0, uses_anonymous_args = 0
+ 264              		@ link register save eliminated.
+ 265              	.LVL9:
+ 713:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FlagStatus bitstatus = RESET;
+ 714:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   
+ 715:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   if ((FLASH->ACR & ACR_PRFTBS_Mask) != (u32)RESET)
+ 266              		.loc 1 715 0
+ 267 0000 024B     		ldr	r3, .L26
+ 268 0002 1868     		ldr	r0, [r3, #0]
+ 269              	.LVL10:
+ 716:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   {
+ 717:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     bitstatus = SET;
+ 718:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   }
+ 719:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   else
+ 720:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   {
+ 721:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     bitstatus = RESET;
+ 722:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   }
+ 723:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Return the new state of FLASH Prefetch Buffer Status (SET or RESET) */
+ 724:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   return bitstatus; 
+ 725:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+ 270              		.loc 1 725 0
+ 271 0004 C0F34010 		ubfx	r0, r0, #5, #1
+ 272              	.LVL11:
+ 273 0008 7047     		bx	lr
+ 274              	.L27:
+ 275 000a 00BF     		.align	2
+ 276              	.L26:
+ 277 000c 00200240 		.word	1073881088
+ 278              		.cfi_endproc
+ 279              	.LFE17:
+ 281              		.section	.text.FLASH_ITConfig,"ax",%progbits
+ 282              		.align	1
+ 283              		.global	FLASH_ITConfig
+ 284              		.thumb
+ 285              		.thumb_func
+ 287              	FLASH_ITConfig:
+ 288              	.LFB18:
+ 726:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 727:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /*******************************************************************************
+ 728:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Function Name  : FLASH_ITConfig
+ 729:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Description    : Enables or disables the specified FLASH interrupts.
+ 730:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Input          : - FLASH_IT: specifies the FLASH interrupt sources to be 
+ 731:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                    enabled or disabled.
+ 732:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                    This parameter can be any combination of the following values:
+ 733:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                       - FLASH_IT_ERROR: FLASH Error Interrupt
+ 734:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                       - FLASH_IT_EOP: FLASH end of operation Interrupt
+ 735:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Output         : None
+ 736:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Return         : None 
+ 737:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *******************************************************************************/
+ 738:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** void FLASH_ITConfig(u16 FLASH_IT, FunctionalState NewState)
+ 739:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 289              		.loc 1 739 0
+ 290              		.cfi_startproc
+ 291              		@ args = 0, pretend = 0, frame = 0
+ 292              		@ frame_needed = 0, uses_anonymous_args = 0
+ 293              		@ link register save eliminated.
+ 294              	.LVL12:
+ 295 0000 044B     		ldr	r3, .L33
+ 740:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Check the parameters */
+ 741:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   assert_param(IS_FLASH_IT(FLASH_IT)); 
+ 742:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
+ 743:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 744:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   if(NewState != DISABLE)
+ 745:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   {
+ 746:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     /* Enable the interrupt sources */
+ 747:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->CR |= FLASH_IT;
+ 296              		.loc 1 747 0
+ 297 0002 1A69     		ldr	r2, [r3, #16]
+ 744:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   if(NewState != DISABLE)
+ 298              		.loc 1 744 0
+ 299 0004 09B1     		cbz	r1, .L29
+ 300              		.loc 1 747 0
+ 301 0006 1043     		orrs	r0, r0, r2
+ 302              	.LVL13:
+ 303 0008 01E0     		b	.L31
+ 304              	.LVL14:
+ 305              	.L29:
+ 748:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   }
+ 749:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   else
+ 750:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   {
+ 751:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     /* Disable the interrupt sources */
+ 752:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->CR &= ~(u32)FLASH_IT;
+ 306              		.loc 1 752 0
+ 307 000a 22EA0000 		bic	r0, r2, r0
+ 308              	.LVL15:
+ 309              	.L31:
+ 310 000e 1861     		str	r0, [r3, #16]
+ 311 0010 7047     		bx	lr
+ 312              	.L34:
+ 313 0012 00BF     		.align	2
+ 314              	.L33:
+ 315 0014 00200240 		.word	1073881088
+ 316              		.cfi_endproc
+ 317              	.LFE18:
+ 319              		.section	.text.FLASH_GetFlagStatus,"ax",%progbits
+ 320              		.align	1
+ 321              		.global	FLASH_GetFlagStatus
+ 322              		.thumb
+ 323              		.thumb_func
+ 325              	FLASH_GetFlagStatus:
+ 326              	.LFB19:
+ 753:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   }
+ 754:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+ 755:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 756:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /*******************************************************************************
+ 757:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Function Name  : FLASH_GetFlagStatus
+ 758:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Description    : Checks whether the specified FLASH flag is set or not.
+ 759:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Input          : - FLASH_FLAG: specifies the FLASH flag to check.
+ 760:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                     This parameter can be one of the following values:
+ 761:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                    - FLASH_FLAG_BSY: FLASH Busy flag           
+ 762:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                    - FLASH_FLAG_PGERR: FLASH Program error flag       
+ 763:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                    - FLASH_FLAG_WRPRTERR: FLASH Write protected error flag      
+ 764:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                    - FLASH_FLAG_EOP: FLASH End of Operation flag           
+ 765:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                    - FLASH_FLAG_OPTERR:  FLASH Option Byte error flag     
+ 766:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Output         : None
+ 767:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Return         : The new state of FLASH_FLAG (SET or RESET).
+ 768:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *******************************************************************************/
+ 769:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** FlagStatus FLASH_GetFlagStatus(u16 FLASH_FLAG)
+ 770:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 327              		.loc 1 770 0
+ 328              		.cfi_startproc
+ 329              		@ args = 0, pretend = 0, frame = 0
+ 330              		@ frame_needed = 0, uses_anonymous_args = 0
+ 331              		@ link register save eliminated.
+ 332              	.LVL16:
+ 771:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FlagStatus bitstatus = RESET;
+ 772:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 773:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Check the parameters */
+ 774:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   assert_param(IS_FLASH_GET_FLAG(FLASH_FLAG)) ;
+ 775:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 776:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   if(FLASH_FLAG == FLASH_FLAG_OPTERR) 
+ 333              		.loc 1 776 0
+ 334 0000 0128     		cmp	r0, #1
+ 335 0002 064B     		ldr	r3, .L38
+ 336 0004 03D1     		bne	.L36
+ 777:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   {
+ 778:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     if((FLASH->OBR & FLASH_FLAG_OPTERR) != (u32)RESET)
+ 337              		.loc 1 778 0
+ 338 0006 D869     		ldr	r0, [r3, #28]
+ 339              	.LVL17:
+ 779:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     {
+ 780:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       bitstatus = SET;
+ 781:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     }
+ 782:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     else
+ 783:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     {
+ 784:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       bitstatus = RESET;
+ 340              		.loc 1 784 0
+ 341 0008 00F00100 		and	r0, r0, #1
+ 342 000c 7047     		bx	lr
+ 343              	.LVL18:
+ 344              	.L36:
+ 785:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     }
+ 786:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   }
+ 787:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   else
+ 788:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   {
+ 789:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****    if((FLASH->SR & FLASH_FLAG) != (u32)RESET)
+ 345              		.loc 1 789 0
+ 346 000e D968     		ldr	r1, [r3, #12]
+ 347 0010 0842     		tst	r0, r1
+ 784:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       bitstatus = RESET;
+ 348              		.loc 1 784 0
+ 349 0012 0CBF     		ite	eq
+ 350 0014 0020     		moveq	r0, #0
+ 351 0016 0120     		movne	r0, #1
+ 352              	.LVL19:
+ 790:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     {
+ 791:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       bitstatus = SET;
+ 792:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     }
+ 793:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     else
+ 794:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     {
+ 795:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       bitstatus = RESET;
+ 796:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     }
+ 797:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   }
+ 798:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Return the new state of FLASH_FLAG (SET or RESET) */
+ 799:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   return bitstatus;
+ 800:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+ 353              		.loc 1 800 0
+ 354 0018 7047     		bx	lr
+ 355              	.L39:
+ 356 001a 00BF     		.align	2
+ 357              	.L38:
+ 358 001c 00200240 		.word	1073881088
+ 359              		.cfi_endproc
+ 360              	.LFE19:
+ 362              		.section	.text.FLASH_ClearFlag,"ax",%progbits
+ 363              		.align	1
+ 364              		.global	FLASH_ClearFlag
+ 365              		.thumb
+ 366              		.thumb_func
+ 368              	FLASH_ClearFlag:
+ 369              	.LFB20:
+ 801:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 802:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /*******************************************************************************
+ 803:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Function Name  : FLASH_ClearFlag
+ 804:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Description    : Clears the FLASH’s pending flags.
+ 805:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Input          : - FLASH_FLAG: specifies the FLASH flags to clear.
+ 806:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                    This parameter can be any combination of the following values:
+ 807:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                    - FLASH_FLAG_BSY: FLASH Busy flag           
+ 808:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                    - FLASH_FLAG_PGERR: FLASH Program error flag       
+ 809:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                    - FLASH_FLAG_WRPRTERR: FLASH Write protected error flag      
+ 810:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                    - FLASH_FLAG_EOP: FLASH End of Operation flag           
+ 811:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Output         : None
+ 812:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Return         : None
+ 813:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *******************************************************************************/
+ 814:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** void FLASH_ClearFlag(u16 FLASH_FLAG)
+ 815:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 370              		.loc 1 815 0
+ 371              		.cfi_startproc
+ 372              		@ args = 0, pretend = 0, frame = 0
+ 373              		@ frame_needed = 0, uses_anonymous_args = 0
+ 374              		@ link register save eliminated.
+ 375              	.LVL20:
+ 816:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Check the parameters */
+ 817:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   assert_param(IS_FLASH_CLEAR_FLAG(FLASH_FLAG)) ;
+ 818:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   
+ 819:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Clear the flags */
+ 820:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FLASH->SR = FLASH_FLAG;
+ 376              		.loc 1 820 0
+ 377 0000 014B     		ldr	r3, .L41
+ 378 0002 D860     		str	r0, [r3, #12]
+ 379 0004 7047     		bx	lr
+ 380              	.L42:
+ 381 0006 00BF     		.align	2
+ 382              	.L41:
+ 383 0008 00200240 		.word	1073881088
+ 384              		.cfi_endproc
+ 385              	.LFE20:
+ 387              		.section	.text.FLASH_GetStatus,"ax",%progbits
+ 388              		.align	1
+ 389              		.global	FLASH_GetStatus
+ 390              		.thumb
+ 391              		.thumb_func
+ 393              	FLASH_GetStatus:
+ 394              	.LFB21:
+ 821:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+ 822:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 823:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /*******************************************************************************
+ 824:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Function Name  : FLASH_GetStatus
+ 825:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Description    : Returns the FLASH Status.
+ 826:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Input          : None
+ 827:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Output         : None
+ 828:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Return         : FLASH Status: The returned value can be: FLASH_BUSY, 
+ 829:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                  FLASH_ERROR_PG, FLASH_ERROR_WRP or FLASH_COMPLETE
+ 830:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *******************************************************************************/
+ 831:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** FLASH_Status FLASH_GetStatus(void)
+ 832:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 395              		.loc 1 832 0
+ 396              		.cfi_startproc
+ 397              		@ args = 0, pretend = 0, frame = 0
+ 398              		@ frame_needed = 0, uses_anonymous_args = 0
+ 399              		@ link register save eliminated.
+ 400              	.LVL21:
+ 833:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FLASH_Status flashstatus = FLASH_COMPLETE;
+ 834:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   
+ 835:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   if((FLASH->SR & FLASH_FLAG_BSY) == FLASH_FLAG_BSY) 
+ 401              		.loc 1 835 0
+ 402 0000 084B     		ldr	r3, .L49
+ 403 0002 DA68     		ldr	r2, [r3, #12]
+ 404 0004 D107     		lsls	r1, r2, #31
+ 405 0006 09D4     		bmi	.L46
+ 836:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   {
+ 837:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     flashstatus = FLASH_BUSY;
+ 838:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   }
+ 839:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   else 
+ 840:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   {  
+ 841:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     if(FLASH->SR & FLASH_FLAG_PGERR)
+ 406              		.loc 1 841 0
+ 407 0008 D868     		ldr	r0, [r3, #12]
+ 408 000a 4207     		lsls	r2, r0, #29
+ 409 000c 08D4     		bmi	.L47
+ 410              	.LBB4:
+ 411              	.LBB5:
+ 842:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     { 
+ 843:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       flashstatus = FLASH_ERROR_PG;
+ 844:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     }
+ 845:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     else 
+ 846:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     {
+ 847:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       if(FLASH->SR & FLASH_FLAG_WRPRTERR)
+ 412              		.loc 1 847 0
+ 413 000e D968     		ldr	r1, [r3, #12]
+ 414 0010 11F0100F 		tst	r1, #16
+ 848:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       {
+ 849:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****         flashstatus = FLASH_ERROR_WRP;
+ 415              		.loc 1 849 0
+ 416 0014 0CBF     		ite	eq
+ 417 0016 0420     		moveq	r0, #4
+ 418 0018 0320     		movne	r0, #3
+ 419 001a 7047     		bx	lr
+ 420              	.L46:
+ 421              	.LBE5:
+ 422              	.LBE4:
+ 837:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     flashstatus = FLASH_BUSY;
+ 423              		.loc 1 837 0
+ 424 001c 0120     		movs	r0, #1
+ 425 001e 7047     		bx	lr
+ 426              	.L47:
+ 843:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       flashstatus = FLASH_ERROR_PG;
+ 427              		.loc 1 843 0
+ 428 0020 0220     		movs	r0, #2
+ 429              	.LVL22:
+ 850:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       }
+ 851:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       else
+ 852:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       {
+ 853:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****         flashstatus = FLASH_COMPLETE;
+ 854:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       }
+ 855:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     }
+ 856:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   }
+ 857:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Return the Flash Status */
+ 858:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   return flashstatus;
+ 859:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+ 430              		.loc 1 859 0
+ 431 0022 7047     		bx	lr
+ 432              	.L50:
+ 433              		.align	2
+ 434              	.L49:
+ 435 0024 00200240 		.word	1073881088
+ 436              		.cfi_endproc
+ 437              	.LFE21:
+ 439              		.section	.text.FLASH_WaitForLastOperation,"ax",%progbits
+ 440              		.align	1
+ 441              		.global	FLASH_WaitForLastOperation
+ 442              		.thumb
+ 443              		.thumb_func
+ 445              	FLASH_WaitForLastOperation:
+ 446              	.LFB22:
+ 860:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 861:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /*******************************************************************************
+ 862:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Function Name  : FLASH_WaitForLastOperation
+ 863:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Description    : Waits for a Flash operation to complete or a TIMEOUT to occur.
+ 864:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Input          : - Timeout: FLASH progamming Timeout
+ 865:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Output         : None
+ 866:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Return         : FLASH Status: The returned value can be: FLASH_BUSY, 
+ 867:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                  FLASH_ERROR_PG, FLASH_ERROR_WRP, FLASH_COMPLETE or 
+ 868:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *                  FLASH_TIMEOUT.
+ 869:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *******************************************************************************/
+ 870:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** FLASH_Status FLASH_WaitForLastOperation(u32 Timeout)
+ 871:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** { 
+ 447              		.loc 1 871 0
+ 448              		.cfi_startproc
+ 449              		@ args = 0, pretend = 0, frame = 8
+ 450              		@ frame_needed = 0, uses_anonymous_args = 0
+ 451              	.LVL23:
+ 452 0000 13B5     		push	{r0, r1, r4, lr}
+ 453              	.LCFI0:
+ 454              		.cfi_def_cfa_offset 16
+ 455              		.cfi_offset 0, -16
+ 456              		.cfi_offset 1, -12
+ 457              		.cfi_offset 4, -8
+ 458              		.cfi_offset 14, -4
+ 872:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FLASH_Status status = FLASH_COMPLETE;
+ 873:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****    
+ 874:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Check for the Flash Status */
+ 875:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   status = FLASH_GetStatus();
+ 459              		.loc 1 875 0
+ 460 0002 0C4B     		ldr	r3, .L62
+ 871:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** { 
+ 461              		.loc 1 871 0
+ 462 0004 0446     		mov	r4, r0
+ 463              		.loc 1 875 0
+ 464 0006 9847     		blx	r3
+ 465              	.LVL24:
+ 466              	.L52:
+ 876:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 877:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Wait for a Flash operation to complete or a TIMEOUT to occur */
+ 878:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   while((status == FLASH_BUSY) && (Timeout != 0x00))
+ 467              		.loc 1 878 0 discriminator 1
+ 468 0008 0128     		cmp	r0, #1
+ 469 000a 0FD1     		bne	.L55
+ 470              		.loc 1 878 0 is_stmt 0 discriminator 2
+ 471 000c 64B1     		cbz	r4, .L60
+ 472              	.L56:
+ 473              	.LBB8:
+ 474              	.LBB9:
+ 879:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   {
+ 880:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     delay();
+ 881:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     status = FLASH_GetStatus();
+ 882:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     Timeout--;
+ 883:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   }
+ 884:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 885:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   if(Timeout == 0x00 )
+ 886:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   {
+ 887:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     status = FLASH_TIMEOUT;
+ 888:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   }
+ 889:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 890:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   /* Return the operation status */
+ 891:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   return status;
+ 892:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+ 893:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 894:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** /*******************************************************************************
+ 895:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Function Name  : delay
+ 896:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Description    : Inserts a time delay.
+ 897:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Input          : None
+ 898:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Output         : None
+ 899:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** * Return         : None
+ 900:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** *******************************************************************************/
+ 901:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** static void delay(void)
+ 902:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 903:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   vu32 i = 0;
+ 475              		.loc 1 903 0 is_stmt 1
+ 476 000e 0020     		movs	r0, #0
+ 477              	.LVL25:
+ 478 0010 0190     		str	r0, [sp, #4]
+ 904:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** 
+ 905:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   for(i = 0xFF; i != 0; i--)
+ 479              		.loc 1 905 0
+ 480 0012 FF20     		movs	r0, #255
+ 481              	.L59:
+ 482              	.LVL26:
+ 483 0014 0190     		str	r0, [sp, #4]
+ 484 0016 0199     		ldr	r1, [sp, #4]
+ 485 0018 11B1     		cbz	r1, .L61
+ 486              	.L54:
+ 487 001a 019B     		ldr	r3, [sp, #4]
+ 488 001c 581E     		subs	r0, r3, #1
+ 489              	.LVL27:
+ 490 001e F9E7     		b	.L59
+ 491              	.LVL28:
+ 492              	.L61:
+ 493              	.LBE9:
+ 494              	.LBE8:
+ 881:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     status = FLASH_GetStatus();
+ 495              		.loc 1 881 0
+ 496 0020 044A     		ldr	r2, .L62
+ 497 0022 9047     		blx	r2
+ 498              	.LVL29:
+ 882:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     Timeout--;
+ 499              		.loc 1 882 0
+ 500 0024 013C     		subs	r4, r4, #1
+ 501              	.LVL30:
+ 502 0026 EFE7     		b	.L52
+ 503              	.L60:
+ 887:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     status = FLASH_TIMEOUT;
+ 504              		.loc 1 887 0
+ 505 0028 0520     		movs	r0, #5
+ 506              	.LVL31:
+ 507 002a 02E0     		b	.L57
+ 508              	.LVL32:
+ 509              	.L55:
+ 510 002c 002C     		cmp	r4, #0
+ 511 002e 08BF     		it	eq
+ 512 0030 0520     		moveq	r0, #5
+ 513              	.LVL33:
+ 514              	.L57:
+ 892:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+ 515              		.loc 1 892 0
+ 516 0032 1CBD     		pop	{r2, r3, r4, pc}
+ 517              	.L63:
+ 518              		.align	2
+ 519              	.L62:
+ 520 0034 00000000 		.word	FLASH_GetStatus
+ 521              		.cfi_endproc
+ 522              	.LFE22:
+ 524              		.section	.text.FLASH_UserOptionByteConfig,"ax",%progbits
+ 525              		.align	1
+ 526              		.global	FLASH_UserOptionByteConfig
+ 527              		.thumb
+ 528              		.thumb_func
+ 530              	FLASH_UserOptionByteConfig:
+ 531              	.LFB13:
+ 619:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 532              		.loc 1 619 0
+ 533              		.cfi_startproc
+ 534              		@ args = 0, pretend = 0, frame = 0
+ 535              		@ frame_needed = 0, uses_anonymous_args = 0
+ 536              	.LVL34:
+ 628:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FLASH->OPTKEYR = FLASH_KEY1;
+ 537              		.loc 1 628 0
+ 538 0000 134B     		ldr	r3, .L69
+ 619:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 539              		.loc 1 619 0
+ 540 0002 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 541              	.LCFI1:
+ 542              		.cfi_def_cfa_offset 24
+ 543              		.cfi_offset 4, -24
+ 544              		.cfi_offset 5, -20
+ 545              		.cfi_offset 6, -16
+ 546              		.cfi_offset 7, -12
+ 547              		.cfi_offset 8, -8
+ 548              		.cfi_offset 14, -4
+ 628:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FLASH->OPTKEYR = FLASH_KEY1;
+ 549              		.loc 1 628 0
+ 550 0006 134C     		ldr	r4, .L69+4
+ 619:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 551              		.loc 1 619 0
+ 552 0008 0646     		mov	r6, r0
+ 629:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FLASH->OPTKEYR = FLASH_KEY2;
+ 553              		.loc 1 629 0
+ 554 000a 03F18830 		add	r0, r3, #-2004318072
+ 555              	.LVL35:
+ 628:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FLASH->OPTKEYR = FLASH_KEY1;
+ 556              		.loc 1 628 0
+ 557 000e A360     		str	r3, [r4, #8]
+ 632:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 558              		.loc 1 632 0
+ 559 0010 114D     		ldr	r5, .L69+8
+ 629:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FLASH->OPTKEYR = FLASH_KEY2;
+ 560              		.loc 1 629 0
+ 561 0012 A060     		str	r0, [r4, #8]
+ 632:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 562              		.loc 1 632 0
+ 563 0014 0F20     		movs	r0, #15
+ 619:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 564              		.loc 1 619 0
+ 565 0016 0F46     		mov	r7, r1
+ 566 0018 9046     		mov	r8, r2
+ 632:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 567              		.loc 1 632 0
+ 568 001a A847     		blx	r5
+ 569              	.LVL36:
+ 634:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   if(status == FLASH_COMPLETE)
+ 570              		.loc 1 634 0
+ 571 001c 0428     		cmp	r0, #4
+ 572 001e 14D1     		bne	.L65
+ 637:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->CR |= CR_OPTPG_Set; 
+ 573              		.loc 1 637 0
+ 574 0020 2169     		ldr	r1, [r4, #16]
+ 639:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     OB->USER = ( OB_IWDG | OB_STOP |OB_STDBY) | (u16)0xF8; 
+ 575              		.loc 1 639 0
+ 576 0022 46F0F806 		orr	r6, r6, #248
+ 577 0026 0D4B     		ldr	r3, .L69+12
+ 578 0028 3743     		orrs	r7, r7, r6
+ 637:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->CR |= CR_OPTPG_Set; 
+ 579              		.loc 1 637 0
+ 580 002a 41F01002 		orr	r2, r1, #16
+ 639:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     OB->USER = ( OB_IWDG | OB_STOP |OB_STDBY) | (u16)0xF8; 
+ 581              		.loc 1 639 0
+ 582 002e 48EA0708 		orr	r8, r8, r7
+ 637:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->CR |= CR_OPTPG_Set; 
+ 583              		.loc 1 637 0
+ 584 0032 2261     		str	r2, [r4, #16]
+ 642:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 585              		.loc 1 642 0
+ 586 0034 0F20     		movs	r0, #15
+ 587              	.LVL37:
+ 639:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     OB->USER = ( OB_IWDG | OB_STOP |OB_STDBY) | (u16)0xF8; 
+ 588              		.loc 1 639 0
+ 589 0036 A3F80280 		strh	r8, [r3, #2]	@ movhi
+ 642:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 590              		.loc 1 642 0
+ 591 003a A847     		blx	r5
+ 592              	.LVL38:
+ 644:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     if(status != FLASH_BUSY)
+ 593              		.loc 1 644 0
+ 594 003c 0128     		cmp	r0, #1
+ 595 003e 04D0     		beq	.L65
+ 647:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       FLASH->CR &= CR_OPTPG_Reset;
+ 596              		.loc 1 647 0
+ 597 0040 2169     		ldr	r1, [r4, #16]
+ 598 0042 41F6EF72 		movw	r2, #8175
+ 599 0046 0A40     		ands	r2, r2, r1
+ 600 0048 2261     		str	r2, [r4, #16]
+ 601              	.LVL39:
+ 602              	.L65:
+ 652:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+ 603              		.loc 1 652 0
+ 604 004a BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 605              	.L70:
+ 606 004e 00BF     		.align	2
+ 607              	.L69:
+ 608 0050 23016745 		.word	1164378403
+ 609 0054 00200240 		.word	1073881088
+ 610 0058 00000000 		.word	FLASH_WaitForLastOperation
+ 611 005c 00F8FF1F 		.word	536868864
+ 612              		.cfi_endproc
+ 613              	.LFE13:
+ 615              		.section	.text.FLASH_ReadOutProtection,"ax",%progbits
+ 616              		.align	1
+ 617              		.global	FLASH_ReadOutProtection
+ 618              		.thumb
+ 619              		.thumb_func
+ 621              	FLASH_ReadOutProtection:
+ 622              	.LFB12:
+ 538:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 623              		.loc 1 538 0
+ 624              		.cfi_startproc
+ 625              		@ args = 0, pretend = 0, frame = 0
+ 626              		@ frame_needed = 0, uses_anonymous_args = 0
+ 627              	.LVL40:
+ 628 0000 70B5     		push	{r4, r5, r6, lr}
+ 629              	.LCFI2:
+ 630              		.cfi_def_cfa_offset 16
+ 631              		.cfi_offset 4, -16
+ 632              		.cfi_offset 5, -12
+ 633              		.cfi_offset 6, -8
+ 634              		.cfi_offset 14, -4
+ 538:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 635              		.loc 1 538 0
+ 636 0002 0646     		mov	r6, r0
+ 544:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   status = FLASH_WaitForLastOperation(EraseTimeout);
+ 637              		.loc 1 544 0
+ 638 0004 1F4D     		ldr	r5, .L82
+ 639 0006 40F6FF70 		movw	r0, #4095
+ 640              	.LVL41:
+ 641 000a A847     		blx	r5
+ 642              	.LVL42:
+ 546:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   if(status == FLASH_COMPLETE)
+ 643              		.loc 1 546 0
+ 644 000c 0428     		cmp	r0, #4
+ 645 000e 37D1     		bne	.L72
+ 549:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->OPTKEYR = FLASH_KEY1;
+ 646              		.loc 1 549 0
+ 647 0010 1D4B     		ldr	r3, .L82+4
+ 648 0012 1E4C     		ldr	r4, .L82+8
+ 550:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->OPTKEYR = FLASH_KEY2;
+ 649              		.loc 1 550 0
+ 650 0014 03F18830 		add	r0, r3, #-2004318072
+ 651              	.LVL43:
+ 549:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->OPTKEYR = FLASH_KEY1;
+ 652              		.loc 1 549 0
+ 653 0018 A360     		str	r3, [r4, #8]
+ 550:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->OPTKEYR = FLASH_KEY2;
+ 654              		.loc 1 550 0
+ 655 001a A060     		str	r0, [r4, #8]
+ 552:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->CR |= CR_OPTER_Set;
+ 656              		.loc 1 552 0
+ 657 001c 2169     		ldr	r1, [r4, #16]
+ 658 001e 41F02002 		orr	r2, r1, #32
+ 659 0022 2261     		str	r2, [r4, #16]
+ 553:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->CR |= CR_STRT_Set;
+ 660              		.loc 1 553 0
+ 661 0024 2369     		ldr	r3, [r4, #16]
+ 662 0026 43F04000 		orr	r0, r3, #64
+ 663 002a 2061     		str	r0, [r4, #16]
+ 556:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     status = FLASH_WaitForLastOperation(EraseTimeout);
+ 664              		.loc 1 556 0
+ 665 002c 40F6FF70 		movw	r0, #4095
+ 666 0030 A847     		blx	r5
+ 667              	.LVL44:
+ 558:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     if(status == FLASH_COMPLETE)
+ 668              		.loc 1 558 0
+ 669 0032 0428     		cmp	r0, #4
+ 670 0034 1DD1     		bne	.L73
+ 561:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       FLASH->CR &= CR_OPTER_Reset;
+ 671              		.loc 1 561 0
+ 672 0036 2069     		ldr	r0, [r4, #16]
+ 673              	.LVL45:
+ 674 0038 41F6DF73 		movw	r3, #8159
+ 675 003c 0340     		ands	r3, r3, r0
+ 676 003e 2361     		str	r3, [r4, #16]
+ 564:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       FLASH->CR |= CR_OPTPG_Set; 
+ 677              		.loc 1 564 0
+ 678 0040 2169     		ldr	r1, [r4, #16]
+ 679 0042 1348     		ldr	r0, .L82+12
+ 680 0044 41F01002 		orr	r2, r1, #16
+ 681 0048 2261     		str	r2, [r4, #16]
+ 566:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       if(NewState != DISABLE)
+ 682              		.loc 1 566 0
+ 683 004a 0EB1     		cbz	r6, .L74
+ 568:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****         OB->RDP = 0x00;
+ 684              		.loc 1 568 0
+ 685 004c 0023     		movs	r3, #0
+ 686 004e 00E0     		b	.L81
+ 687              	.L74:
+ 572:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****         OB->RDP = RDP_Key;  
+ 688              		.loc 1 572 0
+ 689 0050 A523     		movs	r3, #165
+ 690              	.L81:
+ 691 0052 0380     		strh	r3, [r0, #0]	@ movhi
+ 576:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       status = FLASH_WaitForLastOperation(EraseTimeout); 
+ 692              		.loc 1 576 0
+ 693 0054 0B49     		ldr	r1, .L82
+ 694 0056 40F6FF70 		movw	r0, #4095
+ 695 005a 8847     		blx	r1
+ 696              	.LVL46:
+ 578:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       if(status != FLASH_BUSY)
+ 697              		.loc 1 578 0
+ 698 005c 0128     		cmp	r0, #1
+ 699 005e 01D1     		bne	.L76
+ 700              	.LVL47:
+ 701              	.L77:
+ 538:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 702              		.loc 1 538 0
+ 703 0060 0120     		movs	r0, #1
+ 704 0062 70BD     		pop	{r4, r5, r6, pc}
+ 705              	.LVL48:
+ 706              	.L76:
+ 581:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****         FLASH->CR &= CR_OPTPG_Reset;
+ 707              		.loc 1 581 0
+ 708 0064 094A     		ldr	r2, .L82+8
+ 709 0066 41F6EF73 		movw	r3, #8175
+ 710 006a 1169     		ldr	r1, [r2, #16]
+ 711 006c 0B40     		ands	r3, r3, r1
+ 712 006e 1361     		str	r3, [r2, #16]
+ 713 0070 70BD     		pop	{r4, r5, r6, pc}
+ 714              	.L73:
+ 586:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       if(status != FLASH_BUSY)
+ 715              		.loc 1 586 0
+ 716 0072 0128     		cmp	r0, #1
+ 717 0074 F4D0     		beq	.L77
+ 589:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****         FLASH->CR &= CR_OPTER_Reset;
+ 718              		.loc 1 589 0
+ 719 0076 2169     		ldr	r1, [r4, #16]
+ 720 0078 41F6DF72 		movw	r2, #8159
+ 721 007c 0A40     		ands	r2, r2, r1
+ 722 007e 2261     		str	r2, [r4, #16]
+ 723              	.LVL49:
+ 724              	.L72:
+ 595:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+ 725              		.loc 1 595 0
+ 726 0080 70BD     		pop	{r4, r5, r6, pc}
+ 727              	.L83:
+ 728 0082 00BF     		.align	2
+ 729              	.L82:
+ 730 0084 00000000 		.word	FLASH_WaitForLastOperation
+ 731 0088 23016745 		.word	1164378403
+ 732 008c 00200240 		.word	1073881088
+ 733 0090 00F8FF1F 		.word	536868864
+ 734              		.cfi_endproc
+ 735              	.LFE12:
+ 737              		.section	.text.FLASH_EnableWriteProtection,"ax",%progbits
+ 738              		.align	1
+ 739              		.global	FLASH_EnableWriteProtection
+ 740              		.thumb
+ 741              		.thumb_func
+ 743              	FLASH_EnableWriteProtection:
+ 744              	.LFB11:
+ 459:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 745              		.loc 1 459 0
+ 746              		.cfi_startproc
+ 747              		@ args = 0, pretend = 0, frame = 0
+ 748              		@ frame_needed = 0, uses_anonymous_args = 0
+ 749              	.LVL50:
+ 750 0000 38B5     		push	{r3, r4, r5, lr}
+ 751              	.LCFI3:
+ 752              		.cfi_def_cfa_offset 16
+ 753              		.cfi_offset 3, -16
+ 754              		.cfi_offset 4, -12
+ 755              		.cfi_offset 5, -8
+ 756              		.cfi_offset 14, -4
+ 459:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 757              		.loc 1 459 0
+ 758 0002 0446     		mov	r4, r0
+ 759              	.LVL51:
+ 474:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 760              		.loc 1 474 0
+ 761 0004 214D     		ldr	r5, .L109
+ 762 0006 0F20     		movs	r0, #15
+ 763              	.LVL52:
+ 764 0008 A847     		blx	r5
+ 765              	.LVL53:
+ 476:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   if(status == FLASH_COMPLETE)
+ 766              		.loc 1 476 0
+ 767 000a 0428     		cmp	r0, #4
+ 768 000c 3DD1     		bne	.L85
+ 479:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->OPTKEYR = FLASH_KEY1;
+ 769              		.loc 1 479 0
+ 770 000e 2049     		ldr	r1, .L109+4
+ 771 0010 204B     		ldr	r3, .L109+8
+ 480:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->OPTKEYR = FLASH_KEY2;
+ 772              		.loc 1 480 0
+ 773 0012 01F18830 		add	r0, r1, #-2004318072
+ 774              	.LVL54:
+ 479:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->OPTKEYR = FLASH_KEY1;
+ 775              		.loc 1 479 0
+ 776 0016 9960     		str	r1, [r3, #8]
+ 480:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->OPTKEYR = FLASH_KEY2;
+ 777              		.loc 1 480 0
+ 778 0018 9860     		str	r0, [r3, #8]
+ 467:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   FLASH_Pages = (u32)(~FLASH_Pages);
+ 779              		.loc 1 467 0
+ 780 001a E443     		mvns	r4, r4
+ 781              	.LVL55:
+ 481:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->CR |= CR_OPTPG_Set;
+ 782              		.loc 1 481 0
+ 783 001c 1969     		ldr	r1, [r3, #16]
+ 468:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   WRP0_Data = (vu16)(FLASH_Pages & WRP0_Mask);
+ 784              		.loc 1 468 0
+ 785 001e E2B2     		uxtb	r2, r4
+ 481:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->CR |= CR_OPTPG_Set;
+ 786              		.loc 1 481 0
+ 787 0020 41F01000 		orr	r0, r1, #16
+ 483:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     if(WRP0_Data != 0xFF)
+ 788              		.loc 1 483 0
+ 789 0024 FF2A     		cmp	r2, #255
+ 481:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->CR |= CR_OPTPG_Set;
+ 790              		.loc 1 481 0
+ 791 0026 1861     		str	r0, [r3, #16]
+ 483:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     if(WRP0_Data != 0xFF)
+ 792              		.loc 1 483 0
+ 793 0028 04D1     		bne	.L86
+ 794              	.L89:
+ 469:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   WRP1_Data = (vu16)((FLASH_Pages & WRP1_Mask) >> 8);
+ 795              		.loc 1 469 0
+ 796 002a C4F30721 		ubfx	r1, r4, #8, #8
+ 490:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     if((status == FLASH_COMPLETE) && (WRP1_Data != 0xFF))
+ 797              		.loc 1 490 0
+ 798 002e FF29     		cmp	r1, #255
+ 799 0030 07D1     		bne	.L87
+ 800 0032 0DE0     		b	.L88
+ 801              	.L86:
+ 485:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       OB->WRP0 = WRP0_Data;
+ 802              		.loc 1 485 0
+ 803 0034 184B     		ldr	r3, .L109+12
+ 488:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 804              		.loc 1 488 0
+ 805 0036 0F20     		movs	r0, #15
+ 485:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       OB->WRP0 = WRP0_Data;
+ 806              		.loc 1 485 0
+ 807 0038 1A81     		strh	r2, [r3, #8]	@ movhi
+ 488:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 808              		.loc 1 488 0
+ 809 003a A847     		blx	r5
+ 810              	.LVL56:
+ 490:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     if((status == FLASH_COMPLETE) && (WRP1_Data != 0xFF))
+ 811              		.loc 1 490 0
+ 812 003c 0428     		cmp	r0, #4
+ 813 003e 1CD1     		bne	.L95
+ 814 0040 F3E7     		b	.L89
+ 815              	.LVL57:
+ 816              	.L87:
+ 492:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       OB->WRP1 = WRP1_Data;
+ 817              		.loc 1 492 0
+ 818 0042 154A     		ldr	r2, .L109+12
+ 495:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 819              		.loc 1 495 0
+ 820 0044 0F20     		movs	r0, #15
+ 492:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       OB->WRP1 = WRP1_Data;
+ 821              		.loc 1 492 0
+ 822 0046 5181     		strh	r1, [r2, #10]	@ movhi
+ 495:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 823              		.loc 1 495 0
+ 824 0048 104B     		ldr	r3, .L109
+ 825 004a 9847     		blx	r3
+ 826              	.LVL58:
+ 498:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     if((status == FLASH_COMPLETE) && (WRP2_Data != 0xFF))
+ 827              		.loc 1 498 0
+ 828 004c 0428     		cmp	r0, #4
+ 829 004e 14D1     		bne	.L95
+ 830              	.LVL59:
+ 831              	.L88:
+ 470:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   WRP2_Data = (vu16)((FLASH_Pages & WRP2_Mask) >> 16);
+ 832              		.loc 1 470 0
+ 833 0050 C4F30740 		ubfx	r0, r4, #16, #8
+ 498:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     if((status == FLASH_COMPLETE) && (WRP2_Data != 0xFF))
+ 834              		.loc 1 498 0
+ 835 0054 FF28     		cmp	r0, #255
+ 836 0056 06D0     		beq	.L92
+ 837              	.L91:
+ 500:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       OB->WRP2 = WRP2_Data;
+ 838              		.loc 1 500 0
+ 839 0058 0F49     		ldr	r1, .L109+12
+ 503:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 840              		.loc 1 503 0
+ 841 005a 0C4A     		ldr	r2, .L109
+ 500:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       OB->WRP2 = WRP2_Data;
+ 842              		.loc 1 500 0
+ 843 005c 8881     		strh	r0, [r1, #12]	@ movhi
+ 503:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 844              		.loc 1 503 0
+ 845 005e 0F20     		movs	r0, #15
+ 846 0060 9047     		blx	r2
+ 847              	.LVL60:
+ 506:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     if((status == FLASH_COMPLETE)&& (WRP3_Data != 0xFF))
+ 848              		.loc 1 506 0
+ 849 0062 0428     		cmp	r0, #4
+ 850 0064 09D1     		bne	.L95
+ 851              	.LVL61:
+ 852              	.L92:
+ 471:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   WRP3_Data = (vu16)((FLASH_Pages & WRP3_Mask) >> 24);
+ 853              		.loc 1 471 0
+ 854 0066 240E     		lsrs	r4, r4, #24
+ 855              	.LVL62:
+ 506:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     if((status == FLASH_COMPLETE)&& (WRP3_Data != 0xFF))
+ 856              		.loc 1 506 0
+ 857 0068 FF2C     		cmp	r4, #255
+ 858 006a 01D1     		bne	.L93
+ 859 006c 0420     		movs	r0, #4
+ 860 006e 06E0     		b	.L94
+ 861              	.L93:
+ 508:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       OB->WRP3 = WRP3_Data;
+ 862              		.loc 1 508 0
+ 863 0070 094B     		ldr	r3, .L109+12
+ 511:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 864              		.loc 1 511 0
+ 865 0072 0F20     		movs	r0, #15
+ 508:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       OB->WRP3 = WRP3_Data;
+ 866              		.loc 1 508 0
+ 867 0074 DC81     		strh	r4, [r3, #14]	@ movhi
+ 511:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 868              		.loc 1 511 0
+ 869 0076 0549     		ldr	r1, .L109
+ 870 0078 8847     		blx	r1
+ 871              	.LVL63:
+ 872              	.L95:
+ 514:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     if(status != FLASH_BUSY)
+ 873              		.loc 1 514 0
+ 874 007a 0128     		cmp	r0, #1
+ 875 007c 05D0     		beq	.L85
+ 876              	.LVL64:
+ 877              	.L94:
+ 517:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       FLASH->CR &= CR_OPTPG_Reset;
+ 878              		.loc 1 517 0
+ 879 007e 054A     		ldr	r2, .L109+8
+ 880 0080 41F6EF73 		movw	r3, #8175
+ 881 0084 1169     		ldr	r1, [r2, #16]
+ 882 0086 0B40     		ands	r3, r3, r1
+ 883 0088 1361     		str	r3, [r2, #16]
+ 884              	.L85:
+ 885              	.LVL65:
+ 522:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+ 886              		.loc 1 522 0
+ 887 008a 38BD     		pop	{r3, r4, r5, pc}
+ 888              	.L110:
+ 889              		.align	2
+ 890              	.L109:
+ 891 008c 00000000 		.word	FLASH_WaitForLastOperation
+ 892 0090 23016745 		.word	1164378403
+ 893 0094 00200240 		.word	1073881088
+ 894 0098 00F8FF1F 		.word	536868864
+ 895              		.cfi_endproc
+ 896              	.LFE11:
+ 898              		.section	.text.FLASH_ProgramOptionByteData,"ax",%progbits
+ 899              		.align	1
+ 900              		.global	FLASH_ProgramOptionByteData
+ 901              		.thumb
+ 902              		.thumb_func
+ 904              	FLASH_ProgramOptionByteData:
+ 905              	.LFB10:
+ 410:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 906              		.loc 1 410 0
+ 907              		.cfi_startproc
+ 908              		@ args = 0, pretend = 0, frame = 0
+ 909              		@ frame_needed = 0, uses_anonymous_args = 0
+ 910              	.LVL66:
+ 911 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 912              	.LCFI4:
+ 913              		.cfi_def_cfa_offset 24
+ 914              		.cfi_offset 3, -24
+ 915              		.cfi_offset 4, -20
+ 916              		.cfi_offset 5, -16
+ 917              		.cfi_offset 6, -12
+ 918              		.cfi_offset 7, -8
+ 919              		.cfi_offset 14, -4
+ 410:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 920              		.loc 1 410 0
+ 921 0002 0646     		mov	r6, r0
+ 416:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 922              		.loc 1 416 0
+ 923 0004 0D4D     		ldr	r5, .L116
+ 924 0006 0F20     		movs	r0, #15
+ 925              	.LVL67:
+ 410:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 926              		.loc 1 410 0
+ 927 0008 0F46     		mov	r7, r1
+ 416:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 928              		.loc 1 416 0
+ 929 000a A847     		blx	r5
+ 930              	.LVL68:
+ 418:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   if(status == FLASH_COMPLETE)
+ 931              		.loc 1 418 0
+ 932 000c 0428     		cmp	r0, #4
+ 933 000e 13D1     		bne	.L112
+ 421:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->OPTKEYR = FLASH_KEY1;
+ 934              		.loc 1 421 0
+ 935 0010 0B4B     		ldr	r3, .L116+4
+ 936 0012 0C4C     		ldr	r4, .L116+8
+ 422:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->OPTKEYR = FLASH_KEY2;
+ 937              		.loc 1 422 0
+ 938 0014 03F18830 		add	r0, r3, #-2004318072
+ 939              	.LVL69:
+ 421:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->OPTKEYR = FLASH_KEY1;
+ 940              		.loc 1 421 0
+ 941 0018 A360     		str	r3, [r4, #8]
+ 422:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->OPTKEYR = FLASH_KEY2;
+ 942              		.loc 1 422 0
+ 943 001a A060     		str	r0, [r4, #8]
+ 425:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->CR |= CR_OPTPG_Set; 
+ 944              		.loc 1 425 0
+ 945 001c 2169     		ldr	r1, [r4, #16]
+ 429:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 946              		.loc 1 429 0
+ 947 001e 0F20     		movs	r0, #15
+ 425:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->CR |= CR_OPTPG_Set; 
+ 948              		.loc 1 425 0
+ 949 0020 41F01002 		orr	r2, r1, #16
+ 950 0024 2261     		str	r2, [r4, #16]
+ 426:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     *(vu16*)Address = Data;
+ 951              		.loc 1 426 0
+ 952 0026 3780     		strh	r7, [r6, #0]	@ movhi
+ 429:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 953              		.loc 1 429 0
+ 954 0028 A847     		blx	r5
+ 955              	.LVL70:
+ 431:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     if(status != FLASH_BUSY)
+ 956              		.loc 1 431 0
+ 957 002a 0128     		cmp	r0, #1
+ 958 002c 04D0     		beq	.L112
+ 434:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       FLASH->CR &= CR_OPTPG_Reset;
+ 959              		.loc 1 434 0
+ 960 002e 2169     		ldr	r1, [r4, #16]
+ 961 0030 41F6EF73 		movw	r3, #8175
+ 962 0034 0B40     		ands	r3, r3, r1
+ 963 0036 2361     		str	r3, [r4, #16]
+ 964              	.LVL71:
+ 965              	.L112:
+ 439:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+ 966              		.loc 1 439 0
+ 967 0038 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 968              	.L117:
+ 969 003a 00BF     		.align	2
+ 970              	.L116:
+ 971 003c 00000000 		.word	FLASH_WaitForLastOperation
+ 972 0040 23016745 		.word	1164378403
+ 973 0044 00200240 		.word	1073881088
+ 974              		.cfi_endproc
+ 975              	.LFE10:
+ 977              		.section	.text.FLASH_ProgramHalfWord,"ax",%progbits
+ 978              		.align	1
+ 979              		.global	FLASH_ProgramHalfWord
+ 980              		.thumb
+ 981              		.thumb_func
+ 983              	FLASH_ProgramHalfWord:
+ 984              	.LFB9:
+ 370:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 985              		.loc 1 370 0
+ 986              		.cfi_startproc
+ 987              		@ args = 0, pretend = 0, frame = 0
+ 988              		@ frame_needed = 0, uses_anonymous_args = 0
+ 989              	.LVL72:
+ 990 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 991              	.LCFI5:
+ 992              		.cfi_def_cfa_offset 24
+ 993              		.cfi_offset 3, -24
+ 994              		.cfi_offset 4, -20
+ 995              		.cfi_offset 5, -16
+ 996              		.cfi_offset 6, -12
+ 997              		.cfi_offset 7, -8
+ 998              		.cfi_offset 14, -4
+ 370:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 999              		.loc 1 370 0
+ 1000 0002 0646     		mov	r6, r0
+ 377:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 1001              		.loc 1 377 0
+ 1002 0004 0A4D     		ldr	r5, .L123
+ 1003 0006 0F20     		movs	r0, #15
+ 1004              	.LVL73:
+ 370:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 1005              		.loc 1 370 0
+ 1006 0008 0F46     		mov	r7, r1
+ 377:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 1007              		.loc 1 377 0
+ 1008 000a A847     		blx	r5
+ 1009              	.LVL74:
+ 379:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   if(status == FLASH_COMPLETE)
+ 1010              		.loc 1 379 0
+ 1011 000c 0428     		cmp	r0, #4
+ 1012 000e 0ED1     		bne	.L119
+ 382:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->CR |= CR_PG_Set;
+ 1013              		.loc 1 382 0
+ 1014 0010 084C     		ldr	r4, .L123+4
+ 1015 0012 2369     		ldr	r3, [r4, #16]
+ 1016 0014 43F00100 		orr	r0, r3, #1
+ 1017              	.LVL75:
+ 1018 0018 2061     		str	r0, [r4, #16]
+ 386:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 1019              		.loc 1 386 0
+ 1020 001a 0F20     		movs	r0, #15
+ 384:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     *(vu16*)Address = Data;
+ 1021              		.loc 1 384 0
+ 1022 001c 3780     		strh	r7, [r6, #0]	@ movhi
+ 386:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 1023              		.loc 1 386 0
+ 1024 001e A847     		blx	r5
+ 1025              	.LVL76:
+ 388:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     if(status != FLASH_BUSY)
+ 1026              		.loc 1 388 0
+ 1027 0020 0128     		cmp	r0, #1
+ 1028 0022 04D0     		beq	.L119
+ 391:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       FLASH->CR &= CR_PG_Reset;
+ 1029              		.loc 1 391 0
+ 1030 0024 2269     		ldr	r2, [r4, #16]
+ 1031 0026 41F6FE71 		movw	r1, #8190
+ 1032 002a 1140     		ands	r1, r1, r2
+ 1033 002c 2161     		str	r1, [r4, #16]
+ 1034              	.LVL77:
+ 1035              	.L119:
+ 396:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+ 1036              		.loc 1 396 0
+ 1037 002e F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 1038              	.L124:
+ 1039              		.align	2
+ 1040              	.L123:
+ 1041 0030 00000000 		.word	FLASH_WaitForLastOperation
+ 1042 0034 00200240 		.word	1073881088
+ 1043              		.cfi_endproc
+ 1044              	.LFE9:
+ 1046              		.section	.text.FLASH_ProgramWord,"ax",%progbits
+ 1047              		.align	1
+ 1048              		.global	FLASH_ProgramWord
+ 1049              		.thumb
+ 1050              		.thumb_func
+ 1052              	FLASH_ProgramWord:
+ 1053              	.LFB8:
+ 311:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 1054              		.loc 1 311 0
+ 1055              		.cfi_startproc
+ 1056              		@ args = 0, pretend = 0, frame = 0
+ 1057              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1058              	.LVL78:
+ 1059 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 1060              	.LCFI6:
+ 1061              		.cfi_def_cfa_offset 24
+ 1062              		.cfi_offset 3, -24
+ 1063              		.cfi_offset 4, -20
+ 1064              		.cfi_offset 5, -16
+ 1065              		.cfi_offset 6, -12
+ 1066              		.cfi_offset 7, -8
+ 1067              		.cfi_offset 14, -4
+ 311:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 1068              		.loc 1 311 0
+ 1069 0002 0646     		mov	r6, r0
+ 318:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 1070              		.loc 1 318 0
+ 1071 0004 0F4D     		ldr	r5, .L135
+ 1072 0006 0F20     		movs	r0, #15
+ 1073              	.LVL79:
+ 311:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 1074              		.loc 1 311 0
+ 1075 0008 0F46     		mov	r7, r1
+ 318:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 1076              		.loc 1 318 0
+ 1077 000a A847     		blx	r5
+ 1078              	.LVL80:
+ 320:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   if(status == FLASH_COMPLETE)
+ 1079              		.loc 1 320 0
+ 1080 000c 0428     		cmp	r0, #4
+ 1081 000e 17D1     		bne	.L126
+ 324:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->CR |= CR_PG_Set;
+ 1082              		.loc 1 324 0
+ 1083 0010 0D4C     		ldr	r4, .L135+4
+ 326:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     *(vu16*)Address = (u16)Data;
+ 1084              		.loc 1 326 0
+ 1085 0012 B9B2     		uxth	r1, r7
+ 324:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->CR |= CR_PG_Set;
+ 1086              		.loc 1 324 0
+ 1087 0014 2369     		ldr	r3, [r4, #16]
+ 1088 0016 43F00100 		orr	r0, r3, #1
+ 1089              	.LVL81:
+ 1090 001a 2061     		str	r0, [r4, #16]
+ 329:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 1091              		.loc 1 329 0
+ 1092 001c 0F20     		movs	r0, #15
+ 326:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     *(vu16*)Address = (u16)Data;
+ 1093              		.loc 1 326 0
+ 1094 001e 3180     		strh	r1, [r6, #0]	@ movhi
+ 329:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 1095              		.loc 1 329 0
+ 1096 0020 A847     		blx	r5
+ 1097              	.LVL82:
+ 331:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     if(status == FLASH_COMPLETE)
+ 1098              		.loc 1 331 0
+ 1099 0022 0428     		cmp	r0, #4
+ 1100 0024 03D1     		bne	.L134
+ 335:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       *(vu16*)(Address + 2) = Data >> 16;
+ 1101              		.loc 1 335 0
+ 1102 0026 3F0C     		lsrs	r7, r7, #16
+ 1103              	.LVL83:
+ 1104 0028 7780     		strh	r7, [r6, #2]	@ movhi
+ 338:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 1105              		.loc 1 338 0
+ 1106 002a 0F20     		movs	r0, #15
+ 1107              	.LVL84:
+ 1108 002c A847     		blx	r5
+ 1109              	.LVL85:
+ 1110              	.L134:
+ 340:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       if(status != FLASH_BUSY)
+ 1111              		.loc 1 340 0
+ 1112 002e 0128     		cmp	r0, #1
+ 1113 0030 01D1     		bne	.L133
+ 311:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 1114              		.loc 1 311 0
+ 1115 0032 0120     		movs	r0, #1
+ 1116              	.LVL86:
+ 1117 0034 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 1118              	.LVL87:
+ 1119              	.L133:
+ 351:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****         FLASH->CR &= CR_PG_Reset;
+ 1120              		.loc 1 351 0
+ 1121 0036 2269     		ldr	r2, [r4, #16]
+ 1122 0038 41F6FE73 		movw	r3, #8190
+ 1123 003c 1340     		ands	r3, r3, r2
+ 1124 003e 2361     		str	r3, [r4, #16]
+ 1125              	.LVL88:
+ 1126              	.L126:
+ 357:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+ 1127              		.loc 1 357 0
+ 1128 0040 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 1129              	.L136:
+ 1130 0042 00BF     		.align	2
+ 1131              	.L135:
+ 1132 0044 00000000 		.word	FLASH_WaitForLastOperation
+ 1133 0048 00200240 		.word	1073881088
+ 1134              		.cfi_endproc
+ 1135              	.LFE8:
+ 1137              		.section	.text.FLASH_EraseOptionBytes,"ax",%progbits
+ 1138              		.align	1
+ 1139              		.global	FLASH_EraseOptionBytes
+ 1140              		.thumb
+ 1141              		.thumb_func
+ 1143              	FLASH_EraseOptionBytes:
+ 1144              	.LFB7:
+ 248:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 1145              		.loc 1 248 0
+ 1146              		.cfi_startproc
+ 1147              		@ args = 0, pretend = 0, frame = 0
+ 1148              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1149              	.LVL89:
+ 1150 0000 38B5     		push	{r3, r4, r5, lr}
+ 1151              	.LCFI7:
+ 1152              		.cfi_def_cfa_offset 16
+ 1153              		.cfi_offset 3, -16
+ 1154              		.cfi_offset 4, -12
+ 1155              		.cfi_offset 5, -8
+ 1156              		.cfi_offset 14, -4
+ 252:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   status = FLASH_WaitForLastOperation(EraseTimeout);
+ 1157              		.loc 1 252 0
+ 1158 0002 40F6FF70 		movw	r0, #4095
+ 1159 0006 174D     		ldr	r5, .L147
+ 1160 0008 A847     		blx	r5
+ 1161              	.LVL90:
+ 254:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   if(status == FLASH_COMPLETE)
+ 1162              		.loc 1 254 0
+ 1163 000a 0428     		cmp	r0, #4
+ 1164 000c 29D1     		bne	.L138
+ 257:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->OPTKEYR = FLASH_KEY1;
+ 1165              		.loc 1 257 0
+ 1166 000e 164B     		ldr	r3, .L147+4
+ 1167 0010 164C     		ldr	r4, .L147+8
+ 258:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->OPTKEYR = FLASH_KEY2;
+ 1168              		.loc 1 258 0
+ 1169 0012 03F18830 		add	r0, r3, #-2004318072
+ 1170              	.LVL91:
+ 257:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->OPTKEYR = FLASH_KEY1;
+ 1171              		.loc 1 257 0
+ 1172 0016 A360     		str	r3, [r4, #8]
+ 258:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->OPTKEYR = FLASH_KEY2;
+ 1173              		.loc 1 258 0
+ 1174 0018 A060     		str	r0, [r4, #8]
+ 261:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->CR |= CR_OPTER_Set;
+ 1175              		.loc 1 261 0
+ 1176 001a 2169     		ldr	r1, [r4, #16]
+ 1177 001c 41F02002 		orr	r2, r1, #32
+ 1178 0020 2261     		str	r2, [r4, #16]
+ 262:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->CR |= CR_STRT_Set;
+ 1179              		.loc 1 262 0
+ 1180 0022 2369     		ldr	r3, [r4, #16]
+ 1181 0024 43F04000 		orr	r0, r3, #64
+ 1182 0028 2061     		str	r0, [r4, #16]
+ 265:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     status = FLASH_WaitForLastOperation(EraseTimeout);
+ 1183              		.loc 1 265 0
+ 1184 002a 40F6FF70 		movw	r0, #4095
+ 1185 002e A847     		blx	r5
+ 1186              	.LVL92:
+ 267:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     if(status == FLASH_COMPLETE)
+ 1187              		.loc 1 267 0
+ 1188 0030 0428     		cmp	r0, #4
+ 1189 0032 0DD1     		bne	.L146
+ 270:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       FLASH->CR &= CR_OPTER_Reset;
+ 1190              		.loc 1 270 0
+ 1191 0034 2169     		ldr	r1, [r4, #16]
+ 1192 0036 41F6DF72 		movw	r2, #8159
+ 1193 003a 0A40     		ands	r2, r2, r1
+ 1194 003c 2261     		str	r2, [r4, #16]
+ 273:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       FLASH->CR |= CR_OPTPG_Set;
+ 1195              		.loc 1 273 0
+ 1196 003e 2369     		ldr	r3, [r4, #16]
+ 276:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       OB->RDP= RDP_Key; 
+ 1197              		.loc 1 276 0
+ 1198 0040 0B4A     		ldr	r2, .L147+12
+ 273:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       FLASH->CR |= CR_OPTPG_Set;
+ 1199              		.loc 1 273 0
+ 1200 0042 43F01000 		orr	r0, r3, #16
+ 1201              	.LVL93:
+ 276:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       OB->RDP= RDP_Key; 
+ 1202              		.loc 1 276 0
+ 1203 0046 A521     		movs	r1, #165
+ 273:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       FLASH->CR |= CR_OPTPG_Set;
+ 1204              		.loc 1 273 0
+ 1205 0048 2061     		str	r0, [r4, #16]
+ 276:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       OB->RDP= RDP_Key; 
+ 1206              		.loc 1 276 0
+ 1207 004a 1180     		strh	r1, [r2, #0]	@ movhi
+ 279:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       status = FLASH_WaitForLastOperation(ProgramTimeout);
+ 1208              		.loc 1 279 0
+ 1209 004c 0F20     		movs	r0, #15
+ 1210 004e A847     		blx	r5
+ 1211              	.LVL94:
+ 1212              	.L146:
+ 281:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       if(status != FLASH_BUSY)
+ 1213              		.loc 1 281 0
+ 1214 0050 0128     		cmp	r0, #1
+ 1215 0052 01D1     		bne	.L145
+ 248:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 1216              		.loc 1 248 0
+ 1217 0054 0120     		movs	r0, #1
+ 1218              	.LVL95:
+ 1219 0056 38BD     		pop	{r3, r4, r5, pc}
+ 1220              	.LVL96:
+ 1221              	.L145:
+ 292:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****         FLASH->CR &= CR_OPTPG_Reset;
+ 1222              		.loc 1 292 0
+ 1223 0058 2169     		ldr	r1, [r4, #16]
+ 1224 005a 41F6EF73 		movw	r3, #8175
+ 1225 005e 0B40     		ands	r3, r3, r1
+ 1226 0060 2361     		str	r3, [r4, #16]
+ 1227              	.LVL97:
+ 1228              	.L138:
+ 298:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+ 1229              		.loc 1 298 0
+ 1230 0062 38BD     		pop	{r3, r4, r5, pc}
+ 1231              	.L148:
+ 1232              		.align	2
+ 1233              	.L147:
+ 1234 0064 00000000 		.word	FLASH_WaitForLastOperation
+ 1235 0068 23016745 		.word	1164378403
+ 1236 006c 00200240 		.word	1073881088
+ 1237 0070 00F8FF1F 		.word	536868864
+ 1238              		.cfi_endproc
+ 1239              	.LFE7:
+ 1241              		.section	.text.FLASH_EraseAllPages,"ax",%progbits
+ 1242              		.align	1
+ 1243              		.global	FLASH_EraseAllPages
+ 1244              		.thumb
+ 1245              		.thumb_func
+ 1247              	FLASH_EraseAllPages:
+ 1248              	.LFB6:
+ 213:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 1249              		.loc 1 213 0
+ 1250              		.cfi_startproc
+ 1251              		@ args = 0, pretend = 0, frame = 0
+ 1252              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1253              	.LVL98:
+ 1254 0000 38B5     		push	{r3, r4, r5, lr}
+ 1255              	.LCFI8:
+ 1256              		.cfi_def_cfa_offset 16
+ 1257              		.cfi_offset 3, -16
+ 1258              		.cfi_offset 4, -12
+ 1259              		.cfi_offset 5, -8
+ 1260              		.cfi_offset 14, -4
+ 217:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   status = FLASH_WaitForLastOperation(EraseTimeout);
+ 1261              		.loc 1 217 0
+ 1262 0002 40F6FF70 		movw	r0, #4095
+ 1263 0006 0C4D     		ldr	r5, .L154
+ 1264 0008 A847     		blx	r5
+ 1265              	.LVL99:
+ 219:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   if(status == FLASH_COMPLETE)
+ 1266              		.loc 1 219 0
+ 1267 000a 0428     		cmp	r0, #4
+ 1268 000c 12D1     		bne	.L150
+ 222:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****      FLASH->CR |= CR_MER_Set;
+ 1269              		.loc 1 222 0
+ 1270 000e 0B4C     		ldr	r4, .L154+4
+ 1271 0010 2369     		ldr	r3, [r4, #16]
+ 1272 0012 43F00400 		orr	r0, r3, #4
+ 1273              	.LVL100:
+ 1274 0016 2061     		str	r0, [r4, #16]
+ 223:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****      FLASH->CR |= CR_STRT_Set;
+ 1275              		.loc 1 223 0
+ 1276 0018 2169     		ldr	r1, [r4, #16]
+ 226:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     status = FLASH_WaitForLastOperation(EraseTimeout);
+ 1277              		.loc 1 226 0
+ 1278 001a 40F6FF70 		movw	r0, #4095
+ 223:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****      FLASH->CR |= CR_STRT_Set;
+ 1279              		.loc 1 223 0
+ 1280 001e 41F04002 		orr	r2, r1, #64
+ 1281 0022 2261     		str	r2, [r4, #16]
+ 226:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     status = FLASH_WaitForLastOperation(EraseTimeout);
+ 1282              		.loc 1 226 0
+ 1283 0024 A847     		blx	r5
+ 1284              	.LVL101:
+ 228:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     if(status != FLASH_BUSY)
+ 1285              		.loc 1 228 0
+ 1286 0026 0128     		cmp	r0, #1
+ 1287 0028 04D0     		beq	.L150
+ 231:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       FLASH->CR &= CR_MER_Reset;
+ 1288              		.loc 1 231 0
+ 1289 002a 2169     		ldr	r1, [r4, #16]
+ 1290 002c 41F6FB73 		movw	r3, #8187
+ 1291 0030 0B40     		ands	r3, r3, r1
+ 1292 0032 2361     		str	r3, [r4, #16]
+ 1293              	.LVL102:
+ 1294              	.L150:
+ 236:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+ 1295              		.loc 1 236 0
+ 1296 0034 38BD     		pop	{r3, r4, r5, pc}
+ 1297              	.L155:
+ 1298 0036 00BF     		.align	2
+ 1299              	.L154:
+ 1300 0038 00000000 		.word	FLASH_WaitForLastOperation
+ 1301 003c 00200240 		.word	1073881088
+ 1302              		.cfi_endproc
+ 1303              	.LFE6:
+ 1305              		.section	.text.FLASH_ErasePage,"ax",%progbits
+ 1306              		.align	1
+ 1307              		.global	FLASH_ErasePage
+ 1308              		.thumb
+ 1309              		.thumb_func
+ 1311              	FLASH_ErasePage:
+ 1312              	.LFB5:
+ 174:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 1313              		.loc 1 174 0
+ 1314              		.cfi_startproc
+ 1315              		@ args = 0, pretend = 0, frame = 0
+ 1316              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1317              	.LVL103:
+ 1318 0000 70B5     		push	{r4, r5, r6, lr}
+ 1319              	.LCFI9:
+ 1320              		.cfi_def_cfa_offset 16
+ 1321              		.cfi_offset 4, -16
+ 1322              		.cfi_offset 5, -12
+ 1323              		.cfi_offset 6, -8
+ 1324              		.cfi_offset 14, -4
+ 174:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** {
+ 1325              		.loc 1 174 0
+ 1326 0002 0646     		mov	r6, r0
+ 181:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   status = FLASH_WaitForLastOperation(EraseTimeout);
+ 1327              		.loc 1 181 0
+ 1328 0004 0D4D     		ldr	r5, .L161
+ 1329 0006 40F6FF70 		movw	r0, #4095
+ 1330              	.LVL104:
+ 1331 000a A847     		blx	r5
+ 1332              	.LVL105:
+ 183:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****   if(status == FLASH_COMPLETE)
+ 1333              		.loc 1 183 0
+ 1334 000c 0428     		cmp	r0, #4
+ 1335 000e 13D1     		bne	.L157
+ 186:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->CR|= CR_PER_Set;
+ 1336              		.loc 1 186 0
+ 1337 0010 0B4C     		ldr	r4, .L161+4
+ 1338 0012 2369     		ldr	r3, [r4, #16]
+ 1339 0014 43F00200 		orr	r0, r3, #2
+ 1340              	.LVL106:
+ 1341 0018 2061     		str	r0, [r4, #16]
+ 187:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->AR = Page_Address; 
+ 1342              		.loc 1 187 0
+ 1343 001a 6661     		str	r6, [r4, #20]
+ 188:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->CR|= CR_STRT_Set;
+ 1344              		.loc 1 188 0
+ 1345 001c 2169     		ldr	r1, [r4, #16]
+ 191:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     status = FLASH_WaitForLastOperation(EraseTimeout);
+ 1346              		.loc 1 191 0
+ 1347 001e 40F6FF70 		movw	r0, #4095
+ 188:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     FLASH->CR|= CR_STRT_Set;
+ 1348              		.loc 1 188 0
+ 1349 0022 41F04002 		orr	r2, r1, #64
+ 1350 0026 2261     		str	r2, [r4, #16]
+ 191:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     status = FLASH_WaitForLastOperation(EraseTimeout);
+ 1351              		.loc 1 191 0
+ 1352 0028 A847     		blx	r5
+ 1353              	.LVL107:
+ 193:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****     if(status != FLASH_BUSY)
+ 1354              		.loc 1 193 0
+ 1355 002a 0128     		cmp	r0, #1
+ 1356 002c 04D0     		beq	.L157
+ 196:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c ****       FLASH->CR &= CR_PER_Reset;
+ 1357              		.loc 1 196 0
+ 1358 002e 2169     		ldr	r1, [r4, #16]
+ 1359 0030 41F6FD73 		movw	r3, #8189
+ 1360 0034 0B40     		ands	r3, r3, r1
+ 1361 0036 2361     		str	r3, [r4, #16]
+ 1362              	.LVL108:
+ 1363              	.L157:
+ 201:../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.c **** }
+ 1364              		.loc 1 201 0
+ 1365 0038 70BD     		pop	{r4, r5, r6, pc}
+ 1366              	.L162:
+ 1367 003a 00BF     		.align	2
+ 1368              	.L161:
+ 1369 003c 00000000 		.word	FLASH_WaitForLastOperation
+ 1370 0040 00200240 		.word	1073881088
+ 1371              		.cfi_endproc
+ 1372              	.LFE5:
+ 1374              		.text
+ 1375              	.Letext0:
+ 1376              		.file 2 "../LIB_HW/Core/Hw_Define.h"
+ 1377              		.file 3 "../LIB_HW/Driver/LIB_ST32/stm32f10x_map.h"
+ 1378              		.file 4 "../LIB_HW/Driver/LIB_ST32/stm32f10x_flash.h"
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f10x_flash.c
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:19     .text.FLASH_SetLatency:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:24     .text.FLASH_SetLatency:0000000000000000 FLASH_SetLatency
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:47     .text.FLASH_SetLatency:0000000000000014 $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:52     .text.FLASH_HalfCycleAccessCmd:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:57     .text.FLASH_HalfCycleAccessCmd:0000000000000000 FLASH_HalfCycleAccessCmd
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:79     .text.FLASH_HalfCycleAccessCmd:0000000000000014 $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:84     .text.FLASH_PrefetchBufferCmd:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:89     .text.FLASH_PrefetchBufferCmd:0000000000000000 FLASH_PrefetchBufferCmd
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:111    .text.FLASH_PrefetchBufferCmd:0000000000000014 $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:116    .text.FLASH_Unlock:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:121    .text.FLASH_Unlock:0000000000000000 FLASH_Unlock
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:141    .text.FLASH_Unlock:0000000000000010 $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:147    .text.FLASH_Lock:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:152    .text.FLASH_Lock:0000000000000000 FLASH_Lock
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:168    .text.FLASH_Lock:000000000000000c $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:173    .text.FLASH_GetUserOptionByte:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:178    .text.FLASH_GetUserOptionByte:0000000000000000 FLASH_GetUserOptionByte
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:194    .text.FLASH_GetUserOptionByte:0000000000000008 $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:199    .text.FLASH_GetWriteProtectionOptionByte:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:204    .text.FLASH_GetWriteProtectionOptionByte:0000000000000000 FLASH_GetWriteProtectionOptionByte
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:219    .text.FLASH_GetWriteProtectionOptionByte:0000000000000008 $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:224    .text.FLASH_GetReadOutProtectionStatus:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:229    .text.FLASH_GetReadOutProtectionStatus:0000000000000000 FLASH_GetReadOutProtectionStatus
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:248    .text.FLASH_GetReadOutProtectionStatus:000000000000000c $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:253    .text.FLASH_GetPrefetchBufferStatus:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:258    .text.FLASH_GetPrefetchBufferStatus:0000000000000000 FLASH_GetPrefetchBufferStatus
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:277    .text.FLASH_GetPrefetchBufferStatus:000000000000000c $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:282    .text.FLASH_ITConfig:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:287    .text.FLASH_ITConfig:0000000000000000 FLASH_ITConfig
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:315    .text.FLASH_ITConfig:0000000000000014 $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:320    .text.FLASH_GetFlagStatus:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:325    .text.FLASH_GetFlagStatus:0000000000000000 FLASH_GetFlagStatus
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:358    .text.FLASH_GetFlagStatus:000000000000001c $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:363    .text.FLASH_ClearFlag:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:368    .text.FLASH_ClearFlag:0000000000000000 FLASH_ClearFlag
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:383    .text.FLASH_ClearFlag:0000000000000008 $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:388    .text.FLASH_GetStatus:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:393    .text.FLASH_GetStatus:0000000000000000 FLASH_GetStatus
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:435    .text.FLASH_GetStatus:0000000000000024 $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:440    .text.FLASH_WaitForLastOperation:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:445    .text.FLASH_WaitForLastOperation:0000000000000000 FLASH_WaitForLastOperation
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:520    .text.FLASH_WaitForLastOperation:0000000000000034 $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:525    .text.FLASH_UserOptionByteConfig:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:530    .text.FLASH_UserOptionByteConfig:0000000000000000 FLASH_UserOptionByteConfig
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:608    .text.FLASH_UserOptionByteConfig:0000000000000050 $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:616    .text.FLASH_ReadOutProtection:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:621    .text.FLASH_ReadOutProtection:0000000000000000 FLASH_ReadOutProtection
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:730    .text.FLASH_ReadOutProtection:0000000000000084 $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:738    .text.FLASH_EnableWriteProtection:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:743    .text.FLASH_EnableWriteProtection:0000000000000000 FLASH_EnableWriteProtection
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:891    .text.FLASH_EnableWriteProtection:000000000000008c $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:899    .text.FLASH_ProgramOptionByteData:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:904    .text.FLASH_ProgramOptionByteData:0000000000000000 FLASH_ProgramOptionByteData
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:971    .text.FLASH_ProgramOptionByteData:000000000000003c $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:978    .text.FLASH_ProgramHalfWord:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:983    .text.FLASH_ProgramHalfWord:0000000000000000 FLASH_ProgramHalfWord
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:1041   .text.FLASH_ProgramHalfWord:0000000000000030 $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:1047   .text.FLASH_ProgramWord:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:1052   .text.FLASH_ProgramWord:0000000000000000 FLASH_ProgramWord
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:1132   .text.FLASH_ProgramWord:0000000000000044 $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:1138   .text.FLASH_EraseOptionBytes:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:1143   .text.FLASH_EraseOptionBytes:0000000000000000 FLASH_EraseOptionBytes
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:1234   .text.FLASH_EraseOptionBytes:0000000000000064 $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:1242   .text.FLASH_EraseAllPages:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:1247   .text.FLASH_EraseAllPages:0000000000000000 FLASH_EraseAllPages
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:1300   .text.FLASH_EraseAllPages:0000000000000038 $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:1306   .text.FLASH_ErasePage:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:1311   .text.FLASH_ErasePage:0000000000000000 FLASH_ErasePage
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccrv6bRp.s:1369   .text.FLASH_ErasePage:000000000000003c $d
+                     .debug_frame:0000000000000010 $d
+
+NO UNDEFINED SYMBOLS

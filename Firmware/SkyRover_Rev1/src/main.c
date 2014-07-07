@@ -37,6 +37,11 @@ static void Thread_Serial(void const *argument)
     {
         if( bDeviceState == CONFIGURED )
         {
+            Hw_VCom_Putch('u');
+            Hw_VCom_Putch('s');
+            Hw_VCom_Putch('b');
+            Hw_VCom_Putch(' ');
+
         }
         osDelay(1000);
     }
