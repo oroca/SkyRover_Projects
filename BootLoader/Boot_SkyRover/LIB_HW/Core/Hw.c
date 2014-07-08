@@ -32,6 +32,8 @@
 ---------------------------------------------------------------------------*/
 void Hw_Init( void )
 {
+	u32 i;
+
 	//-- PLL 설정
 	//
 	Hw_PLL_Init();
@@ -49,7 +51,8 @@ void Hw_Init( void )
 	REG_GPIOB_CRL = 0x33333333;	// PB0 - 7
 	REG_GPIOB_CRH = 0x33333333;	// PB8 - 15
 	REG_GPIOC_CRH = 0x33444444;	// PC14, 15
-	
+
+
 	//Hw_DMA_Init();
 	Hw_Uart_Init();
 	Hw_Timer_Init();

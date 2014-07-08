@@ -116,6 +116,7 @@ void Hw_StartUp_Init(void)
     REG_SCB_VTOR = (uint32_t)0x08000000;     /* Vector Table Relocation in Internal FLASH. */
 #endif
 
+
   REG_RCC_APB1RSTR = 0xFFFFFFFF;
   REG_RCC_APB2RSTR = 0xFFFFFFFF;
   REG_RCC_APB1RSTR = 0x00000000;
