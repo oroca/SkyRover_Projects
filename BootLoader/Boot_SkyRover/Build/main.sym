@@ -1,7 +1,7 @@
 00000000 T _isr_vectorsflash_offs
 00000000 D _isr_vectorsram_offs
-00000100 A _Minimum_Stack_Size
 00000400 A __Stack_Size
+00001000 A _Minimum_Stack_Size
 08000000 T g_pfnVectors
 08000008 T LED_Tick
 0800001c T main
@@ -194,6 +194,6 @@
 20001328 B SaveTState
 2000132c B _ebss
 2000132c B _susrstack
-2000142c B _eusrstack
+2000232c B _eusrstack
 20004c00 A __Stack_Init
 20005000 A _estack

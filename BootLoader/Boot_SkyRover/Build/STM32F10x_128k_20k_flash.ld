@@ -37,7 +37,7 @@ _estack = ORIGIN(RAM)+LENGTH(RAM);
 _seemul = ORIGIN(EEMUL);
 
 /* There will be a link error if there is not this amount of RAM free at the end. */
-_Minimum_Stack_Size = 0x100 ;
+_Minimum_Stack_Size = 0x1000 ;
 
 /* Check valid alignment for VTOR */
 ASSERT(ORIGIN(FLASH) == ALIGN(ORIGIN(FLASH), 0x80), "Start of memory region flash not aligned for startup vector table");

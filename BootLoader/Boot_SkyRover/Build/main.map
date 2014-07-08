@@ -394,7 +394,7 @@ LOAD /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib
 LOAD /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/armv7-m/libgcc.a
                 0x0000000020005000                _estack = (ORIGIN (RAM) + 0x5000)
                 0x000000000801f800                _seemul = ORIGIN (EEMUL)
-                0x0000000000000100                _Minimum_Stack_Size = 0x100
+                0x0000000000001000                _Minimum_Stack_Size = 0x1000
                 0x0000000000000001                ASSERT ((ORIGIN (FLASH) == ALIGN (ORIGIN (FLASH), 0x80)), Start of memory region flash not aligned for startup vector table)
 
 .text           0x0000000008000000     0x226c
@@ -963,13 +963,13 @@ LOAD /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib
                 0x000000002000132c                PROVIDE (end, _ebss)
                 0x000000002000132c                PROVIDE (_end, _ebss)
 
-._usrstack      0x000000002000132c      0x100 load address 0x000000000800372c
+._usrstack      0x000000002000132c     0x1000 load address 0x000000000800372c
                 0x000000002000132c                . = ALIGN (0x4)
                 0x000000002000132c                _susrstack = .
-                0x000000002000142c                . = (. + _Minimum_Stack_Size)
- *fill*         0x000000002000132c      0x100 00
-                0x000000002000142c                . = ALIGN (0x4)
-                0x000000002000142c                _eusrstack = .
+                0x000000002000232c                . = (. + _Minimum_Stack_Size)
+ *fill*         0x000000002000132c     0x1000 00
+                0x000000002000232c                . = ALIGN (0x4)
+                0x000000002000232c                _eusrstack = .
                 0x0000000000000400                __Stack_Size = 0x400
                 0x0000000000000400                PROVIDE (_Stack_Size, __Stack_Size)
                 0x0000000020004c00                __Stack_Init = (_estack - __Stack_Size)
