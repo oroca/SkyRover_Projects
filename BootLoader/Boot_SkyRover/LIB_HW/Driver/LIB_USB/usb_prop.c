@@ -122,6 +122,12 @@ ONE_DESCRIPTOR String_Descriptor[4] =
 void Virtual_Com_Port_init(void)
 {
 
+
+  PowerOff();
+  
+  Hw_Timer_Delay_ms(50);
+
+
   /* Update the serial number string descriptor with the data from the unique
   ID*/
   Get_SerialNum();
