@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AcroEditProject Version="1.0">
+  <Options>
+    <UserTools Value=""/>
+    <BaseFolder Value=""/>
+    <GenerateFunctionList Value="true"/>
+    <CodePage Value="949"/>
+    <ExcludeDir Value=""/>
+    <AcceptableExt Value=""/>
+    <OpenLastFiles Value="false"/>
+  </Options>
+  <Files>
+    <Category Name="Build">
+      <File Name="Build\clean_compile.cmd"/>
+      <File Name="Build\compile.cmd"/>
+      <File Name="Build\main.map"/>
+      <File Name="Build\Makefile"/>
+      <File Name="Build\STM32F10x_128k_20k_flash.ld"/>
+    </Category>
+    <Category Name="LIB_AP">
+      <File Name="LIB_AP\Ap.c"/>
+      <File Name="LIB_AP\Ap.h"/>
+      <File Name="LIB_AP\Ap_Define.h"/>
+      <File Name="LIB_AP\Ap_EduMenu.c"/>
+      <File Name="LIB_AP\Ap_EduMenu.h"/>
+    </Category>
+    <Category Name="LIB_HW">
+      <File Name="LIB_HW\Hw.c"/>
+      <File Name="LIB_HW\Hw.h"/>
+      <File Name="LIB_HW\Hw_7Seg.c"/>
+      <File Name="LIB_HW\Hw_7Seg.h"/>
+      <File Name="LIB_HW\Hw_CLcd.c"/>
+      <File Name="LIB_HW\Hw_CLcd.h"/>
+      <File Name="LIB_HW\Hw_Define.h"/>
+      <File Name="LIB_HW\Hw_ISR.c"/>
+      <File Name="LIB_HW\Hw_ISR.h"/>
+      <File Name="LIB_HW\Hw_KeyPad.c"/>
+      <File Name="LIB_HW\Hw_KeyPad.h"/>
+      <File Name="LIB_HW\Hw_Led.c"/>
+      <File Name="LIB_HW\Hw_Led.h"/>
+      <File Name="LIB_HW\Hw_N5110G.c"/>
+      <File Name="LIB_HW\Hw_PLL.c"/>
+      <File Name="LIB_HW\Hw_PLL.h"/>
+      <File Name="LIB_HW\Hw_Regs.h"/>
+      <File Name="LIB_HW\Hw_Si47xx.c"/>
+      <File Name="LIB_HW\Hw_SPI.c"/>
+      <File Name="LIB_HW\Hw_SPI.h"/>
+      <File Name="LIB_HW\Hw_StartUp.c"/>
+      <File Name="LIB_HW\Hw_StartUp.h"/>
+      <File Name="LIB_HW\Hw_Timer.c"/>
+      <File Name="LIB_HW\Hw_Timer.h"/>
+      <File Name="LIB_HW\Hw_Uart.c"/>
+      <File Name="LIB_HW\Hw_Uart.h"/>
+      <File Name="LIB_HW\Hw_Uart_Q.c"/>
+      <File Name="LIB_HW\Hw_Uart_Q.h"/>
+      <File Name="LIB_HW\Hw_VBus.c"/>
+      <File Name="LIB_HW\Hw_VBus.h"/>
+      <File Name="LIB_HW\Hw_VCom.c"/>
+      <File Name="LIB_HW\Hw_VCom.h"/>
+    </Category>
+    <Category Name="LIB_LB">
+      <File Name="LIB_LB\Lb_Printf.c"/>
+      <File Name="LIB_LB\Lb_Printf.h"/>
+      <File Name="LIB_LB\Lb_Util.c"/>
+      <File Name="LIB_LB\Lb_Util.h"/>
+    </Category>
+    <Category Name="LIB_USB">
+      <File Name="LIB_USB\hw_config.c"/>
+      <File Name="LIB_USB\hw_config.h"/>
+      <File Name="LIB_USB\platform_config.h"/>
+      <File Name="LIB_USB\usb_conf.h"/>
+      <File Name="LIB_USB\usb_desc.c"/>
+      <File Name="LIB_USB\usb_desc.h"/>
+      <File Name="LIB_USB\usb_endp.c"/>
+      <File Name="LIB_USB\usb_istr.c"/>
+      <File Name="LIB_USB\usb_istr.h"/>
+      <File Name="LIB_USB\usb_prop.c"/>
+      <File Name="LIB_USB\usb_prop.h"/>
+      <File Name="LIB_USB\usb_pwr.c"/>
+      <File Name="LIB_USB\usb_pwr.h"/>
+    </Category>
+    <Category Name="LIB_USB_DRV">
+      <File Name="LIB_USB\DRV\usb_core.c"/>
+      <File Name="LIB_USB\DRV\usb_core.h"/>
+      <File Name="LIB_USB\DRV\usb_def.h"/>
+      <File Name="LIB_USB\DRV\usb_def.h"/>
+      <File Name="LIB_USB\DRV\usb_init.c"/>
+      <File Name="LIB_USB\DRV\usb_init.h"/>
+      <File Name="LIB_USB\DRV\usb_int.c"/>
+      <File Name="LIB_USB\DRV\usb_int.h"/>
+      <File Name="LIB_USB\DRV\usb_lib.h"/>
+      <File Name="LIB_USB\DRV\usb_mem.c"/>
+      <File Name="LIB_USB\DRV\usb_mem.h"/>
+      <File Name="LIB_USB\DRV\usb_regs.c"/>
+      <File Name="LIB_USB\DRV\usb_regs.h"/>
+      <File Name="LIB_USB\DRV\usb_sil.c"/>
+      <File Name="LIB_USB\DRV\usb_sil.h"/>
+      <File Name="LIB_USB\DRV\usb_type.h"/>
+    </Category>
+    <Category Name="Main">
+      <File Name="main.c"/>
+      <File Name="main.h"/>
+    </Category>
+  </Files>
+  <ClosedFiles>
+    <File Name="E:\OROCA\STM32\FW\Edu\Edu_Ex04_CLcd_ForMac\Build\Makefile"/>
+    <File Name="E:\OROCA\STM32\FW\Edu\Edu_Ex04_CLcd_ForMac\LIB_HW\Hw_Uart.h"/>
+    <File Name="E:\OROCA\STM32\FW\Edu\Edu_Ex04_CLcd_ForMac\LIB_HW\Hw_Uart.c"/>
+  </ClosedFiles>
+</AcroEditProject>

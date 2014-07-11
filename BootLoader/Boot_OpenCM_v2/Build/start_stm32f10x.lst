@@ -1,0 +1,1323 @@
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"hw_config.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.USBWakeUp_IRQHandler,"ax",%progbits
+  19              		.align	1
+  20              		.global	USBWakeUp_IRQHandler
+  21              		.thumb
+  22              		.thumb_func
+  24              	USBWakeUp_IRQHandler:
+  25              	.LFB1:
+  26              		.file 1 "../LIB_HW/Driver/LIB_USB/hw_config.c"
+   1:../LIB_HW/Driver/LIB_USB/hw_config.c **** /**
+   2:../LIB_HW/Driver/LIB_USB/hw_config.c ****   ******************************************************************************
+   3:../LIB_HW/Driver/LIB_USB/hw_config.c ****   * @file    hw_config.c
+   4:../LIB_HW/Driver/LIB_USB/hw_config.c ****   * @author  MCD Application Team
+   5:../LIB_HW/Driver/LIB_USB/hw_config.c ****   * @version V4.0.0
+   6:../LIB_HW/Driver/LIB_USB/hw_config.c ****   * @date    21-January-2013
+   7:../LIB_HW/Driver/LIB_USB/hw_config.c ****   * @brief   Hardware Configuration & Setup
+   8:../LIB_HW/Driver/LIB_USB/hw_config.c ****   ******************************************************************************
+   9:../LIB_HW/Driver/LIB_USB/hw_config.c ****   * @attention
+  10:../LIB_HW/Driver/LIB_USB/hw_config.c ****   *
+  11:../LIB_HW/Driver/LIB_USB/hw_config.c ****   * <h2><center>&copy; COPYRIGHT 2013 STMicroelectronics</center></h2>
+  12:../LIB_HW/Driver/LIB_USB/hw_config.c ****   *
+  13:../LIB_HW/Driver/LIB_USB/hw_config.c ****   * Licensed under MCD-ST Liberty SW License Agreement V2, (the "License");
+  14:../LIB_HW/Driver/LIB_USB/hw_config.c ****   * You may not use this file except in compliance with the License.
+  15:../LIB_HW/Driver/LIB_USB/hw_config.c ****   * You may obtain a copy of the License at:
+  16:../LIB_HW/Driver/LIB_USB/hw_config.c ****   *
+  17:../LIB_HW/Driver/LIB_USB/hw_config.c ****   *        http://www.st.com/software_license_agreement_liberty_v2
+  18:../LIB_HW/Driver/LIB_USB/hw_config.c ****   *
+  19:../LIB_HW/Driver/LIB_USB/hw_config.c ****   * Unless required by applicable law or agreed to in writing, software 
+  20:../LIB_HW/Driver/LIB_USB/hw_config.c ****   * distributed under the License is distributed on an "AS IS" BASIS, 
+  21:../LIB_HW/Driver/LIB_USB/hw_config.c ****   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  22:../LIB_HW/Driver/LIB_USB/hw_config.c ****   * See the License for the specific language governing permissions and
+  23:../LIB_HW/Driver/LIB_USB/hw_config.c ****   * limitations under the License.
+  24:../LIB_HW/Driver/LIB_USB/hw_config.c ****   *
+  25:../LIB_HW/Driver/LIB_USB/hw_config.c ****   ******************************************************************************
+  26:../LIB_HW/Driver/LIB_USB/hw_config.c ****   */
+  27:../LIB_HW/Driver/LIB_USB/hw_config.c **** /*
+  28:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	
+  29:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	1. USB 클럭 소스 설정
+  30:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	
+  31:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	2. 
+  32:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+  33:../LIB_HW/Driver/LIB_USB/hw_config.c **** */
+  34:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+  35:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+  36:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+  37:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+  38:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+  39:../LIB_HW/Driver/LIB_USB/hw_config.c **** /* Includes ------------------------------------------------------------------*/
+  40:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+  41:../LIB_HW/Driver/LIB_USB/hw_config.c **** #include "hw_config.h"
+  42:../LIB_HW/Driver/LIB_USB/hw_config.c **** #include "usb_lib.h"
+  43:../LIB_HW/Driver/LIB_USB/hw_config.c **** #include "usb_prop.h"
+  44:../LIB_HW/Driver/LIB_USB/hw_config.c **** #include "usb_desc.h"
+  45:../LIB_HW/Driver/LIB_USB/hw_config.c **** #include "usb_pwr.h"
+  46:../LIB_HW/Driver/LIB_USB/hw_config.c **** #include "usb_istr.h"
+  47:../LIB_HW/Driver/LIB_USB/hw_config.c **** #include "Lb_Printf.h"
+  48:../LIB_HW/Driver/LIB_USB/hw_config.c **** #include "Hw_Uart.h"
+  49:../LIB_HW/Driver/LIB_USB/hw_config.c **** #include "Hw_VCom.h"
+  50:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+  51:../LIB_HW/Driver/LIB_USB/hw_config.c **** //ErrorStatus HSEStartUpStatus;
+  52:../LIB_HW/Driver/LIB_USB/hw_config.c **** //USART_InitTypeDef USART_InitStructure;
+  53:../LIB_HW/Driver/LIB_USB/hw_config.c **** //EXTI_InitTypeDef EXTI_InitStructure;
+  54:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+  55:../LIB_HW/Driver/LIB_USB/hw_config.c **** uint8_t  USART_Rx_Buffer [USART_RX_DATA_SIZE]; 
+  56:../LIB_HW/Driver/LIB_USB/hw_config.c **** uint32_t USART_Rx_ptr_in = 0;
+  57:../LIB_HW/Driver/LIB_USB/hw_config.c **** uint32_t USART_Rx_ptr_out = 0;
+  58:../LIB_HW/Driver/LIB_USB/hw_config.c **** uint32_t USART_Rx_length  = 0;
+  59:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+  60:../LIB_HW/Driver/LIB_USB/hw_config.c **** uint8_t  USB_Tx_State = 0;
+  61:../LIB_HW/Driver/LIB_USB/hw_config.c **** static void IntToUnicode (uint32_t value , uint8_t *pbuf , uint8_t len);
+  62:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+  63:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+  64:../LIB_HW/Driver/LIB_USB/hw_config.c **** extern LINE_CODING linecoding;
+  65:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+  66:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+  67:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+  68:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+  69:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+  70:../LIB_HW/Driver/LIB_USB/hw_config.c **** /*******************************************************************************
+  71:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Function Name  : USB_IRQHandler
+  72:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Description    : This function handles USB Low Priority interrupts
+  73:../LIB_HW/Driver/LIB_USB/hw_config.c **** *                  requests.
+  74:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Input          : None
+  75:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Output         : None
+  76:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Return         : None
+  77:../LIB_HW/Driver/LIB_USB/hw_config.c **** *******************************************************************************/
+  78:../LIB_HW/Driver/LIB_USB/hw_config.c **** void USB_LP_IRQHandler(void)
+  79:../LIB_HW/Driver/LIB_USB/hw_config.c **** {
+  80:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	//printf("USB\n");	
+  81:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	USB_Istr();
+  82:../LIB_HW/Driver/LIB_USB/hw_config.c **** }
+  83:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+  84:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+  85:../LIB_HW/Driver/LIB_USB/hw_config.c **** void USBWakeUp_IRQHandler(void)
+  86:../LIB_HW/Driver/LIB_USB/hw_config.c **** {
+  27              		.loc 1 86 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  87:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	//EXTI_ClearITPendingBit(EXTI_Line18);
+  88:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	REG_EXTI_PR = (1 << 18 );
+  32              		.loc 1 88 0
+  33 0000 024B     		ldr	r3, .L2
+  34 0002 4FF48022 		mov	r2, #262144
+  35 0006 1A60     		str	r2, [r3, #0]
+  36 0008 7047     		bx	lr
+  37              	.L3:
+  38 000a 00BF     		.align	2
+  39              	.L2:
+  40 000c 14040140 		.word	1073808404
+  41              		.cfi_endproc
+  42              	.LFE1:
+  44              		.section	.text.IntToUnicode,"ax",%progbits
+  45              		.align	1
+  46              		.thumb
+  47              		.thumb_func
+  49              	IntToUnicode:
+  50              	.LFB13:
+  89:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	
+  90:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	//printf("wake");
+  91:../LIB_HW/Driver/LIB_USB/hw_config.c **** }
+  92:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+  93:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+  94:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+  95:../LIB_HW/Driver/LIB_USB/hw_config.c **** extern void Hw_Wait_Usec( u32 usec );
+  96:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+  97:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+  98:../LIB_HW/Driver/LIB_USB/hw_config.c **** /* Private function prototypes -----------------------------------------------*/
+  99:../LIB_HW/Driver/LIB_USB/hw_config.c **** /* Private functions ---------------------------------------------------------*/
+ 100:../LIB_HW/Driver/LIB_USB/hw_config.c **** /*******************************************************************************
+ 101:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Function Name  : Set_System
+ 102:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Description    : Configures Main system clocks & power
+ 103:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Input          : None.
+ 104:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Return         : None.
+ 105:../LIB_HW/Driver/LIB_USB/hw_config.c **** *******************************************************************************/
+ 106:../LIB_HW/Driver/LIB_USB/hw_config.c **** void Set_System(void)
+ 107:../LIB_HW/Driver/LIB_USB/hw_config.c **** {  	
+ 108:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	//-- PC.13
+ 109:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	REG_GPIOC_CRH &= ~(0x0F << (20));	// Clear
+ 110:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	REG_GPIOC_CRH |=  (0x02 << (20));	// MODE, PC.13 Output mode, max speed 2Mhz
+ 111:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	REG_GPIOC_CRH |=  (0x00 << (22));	// CNF,  PC.13 General purpose output push-pul
+ 112:../LIB_HW/Driver/LIB_USB/hw_config.c **** }
+ 113:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+ 114:../LIB_HW/Driver/LIB_USB/hw_config.c **** /*******************************************************************************
+ 115:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Function Name  : Set_USBClock
+ 116:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Description    : Configures USB Clock input (48MHz)
+ 117:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Input          : None.
+ 118:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Return         : None.
+ 119:../LIB_HW/Driver/LIB_USB/hw_config.c **** *******************************************************************************/
+ 120:../LIB_HW/Driver/LIB_USB/hw_config.c **** void Set_USBClock(void)
+ 121:../LIB_HW/Driver/LIB_USB/hw_config.c **** {
+ 122:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	//-- USB 72M * 2 / 3 = 48Mhz
+ 123:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	//
+ 124:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	CLR_BIT( REG_RCC_CFGR, 22 );	
+ 125:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	
+ 126:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	//-- USB Clock Enable 
+ 127:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	//
+ 128:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	SET_BIT( REG_RCC_APB1ENR, 23 );
+ 129:../LIB_HW/Driver/LIB_USB/hw_config.c **** }
+ 130:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+ 131:../LIB_HW/Driver/LIB_USB/hw_config.c **** /*******************************************************************************
+ 132:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Function Name  : Enter_LowPowerMode
+ 133:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Description    : Power-off system clocks and power while entering suspend mode
+ 134:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Input          : None.
+ 135:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Return         : None.
+ 136:../LIB_HW/Driver/LIB_USB/hw_config.c **** *******************************************************************************/
+ 137:../LIB_HW/Driver/LIB_USB/hw_config.c **** void Enter_LowPowerMode(void)
+ 138:../LIB_HW/Driver/LIB_USB/hw_config.c **** {
+ 139:../LIB_HW/Driver/LIB_USB/hw_config.c ****   /* Set the device state to suspend */
+ 140:../LIB_HW/Driver/LIB_USB/hw_config.c ****   bDeviceState = SUSPENDED;
+ 141:../LIB_HW/Driver/LIB_USB/hw_config.c **** }
+ 142:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+ 143:../LIB_HW/Driver/LIB_USB/hw_config.c **** /*******************************************************************************
+ 144:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Function Name  : Leave_LowPowerMode
+ 145:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Description    : Restores system clocks and power while exiting suspend mode
+ 146:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Input          : None.
+ 147:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Return         : None.
+ 148:../LIB_HW/Driver/LIB_USB/hw_config.c **** *******************************************************************************/
+ 149:../LIB_HW/Driver/LIB_USB/hw_config.c **** void Leave_LowPowerMode(void)
+ 150:../LIB_HW/Driver/LIB_USB/hw_config.c **** {
+ 151:../LIB_HW/Driver/LIB_USB/hw_config.c ****   DEVICE_INFO *pInfo = &Device_Info;
+ 152:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+ 153:../LIB_HW/Driver/LIB_USB/hw_config.c ****   /* Set the device state to the correct state */
+ 154:../LIB_HW/Driver/LIB_USB/hw_config.c ****   if (pInfo->Current_Configuration != 0)
+ 155:../LIB_HW/Driver/LIB_USB/hw_config.c ****   {
+ 156:../LIB_HW/Driver/LIB_USB/hw_config.c ****     /* Device configured */
+ 157:../LIB_HW/Driver/LIB_USB/hw_config.c ****     bDeviceState = CONFIGURED;
+ 158:../LIB_HW/Driver/LIB_USB/hw_config.c ****   }
+ 159:../LIB_HW/Driver/LIB_USB/hw_config.c ****   else
+ 160:../LIB_HW/Driver/LIB_USB/hw_config.c ****   {
+ 161:../LIB_HW/Driver/LIB_USB/hw_config.c ****     bDeviceState = ATTACHED;
+ 162:../LIB_HW/Driver/LIB_USB/hw_config.c ****   }
+ 163:../LIB_HW/Driver/LIB_USB/hw_config.c ****   /*Enable SystemCoreClock*/
+ 164:../LIB_HW/Driver/LIB_USB/hw_config.c ****   //SystemInit();
+ 165:../LIB_HW/Driver/LIB_USB/hw_config.c **** }
+ 166:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+ 167:../LIB_HW/Driver/LIB_USB/hw_config.c **** /*******************************************************************************
+ 168:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Function Name  : USB_Interrupts_Config
+ 169:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Description    : Configures the USB interrupts
+ 170:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Input          : None.
+ 171:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Return         : None.
+ 172:../LIB_HW/Driver/LIB_USB/hw_config.c **** *******************************************************************************/
+ 173:../LIB_HW/Driver/LIB_USB/hw_config.c **** void USB_Interrupts_Config(void)
+ 174:../LIB_HW/Driver/LIB_USB/hw_config.c **** {
+ 175:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+ 176:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	//-- EXTI Line 18 Interrupt Enabled
+ 177:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	//
+ 178:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	REG_EXTI_PR = (1 << 18 );		// EXTI line 18 Clear Pending Bit connected internally to the USB IP
+ 179:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	
+ 180:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	CLR_BIT( REG_EXTI_IMR,  18 );
+ 181:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	CLR_BIT( REG_EXTI_EMR,  18 );
+ 182:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	SET_BIT( REG_EXTI_RTSR, 18 );	// Rising Edge
+ 183:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	CLR_BIT( REG_EXTI_FTSR, 18 );
+ 184:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	SET_BIT( REG_EXTI_IMR,  18 );	// Enable
+ 185:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+ 186:../LIB_HW/Driver/LIB_USB/hw_config.c ****   
+ 187:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	Hw_ISR_SetIRQFuncByAddr( 0x0090, (u32)USB_LP_IRQHandler, 0 );
+ 188:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	SET_BIT( REG_NVIC_ISER( 20/32 ), 20%32 );	// NVIC 20번 USB_LP 인터럽트 활성화 
+ 189:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	
+ 190:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	Hw_ISR_SetIRQFuncByAddr( 0x00E8, (u32)USBWakeUp_IRQHandler, 0 );
+ 191:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	SET_BIT( REG_NVIC_ISER( 42/32 ), 42%32 );	// NVIC 42번 USB Wake Up 인터럽트 활성화 
+ 192:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+ 193:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	SET_BIT( REG_EXTI_SWIER, 18 );
+ 194:../LIB_HW/Driver/LIB_USB/hw_config.c **** 		 
+ 195:../LIB_HW/Driver/LIB_USB/hw_config.c **** }
+ 196:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+ 197:../LIB_HW/Driver/LIB_USB/hw_config.c **** /*******************************************************************************
+ 198:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Function Name  : USB_Cable_Config
+ 199:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Description    : Software Connection/Disconnection of USB Cable
+ 200:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Input          : None.
+ 201:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Return         : Status
+ 202:../LIB_HW/Driver/LIB_USB/hw_config.c **** *******************************************************************************/
+ 203:../LIB_HW/Driver/LIB_USB/hw_config.c **** void USB_Cable_Config (char NewState)
+ 204:../LIB_HW/Driver/LIB_USB/hw_config.c **** {
+ 205:../LIB_HW/Driver/LIB_USB/hw_config.c ****   if (NewState != DISABLE)
+ 206:../LIB_HW/Driver/LIB_USB/hw_config.c ****   {
+ 207:../LIB_HW/Driver/LIB_USB/hw_config.c ****   	#if HW_USE_USB_SMARTROBOT_BD == 1
+ 208:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	CLR_BIT( REG_GPIOC_ODR, 13 );
+ 209:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	#else
+ 210:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	CLR_BIT( REG_GPIOC_ODR, 2 );
+ 211:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	#endif
+ 212:../LIB_HW/Driver/LIB_USB/hw_config.c ****   }
+ 213:../LIB_HW/Driver/LIB_USB/hw_config.c ****   else
+ 214:../LIB_HW/Driver/LIB_USB/hw_config.c ****   {
+ 215:../LIB_HW/Driver/LIB_USB/hw_config.c ****   	#if HW_USE_USB_SMARTROBOT_BD == 1
+ 216:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	SET_BIT( REG_GPIOC_ODR, 13 );    
+ 217:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	#else
+ 218:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	SET_BIT( REG_GPIOC_ODR, 2 );    
+ 219:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	#endif
+ 220:../LIB_HW/Driver/LIB_USB/hw_config.c ****   }
+ 221:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+ 222:../LIB_HW/Driver/LIB_USB/hw_config.c **** }
+ 223:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+ 224:../LIB_HW/Driver/LIB_USB/hw_config.c **** /*******************************************************************************
+ 225:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Function Name  : USB_To_USART_Send_Data.
+ 226:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Description    : send the received data from USB to the UART 0.
+ 227:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Input          : data_buffer: data address.
+ 228:../LIB_HW/Driver/LIB_USB/hw_config.c ****                    Nb_bytes: number of bytes to send.
+ 229:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Return         : none.
+ 230:../LIB_HW/Driver/LIB_USB/hw_config.c **** *******************************************************************************/
+ 231:../LIB_HW/Driver/LIB_USB/hw_config.c **** void USB_To_USART_Send_Data(uint8_t* data_buffer, uint8_t Nb_bytes)
+ 232:../LIB_HW/Driver/LIB_USB/hw_config.c **** {
+ 233:../LIB_HW/Driver/LIB_USB/hw_config.c ****   
+ 234:../LIB_HW/Driver/LIB_USB/hw_config.c ****   uint32_t i;
+ 235:../LIB_HW/Driver/LIB_USB/hw_config.c ****   u8 UartData;
+ 236:../LIB_HW/Driver/LIB_USB/hw_config.c ****   
+ 237:../LIB_HW/Driver/LIB_USB/hw_config.c ****   for (i = 0; i < Nb_bytes; i++)
+ 238:../LIB_HW/Driver/LIB_USB/hw_config.c ****   {
+ 239:../LIB_HW/Driver/LIB_USB/hw_config.c ****     //USART_SendData(EVAL_COM1, *(data_buffer + i));
+ 240:../LIB_HW/Driver/LIB_USB/hw_config.c ****     //while(USART_GetFlagStatus(EVAL_COM1, USART_FLAG_TXE) == RESET); 
+ 241:../LIB_HW/Driver/LIB_USB/hw_config.c ****     
+ 242:../LIB_HW/Driver/LIB_USB/hw_config.c ****     //-- PC로부터 받은 데이터 처리
+ 243:../LIB_HW/Driver/LIB_USB/hw_config.c ****     //
+ 244:../LIB_HW/Driver/LIB_USB/hw_config.c ****     UartData = *(data_buffer + i);
+ 245:../LIB_HW/Driver/LIB_USB/hw_config.c ****     Hw_VCom_Q_Push( 0, &UartData );	//
+ 246:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+ 247:../LIB_HW/Driver/LIB_USB/hw_config.c ****     if( Hw_VCom_RxdFuncPtr != NULL )
+ 248:../LIB_HW/Driver/LIB_USB/hw_config.c ****     {
+ 249:../LIB_HW/Driver/LIB_USB/hw_config.c ****       Hw_VCom_RxdFuncPtr( UartData );      
+ 250:../LIB_HW/Driver/LIB_USB/hw_config.c ****     }
+ 251:../LIB_HW/Driver/LIB_USB/hw_config.c ****   }  
+ 252:../LIB_HW/Driver/LIB_USB/hw_config.c **** }
+ 253:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+ 254:../LIB_HW/Driver/LIB_USB/hw_config.c **** /*******************************************************************************
+ 255:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Function Name  : Handle_USBAsynchXfer.
+ 256:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Description    : send data to USB.
+ 257:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Input          : None.
+ 258:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Return         : none.
+ 259:../LIB_HW/Driver/LIB_USB/hw_config.c **** *******************************************************************************/
+ 260:../LIB_HW/Driver/LIB_USB/hw_config.c **** void Handle_USBAsynchXfer (void)
+ 261:../LIB_HW/Driver/LIB_USB/hw_config.c **** {
+ 262:../LIB_HW/Driver/LIB_USB/hw_config.c ****   
+ 263:../LIB_HW/Driver/LIB_USB/hw_config.c ****   uint16_t USB_Tx_ptr;
+ 264:../LIB_HW/Driver/LIB_USB/hw_config.c ****   uint16_t USB_Tx_length;
+ 265:../LIB_HW/Driver/LIB_USB/hw_config.c ****   
+ 266:../LIB_HW/Driver/LIB_USB/hw_config.c ****   if(USB_Tx_State != 1)
+ 267:../LIB_HW/Driver/LIB_USB/hw_config.c ****   {
+ 268:../LIB_HW/Driver/LIB_USB/hw_config.c ****     if (USART_Rx_ptr_out == USART_RX_DATA_SIZE)
+ 269:../LIB_HW/Driver/LIB_USB/hw_config.c ****     {
+ 270:../LIB_HW/Driver/LIB_USB/hw_config.c ****       USART_Rx_ptr_out = 0;
+ 271:../LIB_HW/Driver/LIB_USB/hw_config.c ****     }
+ 272:../LIB_HW/Driver/LIB_USB/hw_config.c ****     
+ 273:../LIB_HW/Driver/LIB_USB/hw_config.c ****     if(USART_Rx_ptr_out == USART_Rx_ptr_in) 
+ 274:../LIB_HW/Driver/LIB_USB/hw_config.c ****     {
+ 275:../LIB_HW/Driver/LIB_USB/hw_config.c ****       USB_Tx_State = 0; 
+ 276:../LIB_HW/Driver/LIB_USB/hw_config.c ****       return;
+ 277:../LIB_HW/Driver/LIB_USB/hw_config.c ****     }
+ 278:../LIB_HW/Driver/LIB_USB/hw_config.c ****     
+ 279:../LIB_HW/Driver/LIB_USB/hw_config.c ****     if(USART_Rx_ptr_out > USART_Rx_ptr_in) /* rollback */
+ 280:../LIB_HW/Driver/LIB_USB/hw_config.c ****     { 
+ 281:../LIB_HW/Driver/LIB_USB/hw_config.c ****       USART_Rx_length = USART_RX_DATA_SIZE - USART_Rx_ptr_out;
+ 282:../LIB_HW/Driver/LIB_USB/hw_config.c ****     }
+ 283:../LIB_HW/Driver/LIB_USB/hw_config.c ****     else 
+ 284:../LIB_HW/Driver/LIB_USB/hw_config.c ****     {
+ 285:../LIB_HW/Driver/LIB_USB/hw_config.c ****       USART_Rx_length = USART_Rx_ptr_in - USART_Rx_ptr_out;
+ 286:../LIB_HW/Driver/LIB_USB/hw_config.c ****     }
+ 287:../LIB_HW/Driver/LIB_USB/hw_config.c ****     
+ 288:../LIB_HW/Driver/LIB_USB/hw_config.c ****     if (USART_Rx_length > VIRTUAL_COM_PORT_DATA_SIZE)
+ 289:../LIB_HW/Driver/LIB_USB/hw_config.c ****     {
+ 290:../LIB_HW/Driver/LIB_USB/hw_config.c ****       USB_Tx_ptr = USART_Rx_ptr_out;
+ 291:../LIB_HW/Driver/LIB_USB/hw_config.c ****       USB_Tx_length = VIRTUAL_COM_PORT_DATA_SIZE;
+ 292:../LIB_HW/Driver/LIB_USB/hw_config.c ****       
+ 293:../LIB_HW/Driver/LIB_USB/hw_config.c ****       USART_Rx_ptr_out += VIRTUAL_COM_PORT_DATA_SIZE;	
+ 294:../LIB_HW/Driver/LIB_USB/hw_config.c ****       USART_Rx_length -= VIRTUAL_COM_PORT_DATA_SIZE;	
+ 295:../LIB_HW/Driver/LIB_USB/hw_config.c ****     }
+ 296:../LIB_HW/Driver/LIB_USB/hw_config.c ****     else
+ 297:../LIB_HW/Driver/LIB_USB/hw_config.c ****     {
+ 298:../LIB_HW/Driver/LIB_USB/hw_config.c ****       USB_Tx_ptr = USART_Rx_ptr_out;
+ 299:../LIB_HW/Driver/LIB_USB/hw_config.c ****       USB_Tx_length = USART_Rx_length;
+ 300:../LIB_HW/Driver/LIB_USB/hw_config.c ****       
+ 301:../LIB_HW/Driver/LIB_USB/hw_config.c ****       USART_Rx_ptr_out += USART_Rx_length;
+ 302:../LIB_HW/Driver/LIB_USB/hw_config.c ****       USART_Rx_length = 0;
+ 303:../LIB_HW/Driver/LIB_USB/hw_config.c ****     }
+ 304:../LIB_HW/Driver/LIB_USB/hw_config.c ****     USB_Tx_State = 1; 
+ 305:../LIB_HW/Driver/LIB_USB/hw_config.c ****     UserToPMABufferCopy(&USART_Rx_Buffer[USB_Tx_ptr], ENDP1_TXADDR, USB_Tx_length);
+ 306:../LIB_HW/Driver/LIB_USB/hw_config.c ****     SetEPTxCount(ENDP1, USB_Tx_length);
+ 307:../LIB_HW/Driver/LIB_USB/hw_config.c ****     SetEPTxValid(ENDP1); 
+ 308:../LIB_HW/Driver/LIB_USB/hw_config.c ****   }  
+ 309:../LIB_HW/Driver/LIB_USB/hw_config.c ****   
+ 310:../LIB_HW/Driver/LIB_USB/hw_config.c **** }
+ 311:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+ 312:../LIB_HW/Driver/LIB_USB/hw_config.c **** /*******************************************************************************
+ 313:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Function Name  : UART_To_USB_Send_Data.
+ 314:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Description    : send the received data from UART 0 to USB.
+ 315:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Input          : None.
+ 316:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Return         : none.
+ 317:../LIB_HW/Driver/LIB_USB/hw_config.c **** *******************************************************************************/
+ 318:../LIB_HW/Driver/LIB_USB/hw_config.c **** void USART_To_USB_Send_Data(void)
+ 319:../LIB_HW/Driver/LIB_USB/hw_config.c **** {
+ 320:../LIB_HW/Driver/LIB_USB/hw_config.c **** #if 0  
+ 321:../LIB_HW/Driver/LIB_USB/hw_config.c ****   if (linecoding.datatype == 7)
+ 322:../LIB_HW/Driver/LIB_USB/hw_config.c ****   {
+ 323:../LIB_HW/Driver/LIB_USB/hw_config.c ****     USART_Rx_Buffer[USART_Rx_ptr_in] = USART_ReceiveData(EVAL_COM1) & 0x7F;
+ 324:../LIB_HW/Driver/LIB_USB/hw_config.c ****   }
+ 325:../LIB_HW/Driver/LIB_USB/hw_config.c ****   else if (linecoding.datatype == 8)
+ 326:../LIB_HW/Driver/LIB_USB/hw_config.c ****   {
+ 327:../LIB_HW/Driver/LIB_USB/hw_config.c ****     USART_Rx_Buffer[USART_Rx_ptr_in] = USART_ReceiveData(EVAL_COM1);
+ 328:../LIB_HW/Driver/LIB_USB/hw_config.c ****   }
+ 329:../LIB_HW/Driver/LIB_USB/hw_config.c ****   
+ 330:../LIB_HW/Driver/LIB_USB/hw_config.c ****   USART_Rx_ptr_in++;
+ 331:../LIB_HW/Driver/LIB_USB/hw_config.c ****   
+ 332:../LIB_HW/Driver/LIB_USB/hw_config.c ****   /* To avoid buffer overflow */
+ 333:../LIB_HW/Driver/LIB_USB/hw_config.c ****   if(USART_Rx_ptr_in == USART_RX_DATA_SIZE)
+ 334:../LIB_HW/Driver/LIB_USB/hw_config.c ****   {
+ 335:../LIB_HW/Driver/LIB_USB/hw_config.c ****     USART_Rx_ptr_in = 0;
+ 336:../LIB_HW/Driver/LIB_USB/hw_config.c ****   }
+ 337:../LIB_HW/Driver/LIB_USB/hw_config.c **** #endif  
+ 338:../LIB_HW/Driver/LIB_USB/hw_config.c **** }
+ 339:../LIB_HW/Driver/LIB_USB/hw_config.c **** /*******************************************************************************
+ 340:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Function Name  : UART_To_USB_Send_Data.
+ 341:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Description    : send the received data from UART 0 to USB.
+ 342:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Input          : None.
+ 343:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Return         : none.
+ 344:../LIB_HW/Driver/LIB_USB/hw_config.c **** *******************************************************************************/
+ 345:../LIB_HW/Driver/LIB_USB/hw_config.c **** void USB_Send_Data( u8 SendData )
+ 346:../LIB_HW/Driver/LIB_USB/hw_config.c **** {
+ 347:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	
+ 348:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	//-- 전송 버퍼가 꽉 차면 기다린다.
+ 349:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	//
+ 350:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	while(1)
+ 351:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	{
+ 352:../LIB_HW/Driver/LIB_USB/hw_config.c **** 		if( (USART_Rx_length + 1) < USART_RX_DATA_SIZE ) break;
+ 353:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	}
+ 354:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	
+ 355:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	
+ 356:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	USART_Rx_Buffer[USART_Rx_ptr_in] = SendData;
+ 357:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	USART_Rx_ptr_in++;
+ 358:../LIB_HW/Driver/LIB_USB/hw_config.c ****   
+ 359:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	/* To avoid buffer overflow */
+ 360:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	if(USART_Rx_ptr_in == USART_RX_DATA_SIZE)
+ 361:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	{
+ 362:../LIB_HW/Driver/LIB_USB/hw_config.c **** 		USART_Rx_ptr_in = 0;
+ 363:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	}
+ 364:../LIB_HW/Driver/LIB_USB/hw_config.c **** }
+ 365:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+ 366:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+ 367:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+ 368:../LIB_HW/Driver/LIB_USB/hw_config.c **** /*******************************************************************************
+ 369:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Function Name  : Get_SerialNum.
+ 370:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Description    : Create the serial number string descriptor.
+ 371:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Input          : None.
+ 372:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Output         : None.
+ 373:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Return         : None.
+ 374:../LIB_HW/Driver/LIB_USB/hw_config.c **** *******************************************************************************/
+ 375:../LIB_HW/Driver/LIB_USB/hw_config.c **** void Get_SerialNum(void)
+ 376:../LIB_HW/Driver/LIB_USB/hw_config.c **** {
+ 377:../LIB_HW/Driver/LIB_USB/hw_config.c ****   uint32_t Device_Serial0, Device_Serial1, Device_Serial2;
+ 378:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+ 379:../LIB_HW/Driver/LIB_USB/hw_config.c ****   Device_Serial0 = *(uint32_t*)ID1;
+ 380:../LIB_HW/Driver/LIB_USB/hw_config.c ****   Device_Serial1 = *(uint32_t*)ID2;
+ 381:../LIB_HW/Driver/LIB_USB/hw_config.c ****   Device_Serial2 = *(uint32_t*)ID3;  
+ 382:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+ 383:../LIB_HW/Driver/LIB_USB/hw_config.c ****   Device_Serial0 += Device_Serial2;
+ 384:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+ 385:../LIB_HW/Driver/LIB_USB/hw_config.c ****   if (Device_Serial0 != 0)
+ 386:../LIB_HW/Driver/LIB_USB/hw_config.c ****   {
+ 387:../LIB_HW/Driver/LIB_USB/hw_config.c ****     IntToUnicode (Device_Serial0, &Virtual_Com_Port_StringSerial[2] , 8);
+ 388:../LIB_HW/Driver/LIB_USB/hw_config.c ****     IntToUnicode (Device_Serial1, &Virtual_Com_Port_StringSerial[18], 4);
+ 389:../LIB_HW/Driver/LIB_USB/hw_config.c ****   }
+ 390:../LIB_HW/Driver/LIB_USB/hw_config.c **** }
+ 391:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+ 392:../LIB_HW/Driver/LIB_USB/hw_config.c **** /*******************************************************************************
+ 393:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Function Name  : HexToChar.
+ 394:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Description    : Convert Hex 32Bits value into char.
+ 395:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Input          : None.
+ 396:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Output         : None.
+ 397:../LIB_HW/Driver/LIB_USB/hw_config.c **** * Return         : None.
+ 398:../LIB_HW/Driver/LIB_USB/hw_config.c **** *******************************************************************************/
+ 399:../LIB_HW/Driver/LIB_USB/hw_config.c **** static void IntToUnicode (uint32_t value , uint8_t *pbuf , uint8_t len)
+ 400:../LIB_HW/Driver/LIB_USB/hw_config.c **** {
+  51              		.loc 1 400 0
+  52              		.cfi_startproc
+  53              		@ args = 0, pretend = 0, frame = 0
+  54              		@ frame_needed = 0, uses_anonymous_args = 0
+  55              	.LVL0:
+  56 0000 10B5     		push	{r4, lr}
+  57              	.LCFI0:
+  58              		.cfi_def_cfa_offset 8
+  59              		.cfi_offset 4, -8
+  60              		.cfi_offset 14, -4
+ 399:../LIB_HW/Driver/LIB_USB/hw_config.c **** static void IntToUnicode (uint32_t value , uint8_t *pbuf , uint8_t len)
+  61              		.loc 1 399 0
+  62 0002 0131     		adds	r1, r1, #1
+  63              	.LVL1:
+ 401:../LIB_HW/Driver/LIB_USB/hw_config.c ****   uint8_t idx = 0;
+ 402:../LIB_HW/Driver/LIB_USB/hw_config.c ****   
+ 403:../LIB_HW/Driver/LIB_USB/hw_config.c ****   for( idx = 0 ; idx < len ; idx ++)
+  64              		.loc 1 403 0
+  65 0004 0023     		movs	r3, #0
+  66              	.LVL2:
+  67              	.L5:
+  68              		.loc 1 403 0 is_stmt 0 discriminator 1
+  69 0006 9342     		cmp	r3, r2
+  70 0008 0ED0     		beq	.L11
+  71              	.L8:
+ 404:../LIB_HW/Driver/LIB_USB/hw_config.c ****   {
+ 405:../LIB_HW/Driver/LIB_USB/hw_config.c ****     if( ((value >> 28)) < 0xA )
+  72              		.loc 1 405 0 is_stmt 1
+  73 000a 040F     		lsrs	r4, r0, #28
+  74 000c 092C     		cmp	r4, #9
+  75 000e 01D8     		bhi	.L6
+ 406:../LIB_HW/Driver/LIB_USB/hw_config.c ****     {
+ 407:../LIB_HW/Driver/LIB_USB/hw_config.c ****       pbuf[ 2* idx] = (value >> 28) + '0';
+  76              		.loc 1 407 0
+  77 0010 3034     		adds	r4, r4, #48
+  78 0012 00E0     		b	.L9
+  79              	.L6:
+ 408:../LIB_HW/Driver/LIB_USB/hw_config.c ****     }
+ 409:../LIB_HW/Driver/LIB_USB/hw_config.c ****     else
+ 410:../LIB_HW/Driver/LIB_USB/hw_config.c ****     {
+ 411:../LIB_HW/Driver/LIB_USB/hw_config.c ****       pbuf[2* idx] = (value >> 28) + 'A' - 10; 
+  80              		.loc 1 411 0
+  81 0014 3734     		adds	r4, r4, #55
+  82              	.L9:
+  83 0016 01F8014C 		strb	r4, [r1, #-1]
+ 403:../LIB_HW/Driver/LIB_USB/hw_config.c ****   for( idx = 0 ; idx < len ; idx ++)
+  84              		.loc 1 403 0
+  85 001a 0133     		adds	r3, r3, #1
+  86              	.LVL3:
+ 412:../LIB_HW/Driver/LIB_USB/hw_config.c ****     }
+ 413:../LIB_HW/Driver/LIB_USB/hw_config.c ****     
+ 414:../LIB_HW/Driver/LIB_USB/hw_config.c ****     value = value << 4;
+ 415:../LIB_HW/Driver/LIB_USB/hw_config.c ****     
+ 416:../LIB_HW/Driver/LIB_USB/hw_config.c ****     pbuf[ 2* idx + 1] = 0;
+  87              		.loc 1 416 0
+  88 001c 0024     		movs	r4, #0
+ 414:../LIB_HW/Driver/LIB_USB/hw_config.c ****     value = value << 4;
+  89              		.loc 1 414 0
+  90 001e 0001     		lsls	r0, r0, #4
+  91              	.LVL4:
+  92              		.loc 1 416 0
+  93 0020 01F8024B 		strb	r4, [r1], #2
+ 403:../LIB_HW/Driver/LIB_USB/hw_config.c ****   for( idx = 0 ; idx < len ; idx ++)
+  94              		.loc 1 403 0
+  95 0024 DBB2     		uxtb	r3, r3
+  96              	.LVL5:
+  97 0026 EEE7     		b	.L5
+  98              	.L11:
+ 417:../LIB_HW/Driver/LIB_USB/hw_config.c ****   }
+ 418:../LIB_HW/Driver/LIB_USB/hw_config.c **** }
+  99              		.loc 1 418 0
+ 100 0028 10BD     		pop	{r4, pc}
+ 101              		.cfi_endproc
+ 102              	.LFE13:
+ 104              		.section	.text.USB_LP_IRQHandler,"ax",%progbits
+ 105              		.align	1
+ 106              		.global	USB_LP_IRQHandler
+ 107              		.thumb
+ 108              		.thumb_func
+ 110              	USB_LP_IRQHandler:
+ 111              	.LFB0:
+  79:../LIB_HW/Driver/LIB_USB/hw_config.c **** {
+ 112              		.loc 1 79 0
+ 113              		.cfi_startproc
+ 114              		@ args = 0, pretend = 0, frame = 0
+ 115              		@ frame_needed = 0, uses_anonymous_args = 0
+ 116 0000 08B5     		push	{r3, lr}
+ 117              	.LCFI1:
+ 118              		.cfi_def_cfa_offset 8
+ 119              		.cfi_offset 3, -8
+ 120              		.cfi_offset 14, -4
+  81:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	USB_Istr();
+ 121              		.loc 1 81 0
+ 122 0002 014B     		ldr	r3, .L13
+ 123 0004 9847     		blx	r3
+ 124              	.LVL6:
+ 125 0006 08BD     		pop	{r3, pc}
+ 126              	.L14:
+ 127              		.align	2
+ 128              	.L13:
+ 129 0008 00000000 		.word	USB_Istr
+ 130              		.cfi_endproc
+ 131              	.LFE0:
+ 133              		.section	.text.Set_System,"ax",%progbits
+ 134              		.align	1
+ 135              		.global	Set_System
+ 136              		.thumb
+ 137              		.thumb_func
+ 139              	Set_System:
+ 140              	.LFB2:
+ 107:../LIB_HW/Driver/LIB_USB/hw_config.c **** {  	
+ 141              		.loc 1 107 0
+ 142              		.cfi_startproc
+ 143              		@ args = 0, pretend = 0, frame = 0
+ 144              		@ frame_needed = 0, uses_anonymous_args = 0
+ 145              		@ link register save eliminated.
+ 109:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	REG_GPIOC_CRH &= ~(0x0F << (20));	// Clear
+ 146              		.loc 1 109 0
+ 147 0000 054B     		ldr	r3, .L16
+ 148 0002 1A68     		ldr	r2, [r3, #0]
+ 149 0004 22F47000 		bic	r0, r2, #15728640
+ 150 0008 1860     		str	r0, [r3, #0]
+ 110:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	REG_GPIOC_CRH |=  (0x02 << (20));	// MODE, PC.13 Output mode, max speed 2Mhz
+ 151              		.loc 1 110 0
+ 152 000a 1968     		ldr	r1, [r3, #0]
+ 153 000c 41F40012 		orr	r2, r1, #2097152
+ 154 0010 1A60     		str	r2, [r3, #0]
+ 111:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	REG_GPIOC_CRH |=  (0x00 << (22));	// CNF,  PC.13 General purpose output push-pul
+ 155              		.loc 1 111 0
+ 156 0012 1868     		ldr	r0, [r3, #0]
+ 157 0014 1860     		str	r0, [r3, #0]
+ 158 0016 7047     		bx	lr
+ 159              	.L17:
+ 160              		.align	2
+ 161              	.L16:
+ 162 0018 04100140 		.word	1073811460
+ 163              		.cfi_endproc
+ 164              	.LFE2:
+ 166              		.section	.text.Set_USBClock,"ax",%progbits
+ 167              		.align	1
+ 168              		.global	Set_USBClock
+ 169              		.thumb
+ 170              		.thumb_func
+ 172              	Set_USBClock:
+ 173              	.LFB3:
+ 121:../LIB_HW/Driver/LIB_USB/hw_config.c **** {
+ 174              		.loc 1 121 0
+ 175              		.cfi_startproc
+ 176              		@ args = 0, pretend = 0, frame = 0
+ 177              		@ frame_needed = 0, uses_anonymous_args = 0
+ 178              		@ link register save eliminated.
+ 124:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	CLR_BIT( REG_RCC_CFGR, 22 );	
+ 179              		.loc 1 124 0
+ 180 0000 044B     		ldr	r3, .L19
+ 181 0002 1A68     		ldr	r2, [r3, #0]
+ 182 0004 22F48000 		bic	r0, r2, #4194304
+ 183 0008 1860     		str	r0, [r3, #0]
+ 128:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	SET_BIT( REG_RCC_APB1ENR, 23 );
+ 184              		.loc 1 128 0
+ 185 000a 9969     		ldr	r1, [r3, #24]
+ 186 000c 41F40002 		orr	r2, r1, #8388608
+ 187 0010 9A61     		str	r2, [r3, #24]
+ 188 0012 7047     		bx	lr
+ 189              	.L20:
+ 190              		.align	2
+ 191              	.L19:
+ 192 0014 04100240 		.word	1073876996
+ 193              		.cfi_endproc
+ 194              	.LFE3:
+ 196              		.section	.text.Enter_LowPowerMode,"ax",%progbits
+ 197              		.align	1
+ 198              		.global	Enter_LowPowerMode
+ 199              		.thumb
+ 200              		.thumb_func
+ 202              	Enter_LowPowerMode:
+ 203              	.LFB4:
+ 138:../LIB_HW/Driver/LIB_USB/hw_config.c **** {
+ 204              		.loc 1 138 0
+ 205              		.cfi_startproc
+ 206              		@ args = 0, pretend = 0, frame = 0
+ 207              		@ frame_needed = 0, uses_anonymous_args = 0
+ 208              		@ link register save eliminated.
+ 140:../LIB_HW/Driver/LIB_USB/hw_config.c ****   bDeviceState = SUSPENDED;
+ 209              		.loc 1 140 0
+ 210 0000 014B     		ldr	r3, .L22
+ 211 0002 0322     		movs	r2, #3
+ 212 0004 1A60     		str	r2, [r3, #0]
+ 213 0006 7047     		bx	lr
+ 214              	.L23:
+ 215              		.align	2
+ 216              	.L22:
+ 217 0008 00000000 		.word	bDeviceState
+ 218              		.cfi_endproc
+ 219              	.LFE4:
+ 221              		.section	.text.Leave_LowPowerMode,"ax",%progbits
+ 222              		.align	1
+ 223              		.global	Leave_LowPowerMode
+ 224              		.thumb
+ 225              		.thumb_func
+ 227              	Leave_LowPowerMode:
+ 228              	.LFB5:
+ 150:../LIB_HW/Driver/LIB_USB/hw_config.c **** {
+ 229              		.loc 1 150 0
+ 230              		.cfi_startproc
+ 231              		@ args = 0, pretend = 0, frame = 0
+ 232              		@ frame_needed = 0, uses_anonymous_args = 0
+ 233              		@ link register save eliminated.
+ 234              	.LVL7:
+ 154:../LIB_HW/Driver/LIB_USB/hw_config.c ****   if (pInfo->Current_Configuration != 0)
+ 235              		.loc 1 154 0
+ 236 0000 044B     		ldr	r3, .L28
+ 237 0002 0548     		ldr	r0, .L28+4
+ 238 0004 9A7A     		ldrb	r2, [r3, #10]	@ zero_extendqisi2
+ 239 0006 0AB1     		cbz	r2, .L25
+ 157:../LIB_HW/Driver/LIB_USB/hw_config.c ****     bDeviceState = CONFIGURED;
+ 240              		.loc 1 157 0
+ 241 0008 0521     		movs	r1, #5
+ 242 000a 00E0     		b	.L27
+ 243              	.L25:
+ 161:../LIB_HW/Driver/LIB_USB/hw_config.c ****     bDeviceState = ATTACHED;
+ 244              		.loc 1 161 0
+ 245 000c 0121     		movs	r1, #1
+ 246              	.L27:
+ 247 000e 0160     		str	r1, [r0, #0]
+ 248 0010 7047     		bx	lr
+ 249              	.L29:
+ 250 0012 00BF     		.align	2
+ 251              	.L28:
+ 252 0014 00000000 		.word	Device_Info
+ 253 0018 00000000 		.word	bDeviceState
+ 254              		.cfi_endproc
+ 255              	.LFE5:
+ 257              		.section	.text.USB_Interrupts_Config,"ax",%progbits
+ 258              		.align	1
+ 259              		.global	USB_Interrupts_Config
+ 260              		.thumb
+ 261              		.thumb_func
+ 263              	USB_Interrupts_Config:
+ 264              	.LFB6:
+ 174:../LIB_HW/Driver/LIB_USB/hw_config.c **** {
+ 265              		.loc 1 174 0
+ 266              		.cfi_startproc
+ 267              		@ args = 0, pretend = 0, frame = 0
+ 268              		@ frame_needed = 0, uses_anonymous_args = 0
+ 178:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	REG_EXTI_PR = (1 << 18 );		// EXTI line 18 Clear Pending Bit connected internally to the USB IP
+ 269              		.loc 1 178 0
+ 270 0000 1B4B     		ldr	r3, .L31
+ 271 0002 4FF48022 		mov	r2, #262144
+ 174:../LIB_HW/Driver/LIB_USB/hw_config.c **** {
+ 272              		.loc 1 174 0
+ 273 0006 10B5     		push	{r4, lr}
+ 274              	.LCFI2:
+ 275              		.cfi_def_cfa_offset 8
+ 276              		.cfi_offset 4, -8
+ 277              		.cfi_offset 14, -4
+ 178:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	REG_EXTI_PR = (1 << 18 );		// EXTI line 18 Clear Pending Bit connected internally to the USB IP
+ 278              		.loc 1 178 0
+ 279 0008 1A60     		str	r2, [r3, #0]
+ 180:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	CLR_BIT( REG_EXTI_IMR,  18 );
+ 280              		.loc 1 180 0
+ 281 000a 53F8140C 		ldr	r0, [r3, #-20]
+ 181:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	CLR_BIT( REG_EXTI_EMR,  18 );
+ 282              		.loc 1 181 0
+ 283 000e 194C     		ldr	r4, .L31+4
+ 180:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	CLR_BIT( REG_EXTI_IMR,  18 );
+ 284              		.loc 1 180 0
+ 285 0010 20F48021 		bic	r1, r0, #262144
+ 286 0014 43F8141C 		str	r1, [r3, #-20]
+ 181:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	CLR_BIT( REG_EXTI_EMR,  18 );
+ 287              		.loc 1 181 0
+ 288 0018 2268     		ldr	r2, [r4, #0]
+ 289 001a 22F48020 		bic	r0, r2, #262144
+ 290 001e 2060     		str	r0, [r4, #0]
+ 182:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	SET_BIT( REG_EXTI_RTSR, 18 );	// Rising Edge
+ 291              		.loc 1 182 0
+ 292 0020 6168     		ldr	r1, [r4, #4]
+ 293 0022 41F48022 		orr	r2, r1, #262144
+ 294 0026 6260     		str	r2, [r4, #4]
+ 183:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	CLR_BIT( REG_EXTI_FTSR, 18 );
+ 295              		.loc 1 183 0
+ 296 0028 A068     		ldr	r0, [r4, #8]
+ 297 002a 20F48021 		bic	r1, r0, #262144
+ 298 002e A160     		str	r1, [r4, #8]
+ 184:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	SET_BIT( REG_EXTI_IMR,  18 );	// Enable
+ 299              		.loc 1 184 0
+ 300 0030 53F8144C 		ldr	r4, [r3, #-20]
+ 187:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	Hw_ISR_SetIRQFuncByAddr( 0x0090, (u32)USB_LP_IRQHandler, 0 );
+ 301              		.loc 1 187 0
+ 302 0034 9020     		movs	r0, #144
+ 184:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	SET_BIT( REG_EXTI_IMR,  18 );	// Enable
+ 303              		.loc 1 184 0
+ 304 0036 44F48022 		orr	r2, r4, #262144
+ 305 003a 43F8142C 		str	r2, [r3, #-20]
+ 187:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	Hw_ISR_SetIRQFuncByAddr( 0x0090, (u32)USB_LP_IRQHandler, 0 );
+ 306              		.loc 1 187 0
+ 307 003e 0E49     		ldr	r1, .L31+8
+ 308 0040 0022     		movs	r2, #0
+ 309 0042 0E4C     		ldr	r4, .L31+12
+ 310 0044 A047     		blx	r4
+ 311              	.LVL8:
+ 188:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	SET_BIT( REG_NVIC_ISER( 20/32 ), 20%32 );	// NVIC 20번 USB_LP 인터럽트 활성화 
+ 312              		.loc 1 188 0
+ 313 0046 0E4B     		ldr	r3, .L31+16
+ 190:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	Hw_ISR_SetIRQFuncByAddr( 0x00E8, (u32)USBWakeUp_IRQHandler, 0 );
+ 314              		.loc 1 190 0
+ 315 0048 0022     		movs	r2, #0
+ 188:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	SET_BIT( REG_NVIC_ISER( 20/32 ), 20%32 );	// NVIC 20번 USB_LP 인터럽트 활성화 
+ 316              		.loc 1 188 0
+ 317 004a 1868     		ldr	r0, [r3, #0]
+ 318 004c 40F48011 		orr	r1, r0, #1048576
+ 319 0050 1960     		str	r1, [r3, #0]
+ 190:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	Hw_ISR_SetIRQFuncByAddr( 0x00E8, (u32)USBWakeUp_IRQHandler, 0 );
+ 320              		.loc 1 190 0
+ 321 0052 E820     		movs	r0, #232
+ 322 0054 0B49     		ldr	r1, .L31+20
+ 323 0056 A047     		blx	r4
+ 324              	.LVL9:
+ 191:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	SET_BIT( REG_NVIC_ISER( 42/32 ), 42%32 );	// NVIC 42번 USB Wake Up 인터럽트 활성화 
+ 325              		.loc 1 191 0
+ 326 0058 0B4B     		ldr	r3, .L31+24
+ 193:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	SET_BIT( REG_EXTI_SWIER, 18 );
+ 327              		.loc 1 193 0
+ 328 005a 0C49     		ldr	r1, .L31+28
+ 191:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	SET_BIT( REG_NVIC_ISER( 42/32 ), 42%32 );	// NVIC 42번 USB Wake Up 인터럽트 활성화 
+ 329              		.loc 1 191 0
+ 330 005c 1A68     		ldr	r2, [r3, #0]
+ 331 005e 42F48060 		orr	r0, r2, #1024
+ 332 0062 1860     		str	r0, [r3, #0]
+ 193:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	SET_BIT( REG_EXTI_SWIER, 18 );
+ 333              		.loc 1 193 0
+ 334 0064 0B68     		ldr	r3, [r1, #0]
+ 335 0066 43F48022 		orr	r2, r3, #262144
+ 336 006a 0A60     		str	r2, [r1, #0]
+ 337 006c 10BD     		pop	{r4, pc}
+ 338              	.L32:
+ 339 006e 00BF     		.align	2
+ 340              	.L31:
+ 341 0070 14040140 		.word	1073808404
+ 342 0074 04040140 		.word	1073808388
+ 343 0078 00000000 		.word	USB_LP_IRQHandler
+ 344 007c 00000000 		.word	Hw_ISR_SetIRQFuncByAddr
+ 345 0080 00E100E0 		.word	-536813312
+ 346 0084 00000000 		.word	USBWakeUp_IRQHandler
+ 347 0088 04E100E0 		.word	-536813308
+ 348 008c 10040140 		.word	1073808400
+ 349              		.cfi_endproc
+ 350              	.LFE6:
+ 352              		.section	.text.USB_Cable_Config,"ax",%progbits
+ 353              		.align	1
+ 354              		.global	USB_Cable_Config
+ 355              		.thumb
+ 356              		.thumb_func
+ 358              	USB_Cable_Config:
+ 359              	.LFB7:
+ 204:../LIB_HW/Driver/LIB_USB/hw_config.c **** {
+ 360              		.loc 1 204 0
+ 361              		.cfi_startproc
+ 362              		@ args = 0, pretend = 0, frame = 0
+ 363              		@ frame_needed = 0, uses_anonymous_args = 0
+ 364              		@ link register save eliminated.
+ 365              	.LVL10:
+ 366 0000 044B     		ldr	r3, .L37
+ 208:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	CLR_BIT( REG_GPIOC_ODR, 13 );
+ 367              		.loc 1 208 0
+ 368 0002 1A68     		ldr	r2, [r3, #0]
+ 205:../LIB_HW/Driver/LIB_USB/hw_config.c ****   if (NewState != DISABLE)
+ 369              		.loc 1 205 0
+ 370 0004 10B1     		cbz	r0, .L34
+ 208:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	CLR_BIT( REG_GPIOC_ODR, 13 );
+ 371              		.loc 1 208 0
+ 372 0006 22F40050 		bic	r0, r2, #8192
+ 373              	.LVL11:
+ 374 000a 01E0     		b	.L36
+ 375              	.LVL12:
+ 376              	.L34:
+ 216:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	SET_BIT( REG_GPIOC_ODR, 13 );    
+ 377              		.loc 1 216 0
+ 378 000c 42F40050 		orr	r0, r2, #8192
+ 379              	.LVL13:
+ 380              	.L36:
+ 381 0010 1860     		str	r0, [r3, #0]
+ 382 0012 7047     		bx	lr
+ 383              	.L38:
+ 384              		.align	2
+ 385              	.L37:
+ 386 0014 0C100140 		.word	1073811468
+ 387              		.cfi_endproc
+ 388              	.LFE7:
+ 390              		.section	.text.USB_To_USART_Send_Data,"ax",%progbits
+ 391              		.align	1
+ 392              		.global	USB_To_USART_Send_Data
+ 393              		.thumb
+ 394              		.thumb_func
+ 396              	USB_To_USART_Send_Data:
+ 397              	.LFB8:
+ 232:../LIB_HW/Driver/LIB_USB/hw_config.c **** {
+ 398              		.loc 1 232 0
+ 399              		.cfi_startproc
+ 400              		@ args = 0, pretend = 0, frame = 8
+ 401              		@ frame_needed = 0, uses_anonymous_args = 0
+ 402              	.LVL14:
+ 403 0000 73B5     		push	{r0, r1, r4, r5, r6, lr}
+ 404              	.LCFI3:
+ 405              		.cfi_def_cfa_offset 24
+ 406              		.cfi_offset 0, -24
+ 407              		.cfi_offset 1, -20
+ 408              		.cfi_offset 4, -16
+ 409              		.cfi_offset 5, -12
+ 410              		.cfi_offset 6, -8
+ 411              		.cfi_offset 14, -4
+ 232:../LIB_HW/Driver/LIB_USB/hw_config.c **** {
+ 412              		.loc 1 232 0
+ 413 0002 0646     		mov	r6, r0
+ 414 0004 0D46     		mov	r5, r1
+ 237:../LIB_HW/Driver/LIB_USB/hw_config.c ****   for (i = 0; i < Nb_bytes; i++)
+ 415              		.loc 1 237 0
+ 416 0006 0024     		movs	r4, #0
+ 417              	.LVL15:
+ 418              	.L40:
+ 237:../LIB_HW/Driver/LIB_USB/hw_config.c ****   for (i = 0; i < Nb_bytes; i++)
+ 419              		.loc 1 237 0 is_stmt 0 discriminator 1
+ 420 0008 AC42     		cmp	r4, r5
+ 421 000a 0ED2     		bcs	.L46
+ 422              	.L42:
+ 244:../LIB_HW/Driver/LIB_USB/hw_config.c ****     UartData = *(data_buffer + i);
+ 423              		.loc 1 244 0 is_stmt 1
+ 424 000c 325D     		ldrb	r2, [r6, r4]	@ zero_extendqisi2
+ 425 000e 02A9     		add	r1, sp, #8
+ 426 0010 01F8012D 		strb	r2, [r1, #-1]!
+ 245:../LIB_HW/Driver/LIB_USB/hw_config.c ****     Hw_VCom_Q_Push( 0, &UartData );	//
+ 427              		.loc 1 245 0
+ 428 0014 0020     		movs	r0, #0
+ 429 0016 054B     		ldr	r3, .L47
+ 430 0018 9847     		blx	r3
+ 431              	.LVL16:
+ 247:../LIB_HW/Driver/LIB_USB/hw_config.c ****     if( Hw_VCom_RxdFuncPtr != NULL )
+ 432              		.loc 1 247 0
+ 433 001a 0548     		ldr	r0, .L47+4
+ 434 001c 0168     		ldr	r1, [r0, #0]
+ 435 001e 11B1     		cbz	r1, .L41
+ 436              	.LVL17:
+ 249:../LIB_HW/Driver/LIB_USB/hw_config.c ****       Hw_VCom_RxdFuncPtr( UartData );      
+ 437              		.loc 1 249 0
+ 438 0020 9DF80700 		ldrb	r0, [sp, #7]	@ zero_extendqisi2
+ 439 0024 8847     		blx	r1
+ 440              	.LVL18:
+ 441              	.L41:
+ 237:../LIB_HW/Driver/LIB_USB/hw_config.c ****   for (i = 0; i < Nb_bytes; i++)
+ 442              		.loc 1 237 0
+ 443 0026 0134     		adds	r4, r4, #1
+ 444              	.LVL19:
+ 445 0028 EEE7     		b	.L40
+ 446              	.L46:
+ 252:../LIB_HW/Driver/LIB_USB/hw_config.c **** }
+ 447              		.loc 1 252 0
+ 448 002a 7CBD     		pop	{r2, r3, r4, r5, r6, pc}
+ 449              	.L48:
+ 450              		.align	2
+ 451              	.L47:
+ 452 002c 00000000 		.word	Hw_VCom_Q_Push
+ 453 0030 00000000 		.word	Hw_VCom_RxdFuncPtr
+ 454              		.cfi_endproc
+ 455              	.LFE8:
+ 457              		.section	.text.Handle_USBAsynchXfer,"ax",%progbits
+ 458              		.align	1
+ 459              		.global	Handle_USBAsynchXfer
+ 460              		.thumb
+ 461              		.thumb_func
+ 463              	Handle_USBAsynchXfer:
+ 464              	.LFB9:
+ 261:../LIB_HW/Driver/LIB_USB/hw_config.c **** {
+ 465              		.loc 1 261 0
+ 466              		.cfi_startproc
+ 467              		@ args = 0, pretend = 0, frame = 0
+ 468              		@ frame_needed = 0, uses_anonymous_args = 0
+ 469 0000 38B5     		push	{r3, r4, r5, lr}
+ 470              	.LCFI4:
+ 471              		.cfi_def_cfa_offset 16
+ 472              		.cfi_offset 3, -16
+ 473              		.cfi_offset 4, -12
+ 474              		.cfi_offset 5, -8
+ 475              		.cfi_offset 14, -4
+ 266:../LIB_HW/Driver/LIB_USB/hw_config.c ****   if(USB_Tx_State != 1)
+ 476              		.loc 1 266 0
+ 477 0002 1E4B     		ldr	r3, .L61
+ 478 0004 1878     		ldrb	r0, [r3, #0]	@ zero_extendqisi2
+ 479 0006 0128     		cmp	r0, #1
+ 480 0008 37D0     		beq	.L49
+ 268:../LIB_HW/Driver/LIB_USB/hw_config.c ****     if (USART_Rx_ptr_out == USART_RX_DATA_SIZE)
+ 481              		.loc 1 268 0
+ 482 000a 1D49     		ldr	r1, .L61+4
+ 483 000c 0A68     		ldr	r2, [r1, #0]
+ 484 000e B2F5006F 		cmp	r2, #2048
+ 485 0012 01D1     		bne	.L51
+ 270:../LIB_HW/Driver/LIB_USB/hw_config.c ****       USART_Rx_ptr_out = 0;
+ 486              		.loc 1 270 0
+ 487 0014 0023     		movs	r3, #0
+ 488 0016 0B60     		str	r3, [r1, #0]
+ 489              	.L51:
+ 273:../LIB_HW/Driver/LIB_USB/hw_config.c ****     if(USART_Rx_ptr_out == USART_Rx_ptr_in) 
+ 490              		.loc 1 273 0
+ 491 0018 1A48     		ldr	r0, .L61+8
+ 492 001a 0B68     		ldr	r3, [r1, #0]
+ 493 001c 0168     		ldr	r1, [r0, #0]
+ 494 001e 8B42     		cmp	r3, r1
+ 495 0020 03D1     		bne	.L52
+ 275:../LIB_HW/Driver/LIB_USB/hw_config.c ****       USB_Tx_State = 0; 
+ 496              		.loc 1 275 0
+ 497 0022 164B     		ldr	r3, .L61
+ 498 0024 0020     		movs	r0, #0
+ 499 0026 1870     		strb	r0, [r3, #0]
+ 276:../LIB_HW/Driver/LIB_USB/hw_config.c ****       return;
+ 500              		.loc 1 276 0
+ 501 0028 38BD     		pop	{r3, r4, r5, pc}
+ 502              	.L52:
+ 503 002a 174C     		ldr	r4, .L61+12
+ 281:../LIB_HW/Driver/LIB_USB/hw_config.c ****       USART_Rx_length = USART_RX_DATA_SIZE - USART_Rx_ptr_out;
+ 504              		.loc 1 281 0
+ 505 002c 8CBF     		ite	hi
+ 506 002e C3F50061 		rsbhi	r1, r3, #2048
+ 285:../LIB_HW/Driver/LIB_USB/hw_config.c ****       USART_Rx_length = USART_Rx_ptr_in - USART_Rx_ptr_out;
+ 507              		.loc 1 285 0
+ 508 0032 C3EB0101 		rsbls	r1, r3, r1
+ 509 0036 2160     		str	r1, [r4, #0]
+ 288:../LIB_HW/Driver/LIB_USB/hw_config.c ****     if (USART_Rx_length > VIRTUAL_COM_PORT_DATA_SIZE)
+ 510              		.loc 1 288 0
+ 511 0038 2468     		ldr	r4, [r4, #0]
+ 512 003a 1349     		ldr	r1, .L61+12
+ 513 003c 402C     		cmp	r4, #64
+ 514 003e 104A     		ldr	r2, .L61+4
+ 515 0040 98B2     		uxth	r0, r3
+ 516 0042 05D9     		bls	.L55
+ 517              	.LVL20:
+ 293:../LIB_HW/Driver/LIB_USB/hw_config.c ****       USART_Rx_ptr_out += VIRTUAL_COM_PORT_DATA_SIZE;	
+ 518              		.loc 1 293 0
+ 519 0044 4033     		adds	r3, r3, #64
+ 520              	.LVL21:
+ 294:../LIB_HW/Driver/LIB_USB/hw_config.c ****       USART_Rx_length -= VIRTUAL_COM_PORT_DATA_SIZE;	
+ 521              		.loc 1 294 0
+ 522 0046 403C     		subs	r4, r4, #64
+ 293:../LIB_HW/Driver/LIB_USB/hw_config.c ****       USART_Rx_ptr_out += VIRTUAL_COM_PORT_DATA_SIZE;	
+ 523              		.loc 1 293 0
+ 524 0048 1360     		str	r3, [r2, #0]
+ 294:../LIB_HW/Driver/LIB_USB/hw_config.c ****       USART_Rx_length -= VIRTUAL_COM_PORT_DATA_SIZE;	
+ 525              		.loc 1 294 0
+ 526 004a 0C60     		str	r4, [r1, #0]
+ 291:../LIB_HW/Driver/LIB_USB/hw_config.c ****       USB_Tx_length = VIRTUAL_COM_PORT_DATA_SIZE;
+ 527              		.loc 1 291 0
+ 528 004c 4025     		movs	r5, #64
+ 529 004e 04E0     		b	.L56
+ 530              	.LVL22:
+ 531              	.L55:
+ 301:../LIB_HW/Driver/LIB_USB/hw_config.c ****       USART_Rx_ptr_out += USART_Rx_length;
+ 532              		.loc 1 301 0
+ 533 0050 E318     		adds	r3, r4, r3
+ 299:../LIB_HW/Driver/LIB_USB/hw_config.c ****       USB_Tx_length = USART_Rx_length;
+ 534              		.loc 1 299 0
+ 535 0052 A5B2     		uxth	r5, r4
+ 536              	.LVL23:
+ 302:../LIB_HW/Driver/LIB_USB/hw_config.c ****       USART_Rx_length = 0;
+ 537              		.loc 1 302 0
+ 538 0054 0024     		movs	r4, #0
+ 539              	.LVL24:
+ 301:../LIB_HW/Driver/LIB_USB/hw_config.c ****       USART_Rx_ptr_out += USART_Rx_length;
+ 540              		.loc 1 301 0
+ 541 0056 1360     		str	r3, [r2, #0]
+ 302:../LIB_HW/Driver/LIB_USB/hw_config.c ****       USART_Rx_length = 0;
+ 542              		.loc 1 302 0
+ 543 0058 0C60     		str	r4, [r1, #0]
+ 544              	.LVL25:
+ 545              	.L56:
+ 304:../LIB_HW/Driver/LIB_USB/hw_config.c ****     USB_Tx_State = 1; 
+ 546              		.loc 1 304 0
+ 547 005a 0849     		ldr	r1, .L61
+ 305:../LIB_HW/Driver/LIB_USB/hw_config.c ****     UserToPMABufferCopy(&USART_Rx_Buffer[USB_Tx_ptr], ENDP1_TXADDR, USB_Tx_length);
+ 548              		.loc 1 305 0
+ 549 005c 0B4A     		ldr	r2, .L61+16
+ 304:../LIB_HW/Driver/LIB_USB/hw_config.c ****     USB_Tx_State = 1; 
+ 550              		.loc 1 304 0
+ 551 005e 0124     		movs	r4, #1
+ 305:../LIB_HW/Driver/LIB_USB/hw_config.c ****     UserToPMABufferCopy(&USART_Rx_Buffer[USB_Tx_ptr], ENDP1_TXADDR, USB_Tx_length);
+ 552              		.loc 1 305 0
+ 553 0060 1018     		adds	r0, r2, r0
+ 554              	.LVL26:
+ 304:../LIB_HW/Driver/LIB_USB/hw_config.c ****     USB_Tx_State = 1; 
+ 555              		.loc 1 304 0
+ 556 0062 0C70     		strb	r4, [r1, #0]
+ 305:../LIB_HW/Driver/LIB_USB/hw_config.c ****     UserToPMABufferCopy(&USART_Rx_Buffer[USB_Tx_ptr], ENDP1_TXADDR, USB_Tx_length);
+ 557              		.loc 1 305 0
+ 558 0064 2A46     		mov	r2, r5
+ 559 0066 C021     		movs	r1, #192
+ 560 0068 094B     		ldr	r3, .L61+20
+ 561 006a 9847     		blx	r3
+ 562              	.LVL27:
+ 306:../LIB_HW/Driver/LIB_USB/hw_config.c ****     SetEPTxCount(ENDP1, USB_Tx_length);
+ 563              		.loc 1 306 0
+ 564 006c 2046     		mov	r0, r4
+ 565 006e 2946     		mov	r1, r5
+ 566 0070 084A     		ldr	r2, .L61+24
+ 567 0072 9047     		blx	r2
+ 568              	.LVL28:
+ 307:../LIB_HW/Driver/LIB_USB/hw_config.c ****     SetEPTxValid(ENDP1); 
+ 569              		.loc 1 307 0
+ 570 0074 2046     		mov	r0, r4
+ 571 0076 0849     		ldr	r1, .L61+28
+ 572 0078 8847     		blx	r1
+ 573              	.LVL29:
+ 574              	.L49:
+ 575 007a 38BD     		pop	{r3, r4, r5, pc}
+ 576              	.L62:
+ 577              		.align	2
+ 578              	.L61:
+ 579 007c 00000000 		.word	.LANCHOR0
+ 580 0080 00000000 		.word	.LANCHOR1
+ 581 0084 00000000 		.word	.LANCHOR2
+ 582 0088 00000000 		.word	.LANCHOR3
+ 583 008c 00000000 		.word	USART_Rx_Buffer
+ 584 0090 00000000 		.word	UserToPMABufferCopy
+ 585 0094 00000000 		.word	SetEPTxCount
+ 586 0098 00000000 		.word	SetEPTxValid
+ 587              		.cfi_endproc
+ 588              	.LFE9:
+ 590              		.section	.text.USART_To_USB_Send_Data,"ax",%progbits
+ 591              		.align	1
+ 592              		.global	USART_To_USB_Send_Data
+ 593              		.thumb
+ 594              		.thumb_func
+ 596              	USART_To_USB_Send_Data:
+ 597              	.LFB10:
+ 319:../LIB_HW/Driver/LIB_USB/hw_config.c **** {
+ 598              		.loc 1 319 0
+ 599              		.cfi_startproc
+ 600              		@ args = 0, pretend = 0, frame = 0
+ 601              		@ frame_needed = 0, uses_anonymous_args = 0
+ 602              		@ link register save eliminated.
+ 603 0000 7047     		bx	lr
+ 604              		.cfi_endproc
+ 605              	.LFE10:
+ 607              		.section	.text.USB_Send_Data,"ax",%progbits
+ 608              		.align	1
+ 609              		.global	USB_Send_Data
+ 610              		.thumb
+ 611              		.thumb_func
+ 613              	USB_Send_Data:
+ 614              	.LFB11:
+ 346:../LIB_HW/Driver/LIB_USB/hw_config.c **** {
+ 615              		.loc 1 346 0
+ 616              		.cfi_startproc
+ 617              		@ args = 0, pretend = 0, frame = 0
+ 618              		@ frame_needed = 0, uses_anonymous_args = 0
+ 619              		@ link register save eliminated.
+ 620              	.LVL30:
+ 352:../LIB_HW/Driver/LIB_USB/hw_config.c **** 		if( (USART_Rx_length + 1) < USART_RX_DATA_SIZE ) break;
+ 621              		.loc 1 352 0
+ 622 0000 084B     		ldr	r3, .L70
+ 623 0002 1968     		ldr	r1, [r3, #0]
+ 624 0004 4A1C     		adds	r2, r1, #1
+ 625 0006 B2F5006F 		cmp	r2, #2048
+ 626 000a 0AD2     		bcs	.L65
+ 356:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	USART_Rx_Buffer[USART_Rx_ptr_in] = SendData;
+ 627              		.loc 1 356 0
+ 628 000c 064B     		ldr	r3, .L70+4
+ 629 000e 0749     		ldr	r1, .L70+8
+ 630 0010 1A68     		ldr	r2, [r3, #0]
+ 631 0012 8854     		strb	r0, [r1, r2]
+ 357:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	USART_Rx_ptr_in++;
+ 632              		.loc 1 357 0
+ 633 0014 501C     		adds	r0, r2, #1
+ 634              	.LVL31:
+ 360:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	if(USART_Rx_ptr_in == USART_RX_DATA_SIZE)
+ 635              		.loc 1 360 0
+ 636 0016 B0F5006F 		cmp	r0, #2048
+ 362:../LIB_HW/Driver/LIB_USB/hw_config.c **** 		USART_Rx_ptr_in = 0;
+ 637              		.loc 1 362 0
+ 638 001a 08BF     		it	eq
+ 639 001c 0020     		moveq	r0, #0
+ 640 001e 1860     		str	r0, [r3, #0]
+ 641 0020 7047     		bx	lr
+ 642              	.LVL32:
+ 643              	.L65:
+ 644              	.L68:
+ 645 0022 FEE7     		b	.L68
+ 646              	.L71:
+ 647              		.align	2
+ 648              	.L70:
+ 649 0024 00000000 		.word	.LANCHOR3
+ 650 0028 00000000 		.word	.LANCHOR2
+ 651 002c 00000000 		.word	USART_Rx_Buffer
+ 652              		.cfi_endproc
+ 653              	.LFE11:
+ 655              		.section	.text.Get_SerialNum,"ax",%progbits
+ 656              		.align	1
+ 657              		.global	Get_SerialNum
+ 658              		.thumb
+ 659              		.thumb_func
+ 661              	Get_SerialNum:
+ 662              	.LFB12:
+ 376:../LIB_HW/Driver/LIB_USB/hw_config.c **** {
+ 663              		.loc 1 376 0
+ 664              		.cfi_startproc
+ 665              		@ args = 0, pretend = 0, frame = 0
+ 666              		@ frame_needed = 0, uses_anonymous_args = 0
+ 667 0000 38B5     		push	{r3, r4, r5, lr}
+ 668              	.LCFI5:
+ 669              		.cfi_def_cfa_offset 16
+ 670              		.cfi_offset 3, -16
+ 671              		.cfi_offset 4, -12
+ 672              		.cfi_offset 5, -8
+ 673              		.cfi_offset 14, -4
+ 379:../LIB_HW/Driver/LIB_USB/hw_config.c ****   Device_Serial0 = *(uint32_t*)ID1;
+ 674              		.loc 1 379 0
+ 675 0002 084B     		ldr	r3, .L77
+ 380:../LIB_HW/Driver/LIB_USB/hw_config.c ****   Device_Serial1 = *(uint32_t*)ID2;
+ 676              		.loc 1 380 0
+ 677 0004 93E82400 		ldmia	r3, {r2, r5}
+ 678              	.LVL33:
+ 381:../LIB_HW/Driver/LIB_USB/hw_config.c ****   Device_Serial2 = *(uint32_t*)ID3;  
+ 679              		.loc 1 381 0
+ 680 0008 0833     		adds	r3, r3, #8
+ 383:../LIB_HW/Driver/LIB_USB/hw_config.c ****   Device_Serial0 += Device_Serial2;
+ 681              		.loc 1 383 0
+ 682 000a 1868     		ldr	r0, [r3, #0]
+ 683              	.LVL34:
+ 385:../LIB_HW/Driver/LIB_USB/hw_config.c ****   if (Device_Serial0 != 0)
+ 684              		.loc 1 385 0
+ 685 000c 1018     		adds	r0, r2, r0
+ 686              	.LVL35:
+ 687 000e 07D0     		beq	.L72
+ 387:../LIB_HW/Driver/LIB_USB/hw_config.c ****     IntToUnicode (Device_Serial0, &Virtual_Com_Port_StringSerial[2] , 8);
+ 688              		.loc 1 387 0
+ 689 0010 0549     		ldr	r1, .L77+4
+ 690 0012 0822     		movs	r2, #8
+ 691 0014 054C     		ldr	r4, .L77+8
+ 692 0016 A047     		blx	r4
+ 693              	.LVL36:
+ 388:../LIB_HW/Driver/LIB_USB/hw_config.c ****     IntToUnicode (Device_Serial1, &Virtual_Com_Port_StringSerial[18], 4);
+ 694              		.loc 1 388 0
+ 695 0018 2846     		mov	r0, r5
+ 696 001a 0549     		ldr	r1, .L77+12
+ 697 001c 0422     		movs	r2, #4
+ 698 001e A047     		blx	r4
+ 699              	.LVL37:
+ 700              	.L72:
+ 701 0020 38BD     		pop	{r3, r4, r5, pc}
+ 702              	.L78:
+ 703 0022 00BF     		.align	2
+ 704              	.L77:
+ 705 0024 E8F7FF1F 		.word	536868840
+ 706 0028 02000000 		.word	Virtual_Com_Port_StringSerial+2
+ 707 002c 00000000 		.word	IntToUnicode
+ 708 0030 12000000 		.word	Virtual_Com_Port_StringSerial+18
+ 709              		.cfi_endproc
+ 710              	.LFE12:
+ 712              		.section	.text.__WFI,"ax",%progbits
+ 713              		.align	1
+ 714              		.global	__WFI
+ 715              		.thumb
+ 716              		.thumb_func
+ 718              	__WFI:
+ 719              	.LFB14:
+ 419:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+ 420:../LIB_HW/Driver/LIB_USB/hw_config.c **** 
+ 421:../LIB_HW/Driver/LIB_USB/hw_config.c **** void __WFI(void)
+ 422:../LIB_HW/Driver/LIB_USB/hw_config.c **** {
+ 720              		.loc 1 422 0
+ 721              		.cfi_startproc
+ 722              		@ args = 0, pretend = 0, frame = 0
+ 723              		@ frame_needed = 0, uses_anonymous_args = 0
+ 724              		@ link register save eliminated.
+ 423:../LIB_HW/Driver/LIB_USB/hw_config.c **** 	 __asm("wfi");
+ 725              		.loc 1 423 0
+ 726              	@ 423 "../LIB_HW/Driver/LIB_USB/hw_config.c" 1
+ 727 0000 30BF     		wfi
+ 728              	@ 0 "" 2
+ 729              		.thumb
+ 730 0002 7047     		bx	lr
+ 731              		.cfi_endproc
+ 732              	.LFE14:
+ 734              		.global	USB_Tx_State
+ 735              		.global	USART_Rx_length
+ 736              		.global	USART_Rx_ptr_out
+ 737              		.global	USART_Rx_ptr_in
+ 738              		.comm	USART_Rx_Buffer,2048,1
+ 739              		.section	.bss.USB_Tx_State,"aw",%nobits
+ 740              		.set	.LANCHOR0,. + 0
+ 743              	USB_Tx_State:
+ 744 0000 00       		.space	1
+ 745              		.section	.bss.USART_Rx_ptr_in,"aw",%nobits
+ 746              		.align	2
+ 747              		.set	.LANCHOR2,. + 0
+ 750              	USART_Rx_ptr_in:
+ 751 0000 00000000 		.space	4
+ 752              		.section	.bss.USART_Rx_ptr_out,"aw",%nobits
+ 753              		.align	2
+ 754              		.set	.LANCHOR1,. + 0
+ 757              	USART_Rx_ptr_out:
+ 758 0000 00000000 		.space	4
+ 759              		.section	.bss.USART_Rx_length,"aw",%nobits
+ 760              		.align	2
+ 761              		.set	.LANCHOR3,. + 0
+ 764              	USART_Rx_length:
+ 765 0000 00000000 		.space	4
+ 766              		.text
+ 767              	.Letext0:
+ 768              		.file 2 "/Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib/gcc/arm-none-
+ 769              		.file 3 "../LIB_HW/Core/Hw_Define.h"
+ 770              		.file 4 "../LIB_HW/Driver/LIB_USB/DRV/usb_core.h"
+ 771              		.file 5 "../LIB_HW/Driver/Hw_VCom.h"
+ 772              		.file 6 "../LIB_HW/Driver/LIB_USB/usb_desc.h"
+ 773              		.file 7 "../LIB_HW/Driver/LIB_USB/usb_pwr.h"
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 hw_config.c
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:19     .text.USBWakeUp_IRQHandler:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:24     .text.USBWakeUp_IRQHandler:0000000000000000 USBWakeUp_IRQHandler
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:40     .text.USBWakeUp_IRQHandler:000000000000000c $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:45     .text.IntToUnicode:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:49     .text.IntToUnicode:0000000000000000 IntToUnicode
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:105    .text.USB_LP_IRQHandler:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:110    .text.USB_LP_IRQHandler:0000000000000000 USB_LP_IRQHandler
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:129    .text.USB_LP_IRQHandler:0000000000000008 $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:134    .text.Set_System:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:139    .text.Set_System:0000000000000000 Set_System
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:162    .text.Set_System:0000000000000018 $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:167    .text.Set_USBClock:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:172    .text.Set_USBClock:0000000000000000 Set_USBClock
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:192    .text.Set_USBClock:0000000000000014 $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:197    .text.Enter_LowPowerMode:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:202    .text.Enter_LowPowerMode:0000000000000000 Enter_LowPowerMode
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:217    .text.Enter_LowPowerMode:0000000000000008 $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:222    .text.Leave_LowPowerMode:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:227    .text.Leave_LowPowerMode:0000000000000000 Leave_LowPowerMode
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:252    .text.Leave_LowPowerMode:0000000000000014 $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:258    .text.USB_Interrupts_Config:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:263    .text.USB_Interrupts_Config:0000000000000000 USB_Interrupts_Config
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:341    .text.USB_Interrupts_Config:0000000000000070 $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:353    .text.USB_Cable_Config:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:358    .text.USB_Cable_Config:0000000000000000 USB_Cable_Config
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:386    .text.USB_Cable_Config:0000000000000014 $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:391    .text.USB_To_USART_Send_Data:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:396    .text.USB_To_USART_Send_Data:0000000000000000 USB_To_USART_Send_Data
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:452    .text.USB_To_USART_Send_Data:000000000000002c $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:458    .text.Handle_USBAsynchXfer:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:463    .text.Handle_USBAsynchXfer:0000000000000000 Handle_USBAsynchXfer
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:579    .text.Handle_USBAsynchXfer:000000000000007c $d
+                            *COM*:0000000000000800 USART_Rx_Buffer
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:591    .text.USART_To_USB_Send_Data:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:596    .text.USART_To_USB_Send_Data:0000000000000000 USART_To_USB_Send_Data
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:608    .text.USB_Send_Data:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:613    .text.USB_Send_Data:0000000000000000 USB_Send_Data
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:649    .text.USB_Send_Data:0000000000000024 $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:656    .text.Get_SerialNum:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:661    .text.Get_SerialNum:0000000000000000 Get_SerialNum
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:705    .text.Get_SerialNum:0000000000000024 $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:713    .text.__WFI:0000000000000000 $t
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:718    .text.__WFI:0000000000000000 __WFI
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:743    .bss.USB_Tx_State:0000000000000000 USB_Tx_State
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:764    .bss.USART_Rx_length:0000000000000000 USART_Rx_length
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:757    .bss.USART_Rx_ptr_out:0000000000000000 USART_Rx_ptr_out
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:750    .bss.USART_Rx_ptr_in:0000000000000000 USART_Rx_ptr_in
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:744    .bss.USB_Tx_State:0000000000000000 $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:746    .bss.USART_Rx_ptr_in:0000000000000000 $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:753    .bss.USART_Rx_ptr_out:0000000000000000 $d
+/var/folders/bz/nn5481rn5xq59rb0mbj7x0880000gn/T//ccNW0CRC.s:760    .bss.USART_Rx_length:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+USB_Istr
+bDeviceState
+Device_Info
+Hw_ISR_SetIRQFuncByAddr
+Hw_VCom_Q_Push
+Hw_VCom_RxdFuncPtr
+UserToPMABufferCopy
+SetEPTxCount
+SetEPTxValid
+Virtual_Com_Port_StringSerial
