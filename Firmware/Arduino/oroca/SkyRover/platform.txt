@@ -1,0 +1,96 @@
+
+# Arduino STM32 Core and platform.
+#
+# For more info:
+# https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.5---3rd-party-Hardware-specification
+
+name=OROCA
+version=1.5.7
+
+# STM32 compile variables
+# ----------------------
+
+compiler.path={runtime.ide.path}/hardware/tools/gcc-arm-none-eabi-4.8.3-2014q1/bin/
+compiler.c.cmd=arm-none-eabi-gcc
+#compiler.c.flags=-c -g -Os -w -ffunction-sections -fdata-sections -nostdlib --param max-inline-insns-single=500 -Dprintf=iprintf -MMD
+compiler.c.flags=-c -g -Os -w -ffunction-sections -fdata-sections -MMD
+compiler.c.elf.cmd=arm-none-eabi-g++
+compiler.c.elf.flags=-mthumb -mcpu=cortex-m3 -static -Os -Wl,--gc-sections
+compiler.S.flags=-mthumb -mcpu=cortex-m3 -c -x assembler-with-cpp -MMD
+compiler.cpp.cmd=arm-none-eabi-g++
+compiler.cpp.flags=-c -g -Os -w -ffunction-sections -fdata-sections -nostdlib -MMD
+compiler.ar.cmd=arm-none-eabi-ar
+compiler.ar.flags=rcs
+compiler.objcopy.cmd=arm-none-eabi-objcopy
+compiler.objcopy.eep.flags=-O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0
+compiler.elf2hex.flags=-O binary
+compiler.elf2hex.cmd=arm-none-eabi-objcopy
+compiler.ldflags=
+compiler.size.cmd=arm-none-eabi-size
+compiler.define=-DARDUINO=
+# this can be overriden in boards.txt
+build.extra_flags=
+
+compiler.cores.path={runtime.ide.path}/hardware/oroca/SkyRover/cores/SkyRover
+compiler.libsam.c.flags="-I{compiler.cores.path}/CMSIS" "-I{compiler.cores.path}/FreeRTOS" "-I{compiler.cores.path}/src" "-I{compiler.cores.path}/STM32_LIB" "-I{compiler.cores.path}/STM32_USB"  "-I{compiler.cores.path}/USB_Port" "-I{build.path}"
+
+
+
+# STM32 compile patterns
+# ---------------------
+
+# 어셈파일 컴파일 리스트 추가 CHCBARAM
+## Compile s files
+recipe.S.o.pattern="{compiler.path}{compiler.c.cmd}" {compiler.S.flags} -mcpu={build.mcu}  -DF_CPU={build.f_cpu} -D{software}={runtime.ide.version} {build.extra_flags} {includes} "{source_file}" -o "{object_file}"
+
+## Compile c files
+recipe.c.o.pattern="{compiler.path}{compiler.c.cmd}" {compiler.c.flags} -mcpu={build.mcu} -DF_CPU={build.f_cpu} -DARDUINO={runtime.ide.version} -DARDUINO_{build.board} -DARDUINO_ARCH_{build.arch} {build.extra_flags} {compiler.libsam.c.flags} {includes} "{source_file}" -o "{object_file}"
+#recipe.c.o.pattern="{compiler.path}{compiler.c.cmd}"  -o "{object_file}" {compiler.c.flags} -mcpu={build.mcu} -DF_CPU={build.f_cpu} -DARDUINO={runtime.ide.version} -DARDUINO_{build.board} -DARDUINO_ARCH_{build.arch} {build.extra_flags} {compiler.libsam.c.flags} {includes} "{source_file}" 
+
+## Compile c++ files
+recipe.cpp.o.pattern="{compiler.path}{compiler.cpp.cmd}" {compiler.cpp.flags} -mcpu={build.mcu} -DF_CPU={build.f_cpu} -DARDUINO={runtime.ide.version} -DARDUINO_{build.board} -DARDUINO_ARCH_{build.arch} {build.extra_flags} {compiler.libsam.c.flags} {includes} "{source_file}" -o "{object_file}"
+
+## Create archives
+recipe.ar.pattern="{compiler.path}{compiler.ar.cmd}" {compiler.ar.flags} "{build.path}/{archive_file}" "{object_file}"
+
+## Combine gc-sections, archives, and objects
+#recipe.c.combine.pattern="{compiler.path}{compiler.c.elf.cmd}" {compiler.c.elf.flags} -mcpu={build.mcu} "-T{build.variant.path}/{build.ldscript}" "-Wl,-Map,{build.path}/{build.project_name}.map" -o "{build.path}/{build.project_name}.elf" "-L{build.path}" -lm -lgcc -mthumb -Wl,--cref -Wl,--check-sections -Wl,--gc-sections -Wl,--unresolved-symbols=report-all -Wl,--warn-common -Wl,--warn-section-align -Wl,--warn-unresolved-symbols -Wl,--start-group {object_files} "{build.path}/{archive_file}" -Wl,--end-group "-L{build.variant.path}" 
+recipe.c.combine.pattern="{compiler.path}{compiler.c.elf.cmd}"  -o "{build.path}/{build.project_name}.elf" {object_files} "{build.path}/{archive_file}" {compiler.c.elf.flags} -mcpu={build.mcu} "-T{build.variant.path}/{build.ldscript}" "-Wl,-Map,{build.path}/{build.project_name}.map" "-L{build.path}" -lm -lgcc -mthumb -Wl,--cref -Wl,--check-sections -Wl,--gc-sections -Wl,--warn-common -Wl,--warn-unresolved-symbols "-L{build.variant.path}"
+
+
+## Create eeprom
+recipe.objcopy.eep.pattern=
+
+## Create hex
+recipe.objcopy.hex.pattern="{compiler.path}{compiler.elf2hex.cmd}" {compiler.elf2hex.flags} "{build.path}/{build.project_name}.elf" "{build.path}/{build.project_name}.bin"
+
+## Compute size
+recipe.size.pattern="{compiler.path}{compiler.size.cmd}" -A "{build.path}/{build.project_name}.elf"
+recipe.size.regex=\.text\s+([0-9]+).*
+
+
+# STM32 Uploader tools
+# -------------------
+
+
+tools.stm32ld.cmd=stm32ld
+tools.stm32ld.cmd.windows=stm32ld.exe
+tools.stm32ld.cmd.path={runtime.ide.path}/hardware/oroca/SkyRover/tools
+
+tools.stm32ld.upload.params.verbose=-v
+tools.stm32ld.upload.params.quiet=-q
+tools.stm32ld.upload.pattern="{cmd.path}/{cmd}"  {serial.port} 115200 "{build.path}/{build.project_name}.bin" "2"
+
+tools.stm32ld.program.params.verbose=-v
+tools.stm32ld.program.params.quiet=-q
+tools.stm32ld.program.pattern="{cmd.path}/{cmd}"  {serial.port} 115200 "{build.path}/{build.project_name}.bin" "2"
+
+tools.stm32ld.erase.params.verbose=-v -v -v -v
+tools.stm32ld.erase.params.quiet=-q -q
+tools.stm32ld.erase.pattern="{cmd.path}/{cmd}"  {serial.port} 115200 "{runtime.ide.path}/hardware/oroca/SkyRover/bootloaders/{bootloader.file}" "3"
+
+tools.stm32ld.bootloader.params.verbose=-v -v -v -v
+tools.stm32ld.bootloader.params.quiet=-q -q
+tools.stm32ld.bootloader.pattern="{cmd.path}/{cmd}"  {serial.port} 115200 "{runtime.ide.path}/hardware/oroca/SkyRover/bootloaders/{bootloader.file}" "1"
+
+

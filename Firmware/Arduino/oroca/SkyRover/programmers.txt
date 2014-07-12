@@ -1,0 +1,7 @@
+
+stm32ld.name=stm32 Flash Loader
+stm32ld.communication=serial
+stm32ld.protocol=ST flash loader
+stm32ld.program.protocol=none
+stm32ld.program.tool=stm32ld
+stm32ld.program.extra_params=-P{serial.port}

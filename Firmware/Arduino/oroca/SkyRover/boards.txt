@@ -1,0 +1,25 @@
+
+
+
+skyrover.name=SkyRover
+skyrover.upload.tool               	= stm32ld
+skyrover.upload.protocol           	= something
+skyrover.upload.maximum_size       	= 115000
+skyrover.upload.ram.maximum_size   	= 17000
+skyrover.upload.flash.maximum_size 	= 115000
+skyrover.bootloader.tool			= stm32ld
+skyrover.bootloader.file			= boot_smart.bin
+
+
+skyrover.build.board				= SkyRover
+skyrover.build.mcu					= cortex-m3
+skyrover.build.family				= cortex-m3
+skyrover.build.f_cpu				= 72000000L
+skyrover.build.core 				= SkyRover
+skyrover.build.extra_flags 			= -mthumb -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -DSKYROVER -DUSE_BOOT=1
+skyrover.build.ldscript 			= stm32_flash_boot.ld
+skyrover.build.variant 				= SkyRover
+skyrover.build.variant_system_lib 	= libcs3_stm32_med_density.a
+
+
+
