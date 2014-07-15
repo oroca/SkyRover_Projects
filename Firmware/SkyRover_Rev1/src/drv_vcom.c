@@ -24,7 +24,7 @@
 #include "usb_lib.h"
 #include "usb_desc.h"
 #include "usb_pwr.h"
-
+#include "printf.h"
 
 //-- 내부 선언
 //
@@ -120,4 +120,51 @@ void Hw_VCom_Putch( char Uart_PutData )
 void Hw_VCom_SetReceiveFuncISR( void (*ISR_FuncPtr)(char Ch) )
 {
 	Hw_VCom_RxdFuncPtr = ISR_FuncPtr;	
+}
+
+
+
+
+
+/*---------------------------------------------------------------------------
+     TITLE	: Hw_VCom_PrintEx
+     WORK
+     ARG
+     RET
+---------------------------------------------------------------------------*/
+void Hw_VCom_PrintEx( char *UartPrintData )
+{
+	while( *UartPrintData != '\0' )
+	{
+		Hw_VCom_Putch( *UartPrintData );
+		UartPrintData++;
+	}        
+}
+
+
+
+/*---------------------------------------------------------------------------
+     TITLE	: Hw_VCom_Printf
+     WORK
+     ARG
+     RET
+---------------------------------------------------------------------------*/
+void Hw_VCom_Printf( char *format, ... )
+{
+	char Str[200];
+	
+	//va_list ap;
+	
+	//va_start( ap, format );
+
+	//vsprintf( Str, format, ap );	
+
+	sprintf(Str, format );
+	
+	//va_end(ap);	
+	
+	
+	
+	
+	Hw_VCom_PrintEx( Str );
 }
