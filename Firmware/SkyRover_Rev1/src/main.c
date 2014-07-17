@@ -7,48 +7,6 @@
 
 
 
-//-- Thread 관련 함수
-//
-osThreadId Thread_Loop_Handle, Thread_Serial_Handle;
-
-
-static void Thread_Loop(void const *argument)
-{
-    uint32_t count = 0;
-    (void) argument;
-
-    DEBUG_PRINT("Thread Loop\r\n");
-
-    for (;;)
-    {
-        loop();
-    }
-}
-
-
-static void Thread_Serial(void const *argument)
-{
-    uint32_t count = 0;
-    (void) argument;
-
-    DEBUG_PRINT("Thread Serial\r\n");
-
-    for (;;)
-    {
-        if( bDeviceState == CONFIGURED )
-        {
-            Hw_VCom_Putch('u');
-            Hw_VCom_Putch('s');
-            Hw_VCom_Putch('b');
-            Hw_VCom_Putch(' ');
-
-        }
-        osDelay(1000);
-    }
-}
-
-
-
 
 
 core_t core;
@@ -77,27 +35,23 @@ int fputc(int c, FILE *f)
 
 
 
-//-- main
+//-- Thread 관련 함수
 //
-int main(void)
+osThreadId Thread_Loop_Handle, Thread_Serial_Handle;
+
+
+static void Thread_Loop(void const *argument)
 {
+    uint32_t count = 0;
+    (void) argument;
     uint8_t i;
     drv_pwm_config_t pwm_params;
     drv_adc_config_t adc_params;
     serialPort_t* loopbackPort = NULL;
 
 
-    //-- 시스템 초기화 
-    //
-    systemInit();
 
-
-#ifdef USE_LAME_PRINTF
-    init_printf(NULL, _putc);
-#endif
-
-    checkFirstTime(false);
-    readEEPROM();
+    DEBUG_PRINT("Thread Loop\r\n");
 
 
     // configure power ADC
@@ -207,11 +161,8 @@ int main(void)
 
 
 
-    serialInit(mcfg.serial_baudrate);
 
-    DEBUG_PRINT("Booting..\r\n");
-
-    Hw_VCom_Init();
+    
 
     // drop out any sensors that don't seem to work, init all the others. halt if gyro is dead.
     sensorsAutodetect();
@@ -244,6 +195,62 @@ int main(void)
     DEBUG_PRINT("Start\r\n");
 
 
+    for (;;)
+    {
+        loop();
+    }
+}
+
+
+static void Thread_Serial(void const *argument)
+{
+    uint32_t count = 0;
+    (void) argument;
+
+    DEBUG_PRINT("Thread Serial\r\n");
+
+    for (;;)
+    {
+        if( bDeviceState == CONFIGURED )
+        {
+            Hw_VCom_Putch('u');
+            Hw_VCom_Putch('s');
+            Hw_VCom_Putch('b');
+            Hw_VCom_Putch(' ');
+
+        }
+        osDelay(1000);
+    }
+}
+
+
+
+
+
+
+//-- main
+//
+int main(void)
+{
+
+    //-- 시스템 초기화 
+    //
+    systemInit();
+    Hw_VCom_Init();
+
+#ifdef USE_LAME_PRINTF
+    init_printf(NULL, _putc);
+#endif
+
+    checkFirstTime(false);
+    readEEPROM();
+
+    serialInit(mcfg.serial_baudrate);
+
+    DEBUG_PRINT("Booting..\r\n");
+
+
+
     //-- Thread 1 definition
     //
     osThreadDef(TASK1, Thread_Loop  , osPriorityNormal, 0, configMINIMAL_STACK_SIZE);
@@ -258,25 +265,6 @@ int main(void)
     //
     osKernelStart(NULL, NULL);
 
-
-
-
-
-
-    // loopy
-    while (1) {
-        loop();
-#ifdef SOFTSERIAL_LOOPBACK
-        if (loopbackPort) {
-            while (serialTotalBytesWaiting(loopbackPort)) {
-    
-                uint8_t b = serialRead(loopbackPort);
-                serialWrite(loopbackPort, b);
-                //serialWrite(core.mainport, b);
-            };
-        }
-#endif
-    }
 }
 
 void HardFault_Handler(void)
