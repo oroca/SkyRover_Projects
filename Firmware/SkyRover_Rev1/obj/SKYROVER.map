@@ -2385,48 +2385,49 @@ LOAD /Users/imac/Develop/stm32f4/arm_gcc/gcc-arm-none-eabi-4_7-2013q3/bin/../lib
  .text.getEstimatedAltitude
                 0x0000000008008e48      0x37c obj/SKYROVER/imu.o
                 0x0000000008008e48                getEstimatedAltitude
- .text.Thread_Loop
-                0x00000000080091c4       0x1c obj/SKYROVER/main.o
  .text.Thread_Serial
-                0x00000000080091e0       0x44 obj/SKYROVER/main.o
+                0x00000000080091c4       0x44 obj/SKYROVER/main.o
+ .text.Thread_Loop
+                0x0000000008009208       0x1c obj/SKYROVER/main.o
  .text._putc    0x0000000008009224        0xc obj/SKYROVER/main.o
  .text.startup.main
-                0x0000000008009230      0x2cc obj/SKYROVER/main.o
+                0x0000000008009230      0x2c8 obj/SKYROVER/main.o
                 0x0000000008009230                main
  .text.HardFault_Handler
-                0x00000000080094fc       0x14 obj/SKYROVER/main.o
-                0x00000000080094fc                HardFault_Handler
+                0x00000000080094f8       0x14 obj/SKYROVER/main.o
+                0x00000000080094f8                HardFault_Handler
  .text.servoMiddle
-                0x0000000008009510       0x28 obj/SKYROVER/mixer.o
-                0x0000000008009510                servoMiddle
+                0x000000000800950c       0x28 obj/SKYROVER/mixer.o
+                0x000000000800950c                servoMiddle
  .text.mixerResetMotors
-                0x0000000008009538       0x30 obj/SKYROVER/mixer.o
-                0x0000000008009538                mixerResetMotors
+                0x0000000008009534       0x30 obj/SKYROVER/mixer.o
+                0x0000000008009534                mixerResetMotors
  .text.mixerInit
-                0x0000000008009568      0x114 obj/SKYROVER/mixer.o
-                0x0000000008009568                mixerInit
+                0x0000000008009564      0x114 obj/SKYROVER/mixer.o
+                0x0000000008009564                mixerInit
  .text.mixerLoadMix
-                0x000000000800967c       0x4c obj/SKYROVER/mixer.o
-                0x000000000800967c                mixerLoadMix
+                0x0000000008009678       0x4c obj/SKYROVER/mixer.o
+                0x0000000008009678                mixerLoadMix
  .text.writeServos
-                0x00000000080096c8       0xc0 obj/SKYROVER/mixer.o
-                0x00000000080096c8                writeServos
+                0x00000000080096c4       0xc0 obj/SKYROVER/mixer.o
+                0x00000000080096c4                writeServos
  .text.writeMotors
-                0x0000000008009788       0x28 obj/SKYROVER/mixer.o
-                0x0000000008009788                writeMotors
+                0x0000000008009784       0x28 obj/SKYROVER/mixer.o
+                0x0000000008009784                writeMotors
  .text.writeAllMotors
-                0x00000000080097b0       0x24 obj/SKYROVER/mixer.o
-                0x00000000080097b0                writeAllMotors
+                0x00000000080097ac       0x24 obj/SKYROVER/mixer.o
+                0x00000000080097ac                writeAllMotors
  .text.mixTable
-                0x00000000080097d4      0x644 obj/SKYROVER/mixer.o
-                0x00000000080097d4                mixTable
+                0x00000000080097d0      0x644 obj/SKYROVER/mixer.o
+                0x00000000080097d0                mixTable
  .text.pidMultiWii
-                0x0000000008009e18      0x230 obj/SKYROVER/mw.o
+                0x0000000008009e14      0x230 obj/SKYROVER/mw.o
  .text.pidRewrite
-                0x000000000800a048      0x164 obj/SKYROVER/mw.o
+                0x000000000800a044      0x164 obj/SKYROVER/mw.o
  .text.blinkLED
-                0x000000000800a1ac       0x4c obj/SKYROVER/mw.o
-                0x000000000800a1ac                blinkLED
+                0x000000000800a1a8       0x4c obj/SKYROVER/mw.o
+                0x000000000800a1a8                blinkLED
+ *fill*         0x000000000800a1f4        0x4 00
  .text.annexCode
                 0x000000000800a1f8      0x410 obj/SKYROVER/mw.o
                 0x000000000800a1f8                annexCode

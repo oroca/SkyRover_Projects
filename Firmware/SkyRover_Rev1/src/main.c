@@ -259,23 +259,9 @@ int main(void)
     osKernelStart(NULL, NULL);
 
 
+    while(1)
+    {
 
-
-
-
-    // loopy
-    while (1) {
-        loop();
-#ifdef SOFTSERIAL_LOOPBACK
-        if (loopbackPort) {
-            while (serialTotalBytesWaiting(loopbackPort)) {
-    
-                uint8_t b = serialRead(loopbackPort);
-                serialWrite(loopbackPort, b);
-                //serialWrite(core.mainport, b);
-            };
-        }
-#endif
     }
 }
 

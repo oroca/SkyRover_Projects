@@ -205,14 +205,14 @@ static void resetConf(void)
     mcfg.telemetry_switch = 0;
     mcfg.midrc = 1500;
     mcfg.mincheck = 1100;
-    mcfg.maxcheck = 2000;      // 1900 chcbaram
+    mcfg.maxcheck = 1900;      // 1900 chcbaram
     mcfg.retarded_arm = 0;       // disable arm/disarm on roll left/right
     mcfg.flaps_speed = 0;
     mcfg.fixedwing_althold_dir = 1;
     
     // Motor/ESC/Servo
     mcfg.minthrottle = 1150;
-    mcfg.maxthrottle = 2000; // 1850 chcbaram
+    mcfg.maxthrottle = 1850; // 1850 chcbaram
     mcfg.mincommand = 1000;
     mcfg.deadband3d_low = 1406;
     mcfg.deadband3d_high = 1514;
@@ -308,7 +308,7 @@ static void resetConf(void)
         cfg.servoConf[i].rate = servoRates[i];
     }
 
-    cfg.yaw_direction = -1;
+    cfg.yaw_direction = 1;
     cfg.tri_unarmed_servo = 1;
 
     // gimbal
